@@ -1,0 +1,184 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found</title>
+    {% comment %} <link rel="stylesheet" href="{% static "css/elite.css" %}"> {% endcomment %}
+    <style>
+          .page_404{ padding:40px 0; background:#fff; font-family: 'Arvo', serif;
+          text-align:center;
+          }
+
+          .page_404  img{ width:100%;}
+
+          .four_zero_four_bg{
+          background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+          height: 600px;
+          background-position: center;
+          background-repeat: no-repeat;
+          }
+
+
+          .four_zero_four_bg h1{
+          font-size:8rem;
+          margin-bottom: 5rem;
+          }
+
+          .four_zero_four_bg h3{
+            font-size:80px;
+            }
+            
+            .link_404{			 
+          color: #fff!important;
+          padding: 10px 20px;
+          background: #39ac31;
+          margin: 20px 0;
+          display: inline-block;}
+          .contant_box_404{ margin-top:-50px;}
+
+          .animated-button {
+            position: relative;
+            top: 65%;
+            margin-top: 100px;
+            left: 45%;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 16px 36px;
+            border: 4px solid;
+            border-color: transparent;
+            font-size: 16px;
+            background-color: inherit;
+            border-radius: 100px;
+            font-weight: 600;
+            color: gold;
+            box-shadow: 0 0 0 2px gold;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            }
+            a
+            {
+              text-decoration:none;
+            }
+            .animated-button svg {
+            position: absolute;
+            width: 24px;
+            fill:gold;
+            z-index: 9;
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            }
+            
+            .animated-button .arr-1 {
+            right: 16px;
+            }
+            
+            .animated-button .arr-2 {
+            left: -25%;
+            }
+            
+            .animated-button .circle1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background-color:gold;
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            }
+            
+            .animated-button .text1 {
+            position: relative;
+            z-index: 1;
+            transform: translateX(-12px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            }
+            
+            .animated-button:hover {
+            box-shadow: 0 0 0 12px transparent;
+            color:var(--head-foot);
+            border-radius: 12px;
+            }
+           
+            .animated-button:hover .arr-1 {
+            right: -25%;
+            }
+            
+            .animated-button:hover .arr-2 {
+            left: 16px;
+            }
+            
+            .animated-button:hover .text1 {
+            transform: translateX(12px);
+            color: black;
+            }
+            
+            .animated-button:hover svg {
+            fill: #212121;
+            }
+            
+            .animated-button:active {
+            scale: 0.95;
+            box-shadow: 0 0 0 4px greenyellow;
+            }
+            
+            .animated-button:hover .circle1 {
+            width: 220px;
+            height: 220px;
+            opacity: 1;
+            }
+    </style>
+</head>
+<body>
+  <section class="page_404">
+    <div class="container">
+      <div class="row">	
+      <div class="col-sm-12 ">
+      <div class="col-sm-10 col-sm-offset-1  text-center">
+      <div class="four_zero_four_bg">
+        <h1 class="text-center ">500</h1>
+      
+      
+      </div>
+      
+      <div class="contant_box_404">
+      <h3 class="h2">
+        Woops! <br>Something went wrong :(
+      </h3>
+      
+      <p>Have you tried turning it off and on again?</p>
+      
+      <button class="animated-button">
+        <a href="{% url "home" %}">
+        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+          ></path>
+        </svg>
+        <span class="text1">Go to home</span>
+        <span class="circle1"></span>
+        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+          ></path>
+        </svg>
+      </a>
+      </button>
+    </div>
+      </div>
+      </div>
+      </div>
+    </div>
+  </section>
+    
+    <script>
+     
+      
+    </script>      
+</body>
+</html>
