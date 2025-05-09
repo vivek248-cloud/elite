@@ -1,0 +1,144 @@
+{% extends 'index/base.html' %}
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Elite Dream Builders offers premium construction services for residential and commercial spaces. Get quotes, view projects, and read reviews.">
+    <meta name="keywords" content="construction, house building, residential, commercial, elite, dream builders">
+    <meta name="author" content="Elite Dream Builders Team">
+    <title>{% if title %}{{ title }}{% else %}category{% endif %}</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="{% static 'images/favicon-512x512.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
+    <link rel="manifest" href="{% static 'site.webmanifest' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "css/elite.css" %}">
+    
+</head>
+<body>
+{% block content %}
+    <div class="terms-head">
+        <div class="terms-head-overlay"></div>
+        <div class="content-wrapper animation fade-in">
+          <h1 class="projects-title">Our Signature Projects</h1>
+          <p class="projects-subtitle">
+            Crafted with precision, excellence, and timeless architectural elegance.
+          </p>
+        </div>
+      </div>
+    <div class="projects">
+    <section class="completed-projects">
+        <div class="section-title-wrapper">
+            <h2 class="section-title">{{ category|capfirst }}</h2>
+        </div>
+        <div class="parent" id="projects-container-category" data-category="{{ category }}">
+            {% for project in projects %}
+            <div class="cards animation zoom-in">
+                <a href="{% url 'projects_details' project.id %}">
+                    <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                    <div class="info">
+                        <h3>{{ project.title }}</h3>
+                        <strong>{{ project.budget_range }}</strong>
+                        <p>{{ project.bhk }}</p>
+                        <p>{{ project.location }}</p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        
+    </section>
+</div>
+
+{% endblock %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static "js/elite.js" %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    {% block extra_js %}
+    <script>
+      AOS.init();
+  function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top < window.innerHeight && rect.bottom > 0 &&
+        rect.left < window.innerWidth && rect.right > 0
+    );
+}
+
+function animateOnScroll() {
+    const elements = document.querySelectorAll('.animation');
+    elements.forEach(element => {
+        if (isInViewport(element) && !element.classList.contains('show')) {
+            element.classList.add('show');
+            element.getBoundingClientRect(); // Force repaint
+        }
+    });
+}
+
+function optimizedScroll() {
+    requestAnimationFrame(animateOnScroll);
+}
+
+document.addEventListener('DOMContentLoaded', animateOnScroll);
+window.addEventListener('scroll', optimizedScroll);
+
+
+const manifestData = {
+  name: "Elite Dream Builders",
+  short_name: "Elite Builders",
+  icons: [
+    {
+      src: "/android-chrome-192x192.png",
+      sizes: "192x192",
+      type: "image/png"
+    },
+    {
+      src: "/android-chrome-512x512.png",
+      sizes: "512x512",
+      type: "image/png"
+    }
+  ],
+  theme_color: "#ffffff",
+  background_color: "#ffffff",
+  display: "standalone"
+};
+
+const manifestBlob = new Blob([JSON.stringify(manifestData)], { type: "application/json" });
+const manifestURL = URL.createObjectURL(manifestBlob);
+
+const linkElement = document.createElement("link");
+linkElement.rel = "manifest";
+linkElement.href = manifestURL;
+document.head.appendChild(linkElement);
+
+console.log("Manifest applied dynamically!");
+window.addEventListener("load", function () {
+  document.getElementById("loader").style.display = "none";
+});
+
+</script>
+<script>
+  window.addEventListener("load", function () {
+    document.getElementById("loader").style.display = "none";
+  });
+  
+  setTimeout(() => {
+    document.getElementById("loader").style.display = "none";
+  }, 5000); // Hides loader after 5 seconds   
+</script>
+{% endblock %}
+</body>
+</html>

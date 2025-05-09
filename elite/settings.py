@@ -1,7 +1,3 @@
-
-
-
-
 import os
 from pathlib import Path
 
@@ -35,6 +31,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 
@@ -124,16 +121,39 @@ if not DEBUG:
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 EMAIL_FILE_PATH = 'emails'  # Emails will be saved in this folder
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# for serve the mail
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = 'smtp.gmail.com'  # Use your SMTP provider
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'kuttyvivek248@gmail.com'
 EMAIL_HOST_PASSWORD = 'obka rnfs hcag fsul'  # Use environment variables instead for security
+ADMIN_EMAIL = os.getenv("ADMIN_EMAIL", "kuttyvivek248@gmail.com")
 
 
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+# twillo for whats app messages
+
+# TWILIO_ACCOUNT_SID = 'AC74fcc1e2b934f42c52c8827cc7f6a964' # Twilio account SID
+# TWILIO_AUTH_TOKEN = 'f077f0d75005435e589d1d5dc36a715f'
+# TWILIO_WHATSAPP_NUMBER = 'whatsapp:+14155238886'  
+# ADMIN_WHATSAPP_NUMBER = 'whatsapp:+919786224099'  
+# TWILIO_TEMPLATE_SID = 'HX9f214778f20b045c765f51aab1f6c9cc' 
+
+# account_sid = 'AC74fcc1e2b934f42c52c8827cc7f6a964'
+# auth_token = 'f077f0d75005435e589d1d5dc36a715f'
+# HX47b8a9838ae239185bd97325963516b5 # Your approved template SID
+
+TWILIO_ACCOUNT_SID = 'AC74fcc1e2b934f42c52c8827cc7f6a964'
+TWILIO_AUTH_TOKEN = 'f077f0d75005435e589d1d5dc36a715f'
+TWILIO_WHATSAPP_NUMBER = '+14155238886' # Twilio sandbox number
+ADMIN_WHATSAPP_NUMBER = '+919786224099'  # Admin's number (with country code)
+TWILIO_TEMPLATE_SID = 'HX9f214778f20b045c765f51aab1f6c9cc'  # Your approved template SID for message not quote request
