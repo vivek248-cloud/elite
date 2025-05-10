@@ -1,8 +1,6 @@
-# elite
+# eliteV2
 
-# Elite
-
-Elite is a web application designed to [briefly describe the purpose of your project, e.g., showcase testimonials, videos, or provide a platform for users]. This project is built using Django for the backend and includes modern frontend features.
+EliteV2 is a web application designed to [briefly describe the purpose of your project, e.g., showcase testimonials, videos, or provide a platform for users]. This project is built using Django for the backend and includes modern frontend features.
 
 ---
 
@@ -27,7 +25,7 @@ Elite is a web application designed to [briefly describe the purpose of your pro
 
 ---
 
-elite/
+eliteV2/
 ├── elite/                # Django project settings
 ├── index/                # Main app
 │   ├── templates/        # HTML templates
