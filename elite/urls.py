@@ -12,7 +12,7 @@ from index.views import serve_media
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('elite/', include('index.urls')),  # Include index app URLs
+    path('', include('index.urls')),  # Include index app URLs
 ]
 
 handler404 = 'index.views.custom_404'
