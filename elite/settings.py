@@ -9,7 +9,7 @@ import os
 import dj_database_url
 from pathlib import Path
 import environ  # Import django-environ
-from decouple import config
+
 
 # Initialize environment variables
 env = environ.Env()
@@ -97,16 +97,17 @@ LOGGING = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'),  # e.g., 'elite_db_ag7l'
-        'USER': config('DB_USER'),  # e.g., 'root'
-        'PASSWORD': config('DB_PASSWORD'),  # e.g., 'RKpfaKuy75xs6FP1TKL45u3E5RZ4cYtc'
-        'HOST': config('DB_HOST'),  # e.g., 'dpg-d0gp20ruibrs73fqv6m0-a.oregon-postgres.render.com'
-        'PORT': config('DB_PORT', default=5432, cast=int),  # Default to 5432
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),
+        'PORT': env.int('DB_PORT', default=5432),
         'OPTIONS': {
             'sslmode': 'require',
         },
     }
 }
+
 
 
 # DATABASES = {
