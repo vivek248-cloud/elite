@@ -153,9 +153,16 @@ environ.Env.read_env()  # Read the .env file
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'your-secret-key-here'
-DEBUG = False
-ALLOWED_HOSTS = ['*']
+# Fetch the values from the .env file
+SECRET_KEY = env('DJANGO_SECRET_KEY', default='your-secret-key-here')
+DEBUG = env.bool('DEBUG', default=False)
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*'])
+
+# Database Configuration from DATABASE_URL in .env
+DATABASES = {
+    'default': dj_database_url.parse(env('DATABASE_URL'))
+    
+}
 
 INSTALLED_APPS = [
     "admin_interface",
