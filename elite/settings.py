@@ -86,22 +86,23 @@ LOGGING = {
     },
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.getenv('DB_NAME', 'elite_db_ag7l'),
-#         'USER': os.getenv('DB_USER', 'root'),
-#         'PASSWORD': os.getenv('DB_PASSWORD', 'RKpfaKuy75xs6FP1TKL45u3E5RZ4cYtc'),
-#         'HOST': os.getenv('DB_HOST', 'dpg-d0gp20ruibrs73fqv6m0-a.oregon-postgres.render.com'),
-#         'PORT': '5432',
-#         'OPTIONS': {
-#             'sslmode': 'require',
-#         },
-#     }
-# }
 DATABASES = {
-    'default': dj_database_url.config(default=env('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': urlparse(os.getenv('DATABASE_URL')).path[1:],  # Extract DB name
+        'USER': urlparse(os.getenv('DATABASE_URL')).username,
+        'PASSWORD': urlparse(os.getenv('DATABASE_URL')).password,
+        'HOST': urlparse(os.getenv('DATABASE_URL')).hostname,
+        'PORT': urlparse(os.getenv('DATABASE_URL')).port,
+        'OPTIONS': {
+            'sslmode': 'require',  # Enable SSL for secure connection
+        },
+    }
 }
+
+# DATABASES = {
+#     'default': dj_database_url.config(default=env('DATABASE_URL'))
+# }
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
