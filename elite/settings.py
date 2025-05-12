@@ -27,7 +27,7 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*'])
 # Database Configuration from DATABASE_URL in .env
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://root:RKpfaKuy75xs6FP1TKL45u3E5RZ4cYtc@dpg-d0gp20ruibrs73fqv6m0-a.oregon-postgres.render.com/elite_db_ag7l?sslmode=require',
+        default=env('DATABASE_URL'),
         conn_max_age=600,
         ssl_require=True
     )
