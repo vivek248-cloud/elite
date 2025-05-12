@@ -89,16 +89,17 @@ LOGGING = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': urlparse(os.getenv('DATABASE_URL')).path[1:],  # Extract DB name
-        'USER': urlparse(os.getenv('DATABASE_URL')).username,
-        'PASSWORD': urlparse(os.getenv('DATABASE_URL')).password,
-        'HOST': urlparse(os.getenv('DATABASE_URL')).hostname,
-        'PORT': urlparse(os.getenv('DATABASE_URL')).port,
+        'NAME': 'elite_db_ag7l',  # Replace with your database name
+        'USER': 'root',  # Replace with your username
+        'PASSWORD': 'RKpfaKuy75xs6FP1TKL45u3E5RZ4cYtc',  # Replace with your password
+        'HOST': 'dpg-d0gp20ruibrs73fqv6m0-a.oregon-postgres.render.com',  # Replace with your host
+        'PORT': 5432,  # Default port for PostgreSQL
         'OPTIONS': {
-            'sslmode': 'require',  # Enable SSL for secure connection
+            'sslmode': 'require',
         },
     }
 }
+
 
 # DATABASES = {
 #     'default': dj_database_url.config(default=env('DATABASE_URL'))
