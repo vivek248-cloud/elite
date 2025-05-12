@@ -23,10 +23,13 @@ DEBUG = env.bool('DEBUG', default=False)
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*'])
 
 # Database Configuration from DATABASE_URL in .env
-# DATABASES = {
-#     'default': dj_database_url.parse(env('DATABASE_URL'))
-    
-# }
+DATABASES = {
+    'default': dj_database_url.config(
+        default=env('DATABASE_URL'),
+        conn_max_age=600,
+        ssl_require=True  # This ensures Render’s DB with SSL is used properly
+    )
+}
 
 INSTALLED_APPS = [
     "admin_interface",
@@ -108,13 +111,13 @@ LOGGING = {
 #     }
 # }
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL'),
-        conn_max_age=600,
-        ssl_require=True
-    )
-}
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=os.environ.get('DATABASE_URL'),
+#         conn_max_age=600,
+#         ssl_require=True
+#     )
+# }
 
 # DATABASES = {
 #     'default': dj_database_url.config(default=env('DATABASE_URL'))
