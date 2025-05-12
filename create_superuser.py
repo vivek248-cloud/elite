@@ -1,10 +1,17 @@
-from django.core.management import call_command
+import os
+import django
+
+# Set the default settings module for Django
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "elite.settings")
+
+# Setup Django
+django.setup()
+
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 
 def create_superuser():
     try:
-        # Replace with your preferred superuser credentials
         User.objects.create_superuser('admin', 'admin@example.com', 'adminpassword')
         print("Superuser created successfully.")
     except IntegrityError:
@@ -12,4 +19,3 @@ def create_superuser():
 
 if __name__ == "__main__":
     create_superuser()
-
