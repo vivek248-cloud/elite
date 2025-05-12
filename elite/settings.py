@@ -94,25 +94,25 @@ LOGGING = {
     },
 }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('DB_NAME'),
-        'USER': env('DB_USER'),
-        'PASSWORD': env('DB_PASSWORD'),
-        'HOST': env('DB_HOST'),
-        'PORT': env.int('DB_PORT', default=5432),
-        'OPTIONS': {
-            'sslmode': 'require',
-        },
-    }
-}
-
-
-
 # DATABASES = {
-#     'default': dj_database_url.config(default=env('DATABASE_URL'))
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': env('DB_NAME'),
+#         'USER': env('DB_USER'),
+#         'PASSWORD': env('DB_PASSWORD'),
+#         'HOST': env('DB_HOST'),
+#         'PORT': env.int('DB_PORT', default=5432),
+#         'OPTIONS': {
+#             'sslmode': 'require',
+#         },
+#     }
 # }
+
+
+
+DATABASES = {
+    'default': dj_database_url.config(default=env('DATABASE_URL'))
+}
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
