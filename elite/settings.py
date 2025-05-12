@@ -15,10 +15,24 @@ DEBUG = env.bool('DEBUG', default=False)
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*'])
 
 # Database Configuration from DATABASE_URL in .env
-DATABASES = {
-    'default': dj_database_url.parse(env('DATABASE_URL'))
+# DATABASES = {
+#     'default': dj_database_url.parse(env('DATABASE_URL'))
     
+# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'elite_db_ag7l',  # Replace with your database name
+        'USER': 'root',  # Replace with your username
+        'PASSWORD': 'RKpfaKuy75xs6FP1TKL45u3E5RZ4cYtc',  # Replace with your password
+        'HOST': 'dpg-d0gp20ruibrs73fqv6m0-a.oregon-postgres.render.com',  # Replace with your host
+        'PORT': '5432',
+        'OPTIONS': {
+            'sslmode': 'require',  # Enforce SSL connection
+        },
+    }
 }
+
 
 INSTALLED_APPS = [
     "admin_interface",
