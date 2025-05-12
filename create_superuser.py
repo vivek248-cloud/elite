@@ -12,7 +12,7 @@ from django.db import IntegrityError
 
 def create_superuser():
     try:
-        User.objects.create_superuser('admin', 'admin@example.com', 'adminpassword')
+        User.objects.create_superuser('root', 'admin@example.com', 'Admin123')
         print("Superuser created successfully.")
     except IntegrityError:
         print("Superuser already exists.")
