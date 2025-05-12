@@ -8,12 +8,14 @@
 import os
 import dj_database_url
 from pathlib import Path
-import environ  # Import django-environ
+import environ
+
 
 
 # Initialize environment variables
 env = environ.Env()
 environ.Env.read_env()
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -24,10 +26,10 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*'])
 
 # Database Configuration from DATABASE_URL in .env
 DATABASES = {
-    'default': dj_database_url.config(
-        default=env('DATABASE_URL'),
+    'default': dj_database_url.parse(
+        env('DATABASE_URL'),
         conn_max_age=600,
-        ssl_require=True  # This ensures Render’s DB with SSL is used properly
+        ssl_require=True
     )
 }
 
