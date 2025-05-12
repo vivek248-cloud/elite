@@ -89,11 +89,11 @@ LOGGING = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'elite_db_ag7l',  # Replace with your database name
-        'USER': 'root',  # Replace with your username
-        'PASSWORD': 'RKpfaKuy75xs6FP1TKL45u3E5RZ4cYtc',  # Replace with your password
-        'HOST': 'dpg-d0gp20ruibrs73fqv6m0-a.oregon-postgres.render.com',  # Replace with your host
-        'PORT': 5432,  # Default port for PostgreSQL
+        'NAME': config('DB_NAME'),  # e.g., 'elite_db_ag7l'
+        'USER': config('DB_USER'),  # e.g., 'root'
+        'PASSWORD': config('DB_PASSWORD'),  # e.g., 'RKpfaKuy75xs6FP1TKL45u3E5RZ4cYtc'
+        'HOST': config('DB_HOST'),  # e.g., 'dpg-d0gp20ruibrs73fqv6m0-a.oregon-postgres.render.com'
+        'PORT': config('DB_PORT', default=5432, cast=int),  # Default to 5432
         'OPTIONS': {
             'sslmode': 'require',
         },
