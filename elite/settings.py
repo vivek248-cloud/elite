@@ -13,7 +13,7 @@ import environ  # Import django-environ
 
 # Initialize environment variables
 env = environ.Env()
-environ.Env.read_env()  # Read the .env file
+environ.Env.read_env()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
