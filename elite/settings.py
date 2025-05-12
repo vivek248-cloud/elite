@@ -161,6 +161,7 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*'])
 # Database Configuration from DATABASE_URL in .env
 DATABASES = {
     'default': dj_database_url.parse(env('DATABASE_URL'))
+    
 }
 
 INSTALLED_APPS = [
