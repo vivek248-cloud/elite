@@ -10,6 +10,10 @@ import dj_database_url
 from pathlib import Path
 import environ
 
+import cloudinary
+import cloudinary_storage
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 # Initialize environment variables
