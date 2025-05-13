@@ -38,4 +38,6 @@ yarl==1.19.0
 cloudinary==1.40.0
 django-cloudinary-storage==0.3.0
 python-decouple==3.8
+django-jazzmin==2.6.0
+
 
