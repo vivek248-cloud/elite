@@ -35,3 +35,5 @@ urllib3==2.3.0
 waitress==3.0.2
 whitenoise==6.9.0
 yarl==1.19.0
+cloudinary==1.40.0
+django-cloudinary-storage==0.3.0
