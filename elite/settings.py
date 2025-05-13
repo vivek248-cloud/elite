@@ -148,12 +148,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'elite.wsgi.application'
 
+STATIC_URL = '/static/'  # Add this line
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'elite', 'static'),
-    os.path.join(BASE_DIR, 'static'),  # Make sure admin static is in a separate folder
+    os.path.join(BASE_DIR, 'static'),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+if not DEBUG:
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 
 MEDIA_URL = '/media/'
