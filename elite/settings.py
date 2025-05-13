@@ -40,6 +40,7 @@ DATABASES = {
 
 
 INSTALLED_APPS = [
+    'jazzmin',
     "admin_interface",
     "colorfield",  # For Admin Interface
     'django.contrib.admin',
