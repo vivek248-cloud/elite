@@ -62,6 +62,7 @@ MIDDLEWARE = [
 ]
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 ROOT_URLCONF = 'elite.urls'
 
 # LOGGINGS
@@ -147,9 +148,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'elite.wsgi.application'
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'elite', 'static',)]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'elite', 'static'),
+    os.path.join(BASE_DIR, 'static'),  # Make sure admin static is in a separate folder
+]
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
