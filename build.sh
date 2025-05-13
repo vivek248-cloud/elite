@@ -1,6 +1,7 @@
 #!/bin/bash
 
-cd $RENDER_PROJECT_ROOT
+# Set working directory to where manage.py is (change 'index' if needed)
+cd "$(dirname "$0")"
 
 # Install dependencies
 pip install -r requirements.txt
