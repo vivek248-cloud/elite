@@ -52,10 +52,7 @@ INSTALLED_APPS = [
     'index',
 ]
 
-INSTALLED_APPS += [
-    'cloudinary',
-    'cloudinary_storage',
-]
+
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
