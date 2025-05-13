@@ -331,8 +331,12 @@ if not DEBUG:
         'API_SECRET': env('CLOUDINARY_API_SECRET'),
     }
 
+    
+
     STATIC_URL = '/static/'
+
     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
     # Media files should be handled by Cloudinary in production
