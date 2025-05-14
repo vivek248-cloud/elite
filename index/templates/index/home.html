@@ -55,16 +55,7 @@
       
     </div>
   </div>
-{% for slide in sliders %}
-  <div style="background-color: #f9f9f9; padding: 10px; margin-bottom: 10px;">
-      <p><strong>Title:</strong> {{ slide.title }}</p>
-      <p><strong>Image field:</strong> {{ slide.image }}</p>
-      <p><strong>Image URL:</strong> {{ slide.image.url }}</p>
-  </div>
-  
-  <section class="slider-sections {% if forloop.first %}active{% endif %}" style="background-image: url('{{ slide.image.url }}'); background-size: cover; background-position: center;">
-      ...
-  </section>
+
 {% endfor %}
 
 <div class="home-conntent-bg">
