@@ -18,6 +18,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.">
     <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&display=swap" rel="stylesheet">
@@ -27,44 +29,44 @@
 </head>
 <body>
     <div class="header">
-        <nav class="navbar navbar-expand-lg navbar-dark  text-center px-3 fixed-top" id="container">
-          <div class="container-fluid">
-            <a class="navbar-brand d-flex align-items-center gap-2" href="{% url 'contact' %}">
-              <img src="{% static 'images/logo.PNG' %}" alt="Logo" style="height: 90px;">
-              <span class="w-title d-block d-md-inline">THE ELITE DREAM BUILDERS <sup class="sup">&reg;</sup></span>
-            </a>
-               
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-      
-            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-              <ul class="navbar-nav gap-3 text-center">
-                <li class="nav-item">
-                  <a class="nav-link text-white" href="{% url 'home' %}">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-white" href="{% url 'about' %}">About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-white" href="{% url 'projects' %}">Projects</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-white" href="{% url 'get_quote' %}">Get Quote</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-white" href="{% url 'testimonals' %}">Testimonials</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-white" href="{% url 'contact' %}">Contact</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="line3" id="line3"></div>
-        </nav>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top px-3" id="container">
+    <div class="container-fluid position-relative">
+
+      <!-- Logo (Left) -->
+      <a class="navbar-logo d-flex align-items-center gap-2" href="{% url 'contact' %}">
+        <img src="{% static 'images/logo.PNG' %}" alt="Logo" style="height: 90px;">
+      </a>
+
+      <!-- Title (Always Centered) -->
+      <div class="navbar-title position-absolute start-50 translate-middle-x text-center text-white">
+        <span class="w-title">THE ELITE DREAM BUILDERS <sup class="sup">&reg;</sup></span>
+      </div>
+
+      <!-- Toggle Button (Right on small screens) -->
+      <button class="navbar-toggler ms-auto z-3" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Nav Links (Right of title on desktop; slide from right on mobile) -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav gap-3 ms-auto text-start text-lg-start">
+          <li class="nav-item"><a class="nav-link text-white" href="{% url 'home' %}">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="{% url 'about' %}">About</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="{% url 'projects' %}">Projects</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="{% url 'get_quote' %}">Get Quote</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="{% url 'testimonals' %}">Testimonials</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+      </div>
+
     </div>
+  </nav>
+</div>
+
+
+
     <!-- Loader -->
     <div id="loader">
       <div class="typing-indicator">
@@ -79,8 +81,9 @@
 
     <main>
         {% block content %}{% endblock %}
-    </main>
 
+    </main>
+    
     <div class="pg-footer">
         <footer class="footer2">
           <svg class="footer-wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100" preserveAspectRatio="none">
@@ -192,7 +195,34 @@
           </div>
         </footer>
       </div>
+<div class="social-sidebar" id="goto2">
+  <a href="https://wa.me/8489716901?text=Hi%20there!" class="social-icon whatsapp" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <a href="https://www.instagram.com/elitedreambuilders/" class="social-icon instagram" target="_blank">
+    <i class="fab fa-instagram"></i>
+  </a>
+   <a href="https://www.youtube.com/@Elitesdreambuilders01" class="social-icon youtube" target="_blank">
+    <i class="fab fa-youtube"></i>
+  </a>
+</div>
 
+<button class="animated-button" id="goto3"> 
+  <a href="{% static "pdf/Elite Dream Builders Brochure.pdf" %}" download style="color:black;">
+  <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+    ></path>
+  </svg>
+  <span class="text1">Spec</span>
+  <span class="circle1"></span>
+  <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+    ></path>
+  </svg> 
+</a>
+</button>
 
       <!-- js -->
     {% block extra_js %}
