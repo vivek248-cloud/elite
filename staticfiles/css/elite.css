@@ -6200,7 +6200,11 @@ margin-right: 5rem;
   animation: fadeIn 1s ease-in forwards;
   animation-delay: 1s;
 }
-
+.social-sidebar a
+{
+	text-decoration: none;
+	color: white;
+}
 /* Slide in on hover - this is more useful for right-sided bars;
    so this part can be removed unless you're using it for right bar */
 .social-sidebar:hover {
