@@ -16,6 +16,21 @@ window.addEventListener("scroll", function() {
         navbar.style.display="none";
     }
 });
+
+window.addEventListener("scroll", () => {
+  const navbar = document.getElementById("goto2");
+  if (navbar) {
+    navbar.style.display = window.scrollY > 200 ? "block" : "none";
+  }
+});
+
+window.addEventListener("scroll", () => {
+  const navbar = document.getElementById("goto3");
+  if (navbar) {
+    navbar.style.display = window.scrollY > 300 ? "block" : "none";
+  }
+});
+
 window.addEventListener("scroll", function() {
     let scrollTop = window.scrollY;
     let docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -49,49 +64,47 @@ function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-//  counters
-const counters = document.querySelectorAll(".counters span");
+const counters = document.querySelectorAll(".counter span[data-count]");
 const container = document.querySelector(".counters");
 let activated = false;
-window.addEventListener("scroll",() => {
-    if(
-        pageYOffset >= container.offsetTop - container.offsetHeight - 200
-        && activated === false
-    )
-    {
-        counters.forEach(counter => {
-            counter.innerText = 0;
-            let count=0;
 
-            function updateCount(){
-                const target = parseInt(counter.dataset.count);
-                if(count < target){
-                   count++;
-                   counter.innerText= count;
-                   setTimeout(updateCount, 20);  
-                }
-                else{
-                    counter.innerText = target;
-                }
-            }
-            updateCount();
-            activated = true;
+window.addEventListener("scroll", () => {
+  if (
+    window.pageYOffset >= container.offsetTop - container.offsetHeight - 200 &&
+    !activated
+  ) {
+    counters.forEach(counter => {
+      const target = parseInt(counter.dataset.count);
+      let count = 0;
 
-        });
-
-    } else if(
-        pageYOffset < container.offsetTop - container.offsetHeight-500 
-        || pageYOffset === 0
-        && activated === true
-    ){
-        counters.forEach(counter => {
-            counter.innerText = 0;
-        });
-        activated=false;
-    }
+      if (target > 500) {
+        counter.innerText = "1 Lacs+";
+      } else {
+        const increment = 1;
+        function updateCount() {
+          if (count < target) {
+            count += increment;
+            counter.innerText = count;
+            setTimeout(updateCount, 15);
+          } else {
+            counter.innerText = formatCount(target);
+          }
+        }
+        updateCount();
+      }
+    });
+    activated = true;
+  }
 });
 
-// animation
+function formatCount(num) {
+  if (num > 500) {
+    return "1 Lacs+";
+  }
+  return num;
+}
+
+
 
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
@@ -140,15 +153,6 @@ function isInViewportImage(element) {
   window.addEventListener('load', imageOnScroll);
   
   imageOnScroll();
-
-//   mouse track
-
-// document.addEventListener("mousemove", function(event) {
-//     let cursor = document.querySelector(".cursor");
-
-//     // Update position with smooth animation
-//     cursor.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
-// });
 
 
 const manifestData = {
@@ -285,8 +289,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
-
-
-
-
