@@ -308,7 +308,6 @@ def send_whatsapp_template(name, email, message):
         })
     )
 
-
 def get_quote(request):
     if request.method == "POST":
         form = QuoteRequestForm(request.POST)
@@ -353,27 +352,16 @@ Budget Range: {quote.budget_range.name}
                 admin_subject,
                 admin_message,
                 settings.EMAIL_HOST_USER,
-                [settings.ADMIN_EMAIL],  # Add ADMIN_EMAIL to settings
+                [settings.ADMIN_EMAIL],
                 fail_silently=False,
             )
 
-            # ✅ WhatsApp to Admin
-            client = Client(settings.TWILIO_ACCOUNT_SID_TWO, settings.TWILIO_AUTH_TOKEN)
-            client.messages.create(
-                from_='whatsapp:' + settings.TWILIO_WHATSAPP_NUMBER,
-                to='whatsapp:' + settings.ADMIN_WHATSAPP_NUMBER,
-                content_sid=settings.TWILIO_TEMPLATE_SID_TWO,  # Your template SID
-                content_variables=json.dumps({
-                    "1": name,
-                    "2": email,
-                    "3": phone,
-                    "4": service_type,
-                    "5": budget_range.name if budget_range else "N/A",
-                })
-            )
-            send_whatsapp_to_admin(quote)
-            # ✅ Success Message
-            messages.success(request, "Your request has been submitted successfully! 👏")
+            # ✅ WhatsApp to Admin (this is enough)
+            if send_whatsapp_to_admin(quote):
+                messages.success(request, "Your request has been submitted successfully! 👏")
+            else:
+                messages.warning(request, "Submitted, but WhatsApp message failed.")
+
             return redirect('get_quote')
     else:
         form = QuoteRequestForm()
@@ -383,6 +371,81 @@ Budget Range: {quote.budget_range.name}
         'form': form,
     }
     return render(request, 'index/get_quote.html', context)
+
+# def get_quote(request):
+#     if request.method == "POST":
+#         form = QuoteRequestForm(request.POST)
+#         if form.is_valid():
+#             quote = form.save()
+
+#             # ✅ Email to User
+#             user_subject = "Quote Request Received"
+#             user_message = f"""
+# Dear {quote.name},
+
+# Thank you for requesting a quote. We have received your request and will get back to you soon.
+
+# Details:
+# - Name: {quote.name}
+# - Email: {quote.email}
+# - Phone: {quote.phone}
+# - Service Type: {quote.service_type}
+# - Budget Range: {quote.budget_range}
+
+# Best Regards,
+# Elite Dream Builders
+# """
+#             send_mail(
+#                 user_subject,
+#                 user_message,
+#                 settings.ADMIN_EMAIL,
+#                 [quote.email],
+#                 fail_silently=False,
+#             )
+
+#             # ✅ Email to Admin
+#             admin_subject = "New Quote Request"
+#             admin_message = f"""
+# Name: {quote.name}
+# Email: {quote.email}
+# Phone: {quote.phone}
+# Service Type: {quote.service_type}
+# Budget Range: {quote.budget_range.name}
+# """
+#             send_mail(
+#                 admin_subject,
+#                 admin_message,
+#                 settings.EMAIL_HOST_USER,
+#                 [settings.ADMIN_EMAIL],  # Add ADMIN_EMAIL to settings
+#                 fail_silently=False,
+#             )
+
+#             # ✅ WhatsApp to Admin
+#             client = Client(settings.TWILIO_ACCOUNT_SID_TWO, settings.TWILIO_AUTH_TOKEN)
+#             client.messages.create(
+#                 from_='whatsapp:' + settings.TWILIO_WHATSAPP_NUMBER,
+#                 to='whatsapp:' + settings.ADMIN_WHATSAPP_NUMBER,
+#                 content_sid=settings.TWILIO_TEMPLATE_SID_TWO,  # Your template SID
+#                 content_variables=json.dumps({
+#                     "1": name,
+#                     "2": email,
+#                     "3": phone,
+#                     "4": service_type,
+#                     "5": budget_range.name if budget_range else "N/A",
+#                 })
+#             )
+#             send_whatsapp_to_admin(quote)
+#             # ✅ Success Message
+#             messages.success(request, "Your request has been submitted successfully! 👏")
+#             return redirect('get_quote')
+#     else:
+#         form = QuoteRequestForm()
+
+#     context = {
+#         'title': 'Get-Quote - Elite Dream Builders',
+#         'form': form,
+#     }
+#     return render(request, 'index/get_quote.html', context)
 
 
 
