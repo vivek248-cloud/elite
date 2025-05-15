@@ -334,7 +334,7 @@ Elite Dream Builders
             send_mail(
                 user_subject,
                 user_message,
-                settings.EMAIL_HOST_USER,
+                settings.ADMIN_EMAIL,
                 [quote.email],
                 fail_silently=False,
             )
