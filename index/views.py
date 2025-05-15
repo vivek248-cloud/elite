@@ -358,7 +358,19 @@ Budget Range: {quote.budget_range.name}
             )
 
             # ✅ WhatsApp to Admin
-            send_whatsapp_to_admin(quote)
+            client = Client(settings.TWILIO_ACCOUNT_SID_TWO, settings.TWILIO_AUTH_TOKEN)
+            client.messages.create(
+                from_='whatsapp:' + settings.TWILIO_WHATSAPP_NUMBER,
+                to='whatsapp:' + settings.ADMIN_WHATSAPP_NUMBER,
+                content_sid=settings.TWILIO_TEMPLATE_SID_TWO,  # Your template SID
+                content_variables=json.dumps({
+                    "1": name,
+                    "2": email,
+                    "3": phone,
+                    "4": service_type,
+                    "5": budget_range.name if budget_range else "N/A",
+                })
+            )
 
             # ✅ Success Message
             messages.success(request, "Your request has been submitted successfully! 👏")
