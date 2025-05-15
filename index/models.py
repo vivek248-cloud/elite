@@ -110,11 +110,8 @@ class UpcomingProject(models.Model):
 class AboutVideo(models.Model):
     title = models.CharField(max_length=255)
     # video_file = models.FileField(upload_to='videos/', null=True, blank=True)
-    video_file = CloudinaryField(
-        'video',
-        resource_type='video',
-        folder='About-videos'  # 👈 this creates/uses a Cloudinary folder named "contact-slider"
-    )
+    video_file = CloudinaryField('video', folder='about-video', null=True, blank=True)
+
 
     def __str__(self):
         return self.title
