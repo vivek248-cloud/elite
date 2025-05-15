@@ -268,12 +268,11 @@ from .forms import QuoteRequestForm
 
 def send_whatsapp_to_admin(quote):
     try:
-        client = Client(settings.TWILIO_ACCOUNT_SID_2, settings.TWILIO_AUTH_TOKEN)
-
-        client.messages.create(
-            from_='whatsapp:' + settings.TWILIO_WHATSAPP_NUMBER,
-            to='whatsapp:' + settings.ADMIN_WHATSAPP_NUMBER,
-            content_sid=settings.TWILIO_TEMPLATE_SID_2,  # Your approved Twilio template SID
+            client = Client(settings.TWILIO_ACCOUNT_SID_TWO, settings.TWILIO_AUTH_TOKEN)
+            client.messages.create(
+                from_='whatsapp:' + settings.TWILIO_WHATSAPP_NUMBER,
+                to='whatsapp:' + settings.ADMIN_WHATSAPP_NUMBER,
+                content_sid=settings.TWILIO_TEMPLATE_SID_TWO,
             content_variables=json.dumps({
                 "1": quote.name,
                 "2": quote.email,
