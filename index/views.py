@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect,get_object_or_404
 from django.core.mail import send_mail
+import json
 from twilio.rest import Client
 from django.conf import settings
 from django.contrib import messages
@@ -11,6 +12,7 @@ from .models import UpcomingProject,GalleryImage,ProjectVideo,YouTubeVideo,HomeS
 from django.http import HttpResponseServerError
 from django.http import HttpResponse, Http404
 from django.http import JsonResponse
+
 import os
 import mimetypes
 from django.templatetags.static import static
