@@ -279,10 +279,10 @@ def send_whatsapp_to_admin(quote):
                 "3": quote.phone,
                 "4": quote.service_type,
                 "5": quote.budget_range.name if quote.budget_range else "N/A",
-            })
-        )
-        print("✅ WhatsApp message sent successfully.")
-        return True
+                })
+            )
+            print("✅ WhatsApp message sent successfully.")
+            return True
 
     except Exception as e:
         print(f"[Twilio Error] WhatsApp not sent: {e}")
