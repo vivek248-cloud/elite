@@ -9,7 +9,6 @@ import os
 import dj_database_url
 from pathlib import Path
 import environ
-from decouple import config
 
 
 
@@ -53,14 +52,17 @@ INSTALLED_APPS = [
     'index',
 ]
 
-
+INSTALLED_APPS += [
+    'cloudinary',
+    'cloudinary_storage',
+]
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME', default='your-local-name'),
-    'API_KEY': config('CLOUDINARY_API_KEY', default='your-local-key'),
-    'API_SECRET': config('CLOUDINARY_API_SECRET', default='your-local-secret'),
+    'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': config('CLOUDINARY_API_KEY'),
+    'API_SECRET': config('CLOUDINARY_API_SECRET'),
 }
 
 MIDDLEWARE = [
