@@ -2,13 +2,15 @@
 from django.db import models
 import datetime
 from django.utils import timezone
+from cloudinary.models import CloudinaryField
 
 class HomeSlider(models.Model):
     healine = models.CharField(max_length=255)
     sub_headline = models.CharField(max_length=255)
     quotes = models.TextField(blank=True, null=True)  # Optional quotes field
     title = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='home_slider/')
+    # image = models.ImageField(upload_to='home_slider/')
+    image = CloudinaryField('image')
     description = models.TextField(blank=True, null=True)  # Optional description
     location = models.CharField(max_length=255, null=True, blank=True)  # ✅ New field
     created_at = models.DateTimeField(auto_now_add=True)
