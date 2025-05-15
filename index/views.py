@@ -371,7 +371,7 @@ Budget Range: {quote.budget_range.name}
                     "5": budget_range.name if budget_range else "N/A",
                 })
             )
-
+            send_whatsapp_to_admin(quote)
             # ✅ Success Message
             messages.success(request, "Your request has been submitted successfully! 👏")
             return redirect('get_quote')
