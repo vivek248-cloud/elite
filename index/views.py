@@ -263,23 +263,22 @@ from twilio.rest import Client
 import json
 from .forms import QuoteRequestForm
 
+
 def send_whatsapp_to_admin(quote):
     try:
-        account_sid = 'AC74fcc1e2b934f42c52c8827cc7f6a964'
-        auth_token = 'f077f0d75005435e589d1d5dc36a715f'
-        client = Client(account_sid, auth_token)
+        client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
         
         message = client.messages.create(
             from_='whatsapp:' + settings.TWILIO_WHATSAPP_NUMBER,
-            content_sid='HX47b8a9838ae239185bd97325963516b5',
+            content_sid='HX47b8a9838ae239185bd97325963516b5',  # your template SID
             content_variables=json.dumps({
                 "1": quote.name,
                 "2": quote.email,
                 "3": quote.phone,
                 "4": quote.service_type,
-                "5": quote.budget_range.name,
+                "5": quote.budget_range.name,  # make sure budget_range is not None
             }),
-            to='whatsapp:' + settings.ADMIN_WHATSAPP_NUMBER,  # Admin's WhatsApp number
+            to='whatsapp:' + settings.ADMIN_WHATSAPP_NUMBER,
         )
         return message.sid
 
