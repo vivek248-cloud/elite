@@ -10,7 +10,7 @@ class HomeSlider(models.Model):
     quotes = models.TextField(blank=True, null=True)  # Optional quotes field
     title = models.CharField(max_length=255)
     # image = models.ImageField(upload_to='home_slider/')
-    image = CloudinaryField('image')
+    image = CloudinaryField('image', folder='home_slider')
     description = models.TextField(blank=True, null=True)  # Optional description
     location = models.CharField(max_length=255, null=True, blank=True)  # ✅ New field
     created_at = models.DateTimeField(auto_now_add=True)
@@ -74,7 +74,7 @@ class Project(models.Model):
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
     description = models.TextField()
     # image = models.ImageField(upload_to='projects/')
-    image = CloudinaryField('image')
+    image = CloudinaryField('image',folder='projects-img')
     location = models.CharField(max_length=255, null=True, blank=True)  # ✅ New field
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     date = models.DateField(default=datetime.date.today)
@@ -93,7 +93,7 @@ class UpcomingProject(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     # image = models.ImageField(upload_to='projects/upcoming/')
-    image = CloudinaryField('image')
+    image = CloudinaryField('image',folder='upcomming-projects-img')
     location = models.CharField(max_length=255, null=True, blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     sq_feet = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
@@ -121,7 +121,7 @@ class AboutVideo(models.Model):
 class GalleryImage(models.Model):
     title = models.CharField(max_length=255)
     # image = models.ImageField(upload_to="gallery/")
-    image = CloudinaryField('image')
+    image = CloudinaryField('image',folder='gallery-img')
 
     def __str__(self):
         return self.title
@@ -131,7 +131,7 @@ class AboutSection(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     # image = models.ImageField(upload_to="about_images/")
-    image = CloudinaryField('image')
+    image = CloudinaryField('image',folder='team')
     author_name = models.CharField(max_length=100)
     author_designation = models.CharField(max_length=100)
 
@@ -140,7 +140,11 @@ class AboutSection(models.Model):
     
 class Video(models.Model):
     title = models.CharField(max_length=255)
-    video_file = models.FileField(upload_to='videos-slider/')  # Stores uploaded videos
+    video_file = CloudinaryField(
+        'video',
+        resource_type='video',
+        folder='testimonals-videos' 
+    )
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -177,7 +181,11 @@ class YouTubeVideo(models.Model):
 class SliderVideo(models.Model):
     title = models.CharField(max_length=255)
     # video_file = models.FileField(upload_to='contact-slider/')  # Stores uploaded videos
-    video_file = CloudinaryField('video')
+    video_file = CloudinaryField(
+        'video',
+        resource_type='video',
+        folder='slider-videos'  # 👈 this creates/uses a Cloudinary folder named "contact-slider"
+    )
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -186,7 +194,11 @@ class SliderVideo(models.Model):
 class AboutTitleVideo(models.Model):
     title = models.CharField(max_length=255)
     # video_file = models.FileField(upload_to='about-head/')  # Stores uploaded videos
-    video_file = CloudinaryField('video')
+    video_file = CloudinaryField(
+        'video',
+        resource_type='video',
+        folder='AboutTitle-videos'  # 👈 this creates/uses a Cloudinary folder named "contact-slider"
+    )
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
