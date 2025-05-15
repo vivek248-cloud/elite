@@ -43,12 +43,23 @@ INSTALLED_APPS = [
 # Cloudinary media storage
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME', default='your-cloud-name'),
+#     'API_KEY': config('CLOUDINARY_API_KEY', default='your-api-key'),
+#     'API_SECRET': config('CLOUDINARY_API_SECRET', default='your-api-secret'),
+# }
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME', default='your-cloud-name'),
-    'API_KEY': config('CLOUDINARY_API_KEY', default='your-api-key'),
-    'API_SECRET': config('CLOUDINARY_API_SECRET', default='your-api-secret'),
+    'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': config('CLOUDINARY_API_KEY'),
+    'API_SECRET': config('CLOUDINARY_API_SECRET'),
+    'UPLOAD_OPTIONS': {
+        'resource_type': 'image',
+        'folder': 'home_slider',  # Optional folder name in Cloudinary
+        'use_filename': True,
+        'unique_filename': False,
+        'overwrite': True,
+    }
 }
-
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
