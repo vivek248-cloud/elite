@@ -49,7 +49,7 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': config('CLOUDINARY_API_SECRET', default='your-api-secret'),
 }
 
-MEDIA_URL = '/media/'
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Use Cloudinary for media URL
