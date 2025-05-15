@@ -269,27 +269,26 @@ from .forms import QuoteRequestForm
 def send_whatsapp_to_admin(quote):
     try:
         client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
-    
+
         client.messages.create(
             from_='whatsapp:' + settings.TWILIO_WHATSAPP_NUMBER,
             to='whatsapp:' + settings.ADMIN_WHATSAPP_NUMBER,
             content_sid=settings.TWILIO_TEMPLATE_SID_2,  # Your approved Twilio template SID
             content_variables=json.dumps({
-                "1": name,
-                "2": email,
-                "3": phone,
-                "4": Service Type,
-                "5": Budget,
+                "1": quote.name,
+                "2": quote.email,
+                "3": quote.phone,
+                "4": quote.service_type,
+                "5": quote.budget_range.name if quote.budget_range else "N/A",
             })
         )
-        messages.success(request, "Thank you for contacting us! We'll reach out soon.")
-except Exception as e:
-    print(f"WHATSAPP ERROR: {e}")
-    messages.error(request, "Failed to send WhatsApp message.")
+        print("✅ WhatsApp message sent successfully.")
+        return True
 
     except Exception as e:
         print(f"[Twilio Error] WhatsApp not sent: {e}")
-        raise
+        return False
+
 
 
 # clite messages
