@@ -145,6 +145,13 @@ EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS', default=True)
 EMAIL_HOST_USER = env('EMAIL_HOST_USER', default='your-email@gmail.com')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD', default='your-email-password')
 
+TWILIO_ACCOUNT_SID = config('TWILIO_ACCOUNT_SID')
+TWILIO_AUTH_TOKEN = config('TWILIO_AUTH_TOKEN')
+TWILIO_WHATSAPP_NUMBER = config('TWILIO_WHATSAPP_NUMBER')
+ADMIN_WHATSAPP_NUMBER = config('ADMIN_WHATSAPP_NUMBER')
+TWILIO_TEMPLATE_SID = config('TWILIO_TEMPLATE_SID')
+
+
 # Security headers
 SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
@@ -155,3 +162,5 @@ SECURE_HSTS_PRELOAD = True
 
 # Auto field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
