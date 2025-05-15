@@ -232,9 +232,10 @@ body {
     }
     
     .navbar-collapse {
-        background-color: rgba(27, 27, 27, 0.9);
+        background-color: rgba(27, 27, 27, 0.765);
         padding: 1rem;
         border-radius: var(--border-radius);
+		z-index: 999;
     }
 	.animated-button
 	{
@@ -438,9 +439,10 @@ p, a, li, span, button, input, textarea {
   }
   .line3
   {
-	top: 109px;
+	top: 107px;
 	position: absolute;
 	display: block;
+	z-index: 0;
   }
 
 }
@@ -507,7 +509,7 @@ p, a, li, span, button, input, textarea {
 	}
 	.line3
 	{
-		top: 109px;
+		top: 107px;
 		position: absolute;
 		display:block;
 	}
@@ -519,7 +521,16 @@ p, a, li, span, button, input, textarea {
 	color: var(--black);
 }
 
-
+@keyframes slideInLeft {
+  from {
+    left: -5px;
+    opacity: 0;
+  }
+  to {
+    left: 4px;
+    opacity: 1;
+  }
+}
 /* Button Adjustments */
 .animated-button {
 	position: fixed;
@@ -546,9 +557,8 @@ p, a, li, span, button, input, textarea {
 	bottom:0 ;
 	z-index: 999;
 	opacity: 0;
-  animation: fadeIn 2s ease-in forwards;
-  animation-delay: 2s;
-    
+   	animation: slideInLeft 1s ease-in forwards;
+  	animation-delay: 1s;
 }
 
 
@@ -755,7 +765,7 @@ p, a, li, span, button, input, textarea {
 {
 	position:absolute;
 	/* margin-bottom: 10px; */
-	top: 115px;
+	top: 107px;
 	left: 0px;
     height: 2px;
 	transition: all 0.5s ease;
@@ -766,6 +776,7 @@ p, a, li, span, button, input, textarea {
 	animation: glow-border 2s infinite alternate;
 	animation-direction:normal;
 	box-shadow: var(--neon-effect) ;
+	z-index: 0;
 }
 
 
@@ -2271,7 +2282,7 @@ p, a, li, span, button, input, textarea {
 	position: relative;
 	padding: 2rem;
 	justify-content: center;
-	backdrop-filter: blur(5px) brightness(70%);
+	/* backdrop-filter: blur(0px) brightness(90%); */
 	color: rgb(255, 255, 255);
 	
 }
@@ -2593,7 +2604,7 @@ p, a, li, span, button, input, textarea {
   }
   .home-content-2-row-col-1-box p {
 	color: #ffffff;
-	background-color: rgba(255, 255, 255, 0.05);
+	background-color: rgba(12, 12, 12, 0.234);
 	padding: 1rem;
 	border-radius: 10px;
 	display: flex;
@@ -2620,7 +2631,7 @@ p, a, li, span, button, input, textarea {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	backdrop-filter: blur(5px) grayscale(80%) brightness(60%);
+	/* backdrop-filter: blur(0px) grayscale(0%) brightness(90%); */
   }
   /* Media Queries */
   @media (min-width: 768px) {
@@ -4730,7 +4741,7 @@ video, .overlay {
     background-color: #000; /* slide menu background */
     padding: 2rem 1rem;
     transition: left 0.4s ease-in-out;
-    z-index: 999; /* Ensure it appears over other content */
+    z-index: 1000; /* Ensure it appears over other content */
   }
 
   .navbar-collapse.show {
@@ -5385,6 +5396,11 @@ video, .overlay {
 		  margin-left: -23px;
 		  
 		}
+		.social-sidebar {
+			position: fixed;
+			bottom: 13%;
+			left: 8px;
+			}
 }
 
 @media (max-width: 576px) {
@@ -5450,7 +5466,7 @@ video, .overlay {
 	  }
 	
 	  .project-sidebar a {
-		font-size: 0.95rem;
+		font-size: 1.3rem;
 		flex-direction: column;
 		align-items: flex-start;
 		gap: 0.2rem;
@@ -5508,7 +5524,11 @@ video, .overlay {
 	.w-title {
 		font-size: 18px;
 	}
-	
+	.social-sidebar {
+			position: fixed;
+			bottom: 13%;
+			left: 8px;
+			}
   }
 
 
@@ -5755,11 +5775,7 @@ video, .overlay {
 {
 height: 200px;
 }
-.scroller-content h1 {
-  font-size: 1.5rem !important;
-  font-weight: 100;
-  animation: fadeInUp 1s ease-in-out;
-}
+
 .youtube-gallery-section {
   padding: 40px 10px;
 }
@@ -6003,7 +6019,7 @@ margin-right: 5rem;
 	  }
 	
 	  .project-sidebar a {
-		font-size: 0.95rem;
+		font-size: 1.2rem;
 		flex-direction: column;
 		align-items: flex-start;
 		gap: 0.2rem;
@@ -6067,6 +6083,7 @@ margin-right: 5rem;
 	  {
 		width: 20px!important;
 		height: 20px!important;
+
 	  }
 	  .home-content-2-row {
     display: flex;
@@ -6097,6 +6114,22 @@ margin-right: 5rem;
 	margin-left: 5rem;
 	margin-right: 5rem;
   }
+  .scroller-content h1
+	{
+		font-size: 1.5rem !important;
+		font-weight: 100;
+		animation: fadeInUp 1s ease-in-out;
+	}
+	.scroller-content h4
+	{
+		font-size: 1rem!important;
+	}
+	.line3
+	{
+		top: 105px;
+		position: absolute;
+		display:block;
+	}
 }
 
  
@@ -6130,6 +6163,21 @@ margin-right: 5rem;
   .counter h3 {
     font-size: 0.9rem;
   }
+  .social-sidebar {
+			position: fixed;
+			bottom: 15%;
+			left: 8px;
+}
+	.scroller-content h1
+	{
+		font-size: 1.5rem !important;
+		font-weight: 100;
+		animation: fadeInUp 1s ease-in-out;
+	}
+	.scroller-content h4
+	{
+		font-size: 1rem!important;
+	}
 }
 
 /* Medium small screens - Samsung F12, ~720px width */
@@ -6182,22 +6230,35 @@ margin-right: 5rem;
     display: flex;
     justify-content: center;
   }
-
+ .social-sidebar {
+			position: fixed;
+			bottom: 15%;
+			left: 8px;
+}
 }
 
+@keyframes slideInLeft {
+  from {
+    left: -5px;
+    opacity: 0;
+  }
+  to {
+    left: 4px;
+    opacity: 1;
+  }
+}
 /* Sidebar container */
 /* Social Sidebar */
 .social-sidebar {
   position: fixed;
   bottom: 13%;
-  left: 8px;
+  left: 9px;
   display: flex;
   flex-direction: column;
   gap: 15px;
   z-index: 1000;
-
   opacity: 0;
-  animation: fadeIn 1s ease-in forwards;
+  animation: slideInLeft 1s ease-in forwards;
   animation-delay: 1s;
 }
 .social-sidebar a
@@ -6248,66 +6309,6 @@ margin-right: 5rem;
     opacity: 1;
   }
 }
-
-
-
-/* .grid-overlay {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	display: grid;
-	grid-template-columns: repeat(6, 1fr);
-	grid-template-rows: repeat(4, 1fr);
-	top: 0;
-	left: 0;
-	z-index: 2;
-	pointer-events: none;
-  }
-  
-  .grid-tile {
-	background-size: 600% 400%;
-	opacity: 0;
-	animation: tileFade 1s ease-in-out forwards;
-	width: 100%;
-	height: 100%;
-  }
-  
-
-  @keyframes tileFade {
-	from {
-	  opacity: 0;
-	  transform: scale(1.05);
-	}
-	to {
-	  opacity: 1;
-	  transform: scale(1);
-	}
-  }
-  
-
-  @media (max-width: 992px) {
-	.grid-overlay {
-	  grid-template-columns: repeat(4, 1fr);
-	  grid-template-rows: repeat(4, 1fr);
-	}
-  
-	.grid-tile {
-	  background-size: 400% 400%;
-	}
-  }
-  
-  
-  @media (max-width: 576px) {
-	.grid-overlay {
-	  grid-template-columns: repeat(3, 1fr);
-	  grid-template-rows: repeat(3, 1fr);
-	}
-  
-	.grid-tile {
-	  background-size: 300% 300%;
-	}
-  } */
-  
 
 
 
