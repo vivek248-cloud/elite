@@ -34,34 +34,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cloudinary_storage',
     'cloudinary',
-    
+    'cloudinary_storage',
     'index',
 ]
 
 # Cloudinary media storage
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-# CLOUDINARY_STORAGE = {
-#     'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME', default='your-cloud-name'),
-#     'API_KEY': config('CLOUDINARY_API_KEY', default='your-api-key'),
-#     'API_SECRET': config('CLOUDINARY_API_SECRET', default='your-api-secret'),
-# }
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME'),
-    'API_KEY': config('CLOUDINARY_API_KEY'),
-    'API_SECRET': config('CLOUDINARY_API_SECRET'),
-    'UPLOAD_OPTIONS': {
-        'resource_type': 'image',
-        'folder': 'home_slider',  # Optional folder name in Cloudinary
-        'use_filename': True,
-        'unique_filename': False,
-        'overwrite': True,
-    }
+    'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME', default='your-cloud-name'),
+    'API_KEY': config('CLOUDINARY_API_KEY', default='your-api-key'),
+    'API_SECRET': config('CLOUDINARY_API_SECRET', default='your-api-secret'),
 }
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Use Cloudinary for media URL
 MEDIA_URL = f'https://res.cloudinary.com/{config("CLOUDINARY_CLOUD_NAME")}/'
@@ -88,9 +73,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-# URL Configuration
-ROOT_URLCONF = 'elite.urls'
 
 # Templates
 TEMPLATES = [
