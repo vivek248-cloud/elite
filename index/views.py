@@ -273,13 +273,13 @@ def send_whatsapp_to_admin(quote):
     client.messages.create(
         from_='whatsapp:' + settings.TWILIO_WHATSAPP_NUMBER,
         to='whatsapp:' + settings.ADMIN_WHATSAPP_NUMBER,
-        content_sid=settings.TWILIO_TEMPLATE_SID,  # Your approved Twilio template SID
+        content_sid=settings.TWILIO_TEMPLATE_SID_2,  # Your approved Twilio template SID
         content_variables=json.dumps({
             "1": name,
             "2": email,
             "3": phone,
-            "4":Service Type,
-            "5":Budget
+            "4": Service Type,
+            "5": Budget,
         })
     )
     messages.success(request, "Thank you for contacting us! We'll reach out soon.")
