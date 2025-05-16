@@ -312,7 +312,7 @@ from django.contrib import messages
 from django.conf import settings
 from .forms import QuoteRequestForm
 from .models import BudgetRange
-from .utils import send_whatsapp_to_admin  # Assuming you placed the WhatsApp logic in a separate utils file
+
 
 def get_quote(request):
     if request.method == "POST":
