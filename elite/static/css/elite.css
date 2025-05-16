@@ -6411,3 +6411,33 @@ margin-right: 5rem;
   right: 15%;
   animation-delay: 0.3s;
 }
+
+.terms-head2 {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+  color: white;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.overlay2 {
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  padding: 2rem;
+  border-radius: 0 0 20px 20px;
+}
+.project-info {
+  background: #f9f9f9;
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
