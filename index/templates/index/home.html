@@ -33,7 +33,7 @@
     <div class="contact-bg">
       <div class="sliders-box grid-slideshow">
         {% for slide in sliders %}
-          <section class="slider-sections {% if forloop.first %}active{% endif %}"   style="background-image: url('{{ slide.image.url }}'); background-size: cover; background-position: center;">
+          <section class="slider-sections {% if forloop.first %}active{% endif %}"   style="background-image: url('{{ slide.image.url|add:'?q_auto=f_auto&w=800 }}'); background-size: cover; background-position: center;">
             <div class="scroller-content-bg" >
               <div class="scroller-content">
                 <h1>{{ slide.healine }}</h1>
@@ -116,7 +116,7 @@
         <div class="project-card-horizontal animation zoom-in">
           
             <div class="image-section">
-              <img src="{{ project.image.url }}" alt="{{ project.title }}">
+              <img src="{{ project.image.url|add:'?q_auto=f_auto&w=800 }}" alt="{{ project.title }}">
             </div>
          
         </div>
