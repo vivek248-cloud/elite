@@ -17,10 +17,26 @@ window.addEventListener("scroll", function() {
     }
 });
 
+// window.addEventListener("scroll", () => {
+//   const navbar = document.getElementById("goto2");
+//   if (navbar) {
+//     navbar.style.display = window.scrollY > 200 ? "block" : "none";
+//   }
+// });
+
 window.addEventListener("scroll", () => {
-  const navbar = document.getElementById("goto2");
-  if (navbar) {
-    navbar.style.display = window.scrollY > 200 ? "block" : "none";
+  const goto2 = document.getElementById("goto2");
+  if (!goto2) return;
+
+  const shouldShow = window.scrollY > 200;
+  const rect = goto2.getBoundingClientRect();
+  const isInViewport = rect.bottom < window.innerHeight;
+
+  // Hide when reaching the bottom of the screen
+  if (shouldShow && rect.bottom < window.innerHeight) {
+    goto2.style.display = "block";
+  } else {
+    goto2.style.display = "none";
   }
 });
 
