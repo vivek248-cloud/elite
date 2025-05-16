@@ -5398,8 +5398,8 @@ video, .overlay {
 		}
 		.social-sidebar {
 			position: fixed;
-			bottom: 13%;
-			left: 8px;
+			bottom: 15%!important;
+			left: 9px;
 			}
 }
 
@@ -5526,7 +5526,7 @@ video, .overlay {
 	}
 	.social-sidebar {
 			position: fixed;
-			bottom: 13%;
+			bottom: 15%!important;
 			left: 8px;
 			}
   }
@@ -6165,7 +6165,7 @@ margin-right: 5rem;
   }
   .social-sidebar {
 			position: fixed;
-			bottom: 15%;
+			bottom: 20%!important;
 			left: 8px;
 }
 	.scroller-content h1
@@ -6255,7 +6255,7 @@ margin-right: 5rem;
   left: 9px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
   z-index: 1000;
   opacity: 0;
   animation: slideInLeft 1s ease-in forwards;
@@ -6265,6 +6265,7 @@ margin-right: 5rem;
 {
 	text-decoration: none;
 	color: white;
+	margin-top: 5px;
 }
 /* Slide in on hover - this is more useful for right-sided bars;
    so this part can be removed unless you're using it for right bar */
