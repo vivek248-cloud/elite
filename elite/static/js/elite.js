@@ -96,3 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("load", handleScroll); // Trigger scroll handler on page load
 });
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
