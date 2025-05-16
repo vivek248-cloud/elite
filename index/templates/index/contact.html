@@ -37,10 +37,10 @@
     {% for project in videoslider %}
     <div class="terms-head-overlay-video"></div>
       <div class="swiper-slide">
-       <video controls class="slider-video" autoplay muted loop>
-	  <source src="{{ project.video_file.url }}?f_auto=mp4&q_auto" type="video/mp4">
-	  Your browser does not support the video tag.
-	</video>
+        <video controls class="slider-video" autoplay muted loop>
+          <source src="{{ project.video_file.url }}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
         <div class="contact-head">
           <h1>Contact us</h1>
         </div>
@@ -124,7 +124,7 @@
 <div class="grid-container-box">
   {% for image in images %}
       <div class="grid-item item-{{ forloop.counter }}">
-          <img src="{{ image.image.url|add:'?q_auto=f_auto&w=800' }}" alt="{{ image.title }}" class="animation zoom-in">
+          <img src="{{ image.image.url }}" alt="{{ image.title }}" class="animation zoom-in">
       </div>
   {% empty %}
       <p>No images available</p>
@@ -145,7 +145,7 @@
     {% for section in about_sections %}
     <div class="team-card" data-aos="fade-up" data-aos-duration="1000">
       <div class="team-img-wrapper">
-        <img src="{{ section.image.url|add:'?q_auto=f_auto&w=800' }}" alt="{{ section.author_name }}">
+        <img src="{{ section.image.url }}" alt="{{ section.author_name }}">
       </div>
       <div class="team-info">
         <h3>{{ section.author_name }}</h3>
