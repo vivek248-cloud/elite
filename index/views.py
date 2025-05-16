@@ -259,27 +259,7 @@ import json
 from .forms import QuoteRequestForm
 
 
-# def send_whatsapp_to_admin(quote):
-#     try:
-#             client = Client(settings.TWILIO_ACCOUNT_SID_TWO, settings.TWILIO_AUTH_TOKEN)
-#             client.messages.create(
-#                 from_='whatsapp:' + settings.TWILIO_WHATSAPP_NUMBER,
-#                 to='whatsapp:' + settings.ADMIN_WHATSAPP_NUMBER,
-#                 content_sid=settings.TWILIO_TEMPLATE_SID_TWO,
-#             content_variables=json.dumps({
-#                 "1": quote.name,
-#                 "2": quote.email,
-#                 "3": quote.phone,
-#                 "4": quote.service_type,
-#                 "5": quote.budget_range.name if quote.budget_range else "N/A",
-#                 })
-#             )
-#             print("✅ WhatsApp message sent successfully.")
-#             return True
 
-#     except Exception as e:
-#         print(f"[Twilio Error] WhatsApp not sent: {e}")
-#         return False
 
 from twilio.rest import Client
 import json
@@ -325,29 +305,48 @@ def send_whatsapp_template(name, email, message):
         })
     )
 
+
+from django.core.mail import send_mail
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.conf import settings
+from .forms import QuoteRequestForm
+from .models import BudgetRange
+from .utils import send_whatsapp_to_admin  # Assuming you placed the WhatsApp logic in a separate utils file
+
 def get_quote(request):
     if request.method == "POST":
         form = QuoteRequestForm(request.POST)
         if form.is_valid():
-            quote = form.save()
+            quote = form.save(commit=False)
+
+            # Get budget_range from custom HTML select
+            budget_range_id = request.POST.get("budget_range")
+            if budget_range_id:
+                try:
+                    quote.budget_range = BudgetRange.objects.get(id=budget_range_id)
+                except BudgetRange.DoesNotExist:
+                    quote.budget_range = None
+
+            quote.save()
 
             # ✅ Email to User
             user_subject = "Quote Request Received"
             user_message = f"""
-            Dear {quote.name},
-            
-            Thank you for requesting a quote. We have received your request and will get back to you soon.
-            
-            Details:
-            - Name: {quote.name}
-            - Email: {quote.email}
-            - Phone: {quote.phone}
-            - Service Type: {quote.service_type}
-            - Budget Range: {quote.budget_range}
-            
-            Best Regards,
-            Elite Dream Builders
-            """
+Dear {quote.name},
+
+Thank you for requesting a quote. We have received your request and will get back to you soon.
+
+Details:
+- Name: {quote.name}
+- Email: {quote.email}
+- Phone: {quote.phone}
+- Service Type: {quote.service_type}
+- Budget Range: {quote.budget_range}
+
+Best Regards,
+Elite Dream Builders
+"""
             send_mail(
                 user_subject,
                 user_message,
@@ -356,16 +355,15 @@ def get_quote(request):
                 fail_silently=False,
             )
 
-
             # ✅ Email to Admin
-                            admin_subject = "New Quote Request"
-                            admin_message = f"""
-                Name: {quote.name}
-                Email: {quote.email}
-                Phone: {quote.phone}
-                Service Type: {quote.service_type}
-                Budget Range: {quote.budget_range.name}
-                """
+            admin_subject = "New Quote Request"
+            admin_message = f"""
+Name: {quote.name}
+Email: {quote.email}
+Phone: {quote.phone}
+Service Type: {quote.service_type}
+Budget Range: {quote.budget_range.name if quote.budget_range else 'N/A'}
+"""
             send_mail(
                 admin_subject,
                 admin_message,
@@ -374,13 +372,14 @@ def get_quote(request):
                 fail_silently=False,
             )
 
-            # ✅ WhatsApp to Admin (this is enough)
+            # ✅ WhatsApp to Admin
             if send_whatsapp_to_admin(quote):
                 messages.success(request, "Your request has been submitted successfully! 👏")
             else:
                 messages.warning(request, "Submitted, but WhatsApp message failed.")
 
             return redirect('get_quote')
+
     else:
         form = QuoteRequestForm()
 
@@ -389,6 +388,72 @@ def get_quote(request):
         'form': form,
     }
     return render(request, 'index/get_quote.html', context)
+
+
+# def get_quote(request):
+#     if request.method == "POST":
+#         form = QuoteRequestForm(request.POST)
+#         if form.is_valid():
+#             quote = form.save()
+
+#             # ✅ Email to User
+#             user_subject = "Quote Request Received"
+#             user_message = f"""
+#             Dear {quote.name},
+            
+#             Thank you for requesting a quote. We have received your request and will get back to you soon.
+            
+#             Details:
+#             - Name: {quote.name}
+#             - Email: {quote.email}
+#             - Phone: {quote.phone}
+#             - Service Type: {quote.service_type}
+#             - Budget Range: {quote.budget_range}
+            
+#             Best Regards,
+#             Elite Dream Builders
+#             """
+#             send_mail(
+#                 user_subject,
+#                 user_message,
+#                 settings.EMAIL_HOST_USER,  # sender
+#                 [quote.email],
+#                 fail_silently=False,
+#             )
+
+
+#             # ✅ Email to Admin
+#                             admin_subject = "New Quote Request"
+#                             admin_message = f"""
+#                 Name: {quote.name}
+#                 Email: {quote.email}
+#                 Phone: {quote.phone}
+#                 Service Type: {quote.service_type}
+#                 Budget Range: {quote.budget_range.name}
+#                 """
+#             send_mail(
+#                 admin_subject,
+#                 admin_message,
+#                 settings.EMAIL_HOST_USER,
+#                 [settings.ADMIN_EMAIL],
+#                 fail_silently=False,
+#             )
+
+#             # ✅ WhatsApp to Admin (this is enough)
+#             if send_whatsapp_to_admin(quote):
+#                 messages.success(request, "Your request has been submitted successfully! 👏")
+#             else:
+#                 messages.warning(request, "Submitted, but WhatsApp message failed.")
+
+#             return redirect('get_quote')
+#     else:
+#         form = QuoteRequestForm()
+
+#     context = {
+#         'title': 'Get-Quote - Elite Dream Builders',
+#         'form': form,
+#     }
+#     return render(request, 'index/get_quote.html', context)
 
 # def get_quote(request):
 #     if request.method == "POST":
