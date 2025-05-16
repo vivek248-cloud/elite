@@ -37,10 +37,10 @@
     {% for project in videoslider %}
     <div class="terms-head-overlay-video"></div>
       <div class="swiper-slide">
-        <video controls class="slider-video" autoplay muted loop>
-          <source src="{{ project.video_file.url?f_auto=mp4&q_auto }}" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+       <video controls class="slider-video" autoplay muted loop>
+	  <source src="{{ project.video_file.url }}?f_auto=mp4&q_auto" type="video/mp4">
+	  Your browser does not support the video tag.
+	</video>
         <div class="contact-head">
           <h1>Contact us</h1>
         </div>
