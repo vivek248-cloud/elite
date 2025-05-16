@@ -1,291 +1,217 @@
-
-window.addEventListener("scroll", function() {
-    let navbar = document.getElementById("container");
-    if (window.scrollY > 50) { // Change color after 50px scroll
-        navbar.style.backgroundColor="#1b1b1b";
-        navbar.style.width="100vw"
-    } else {
-        navbar.style.backgroundColor="transparent";
-    }
-});
-window.addEventListener("scroll", function() {
-    let navbar = document.getElementById("goto");
-    if (window.scrollY > 100) { // Change color after 50px scroll
-        navbar.style.display="block";
-    } else {
-        navbar.style.display="none";
-    }
-});
+// === GLOBAL SCROLL CONTROL ===
+let ticking = false;
+let isAnimating = false;
+let scrollAmount = 0;
+let isHorizontal = true;
 
 window.addEventListener("scroll", () => {
-  const navbar = document.getElementById("goto2");
-  if (navbar) {
-    navbar.style.display = window.scrollY > 200 ? "block" : "none";
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      handleScrollEvents();
+      ticking = false;
+    });
+    ticking = true;
   }
 });
 
-window.addEventListener("scroll", () => {
-  const navbar = document.getElementById("goto3");
-  if (navbar) {
-    navbar.style.display = window.scrollY > 300 ? "block" : "none";
-  }
-});
+function handleScrollEvents() {
+  const scrollY = window.scrollY;
+  const innerHeight = window.innerHeight;
+  const docHeight = document.documentElement.scrollHeight - innerHeight;
+  const scrollPercentage = (scrollY / docHeight) * 100;
 
-window.addEventListener("scroll", function() {
-    let scrollTop = window.scrollY;
-    let docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    let scrollPercentage = (scrollTop / docHeight) * 100; // Calculate percentage
+  // 1. Navbar background
+  const navbar = document.getElementById("container");
+  if (navbar) navbar.style.backgroundColor = scrollY > 50 ? "#1b1b1b" : "transparent";
 
-    let progressLine = document.getElementById("line3");
-    progressLine.style.width = scrollPercentage + "%"; // Set width dynamically
-});
+  // 2. Goto buttons visibility
+  toggleElement("goto", scrollY > 100);
+  toggleElement("goto2", scrollY > 200);
+  toggleElement("goto3", scrollY > 300);
 
+  // 3. Progress bar width
+  setWidth("line3", scrollPercentage + "%");
+  setWidth("bg-grow2", (scrollPercentage * 3) + "%");
+  setHeight("bg-grow", scrollPercentage + "%");
 
-window.addEventListener("scroll", function() {
-    let scrollTop = window.scrollY;
-    let docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    let scrollPercentage = (scrollTop / docHeight) * 100; // Just *100
-    let progressLine = document.getElementById("bg-grow");
-    progressLine.style.height = scrollPercentage + "%"; // Set height in %
-});
+  // 4. Counter animation
+  activateCounters(scrollY);
 
+  // 5. Animate elements
+  animateVisibleItems(".animation", "show");
 
-window.addEventListener("scroll", function() {
-    let scrollTop = window.scrollY;
-    let docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    let scrollPercentage = (scrollTop / docHeight) * 300;
-
-    let progressLine = document.getElementById("bg-grow2");
-    progressLine.style.width = scrollPercentage + "%";
-});
-
-
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // 6. Animate images
+  animateVisibleItems(".image-load", "show-image");
 }
 
-const counters = document.querySelectorAll(".counter span[data-count]");
-const container = document.querySelector(".counters");
-let activated = false;
+// === UTIL FUNCTIONS ===
+function toggleElement(id, show) {
+  const el = document.getElementById(id);
+  if (el) el.style.display = show ? "block" : "none";
+}
+function setWidth(id, value) {
+  const el = document.getElementById(id);
+  if (el) el.style.width = value;
+}
+function setHeight(id, value) {
+  const el = document.getElementById(id);
+  if (el) el.style.height = value;
+}
 
-window.addEventListener("scroll", () => {
-  if (
-    window.pageYOffset >= container.offsetTop - container.offsetHeight - 200 &&
-    !activated
-  ) {
-    counters.forEach(counter => {
+// === COUNTER ANIMATION ===
+let countersActivated = false;
+function activateCounters(scrollY) {
+  const container = document.querySelector(".counters");
+  if (!container || countersActivated) return;
+  if (scrollY >= container.offsetTop - container.offsetHeight - 200) {
+    document.querySelectorAll(".counter span[data-count]").forEach(counter => {
       const target = parseInt(counter.dataset.count);
-      let count = 0;
-
       if (target > 500) {
         counter.innerText = "1 Lacs+";
       } else {
-        const increment = 1;
-        function updateCount() {
-          if (count < target) {
-            count += increment;
-            counter.innerText = count;
-            setTimeout(updateCount, 15);
-          } else {
-            counter.innerText = formatCount(target);
-          }
-        }
-        updateCount();
+        animateCounter(counter, target);
       }
     });
-    activated = true;
+    countersActivated = true;
   }
-});
-
-function formatCount(num) {
-  if (num > 500) {
-    return "1 Lacs+";
-  }
-  return num;
 }
 
-
-
-function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-        rect.top < window.innerHeight && rect.bottom > 0 &&
-        rect.left < window.innerWidth && rect.right > 0
-    );
-}
-
-function animateOnScroll() {
-    const elements = document.querySelectorAll('.animation');
-    elements.forEach(element => {
-        if (isInViewport(element) && !element.classList.contains('show')) {
-            element.classList.add('show');
-            element.getBoundingClientRect(); // Force repaint
-        }
-    });
-}
-
-function optimizedScroll() {
-    requestAnimationFrame(animateOnScroll);
-}
-
-document.addEventListener('DOMContentLoaded', animateOnScroll);
-window.addEventListener('scroll', optimizedScroll);
-
-
-// animation2
-
-function isInViewportImage(element) {
-    const rect = element.getBoundingClientRect();
-    return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth);
+function animateCounter(counter, target) {
+  let count = 0;
+  const step = 1;
+  function update() {
+    count += step;
+    if (count < target) {
+      counter.innerText = count;
+      requestAnimationFrame(update);
+    } else {
+      counter.innerText = target;
+    }
   }
-  
-  
-  function imageOnScroll() {
-    const images = document.querySelectorAll('.image-load');
-    images.forEach(image => {
-      if (isInViewport(image)) {
-        image.classList.add('show-image');
-      }
-    });
-  }
-  
-  window.addEventListener('scroll', imageOnScroll);
-  window.addEventListener('load', imageOnScroll);
-  
-  imageOnScroll();
+  update();
+}
 
+// === ELEMENT/IMAGE VISIBILITY (Intersection Observer) ===
+function animateVisibleItems(selector, className) {
+  const items = document.querySelectorAll(selector);
+  items.forEach(item => {
+    if (!item.classList.contains(className) && isInViewport(item)) {
+      item.classList.add(className);
+    }
+  });
+}
+function isInViewport(el) {
+  const rect = el.getBoundingClientRect();
+  return (
+    rect.top < window.innerHeight &&
+    rect.bottom > 0 &&
+    rect.left < window.innerWidth &&
+    rect.right > 0
+  );
+}
 
-const manifestData = {
-    name: "",
-    short_name: "",
-    icons: [
-      {
-        src: "/android-chrome-192x192.png",
-        sizes: "192x192",
-        type: "image/png"
-      },
-      {
-        src: "/android-chrome-512x512.png",
-        sizes: "512x512",
-        type: "image/png"
-      }
-    ],
-    theme_color: "#ffffff",
-    background_color: "#ffffff",
-    display: "standalone"
-  };
-  
-  // Convert to JSON string if needed
-  const manifestJSON = JSON.stringify(manifestData, null, 2);
-  console.log(manifestJSON);
-  
-  // Optionally, dynamically add the manifest to your page
-  const link = document.createElement('link');
-  link.rel = 'manifest';
-  
-  // Create a Blob and URL for the manifest data
-  const blob = new Blob([manifestJSON], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  
-  link.href = url;
-  document.head.appendChild(link);
-  
-  console.log('Manifest added dynamically!');
-  
+// === SCROLL TO TOP ===
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
 
+// === HORIZONTAL SCROLL (GSAP + Mouse + Touch) ===
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll(".scroller-section");
+  const scroller = document.querySelector(".scroller");
+  const maxScroll = (sections.length - 1) * window.innerWidth;
 
-  
+  let touchStartX = 0;
 
-document.addEventListener("DOMContentLoaded", function () {
-    const sections = document.querySelectorAll(".scroller-section");
-    const scroller = document.querySelector(".scroller");
-    let scrollAmount = 0;
-    let maxScroll = (sections.length - 1) * window.innerWidth; // Max horizontal scroll width
-    let isHorizontal = true; // Tracks if scrolling is horizontal
+  // Wheel Scroll
+  window.addEventListener("wheel", (event) => {
+    if (!isHorizontal) return;
 
-    let touchStartX = 0, touchEndX = 0;
-
-    // Handle Mouse Scroll
-    window.addEventListener("wheel", function (event) {
-        if (isHorizontal) {
-            if (scrollAmount < maxScroll && event.deltaY > 0) {
-                event.preventDefault();
-                scrollAmount += window.innerWidth;
-                gsap.to(scroller, { x: -scrollAmount, duration: 0.8, ease: "power2.out" });
-            } else if (scrollAmount > 0 && event.deltaY < 0) {
-                event.preventDefault();
-                scrollAmount -= window.innerWidth;
-                gsap.to(scroller, { x: -scrollAmount, duration: 0.8, ease: "power2.out" });
-            }
-
-            // Enable vertical scrolling when max horizontal scroll is reached
-            if (scrollAmount >= maxScroll) {
-                isHorizontal = false;
-                document.body.style.overflowY = "auto"; // Enables vertical scrolling
-            }
-        } else {
-            // Reverse scrolling order when scrolling back up
-            if (window.scrollY === 0) {
-                isHorizontal = true;
-                scrollAmount = maxScroll; // Start from the last section
-                reverseHorizontalScroll();
-                document.body.style.overflowY = "hidden"; // Disable vertical scrolling
-            }
-        }
-    });
-
-    // Reverse Horizontal Scroll Animation
-    function reverseHorizontalScroll() {
-        let interval = setInterval(() => {
-            if (scrollAmount > 0) {
-                scrollAmount -= window.innerWidth;
-                gsap.to(scroller, { x: -scrollAmount, duration: 0.8, ease: "power2.out" });
-            } else {
-                clearInterval(interval);
-            }
-        }, 1000); // Reverse scroll delay
+    event.preventDefault();
+    if (event.deltaY > 0 && scrollAmount < maxScroll) {
+      scrollHorizontal(scroller, window.innerWidth);
+    } else if (event.deltaY < 0 && scrollAmount > 0) {
+      scrollHorizontal(scroller, -window.innerWidth);
     }
 
-    // Handle Touch Start (Mobile)
-    window.addEventListener("touchstart", function (event) {
-        touchStartX = event.touches[0].clientX;
-    });
+    if (scrollAmount >= maxScroll) {
+      isHorizontal = false;
+      document.body.style.overflowY = "auto";
+    }
+  }, { passive: false });
 
-    // Prevent Default Touch Scroll when in Horizontal Mode
-    window.addEventListener("touchmove", function (event) {
-        if (isHorizontal) {
-            event.preventDefault();
-        }
-    }, { passive: false });
+  // Touch Scroll
+  window.addEventListener("touchstart", e => touchStartX = e.touches[0].clientX);
 
-    // Handle Touch End (Swipe Detection)
-    window.addEventListener("touchend", function (event) {
-        touchEndX = event.changedTouches[0].clientX;
-        let swipeDistance = touchStartX - touchEndX;
+  window.addEventListener("touchmove", e => {
+    if (isHorizontal) e.preventDefault();
+  }, { passive: false });
 
-        if (isHorizontal) {
-            if (swipeDistance > 50 && scrollAmount < maxScroll) {
-                // Swipe Left (Next Section)
-                scrollAmount += window.innerWidth;
-                gsap.to(scroller, { x: -scrollAmount, duration: 0.8, ease: "power2.out" });
-            } else if (swipeDistance < -50 && scrollAmount > 0) {
-                // Swipe Right (Previous Section)
-                scrollAmount -= window.innerWidth;
-                gsap.to(scroller, { x: -scrollAmount, duration: 0.8, ease: "power2.out" });
-            }
+  window.addEventListener("touchend", e => {
+    const deltaX = touchStartX - e.changedTouches[0].clientX;
+    if (isHorizontal && Math.abs(deltaX) > 50) {
+      if (deltaX > 0 && scrollAmount < maxScroll) {
+        scrollHorizontal(scroller, window.innerWidth);
+      } else if (deltaX < 0 && scrollAmount > 0) {
+        scrollHorizontal(scroller, -window.innerWidth);
+      }
+    }
 
-            if (scrollAmount >= maxScroll) {
-                isHorizontal = false;
-                document.body.style.overflowY = "auto"; // Enables vertical scrolling
-            }
-        } else {
-            // Reverse horizontal scroll when scrolling back to top
-            if (window.scrollY === 0) {
-                isHorizontal = true;
-                scrollAmount = maxScroll;
-                reverseHorizontalScroll();
-                document.body.style.overflowY = "hidden"; // Disable vertical scrolling
-            }
-        }
-    });
+    if (scrollAmount >= maxScroll) {
+      isHorizontal = false;
+      document.body.style.overflowY = "auto";
+    }
+
+    if (!isHorizontal && window.scrollY === 0) {
+      isHorizontal = true;
+      scrollAmount = maxScroll;
+      document.body.style.overflowY = "hidden";
+      reverseHorizontalScroll(scroller);
+    }
+  });
+
+  // Reverse animation
+  function reverseHorizontalScroll(scroller) {
+    const interval = setInterval(() => {
+      if (scrollAmount > 0) {
+        scrollAmount -= window.innerWidth;
+        gsap.to(scroller, { x: -scrollAmount, duration: 0.8, ease: "power2.out" });
+      } else {
+        clearInterval(interval);
+      }
+    }, 1000);
+  }
 });
+
+// GSAP Horizontal Scroll Trigger
+function scrollHorizontal(scroller, offset) {
+  if (isAnimating) return;
+  isAnimating = true;
+  scrollAmount += offset;
+  gsap.to(scroller, {
+    x: -scrollAmount,
+    duration: 0.8,
+    ease: "power2.out",
+    onComplete: () => isAnimating = false
+  });
+}
+
+// === DYNAMIC WEB APP MANIFEST ===
+const manifestData = {
+  name: "",
+  short_name: "",
+  icons: [
+    { src: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
+    { src: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" }
+  ],
+  theme_color: "#ffffff",
+  background_color: "#ffffff",
+  display: "standalone"
+};
+
+const manifestJSON = JSON.stringify(manifestData, null, 2);
+const link = document.createElement("link");
+link.rel = "manifest";
+const blob = new Blob([manifestJSON], { type: "application/json" });
+link.href = URL.createObjectURL(blob);
+document.head.appendChild(link);
