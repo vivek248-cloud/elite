@@ -73,7 +73,7 @@
           {% for project in projects %}
           <div class="cards animation zoom-in">
               <a href="{% url 'projects_details' project.id %}">
-                  <img src="{{ project.image.url|add:'?q_auto=f_auto&w=800' }}" alt="{{ project.title }}">
+                  <img src="{{ project.image.url }}" alt="{{ project.title }}">
                   <div class="info">
                       <h3 class="c animation slide-up">{{ project.title }}</h3>
                       <strong class="animation slide-up">{{ project.budget_range}}</strong>
@@ -95,7 +95,7 @@
       {% for project in upcoming_projects %}
         <div class="cards animation zoom-in">
             <a href="{% url 'projects_details' project.id %}">
-                <img src="{{ project.image.url|add:'?q_auto=f_auto&w=800 }}" alt="{{ project.title }}">
+                <img src="{{ project.image.url }}" alt="{{ project.title }}">
                 <div class="info">
                     <h3 class="c animation slide-up">{{ project.title }}</h3>
                     <strong class="animation slide-up">{{ project.budget_range }}</strong>
@@ -144,7 +144,7 @@
     {% for projectvideo in project_videos %}
       <div class="video_cards animation zoom-in">
        <video controls width="100%" autoplay loop muted>
-          <source src="{{ projectvideo.video_file.url }}?f_auto=mp4&q_auto" type="video/mp4">
+          <source src="{{ projectvideo.video_file.url }}" type="video/mp4">
           Your browser does not support the video tag.
         </video>
 
