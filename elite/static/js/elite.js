@@ -28,17 +28,16 @@ window.addEventListener("scroll", () => {
   const goto2 = document.getElementById("goto2");
   if (!goto2) return;
 
-  const shouldShow = window.scrollY > 200;
-  const rect = goto2.getBoundingClientRect();
-  const isInViewport = rect.bottom < window.innerHeight;
+  const scrollBottom = window.innerHeight + window.scrollY;
+  const docHeight = document.documentElement.scrollHeight;
 
-  // Hide when reaching the bottom of the screen
-  if (shouldShow && rect.bottom < window.innerHeight) {
+  if (window.scrollY > 200 && scrollBottom < docHeight - 50) {
     goto2.style.display = "block";
   } else {
     goto2.style.display = "none";
   }
 });
+
 
 window.addEventListener("scroll", () => {
   const navbar = document.getElementById("goto3");
