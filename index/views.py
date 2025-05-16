@@ -537,12 +537,29 @@ Budget Range: {quote.budget_range.name if quote.budget_range else 'N/A'}
 def about(request):
     about_data = AboutVideo.objects.order_by('-id').first()
     Abouttitlevideo = AboutTitleVideo.objects.order_by('-id').first()
+    if Abouttitlevideo:
+        video_url = Abouttitlevideo.video_file.build_url(resource_type='video', secure=True)
+    else:
+        video_url = ''
     context = {
         'title': 'About Us - Elite Dream Builders',
         'about': about_data,  # Pass None if no records exist
         'about_title_video': Abouttitlevideo,  # Pass None if no records exist
+        'video_url': video_url,
     }
     return render(request, 'index/about.html', context)
+    
+# def about_view(request):
+#     video = AboutTitleVideo.objects.first()
+#     if video:
+#         video_url = video.video_file.build_url(resource_type='video', secure=True)
+#     else:
+#         video_url = ''
+
+#     return render(request, 'about.html', {
+#         'about_title_video': video,
+#         'video_url': video_url,
+#     })
 
 
 
