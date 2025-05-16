@@ -36,7 +36,7 @@
 <div class="project-detail-container">
   <div class="project-detail-wrapper" data-aos="fade-up" data-aos-duration="1000">
     <div class="project-image">
-      <img src="{{ project.image.url }}" alt="{{ project.title }}">
+      <img src="{{ project.image.url|add:'?q_auto=f_auto&w=800' }}" alt="{{ project.title }}">
     </div>
     <div class="project-info">
       <h2>{{ project.title }}</h2>
