@@ -30,23 +30,20 @@
 <body>
    {% block content %}
 
-<div class="terms-head" style="background-image: url('{{ project.image.url }}' );">
-  <h1 class="w">{{ project.title }}</h1>
+<div class="terms-head2" style="background-image: url('{{ project.image.url }}' );">
+  <div class="overlay2">
+    <h1 class="project-title">{{ project.title }}</h1>
+  </div>
 </div>
-<div class="project-detail-container">
-  <div class="project-detail-wrapper" data-aos="fade-up" data-aos-duration="1000">
-<!--     <div class="project-image">
-      <img src="{{ project.image.url }}" alt="{{ project.title }}"  loading="lazy">
-    </div> -->
-    <div class="project-info">
-      <h2>{{ project.title }}</h2>
-      <ul>
-        <li><strong>Location:</strong> {{ project.location }}</li>
-        <li><strong>Completion Date:</strong> {{ project.date }}</li>
-        <li><strong>BHK:</strong> {{ project.bhk }}</li>
-        <li><strong>Description:</strong> {{project.description}}</li>
-      </ul>
-    </div>
+<div class="" data-aos="fade-up" data-aos-duration="1000">
+  <div class="project-info">
+    <h2>{{ project.title }}</h2>
+    <ul>
+      <li><strong>Location:</strong> {{ project.location }}</li>
+      <li><strong>Completion Date:</strong> {{ project.date }}</li>
+      <li><strong>BHK:</strong> {{ project.bhk }}</li>
+      <li><strong>Description:</strong> {{ project.description }}</li>
+    </ul>
   </div>
 </div>
 
