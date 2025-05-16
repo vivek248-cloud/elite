@@ -541,11 +541,17 @@ def about(request):
         video_url = Abouttitlevideo.video_file.build_url(resource_type='video', secure=True)
     else:
         video_url = ''
+    if about_data:
+        about_url = about_data.video_file.build_url(resource_type='video', secure=True)
+    else:
+        about_url =''
     context = {
         'title': 'About Us - Elite Dream Builders',
         'about': about_data,  # Pass None if no records exist
         'about_title_video': Abouttitlevideo,  # Pass None if no records exist
         'video_url': video_url,
+        'about_url':about_url,
+        
     }
     return render(request, 'index/about.html', context)
     
