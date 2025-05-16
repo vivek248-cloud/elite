@@ -32,7 +32,7 @@
 <div class="bg-video animation slide-down">
   {% if about_title_video %}
     <video autoplay loop muted playsinline>
-      <source src="{{ about_title_video.video_file.url }}" type="video/mp4">
+      <source src="{{ about_title_video.video_file.url|replace:'http:','https:' }}" type="video/mp4">
     </video>
   {% else %}
     <video autoplay loop muted playsinline>
