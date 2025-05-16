@@ -149,7 +149,7 @@
   <div class="video-container" id="videoContainer">
       {% for video in videos %}
       <video class="slide" controls autoplay muted loop>
-          <source src="{{ video.video_file.url }}" type="video/mp4">
+          <source src="{{ video.video_file.url }}" type="video/mp4" preload="auto">
           Your browser does not support the video tag.
       </video>
       {% endfor %}
