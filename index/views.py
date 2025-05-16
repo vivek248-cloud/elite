@@ -334,37 +334,38 @@ def get_quote(request):
             # ✅ Email to User
             user_subject = "Quote Request Received"
             user_message = f"""
-Dear {quote.name},
-
-Thank you for requesting a quote. We have received your request and will get back to you soon.
-
-Details:
-- Name: {quote.name}
-- Email: {quote.email}
-- Phone: {quote.phone}
-- Service Type: {quote.service_type}
-- Budget Range: {quote.budget_range}
-
-Best Regards,
-Elite Dream Builders
-"""
+            Dear {quote.name},
+            
+            Thank you for requesting a quote. We have received your request and will get back to you soon.
+            
+            Details:
+            - Name: {quote.name}
+            - Email: {quote.email}
+            - Phone: {quote.phone}
+            - Service Type: {quote.service_type}
+            - Budget Range: {quote.budget_range}
+            
+            Best Regards,
+            Elite Dream Builders
+            """
             send_mail(
                 user_subject,
                 user_message,
-                [settings.ADMIN_EMAIL],
+                settings.EMAIL_HOST_USER,  # sender
                 [quote.email],
                 fail_silently=False,
             )
 
+
             # ✅ Email to Admin
-            admin_subject = "New Quote Request"
-            admin_message = f"""
-Name: {quote.name}
-Email: {quote.email}
-Phone: {quote.phone}
-Service Type: {quote.service_type}
-Budget Range: {quote.budget_range.name}
-"""
+                            admin_subject = "New Quote Request"
+                            admin_message = f"""
+                Name: {quote.name}
+                Email: {quote.email}
+                Phone: {quote.phone}
+                Service Type: {quote.service_type}
+                Budget Range: {quote.budget_range.name}
+                """
             send_mail(
                 admin_subject,
                 admin_message,
