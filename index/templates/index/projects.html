@@ -73,7 +73,7 @@
           {% for project in projects %}
           <div class="cards animation zoom-in">
               <a href="{% url 'projects_details' project.id %}">
-                  <img src="{{ project.image.url|add:'?q_auto=f_auto&w=800 }}" alt="{{ project.title }}">
+                  <img src="{{ project.image.url|add:'?q_auto=f_auto&w=800' }}" alt="{{ project.title }}">
                   <div class="info">
                       <h3 class="c animation slide-up">{{ project.title }}</h3>
                       <strong class="animation slide-up">{{ project.budget_range}}</strong>
