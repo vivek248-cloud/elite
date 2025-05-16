@@ -266,24 +266,48 @@ import json
 from .forms import QuoteRequestForm
 
 
+# def send_whatsapp_to_admin(quote):
+#     try:
+#             client = Client(settings.TWILIO_ACCOUNT_SID_TWO, settings.TWILIO_AUTH_TOKEN)
+#             client.messages.create(
+#                 from_='whatsapp:' + settings.TWILIO_WHATSAPP_NUMBER,
+#                 to='whatsapp:' + settings.ADMIN_WHATSAPP_NUMBER,
+#                 content_sid=settings.TWILIO_TEMPLATE_SID_TWO,
+#             content_variables=json.dumps({
+#                 "1": quote.name,
+#                 "2": quote.email,
+#                 "3": quote.phone,
+#                 "4": quote.service_type,
+#                 "5": quote.budget_range.name if quote.budget_range else "N/A",
+#                 })
+#             )
+#             print("✅ WhatsApp message sent successfully.")
+#             return True
+
+#     except Exception as e:
+#         print(f"[Twilio Error] WhatsApp not sent: {e}")
+#         return False
+
+from twilio.rest import Client
+import json
+
 def send_whatsapp_to_admin(quote):
     try:
-            client = Client(settings.TWILIO_ACCOUNT_SID_TWO, settings.TWILIO_AUTH_TOKEN)
-            client.messages.create(
-                from_='whatsapp:' + settings.TWILIO_WHATSAPP_NUMBER,
-                to='whatsapp:' + settings.ADMIN_WHATSAPP_NUMBER,
-                content_sid=settings.TWILIO_TEMPLATE_SID_TWO,
+        client = Client(settings.TWILIO_ACCOUNT_SID_TWO, settings.TWILIO_AUTH_TOKEN)
+        message = client.messages.create(
+            from_='whatsapp:' + settings.TWILIO_WHATSAPP_NUMBER,
+            to='whatsapp:' + settings.ADMIN_WHATSAPP_NUMBER,
+            content_sid=settings.TWILIO_TEMPLATE_SID_TWO,
             content_variables=json.dumps({
                 "1": quote.name,
                 "2": quote.email,
                 "3": quote.phone,
                 "4": quote.service_type,
                 "5": quote.budget_range.name if quote.budget_range else "N/A",
-                })
-            )
-            print("✅ WhatsApp message sent successfully.")
-            return True
-
+            })
+        )
+        print("✅ WhatsApp message sent successfully.")
+        return True
     except Exception as e:
         print(f"[Twilio Error] WhatsApp not sent: {e}")
         return False
