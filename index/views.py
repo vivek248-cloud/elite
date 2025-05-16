@@ -266,7 +266,7 @@ import json
 
 def send_whatsapp_to_admin(quote):
     try:
-        client = Client(settings.TWILIO_TEMPLATE_SID_TWO, settings.TWILIO_AUTH_TOKEN)
+        client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
         message = client.messages.create(
             from_='whatsapp:' + settings.TWILIO_WHATSAPP_NUMBER,
             to='whatsapp:' + settings.ADMIN_WHATSAPP_NUMBER,
