@@ -16,6 +16,21 @@ window.addEventListener("scroll", function() {
         navbar.style.display="none";
     }
 });
+
+window.addEventListener("scroll", () => {
+  const navbar = document.getElementById("goto2");
+  if (navbar) {
+    navbar.style.display = window.scrollY > 200 ? "block" : "none";
+  }
+});
+
+window.addEventListener("scroll", () => {
+  const navbar = document.getElementById("goto3");
+  if (navbar) {
+    navbar.style.display = window.scrollY > 300 ? "block" : "none";
+  }
+});
+
 window.addEventListener("scroll", function() {
     let scrollTop = window.scrollY;
     let docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -29,16 +44,16 @@ window.addEventListener("scroll", function() {
 window.addEventListener("scroll", function() {
     let scrollTop = window.scrollY;
     let docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    let scrollPercentage = (scrollTop / docHeight) * 100;
-
+    let scrollPercentage = (scrollTop / docHeight) * 100; // Just *100
     let progressLine = document.getElementById("bg-grow");
-    progressLine.style.height = scrollPercentage + "%";
+    progressLine.style.height = scrollPercentage + "%"; // Set height in %
 });
+
 
 window.addEventListener("scroll", function() {
     let scrollTop = window.scrollY;
     let docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    let scrollPercentage = (scrollTop / docHeight) * 70;
+    let scrollPercentage = (scrollTop / docHeight) * 300;
 
     let progressLine = document.getElementById("bg-grow2");
     progressLine.style.width = scrollPercentage + "%";
@@ -49,49 +64,47 @@ function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-//  counters
-const counters = document.querySelectorAll(".counters span");
+const counters = document.querySelectorAll(".counter span[data-count]");
 const container = document.querySelector(".counters");
 let activated = false;
-window.addEventListener("scroll",() => {
-    if(
-        pageYOffset >= container.offsetTop - container.offsetHeight - 200
-        && activated === false
-    )
-    {
-        counters.forEach(counter => {
-            counter.innerText = 0;
-            let count=0;
 
-            function updateCount(){
-                const target = parseInt(counter.dataset.count);
-                if(count < target){
-                   count++;
-                   counter.innerText= count;
-                   setTimeout(updateCount, 20);  
-                }
-                else{
-                    counter.innerText = target;
-                }
-            }
-            updateCount();
-            activated = true;
+window.addEventListener("scroll", () => {
+  if (
+    window.pageYOffset >= container.offsetTop - container.offsetHeight - 200 &&
+    !activated
+  ) {
+    counters.forEach(counter => {
+      const target = parseInt(counter.dataset.count);
+      let count = 0;
 
-        });
-
-    } else if(
-        pageYOffset < container.offsetTop - container.offsetHeight-500 
-        || pageYOffset === 0
-        && activated === true
-    ){
-        counters.forEach(counter => {
-            counter.innerText = 0;
-        });
-        activated=false;
-    }
+      if (target > 500) {
+        counter.innerText = "1 Lacs+";
+      } else {
+        const increment = 1;
+        function updateCount() {
+          if (count < target) {
+            count += increment;
+            counter.innerText = count;
+            setTimeout(updateCount, 15);
+          } else {
+            counter.innerText = formatCount(target);
+          }
+        }
+        updateCount();
+      }
+    });
+    activated = true;
+  }
 });
 
-// animation
+function formatCount(num) {
+  if (num > 500) {
+    return "1 Lacs+";
+  }
+  return num;
+}
+
+
 
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
@@ -141,15 +154,6 @@ function isInViewportImage(element) {
   
   imageOnScroll();
 
-//   mouse track
-
-document.addEventListener("mousemove", function(event) {
-    let cursor = document.querySelector(".cursor");
-
-    // Update position with smooth animation
-    cursor.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
-});
-
 
 const manifestData = {
     name: "",
@@ -191,3 +195,97 @@ const manifestData = {
 
 
   
+
+document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll(".scroller-section");
+    const scroller = document.querySelector(".scroller");
+    let scrollAmount = 0;
+    let maxScroll = (sections.length - 1) * window.innerWidth; // Max horizontal scroll width
+    let isHorizontal = true; // Tracks if scrolling is horizontal
+
+    let touchStartX = 0, touchEndX = 0;
+
+    // Handle Mouse Scroll
+    window.addEventListener("wheel", function (event) {
+        if (isHorizontal) {
+            if (scrollAmount < maxScroll && event.deltaY > 0) {
+                event.preventDefault();
+                scrollAmount += window.innerWidth;
+                gsap.to(scroller, { x: -scrollAmount, duration: 0.8, ease: "power2.out" });
+            } else if (scrollAmount > 0 && event.deltaY < 0) {
+                event.preventDefault();
+                scrollAmount -= window.innerWidth;
+                gsap.to(scroller, { x: -scrollAmount, duration: 0.8, ease: "power2.out" });
+            }
+
+            // Enable vertical scrolling when max horizontal scroll is reached
+            if (scrollAmount >= maxScroll) {
+                isHorizontal = false;
+                document.body.style.overflowY = "auto"; // Enables vertical scrolling
+            }
+        } else {
+            // Reverse scrolling order when scrolling back up
+            if (window.scrollY === 0) {
+                isHorizontal = true;
+                scrollAmount = maxScroll; // Start from the last section
+                reverseHorizontalScroll();
+                document.body.style.overflowY = "hidden"; // Disable vertical scrolling
+            }
+        }
+    });
+
+    // Reverse Horizontal Scroll Animation
+    function reverseHorizontalScroll() {
+        let interval = setInterval(() => {
+            if (scrollAmount > 0) {
+                scrollAmount -= window.innerWidth;
+                gsap.to(scroller, { x: -scrollAmount, duration: 0.8, ease: "power2.out" });
+            } else {
+                clearInterval(interval);
+            }
+        }, 1000); // Reverse scroll delay
+    }
+
+    // Handle Touch Start (Mobile)
+    window.addEventListener("touchstart", function (event) {
+        touchStartX = event.touches[0].clientX;
+    });
+
+    // Prevent Default Touch Scroll when in Horizontal Mode
+    window.addEventListener("touchmove", function (event) {
+        if (isHorizontal) {
+            event.preventDefault();
+        }
+    }, { passive: false });
+
+    // Handle Touch End (Swipe Detection)
+    window.addEventListener("touchend", function (event) {
+        touchEndX = event.changedTouches[0].clientX;
+        let swipeDistance = touchStartX - touchEndX;
+
+        if (isHorizontal) {
+            if (swipeDistance > 50 && scrollAmount < maxScroll) {
+                // Swipe Left (Next Section)
+                scrollAmount += window.innerWidth;
+                gsap.to(scroller, { x: -scrollAmount, duration: 0.8, ease: "power2.out" });
+            } else if (swipeDistance < -50 && scrollAmount > 0) {
+                // Swipe Right (Previous Section)
+                scrollAmount -= window.innerWidth;
+                gsap.to(scroller, { x: -scrollAmount, duration: 0.8, ease: "power2.out" });
+            }
+
+            if (scrollAmount >= maxScroll) {
+                isHorizontal = false;
+                document.body.style.overflowY = "auto"; // Enables vertical scrolling
+            }
+        } else {
+            // Reverse horizontal scroll when scrolling back to top
+            if (window.scrollY === 0) {
+                isHorizontal = true;
+                scrollAmount = maxScroll;
+                reverseHorizontalScroll();
+                document.body.style.overflowY = "hidden"; // Disable vertical scrolling
+            }
+        }
+    });
+});
