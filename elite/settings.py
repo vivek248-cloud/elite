@@ -47,6 +47,7 @@ CLOUDINARY_STORAGE = {
     'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME', default='your-cloud-name'),
     'API_KEY': config('CLOUDINARY_API_KEY', default='your-api-key'),
     'API_SECRET': config('CLOUDINARY_API_SECRET', default='your-api-secret'),
+    'SECURE': True  # This forces HTTPS
 }
 
 # Use Cloudinary for media URL
