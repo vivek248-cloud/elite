@@ -41,8 +41,15 @@ window.addEventListener("scroll", () => {
 
 window.addEventListener("scroll", () => {
   const navbar = document.getElementById("goto3");
-  if (navbar) {
-    navbar.style.display = window.scrollY > 300 ? "block" : "none";
+  if (!goto3) return;
+
+  const scrollBottom = window.innerHeight + window.scrollY;
+  const docHeight = document.documentElement.scrollHeight;
+
+  if (window.scrollY > 200 && scrollBottom < docHeight - 50) {
+    goto3.style.display = "block";
+  } else {
+    goto3.style.display = "none";
   }
 });
 
