@@ -143,10 +143,11 @@
   <div id="project-videos-container" class="video-grid">
     {% for projectvideo in project_videos %}
       <div class="video_cards animation zoom-in">
-        <video controls width="100%" autoplay loop>
-          <source src="{{ projectvideo.video_file.url?f_auto=mp4&q_auto }}" type="video/mp4">
+       <video controls width="100%" autoplay loop muted>
+          <source src="{{ projectvideo.video_file.url }}?f_auto=mp4&q_auto" type="video/mp4">
           Your browser does not support the video tag.
         </video>
+
         <h4 class="c animation slide-up">{{ projectvideo.title }}</h4>
       </div>
     {% endfor %}
