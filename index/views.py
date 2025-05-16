@@ -34,14 +34,7 @@ def home(request, category='residential'):
                'sliders': sliders,
     })
 
-# def category(request, category):
-#     # category = request.GET.get('category', 'residential') # Default to 'residential' if not provided
-#     all_projects = Project.objects.filter(category=category)[:3]
-#     return render(request, 'index/category.html',{
-#         'title': 'category - Welcome to Elite Dream Builders',
-#                'projects': all_projects,
-#                'category': category # Pass the category to the template
-#     })
+
 
 def category(request, category):
     # Filter projects by the provided category (case-insensitive)
@@ -358,7 +351,7 @@ Elite Dream Builders
             send_mail(
                 user_subject,
                 user_message,
-                settings.ADMIN_EMAIL,
+                [settings.ADMIN_EMAIL],
                 [quote.email],
                 fail_silently=False,
             )
