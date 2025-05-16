@@ -6419,7 +6419,7 @@ margin-right: 5rem;
   height: 60vh;
   display: flex;
   align-items: flex-end;
-  padding: 2rem;
+/*   padding: 2rem; */
   color: white;
   border-radius: 20px;
   overflow: hidden;
