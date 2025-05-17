@@ -1416,7 +1416,7 @@ p, a, li, span, button, input, textarea {
 	left: 0;
 	width: 100%;
 	padding: 0;
-	background-image: url("../images/DSC07528.JPG");
+	background-color: #000;
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -1430,7 +1430,7 @@ p, a, li, span, button, input, textarea {
 	position: relative;
 	width: 100%;
 	justify-content: center;
-	backdrop-filter: brightness(40%) blur(5px);
+	
   }
   
   .box2-bg {
@@ -1480,15 +1480,42 @@ p, a, li, span, button, input, textarea {
 	line-height: 1.7;
   }
   
-  .contact-box2-text .get-h1 {
-	position: relative;
-	padding: 2rem;
-	color: white;
-	font-size: 3rem;
-	font-family: 'Poppins', sans-serif;
-	text-shadow: 0 4px 10px rgba(255, 215, 0, 0.4);
-	margin-bottom: 1rem;
+.contact-box2-text .get-h1 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: white;
+  font-size: 5rem;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+  text-shadow: 0 4px 10px rgba(255, 215, 0, 0.4);
+  margin-bottom: 1rem;
+}
+
+/* Animated line to the right */
+.contact-box2-text .get-h1::after {
+  content: "";
+  flex: 1;
+  max-width: 200px;
+  height: 2px;
+  background: linear-gradient(to right, #ffdd00, #ffae00);
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+  animation: drawLine 2s ease-out forwards;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+/* Keyframes for drawing effect */
+@keyframes drawLine {
+  to {
+    transform: scaleX(1);
   }
+}
+
+
+
   
   .contact-box2-body {
 	padding: 2rem;
@@ -2273,7 +2300,7 @@ p, a, li, span, button, input, textarea {
 	background-position: center;
 	background-size: cover;
 	position: relative;
-	/* background-image: url(""); */
+	/* background-image: url("../images/DSC07493.JPG"); */
 	background-color: white!important;
 }
 .card-link {
@@ -2350,7 +2377,7 @@ p, a, li, span, button, input, textarea {
 .home-content-1-col-2 h4,
 .home-content-1-col-2 h5,
 .home-content-1-col-2 p {
-	color: black;
+	color: rgb(0, 0, 0);
 	text-align: justify;
 }
 
@@ -2393,7 +2420,7 @@ p, a, li, span, button, input, textarea {
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
 
-  background-image: url("https://res.cloudinary.com/doczkiibv/image/upload/v1747470950/new-york-city_pwhrpd.jpg");
+  background-image: url("../images/new-york-city.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: left;
@@ -4476,17 +4503,10 @@ video, .overlay {
 	font-family: var(--head-font1);
 	
   }
-	 .contact-head {
-	  position: absolute;
-	  top: 50%;
-	  left: 50%;
-	  transform: translate(-50%, -50%);
-	  z-index: 10;
-	  text-align: center;
-	  width: 100%;
-	  padding: 0 1rem;
-	}
-	
+
+
+
+
   .contact-subtitle {
 	text-align: center;
 	margin-bottom: 2rem;
@@ -4535,25 +4555,13 @@ video, .overlay {
 
 
   /* contact page videon slider  */
-
-  .slider-video {
-	width: 100%;
-	height: 100%;
-	border-radius: 10px;
-	box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
-  }
-  .slider-video video{
-	width: 100%;
-	height: 100%!important;
-	object-fit: cover;
-  }
   .video-title {
 	text-align: center;
 	color: gold;
 	font-size: 1.2rem;
 	margin-top: 10px;
   }
-  .terms-head-overlay-video {
+  /* .terms-head-overlay-video {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -4561,14 +4569,14 @@ video, .overlay {
 	height: 100%;
 	background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.4), rgba(20, 20, 20, 0.6));
 	z-index: 1;
-  }
+  } */
   
-  .swiper
+  /* .swiper
   {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-  }
+  } */
 
 
 
@@ -4875,9 +4883,6 @@ video, .overlay {
 			left: 0%;
 			width: 100%;
 			padding: 0rem;
-			background-image: url("../images/home2.jpg");
-			background-position:center;
-			background-size: cover;
 			background-repeat: no-repeat;
 			object-fit: cover;
 			display: block;
@@ -4903,10 +4908,6 @@ video, .overlay {
 			left: 0%;
 			width: 100%;
 			padding: 0rem;
-			background-image: url("../images/home2.jpg");
-			background-position:center;
-			background-size: cover;
-			background-repeat: no-repeat;
 			object-fit: cover;
 			display: block;
 		}
@@ -5414,10 +5415,6 @@ video, .overlay {
 		  left: 0%;
 		  width: 100%;
 		  padding: 0rem;
-		  background-image: url("../images/home2.jpg");
-		  background-position:center;
-		  background-size: cover;
-		  background-repeat: no-repeat;
 		  object-fit: cover;
 		  display: block;
 	  }
@@ -5890,10 +5887,6 @@ top: 0%;
 left: 0%;
 width: 100%;
 padding: 0rem;
-background-image: url("../images/home2.jpg");
-background-position:center;
-background-size: cover;
-background-repeat: no-repeat;
 object-fit: cover;
 display: block;
 }
@@ -6208,7 +6201,7 @@ margin-right: 5rem;
   .counter h3 {
     font-size: 0.9rem;
   }
-   .social-sidebar {
+  .social-sidebar {
 			position: fixed;
 			bottom: 20%!important;
 			left: 8px;
@@ -6310,6 +6303,7 @@ margin-right: 5rem;
 {
 	text-decoration: none;
 	color: white;
+	margin-top: 8px;
 }
 /* Slide in on hover - this is more useful for right-sided bars;
    so this part can be removed unless you're using it for right bar */
@@ -6497,6 +6491,7 @@ margin-right: 5rem;
   white-space: nowrap;
 }
 
+
 .projects-text p {
   line-height: 1.8;
   font-size: 1.1rem;
@@ -6613,3 +6608,124 @@ margin-right: 5rem;
   width: 100%;
   height: 100vh;
 }
+
+
+
+
+
+.timeline-section {
+  position: relative;
+  padding: 100px 0;
+  background: linear-gradient(to bottom, #000000, #595959);
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  overflow-x: hidden;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, #ffe57f, #ffc107, #ff9800);
+  animation: pulse-line 3s infinite ease-in-out;
+  z-index: 1;
+  border-radius: 4px;
+}
+
+@keyframes pulse-line {
+  0%, 100% {
+    box-shadow: 0 0 10px #ffc934, 0 0 20px #ffb700;
+  }
+  50% {
+    box-shadow: 0 0 20px #ffd95c, 0 0 40px #ffc107;
+  }
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 30px 50px;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1s ease;
+}
+
+.timeline-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+}
+
+.timeline-item .content {
+  padding: 0;
+  margin: 0;
+  background: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  border: none;
+  position: relative;
+  z-index: 2;
+  transition: all 0.5s ease;
+}
+
+
+.timeline-item .content:hover {
+  transform: scale(1.03);
+}
+
+.timeline-item h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #ffe57f;
+  transform: rotate(-4deg);
+  margin-bottom: 10px;
+  background: linear-gradient(45deg, #ffd700, #ffaf00);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.timeline-item.right h2 {
+  transform: rotate(4deg);
+}
+
+.timeline-item p {
+  font-size: 1rem;
+  color: #ffffff;
+  line-height: 1.7;
+}
+
+/* Particle shimmer on the timeline line */
+@keyframes shimmer {
+  0% {
+    background-position: -100px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+
+
+
+
+
