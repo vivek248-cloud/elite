@@ -3320,7 +3320,7 @@ video, .overlay {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		background-color: rgba(255, 255, 255, 1);
+		background-color: rgb(255, 235, 235);
 		padding: 20px;
 		width: 350px;
 		border-radius: 8px;
@@ -3341,6 +3341,7 @@ video, .overlay {
 	  
 	  .infos {
 		margin-top: 1rem;
+		color: #000;
 	  }
 	  
 	  .date-time {
