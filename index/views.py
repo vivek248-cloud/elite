@@ -417,7 +417,7 @@ def about(request):
 def testimonals(request):
     videos = Video.objects.all()
     reviews = Review.objects.all().order_by('-created_at')
-     if videos:
+    if videos:
         video_url = videos.video_file.build_url(resource_type='video', secure=True)
     else:
         video_url = ''
