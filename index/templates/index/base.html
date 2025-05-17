@@ -25,31 +25,65 @@
     <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static "css/elite.css" %}">
-    
-</head>
-<body>
-  <div class="header">
+   <style>
+  @media (max-width: 768px) {
+    .navbar-title {
+      max-width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: wrap;
+      font-size: 0.2rem !important;
+    }
+
+    .logo-title-wrapper {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .navbar-logo img {
+      height: 100px !important; /* Smaller logo on mobile */
+    }
+  }
+
+  .navbar-logo img {
+    height: 100px;
+  }
+
+  .logo-title-wrapper {
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    gap: 1px;
+  }
+
+  .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+  }
+</style>
+
+<div class="header">
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top px-3" id="container">
-    <div class="container-fluid position-relative">
+    <div class="container-fluid d-flex align-items-center justify-content-between flex-nowrap">
 
-      <!-- Logo (Left) -->
-      <a class="navbar-logo d-flex align-items-center gap-2" href="{% url 'contact' %}">
-        <img src="{% static 'images/logo.PNG' %}" alt="Logo" style="height: 90px;">
-      </a>
-
-      <!-- Title (Always Centered) -->
-      <div class="navbar-title position-absolute start-50 translate-middle-x text-center text-white">
-        <span class="w-title">THE ELITE DREAM BUILDERS <sup class="sup">&reg;</sup></span>
+      <!-- Logo and Title on the far left -->
+      <div class="logo-title-wrapper ms-0">
+        <a class="navbar-logo d-flex align-items-center me-2" href="{% url 'contact' %}">
+          <img src="{% static 'images/logo.PNG' %}" alt="Logo">
+        </a>
+        <div class="navbar-title text-white">
+          <span class="w-title">THE ELITE DREAM BUILDERS <sup class="sup">&reg;</sup></span>
+        </div>
       </div>
 
-      <!-- Toggle Button (Right on small screens) -->
-      <button  style="border-style: none;" class="navbar-toggler ms-auto z-3" type="button" data-bs-toggle="collapse"
+      <!-- Toggle Button on the far right -->
+      <button class="navbar-toggler z-3" type="button" data-bs-toggle="collapse"
               data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-              aria-expanded="false" aria-label="Toggle navigation">
+              aria-expanded="false" aria-label="Toggle navigation" style="border-style: none;">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!-- Nav Links (Right of title on desktop; slide from right on mobile) -->
+      <!-- Nav Links -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav gap-3 ms-auto text-start text-lg-start">
           <li class="nav-item"><a class="nav-link text-white" href="{% url 'home' %}">Home</a></li>
@@ -60,12 +94,13 @@
           <li class="nav-item"><a class="nav-link text-white" href="{% url 'contact' %}">Contact</a></li>
         </ul>
       </div>
-
     </div>
+
     <div class="line3" id="line3"></div>
   </nav>
-  
 </div>
+
+
 
 
 
