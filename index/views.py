@@ -51,20 +51,30 @@ def services(request):
 
 
 def projects(request):
-    all_projects = Project.objects.all()[:3]  # Initial 6 projects
+    all_projects = Project.objects.all()[:3]
     projectvideo = ProjectVideo.objects.all()[:3]
-    upcoming_projects = UpcomingProject.objects.all()[:3]  # Initial 6 upcoming projects
+    upcoming_projects = UpcomingProject.objects.all()[:3]
     youtube_videos = YouTubeVideo.objects.all()[:3]
     videoslider = SliderVideo.objects.all()
+
+    # Get the first project video URL securely
+    if projectvideo.exists():
+        first_video = projectvideo.first()
+        project_video_url = first_video.video_file.build_url(resource_type='video', secure=True)
+    else:
+        project_video_url = ''
+
     context = {
         'title': 'Projects - Elite Dream Builders',
         'projects': all_projects,
         'upcoming_projects': upcoming_projects,
-        'project_videos': projectvideo,
+        'project_videos': projectvideo,  # all project videos
+        'project_video_url': project_video_url,  # only the first video’s URL
         'youtube_videos': youtube_videos,
         'videoslider': videoslider,
     }
     return render(request, 'index/projects.html', context)
+
 
 def load_more_projects(request):
     offset = int(request.GET.get('offset', 0))
