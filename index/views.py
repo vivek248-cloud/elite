@@ -57,9 +57,10 @@ def projects(request):
     youtube_videos = YouTubeVideo.objects.all()[:3]
     videoslider = SliderVideo.objects.all()
 
-    # Get the first project video URL securely
-    if projectvideo.exists():
-        first_video = projectvideo.first()
+    # Fix: Get the first video from the full queryset, not from the sliced one
+    full_project_videos = ProjectVideo.objects.all()
+    if full_project_videos.exists():
+        first_video = full_project_videos.first()
         project_video_url = first_video.video_file.build_url(resource_type='video', secure=True)
     else:
         project_video_url = ''
@@ -68,12 +69,13 @@ def projects(request):
         'title': 'Projects - Elite Dream Builders',
         'projects': all_projects,
         'upcoming_projects': upcoming_projects,
-        'project_videos': projectvideo,  # all project videos
-        'project_video_url': project_video_url,  # only the first video’s URL
+        'project_videos': projectvideo,  # sliced list of 3 for display
+        'project_video_url': project_video_url,  # secure URL of the first video
         'youtube_videos': youtube_videos,
         'videoslider': videoslider,
     }
     return render(request, 'index/projects.html', context)
+
 
 
 def load_more_projects(request):
