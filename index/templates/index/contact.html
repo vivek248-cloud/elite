@@ -119,20 +119,60 @@
     </div>
 </div>
 </div>
-{% comment %} <div  class="grid-container-box-head"><h1>Meet Our Team</h1></div>
-<div class="grid-container-bg">
-<div class="grid-container-box">
-  {% for image in images %}
-      <div class="grid-item item-{{ forloop.counter }}">
-          <img src="{{ image.image.url }}" alt="{{ image.title }}" class="animation zoom-in">
+
+
+<section class="timeline-section">
+  <div class="timeline">
+    <div class="timeline-item left">
+      <div class="content">
+        <h2>2021</h2>
+        <p>Started the journey – laid the foundation.</p>
       </div>
-  {% empty %}
-      <p>No images available</p>
-  {% endfor %}
-</div>
-</div> {% endcomment %}
+    </div>
+    <div class="timeline-item right">
+      <div class="content">
+        <h2>2022</h2>
+        <p>Expanded our team and services.</p>
+      </div>
+    </div>
+    <div class="timeline-item left">
+      <div class="content">
+        <h2>2023</h2>
+        <p>Launched major projects successfully.</p>
+      </div>
+    </div>
+    <div class="timeline-item right">
+      <div class="content">
+        <h2>2024</h2>
+        <p>Achieved significant milestones across regions.</p>
+      </div>
+    </div>
+    <div class="timeline-item left">
+      <div class="content">
+        <h2>2025</h2>
+        <p>Established a strong presence across Tamil Nadu.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const items = document.querySelectorAll(".timeline-item");
 
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, {
+      threshold: 0.4,
+    });
+
+    items.forEach(item => observer.observe(item));
+  });
+</script>
 
 
 <section class="team-section">
