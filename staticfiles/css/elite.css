@@ -2347,9 +2347,10 @@ p, a, li, span, button, input, textarea {
 	color: black;
 }
 .home-content-1-col-2 h3,
+.home-content-1-col-2 h4,
 .home-content-1-col-2 h5,
 .home-content-1-col-2 p {
-	color: white;
+	color: black;
 	text-align: justify;
 }
 
