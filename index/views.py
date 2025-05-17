@@ -192,6 +192,14 @@ def contact(request):
     images = GalleryImage.objects.all()
     about_sections = AboutSection.objects.all()
     videoslider = SliderVideo.objects.all()
+
+    # Get first video from slider
+    if videoslider.exists():
+        first_video = videoslider.first()
+        video_url = first_video.video_file.build_url(resource_type='video', secure=True)
+    else:
+        video_url = ''
+
     if request.method == "POST":
         name = request.POST.get('name')
         email = request.POST.get('email')
@@ -219,7 +227,7 @@ def contact(request):
             client.messages.create(
                 from_='whatsapp:' + settings.TWILIO_WHATSAPP_NUMBER,
                 to='whatsapp:' + settings.ADMIN_WHATSAPP_NUMBER,
-                content_sid=settings.TWILIO_TEMPLATE_SID,  # Your template SID
+                content_sid=settings.TWILIO_TEMPLATE_SID,
                 content_variables=json.dumps({
                     "1": name,
                     "2": email,
@@ -232,13 +240,16 @@ def contact(request):
             messages.error(request, "Failed to send WhatsApp message.")
 
         return redirect('contact')
+
     context = {
         'title': 'Contact Us - Elite Dream Builders',
         'images': images,
         'about_sections': about_sections,
         'videoslider': videoslider,
+        'video_url': video_url,
     }
     return render(request, 'index/contact.html', context)
+
 
 
 
