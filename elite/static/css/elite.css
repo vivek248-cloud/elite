@@ -2273,7 +2273,7 @@ p, a, li, span, button, input, textarea {
 	background-position: center;
 	background-size: cover;
 	position: relative;
-	/* background-image: url("../images/DSC07493.JPG"); */
+	/* background-image: url(""); */
 	background-color: white!important;
 }
 .card-link {
@@ -2392,7 +2392,7 @@ p, a, li, span, button, input, textarea {
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
 
-  background-image: url("../images/new-york-city.jpg");
+  background-image: url("https://res.cloudinary.com/doczkiibv/image/upload/v1747470950/new-york-city_pwhrpd.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: left;
