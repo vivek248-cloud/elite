@@ -4486,17 +4486,7 @@ video, .overlay {
 	  width: 100%;
 	  padding: 0 1rem;
 	}
-	.contact-head h2 {
-	  font-size: clamp(2rem, 6vw, 5rem); /* responsive big text */
-	  color: white;
-	  text-transform: uppercase;
-	  font-weight: 700;
-	  letter-spacing: 2px;
-	  background: rgba(0, 0, 0, 0.4); /* optional overlay for contrast */
-	  padding: 0.5rem 1rem;
-	  border-radius: 10px;
-	  display: inline-block;
-	}
+	
   .contact-subtitle {
 	text-align: center;
 	margin-bottom: 2rem;
