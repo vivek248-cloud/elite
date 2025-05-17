@@ -417,12 +417,21 @@ def about(request):
 def testimonals(request):
     videos = Video.objects.all()
     reviews = Review.objects.all().order_by('-created_at')
-    if videos:
-        video_url = videos.video_file.build_url(resource_type='video', secure=True)
+    
+    if videos.exists():
+        first_video = videos.first()
+        video_url = first_video.video_file.build_url(resource_type='video', secure=True)
     else:
         video_url = ''
-    context = {'title': 'Testimonals - Elite Dream Builders','reviews':reviews,'videos':videos, 'video_url': video_url}
-    return render(request,'index/testimonals.html',context)
+
+    context = {
+        'title': 'Testimonals - Elite Dream Builders',
+        'reviews': reviews,
+        'videos': videos,
+        'video_url': video_url
+    }
+    return render(request, 'index/testimonals.html', context)
+
 
 def terms(request):
     context = {'title': 'Terms & Conditions - Elite Dream Builders'}
