@@ -6491,3 +6491,19 @@ margin-right: 5rem;
 .navbar-title {
   white-space: nowrap;
 }
+.projects-text p {
+  line-height: 1.8;
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+
+.projects-text .intro {
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.projects-text .details {
+  font-weight: 400;
+  color: #666;
+}
