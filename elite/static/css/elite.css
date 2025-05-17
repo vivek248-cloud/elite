@@ -4476,14 +4476,27 @@ video, .overlay {
 	font-family: var(--head-font1);
 	
   }
-  .contact-head {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	color: white; /* Optional: for visibility over video */
-	text-align: center;
-  }
+	 .contact-head {
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  z-index: 10;
+	  text-align: center;
+	  width: 100%;
+	  padding: 0 1rem;
+	}
+	.contact-head h2 {
+	  font-size: clamp(2rem, 6vw, 5rem); /* responsive big text */
+	  color: white;
+	  text-transform: uppercase;
+	  font-weight: 700;
+	  letter-spacing: 2px;
+	  background: rgba(0, 0, 0, 0.4); /* optional overlay for contrast */
+	  padding: 0.5rem 1rem;
+	  border-radius: 10px;
+	  display: inline-block;
+	}
   .contact-subtitle {
 	text-align: center;
 	margin-bottom: 2rem;
@@ -6509,4 +6522,104 @@ margin-right: 5rem;
 .projects-text .details {
   font-weight: 400;
   color: #666;
+}
+
+
+/* Make video cover full slide */
+.slider-video {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+/* Center the heading */
+.contact-head {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  text-align: center;
+  width: 100%;
+  padding: 1rem;
+}
+
+.contact-head h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  color: transparent;
+  background: linear-gradient(45deg, gold, gold, #000000, #ffffff, #ffc934);
+  background-size: 400% 400%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  padding: 1.2rem 2.5rem;
+  border-radius: 14px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 3px;
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: all 0.5s ease-in-out;
+
+  animation: shine-gradient 8s ease-in-out infinite;
+}
+
+@keyframes shine-gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+
+
+
+
+
+/* Optional: smooth fade-in animation */
+.contact-head h2.animation {
+  opacity: 0;
+  animation: fadeInSlideDown 1s ease-out 0.5s forwards;
+}
+
+@keyframes fadeInSlideDown {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+/* Optional: overlay layer on video (already in your code) */
+.terms-head-overlay-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 5;
+}
+
+/* Ensure swiper-slide is full screen */
+.swiper-slide {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Optional: ensure Swiper container fills screen */
+.videoSwiper {
+  width: 100%;
+  height: 100vh;
 }
