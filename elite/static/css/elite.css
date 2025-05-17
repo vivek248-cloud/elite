@@ -439,7 +439,7 @@ p, a, li, span, button, input, textarea {
   }
   .line3
   {
-	top: 107px;
+	top: 108px;
 	position: absolute;
 	display: block;
 	z-index: 0;
@@ -509,7 +509,7 @@ p, a, li, span, button, input, textarea {
 	}
 	.line3
 	{
-		top: 107px;
+		top: 108px;
 		position: absolute;
 		display:block;
 	}
@@ -765,7 +765,7 @@ p, a, li, span, button, input, textarea {
 {
 	position:absolute;
 	/* margin-bottom: 10px; */
-	top: 107px;
+	top: 113px;
 	left: 0px;
     height: 2px;
 	transition: all 0.5s ease;
@@ -779,7 +779,11 @@ p, a, li, span, button, input, textarea {
 	z-index: 0;
 }
 
-
+.nav-item a
+	{
+		font-size: 1.2rem!important;
+		
+	}
    
 
    .highlight
@@ -1212,7 +1216,10 @@ p, a, li, span, button, input, textarea {
   .w{
     color:var(--gold);
 }
-
+.w2{
+	color:black;
+	font-weight: 600;
+}
   .w-title {
 	position: relative;
 	left: 0%;
@@ -2266,8 +2273,8 @@ p, a, li, span, button, input, textarea {
 	background-position: center;
 	background-size: cover;
 	position: relative;
-	background-image: url("../images/DSC07493.JPG");
-	
+	/* background-image: url("../images/DSC07493.JPG"); */
+	background-color: white!important;
 }
 .card-link {
   text-decoration: none;
@@ -2282,7 +2289,7 @@ p, a, li, span, button, input, textarea {
 	position: relative;
 	padding: 2rem;
 	justify-content: center;
-	/* backdrop-filter: blur(0px) brightness(90%); */
+	backdrop-filter: blur(0px) brightness(90%);
 	color: rgb(255, 255, 255);
 	
 }
@@ -2294,7 +2301,7 @@ p, a, li, span, button, input, textarea {
 	gap: 5rem;
 	padding: 5rem;
 	justify-content: center;
-	backdrop-filter: blur(5px) brightness(45%);
+	/* backdrop-filter: blur(5px) brightness(90%); */
 }
 
 .home-content-1-col-1 {
@@ -2313,13 +2320,14 @@ p, a, li, span, button, input, textarea {
 
 .home-content-1-col-1 h1 {
 	font-size: 6rem;
-	font-weight: bolder;
-	color: white;
+	color: gold;
 	text-align: left;
 	background-clip: text;
 	background-position: center;
 	background-size: cover;
 	letter-spacing: 2px;
+	font-family: 'Poppins', sans-serif;
+  	font-weight: 800;
 }
 
 .home-content-1-col-1 h1 sup {
@@ -2334,8 +2342,9 @@ p, a, li, span, button, input, textarea {
 .home-content-1-col-2 .h4
 {
 	font-size: 1.5rem;
-	font-weight: 700;
+	font-weight: 500;
 	text-align: center;
+	color: black;
 }
 .home-content-1-col-2 h3,
 .home-content-1-col-2 h5,
@@ -2375,18 +2384,23 @@ p, a, li, span, button, input, textarea {
 .home-content-1-col-1 h1 sup
 {
 	color: var(--gold);
+	font-family: 'Poppins', sans-serif;
+  	font-weight: 800;
 }
 
 .dream-text {
-	font-family: 'Poppins', sans-serif;
-	font-weight: 700;
-	background-image: url("../images/sunset.jpg");
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: auto;
-	background-clip: text;
-	object-fit: cover;
-	color: rgba(0, 0, 0, 0);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+
+  background-image: url("../images/new-york-city.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
 }
 .home-content-2
 {
@@ -2545,7 +2559,7 @@ p, a, li, span, button, input, textarea {
   }
   .home-content-1-col-2 h3
   {
-	font-family: var(--font-family);
+	font-family: poppins, sans-serif;
   }
   .home-content-2-row2 {
 	display: grid;
@@ -2631,7 +2645,7 @@ p, a, li, span, button, input, textarea {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	/* backdrop-filter: blur(0px) grayscale(0%) brightness(90%); */
+	backdrop-filter: brightness(90%);
   }
   /* Media Queries */
   @media (min-width: 768px) {
@@ -2676,7 +2690,27 @@ p, a, li, span, button, input, textarea {
   gap: 2rem;
   padding: 1rem 0;
 }
+.project-sidebar li a {
+  display: block;
+  padding: 12px 20px;
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
 
+
+.project-sidebar li a:hover,
+.project-sidebar li.active a {
+  background-color: gold;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding-left: 6px;
+}
 .project-sidebar {
   flex: 1 1 100%;
   width: 100%;
@@ -2744,40 +2778,46 @@ p, a, li, span, button, input, textarea {
 	text-decoration: none;
 	color: #111;
 	font-size: 1.15rem;
-	font-weight: 500;
+	font-weight: 700;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	transition: all 0.3s ease;
+	position: relative;
   }
   
   /* Arrow to the right */
-  .project-sidebar a::after {
-	content: '→';
-	font-size: 1.3rem;
-	color: #999;
-	transition: transform 0.3s ease, color 0.3s ease;
-  }
-  
-  /* Hover Effect */
-  .project-sidebar a:hover {
-	color: black;
-  }
-  
-  .project-sidebar a:hover::after {
-	transform: translateX(10px);
-	color: gold;
-  }
-  
-  /* Active state */
-  .project-sidebar .active a {
-	color: black;
-	font-weight: 700;
-  }
-  
-  .project-sidebar .active a::after {
-	color: black;
-  }
+.project-sidebar a::after {
+  content: '→';
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: gold;
+  margin-left: 10px;
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Hover Effect */
+.project-sidebar li a:hover {
+  color: #000;
+}
+
+.project-sidebar li a:hover::after {
+  transform: translateX(10px);
+  color: #000000; 
+}
+
+/* Active State */
+.project-sidebar .active a {
+  color: #000;
+  font-weight: 700;
+  background-color: #f8f8f8;
+  border-left: 4px solid gold;
+}
+
+.project-sidebar .active a::after {
+  color: #000;
+}
   
 
 
@@ -4798,7 +4838,7 @@ video, .overlay {
 	}
 	.nav-item a
 	{
-		font-size: .8rem!important;
+		font-size: 1rem!important;
 		padding-left: .2rem!important;
 	}
 	.outline-text-1 {
@@ -6126,7 +6166,7 @@ margin-right: 5rem;
 	}
 	.line3
 	{
-		top: 105px;
+		top: 112px;
 		position: absolute;
 		display:block;
 	}
@@ -6440,4 +6480,14 @@ margin-right: 5rem;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.w-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.navbar-title {
+  white-space: nowrap;
 }
