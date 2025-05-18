@@ -65,7 +65,7 @@
       <div class="home-content-1-col-1 animation slide-up"  data-aos="fade-up" data-aos-duration="1000">
         <h1 data-animate="fade-in">
               ELITE 
-              <span class="dream-text from-bottom" style="background-image: url('https://res.cloudinary.com/doczkiibv/image/upload/v1747470950/new-york-city_pwhrpd.jpg');">
+              <span class="dream-text" data-animate="fromTop" style="background-image: url('https://res.cloudinary.com/doczkiibv/image/upload/v1747470950/new-york-city_pwhrpd.jpg');">
                 DREAM
               </span> 
               BUILDERS<sup>&reg;</sup>
@@ -98,19 +98,19 @@
   </div>
 </div>
 <div class="project-section">
-    <h2>Our services</h2>
+    <h2 data-animate="fromTop">Our services</h2>
     <div class="project-layout">
       
       <!-- Sidebar (left) -->
       <div class="project-sidebar">
         <ul>
-          <li class="{% if active_category == 'residential' %}active{% endif %}">
+          <li class="{% if active_category == 'residential' %}active{% endif %}" data-animate="fromLeft">
             <a href="{% url 'home_with_category' 'residential' %}"> RESIDENTIAL</a>
           </li>
-          <li class="{% if active_category == 'commercial' %}active{% endif %}">
+          <li class="{% if active_category == 'commercial' %}active{% endif %}" data-animate="fromLeft">
             <a href="{% url 'home_with_category' 'commercial' %}">COMMERCIAL</a>
           </li>
-          <li class="{% if active_category == 'interior' %}active{% endif %}">
+          <li class="{% if active_category == 'interior' %}active{% endif %}" data-animate="fromLeft">
             <a href="{% url 'home_with_category' 'interior' %}">INTERIOR</a>
           </li>
         </ul>
@@ -122,7 +122,7 @@
         {% for project in projects %}
         <div class="project-card-horizontal animation zoom-in">
           
-            <div class="image-section">
+            <div class="image-section"  data-animate="fadeIn">
               <img src="{{ project.image.url }}" alt="{{ project.title }}"  loading="lazy" />
             </div>
          
@@ -134,17 +134,17 @@
   
     </div>
     <button class="load-more-button animation zoom-in">
-      <a href="{% url 'projects' %}" style=" color:black;">know More</a>
+      <a href="{% url 'projects' %}" style=" color:black;"  data-animate="fadeIn">know More</a>
     </button>
   </div>
 
   <div class="home-content-2">
     <div class="home-content-2-bg">
       <div class="home-content-head animation  slide-down">
-        <h3>OUR BEST <span class="w">SERVICES</span></h3>
+        <h3  data-animate="fromTop">OUR BEST <span class="w">SERVICES</span></h3>
       </div>
       <div class="home-content-2-row">
-        <a href="{% url 'category' 'residential' %}" class="card-link">
+        <a href="{% url 'category' 'residential' %}" class="card-link"  data-animate="fromBottom">
         <div class="e-card playing animation zoom-in e-card-playing {% if active_category == 'residential' %}active{% endif %}">
           <div class="image"></div>
           
@@ -160,7 +160,7 @@
           </div>
         </div>
       </a>
-      <a href="{% url 'category' 'commercial' %}"  class="card-link">
+      <a href="{% url 'category' 'commercial' %}"  class="card-link" data-animate="fromBottom">
         <div class="e-card playing animation zoom-in">
           <div class="image"></div>
           
@@ -200,7 +200,7 @@
             </div>
           </div>
         </div>
-        <div class="home-logo-col animation zoom-in">
+        <div class="home-logo-col" data-animate="fadeIn">
           <a href="{% url 'contact' %}">
             <img src="{% static 'images/logo.PNG' %}" alt="Logo" />
           </a>
@@ -248,23 +248,23 @@
     <div class="home-content-1">
       
       <div class="home-content-1-col-2">
-        <h1 class="w animation slide-up">Welcome to Elite Dream Builders</h1>
+        <h1 class="w" data-animate="fadeIn">Welcome to Elite Dream Builders</h1>
         <div class="line5 animation zoom-out"></div>
-        <h3 class="animation zoom-in"><span class="w">10</span> years of experience</h3><br>
+        <h3 data-animate="fromTop"><span class="w">10</span> years of experience</h3><br>
         <h4 class="h4 ssanimation slide-up">WE DO ONLY WHAT WE ARE GREAT ON</h4>
         
 
-        <p class="animation slide-up">The Elite Dream Builders, We ensure the delivered projects and services are of the highest quality and consistently satisfy our customer requirements.We strongly believe that customer satisfaction plays an important role to make each project a complete success. Our team members are capable of building enduring houses and good rapport with each customer. Our engineers focus on using the excellent quality construction materials for housing solutions that stand the test of time.
+        <p data-animate="fromBottom">The Elite Dream Builders, We ensure the delivered projects and services are of the highest quality and consistently satisfy our customer requirements.We strongly believe that customer satisfaction plays an important role to make each project a complete success. Our team members are capable of building enduring houses and good rapport with each customer. Our engineers focus on using the excellent quality construction materials for housing solutions that stand the test of time.
           We design each and every one as per customer satisfaction. We have done commercial, residential and commercial cum residential projects. Most of our residential projects are either duplex house or apartment or villas.
           No matter what the project size or cost we will always be working in close with the clients in order to design and also implement all those in the construction too. Each and every customization or request made by the client will be taken into account. We have done projects for every budget.
           </p>
-         <h4 class="animation slide-right"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="Star" height="20px">
+         <h4  data-animate="fromLeft"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="Star" height="20px">
           <path fill="gold" d="M17.562 21.56a1 1 0 0 1-.465-.116L12 18.764l-5.097 2.68a1 1 0 0 1-1.45-1.053l.973-5.676-4.124-4.02a1 1 0 0 1 .554-1.705l5.699-.828 2.549-5.164a1.04 1.04 0 0 1 1.793 0l2.548 5.164 5.699.828a1 1 0 0 1 .554 1.705l-4.124 4.02.974 5.676a1 1 0 0 1-.985 1.169Z" class="color6563ff svgShape"></path>
           </svg> </span>High Efficiency</h4>
-          <h4 class="animation slide-right"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="Star" height="20px">
+          <h4  data-animate="fromLeft"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="Star" height="20px">
             <path fill="gold" d="M17.562 21.56a1 1 0 0 1-.465-.116L12 18.764l-5.097 2.68a1 1 0 0 1-1.45-1.053l.973-5.676-4.124-4.02a1 1 0 0 1 .554-1.705l5.699-.828 2.549-5.164a1.04 1.04 0 0 1 1.793 0l2.548 5.164 5.699.828a1 1 0 0 1 .554 1.705l-4.124 4.02.974 5.676a1 1 0 0 1-.985 1.169Z" class="color6563ff svgShape"></path>
             </svg> </span>Low Cost</h4>
-          <h4 class="animation slide-right"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="Star" height="20px">
+          <h4  data-animate="fromLeft"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="Star" height="20px">
             <path fill="gold" d="M17.562 21.56a1 1 0 0 1-.465-.116L12 18.764l-5.097 2.68a1 1 0 0 1-1.45-1.053l.973-5.676-4.124-4.02a1 1 0 0 1 .554-1.705l5.699-.828 2.549-5.164a1.04 1.04 0 0 1 1.793 0l2.548 5.164 5.699.828a1 1 0 0 1 .554 1.705l-4.124 4.02.974 5.676a1 1 0 0 1-.985 1.169Z" class="color6563ff svgShape"></path>
             </svg> </span>High Quality</h4>
       </div>
