@@ -62,7 +62,7 @@
   
     <div class="home-content-1">
       
-      <div class="home-content-1-col-1 animation slide-up"  data-aos="fade-up" data-aos-duration="1000">
+      <div class="home-content-1-col-1"  data-aos="fade-up" data-aos-duration="1000">
         <h1 data-animate="fade-in">
               ELITE 
               <span class="dream-text" data-animate="fromTop" style="background-image: url('https://res.cloudinary.com/doczkiibv/image/upload/v1747470950/new-york-city_pwhrpd.jpg');">
@@ -75,11 +75,11 @@
       <div class="home-content-1-col-2">
         <h1 class="w animation slide-up">Welcome to Elite Dream Builders</h1>
         <div class="line5 animation zoom-out"></div>
-        <h4 class="h4 ssanimation slide-up">WE DO ONLY WHAT WE ARE GREAT ON</h4>
+        <h4 class="h4">WE DO ONLY WHAT WE ARE GREAT ON</h4>
         
   
 
-        <div class="counters animation zoom-in counters-div" style="background-color:rgba(240, 240, 240, 0);">
+        <div class="counters  counters-div" style="background-color:rgba(240, 240, 240, 0);">
           <div class="counter-grid home-circles">
             <div class="counter circles" data-animate="from-left">
               <h1 >1Lac +</h1>
@@ -98,19 +98,19 @@
   </div>
 </div>
 <div class="project-section">
-    <h2 data-animate="fromTop">Our services</h2>
+    <h2 data-animate="from-top">Our services</h2>
     <div class="project-layout">
       
       <!-- Sidebar (left) -->
       <div class="project-sidebar">
         <ul>
-          <li class="{% if active_category == 'residential' %}active{% endif %}" data-animate="fromLeft">
+          <li class="{% if active_category == 'residential' %}active{% endif %}" data-animate="from-left">
             <a href="{% url 'home_with_category' 'residential' %}"> RESIDENTIAL</a>
           </li>
-          <li class="{% if active_category == 'commercial' %}active{% endif %}" data-animate="fromLeft">
+          <li class="{% if active_category == 'commercial' %}active{% endif %}" data-animate="from-left">
             <a href="{% url 'home_with_category' 'commercial' %}">COMMERCIAL</a>
           </li>
-          <li class="{% if active_category == 'interior' %}active{% endif %}" data-animate="fromLeft">
+          <li class="{% if active_category == 'interior' %}active{% endif %}" data-animate="from-left">
             <a href="{% url 'home_with_category' 'interior' %}">INTERIOR</a>
           </li>
         </ul>
@@ -122,7 +122,7 @@
         {% for project in projects %}
         <div class="project-card-horizontal animation zoom-in">
           
-            <div class="image-section"  data-animate="fadeIn">
+            <div class="image-section"  data-animate="fade-in">
               <img src="{{ project.image.url }}" alt="{{ project.title }}"  loading="lazy" />
             </div>
          
@@ -134,17 +134,17 @@
   
     </div>
     <button class="load-more-button animation zoom-in">
-      <a href="{% url 'projects' %}" style=" color:black;"  data-animate="fadeIn">know More</a>
+      <a href="{% url 'projects' %}" style=" color:black;"  data-animate="fade-in">know More</a>
     </button>
   </div>
 
   <div class="home-content-2">
     <div class="home-content-2-bg">
       <div class="home-content-head animation  slide-down">
-        <h3  data-animate="fromTop">OUR BEST <span class="w">SERVICES</span></h3>
+        <h3  data-animate="from-top">OUR BEST <span class="w">SERVICES</span></h3>
       </div>
       <div class="home-content-2-row">
-        <a href="{% url 'category' 'residential' %}" class="card-link"  data-animate="fromBottom">
+        <a href="{% url 'category' 'residential' %}" class="card-link"  data-animate="from-bottom">
         <div class="e-card playing animation zoom-in e-card-playing {% if active_category == 'residential' %}active{% endif %}">
           <div class="image"></div>
           
@@ -160,7 +160,7 @@
           </div>
         </div>
       </a>
-      <a href="{% url 'category' 'commercial' %}"  class="card-link" data-animate="fromBottom">
+      <a href="{% url 'category' 'commercial' %}"  class="card-link" data-animate="from-bottom">
         <div class="e-card playing animation zoom-in">
           <div class="image"></div>
           
@@ -189,18 +189,18 @@
           <p  data-aos="animation slide-up">At Elite Dream Builders Construction we believe in providing value by controlling cost, adequate scheduling and thorough understanding and investigation of client requirements. Applying these fundamentals to each and every project guarantees timely delivery of Works to our exacting standard. ,</p>
           <div class="home-content-2-row-col-1-content">
             <div class="home-content-2-row-col-1-box">
-              <p class="animation slide-up"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>  Expert & Professional</p>
-              <p class="animation slide-up"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>  High Quality Work</p>
-              <p class="animation slide-up"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>  Quick In Response</p>
+              <p  data-animate="from-left"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>  Expert & Professional</p>
+              <p data-animate="from-left"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>  High Quality Work</p>
+              <p data-animate="from-left"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>  Quick In Response</p>
             </div>
             <div class="home-content-2-row-col-1-box">
-              <p class="animation slide-up"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>  Professional Approach</p>
-              <p class="animation slide-up"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>  Satisfaction Guarantee</p>
-              <p class="animation slide-up"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>  24/7 Emergency</p>
+              <p data-animate="from-left"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>  Professional Approach</p>
+              <p data-animate="from-left"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>  Satisfaction Guarantee</p>
+              <p data-animate="from-left"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>  24/7 Emergency</p>
             </div>
           </div>
         </div>
-        <div class="home-logo-col" data-animate="fadeIn">
+        <div class="home-logo-col" data-animate="fade-in">
           <a href="{% url 'contact' %}">
             <img src="{% static 'images/logo.PNG' %}" alt="Logo" />
           </a>
@@ -216,7 +216,7 @@
               <source src="https://res.cloudinary.com/doczkiibv/video/upload/v1747479903/top-views_g8qe6z.mp4" type="video/mp4">
           </video>
           <div class="overlay">
-            <h1 class="w">MISSION</h1>
+            <h1 class="w" data-animate="from-bottom">MISSION</h1>
             <p>At The Elite Dream Builders, our mission is to deliver a customer-centric construction experience rooted in trust, transparency, and excellence.</p>
           </div>
       </div>
@@ -225,7 +225,7 @@
               <source src="https://res.cloudinary.com/doczkiibv/video/upload/v1747309793/video3_tmugvg.mp4" type="video/mp4" preload="auto">
           </video>
           <div class="overlay">
-            <h1 class="w">VISION</h1>
+            <h1 class="w" data-animate="from-bottom">VISION</h1>
             <p>Our vision is to transform Trichy into a city celebrated for its beautiful, high-quality homes. At The Elite Dream Builders, we are committed to setting new benchmarks in trust, quality, and transparency as a leading construction company in Trichy. By building homes that enrich our clients’ lives and contribute to Trichy’s growth, we aim to leave a lasting legacy in the city’s construction landscape.</p>
           </div>
       </div>
@@ -234,7 +234,7 @@
               <source src="https://res.cloudinary.com/doczkiibv/video/upload/v1747479903/top-views_g8qe6z.mp4" type="video/mp4">
           </video>
           <div class="overlay">
-            <h1 class="w">MISSION</h1>
+            <h1 class="w" data-animate="from-bottom">MISSION</h1>
             <p>At The Elite Dream Builders, our mission is to deliver a customer-centric construction experience rooted in trust, transparency, and excellence.</p>
           </div>
       </div>
@@ -248,9 +248,9 @@
     <div class="home-content-1">
       
       <div class="home-content-1-col-2">
-        <h1 class="w" data-animate="fadeIn">Welcome to Elite Dream Builders</h1>
+        <h1 class="w" data-animate="fade-in">Welcome to Elite Dream Builders</h1>
         <div class="line5 animation zoom-out"></div>
-        <h3 data-animate="fromTop"><span class="w">10</span> years of experience</h3><br>
+        <h3 data-animate="from-top"><span class="w">10</span> years of experience</h3><br>
         <h4 class="h4 ssanimation slide-up">WE DO ONLY WHAT WE ARE GREAT ON</h4>
         
 
