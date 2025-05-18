@@ -6724,3 +6724,34 @@ margin-right: 5rem;
     background-position: 200px 0;
   }
 }
+@media (max-width: 360px) {
+  .timeline {
+    padding: 20px 10px;
+  }
+
+  .timeline::after {
+    left: 20px; /* Move the line to the left side */
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding: 20px 20px 20px 40px;
+    text-align: left !important;
+    left: 0 !important;
+  }
+
+  .timeline-item h2 {
+    font-size: 1.6rem;
+    transform: rotate(0deg);
+    text-align: left;
+  }
+
+  .timeline-item.right h2 {
+    transform: rotate(0deg);
+  }
+
+  .timeline-item p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
