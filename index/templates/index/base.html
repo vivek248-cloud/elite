@@ -266,7 +266,28 @@
     {% endblock %}
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
     <script src={% static "js/elite.js" %}></script>
-    
+    <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const animatedItems = document.querySelectorAll("[data-animate]");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const animationClass = entry.target.dataset.animate;
+          entry.target.classList.add(animationClass);
+          observer.unobserve(entry.target); // Remove if you want it only once
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    animatedItems.forEach(item => {
+      observer.observe(item);
+    });
+  });
+</script>
+
   <script>
     
   //for prevent contextmenu
