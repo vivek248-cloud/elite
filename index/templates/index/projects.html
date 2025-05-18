@@ -33,9 +33,9 @@
 
 <div class="terms-head">
   <div class="terms-head-overlay"></div>
-  <div class="content-wrapper animation fade-in">
-    <h1 class="projects-title">Our Signature Projects</h1>
-    <p class="projects-subtitle">
+  <div class="content-wrapper">
+    <h1 class="projects-title" data-animate="from-top">Our Signature Projects</h1>
+    <p class="projects-subtitle" data-animate="from-top">
       Crafted with precision, excellence, and timeless architectural elegance.
     </p>
   </div>
@@ -44,11 +44,11 @@
 <div class="projects">
     <div class="projects-text">
       <div class="head">
-        <h1 class="animation slide-up"><span class="h1">O</span>ur Projects</h1>  
+        <h1 data-animate="from-left"><span class="h1">O</span>ur Projects</h1>  
       </div>
 
-      <div class="intro animation slide-down">
-        <p>
+      <div class="intro">
+        <p data-animate="fade-in">
           At Elite Dream Builders, we focus on top-quality construction and timely delivery. Our strong client relationships and dedication to excellence make us one of the most trusted builders in Trichy.
         </p>
       </div>
@@ -56,13 +56,13 @@
 
     <section class="completed-projects">
       <div class="section-title-wrapper">
-        <h2 class="section-title">Completed Projects</h2>
+        <h2 class="section-title" data-animate="from-bottom">Completed Projects</h2>
       </div>
       <div id="projects-container" class="parent">
           {% for project in projects %}
           <div class="cards animation zoom-in">
               <a href="{% url 'projects_details' project.id %}">
-                  <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy">
+                  <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy" data-animate="fade-in">
                   <div class="info">
                       <h3 class="c animation slide-up">{{ project.title }}</h3>
                       <strong class="animation slide-up">{{ project.budget_range}}</strong>
@@ -78,13 +78,13 @@
     
   <section class="completed-projects">
     <div class="section-title-wrapper">
-      <h2 class="section-title">Ongoing Projects</h2>
+      <h2 class="section-title" data-animate="from-bottom">Ongoing Projects</h2>
     </div>
     <div class="parent"  id='upcoming-projects-container'>
       {% for project in upcoming_projects %}
         <div class="cards animation zoom-in">
             <a href="{% url 'projects_details' project.id %}">
-                <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy">
+                <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy" data-animate="fade-in">
                 <div class="info">
                     <h3 class="c animation slide-up">{{ project.title }}</h3>
                     <strong class="animation slide-up">{{ project.budget_range }}</strong>
@@ -97,11 +97,11 @@
         <p>No images available</p>
         {% endfor %}
     </div>
-    <button id="load-more-upcoming-btn" class="load-more-button">Load More</button>
+    <button id="load-more-upcoming-btn" class="load-more-button" data-animate="from-bottom">Load More</button>
 </section>
 
 <section class="youtube-gallery-section">
-  <h2 class="section-title">Explore Our Projects</h2>
+  <h2 class="section-title" data-animate="from-bottom">Explore Our Projects</h2>
   <div id="youtube-video-grid" class="youtube-video-grid">
     {% for video in youtube_videos %}
       <div class="youtube-frame animation fade-in-up">
@@ -127,11 +127,11 @@
 
 
 <section class="project-videos-section">
-  <h2 class="section-title">Client Video References</h2>
+  <h2 class="section-title" data-animate="from-right">Client Video References</h2>
   
   <div id="project-videos-container" class="video-grid">
     {% for projectvideo in project_videos %}
-      <div class="video_cards animation zoom-in">
+      <div class="video_cards" data-animate="fade-in">
        <video controls width="100%" autoplay loop muted>
           <source src="{{ project_video_url }}" type="video/mp4" preload="auto">
           Your browser does not support the video tag.
@@ -194,12 +194,12 @@
 
 <div class="projects-text">
   <div class="head">
-    <h1 class="animation slide-up"><span class="h1">D</span>elivering Dreams with Integrity</h1>
+    <h1 data-animate="from-left"><span class="h1">D</span>elivering Dreams with Integrity</h1>
   </div>
 
 
   <div class="details animation slide-down">
-      <p>
+      <p data-animate="fade-in">
         At Elite Dream Builders, we are committed to delivering exceptional construction experiences. Our projects are guided by precise scheduling using Gantt charts and monitored through our dedicated mobile app, ensuring complete transparency at every stage. 
     <br><br>
         Every structure we build goes through over 200 rigorous quality checks, guaranteeing strength, safety, and longevity. From premium villas and modern duplexes to stylish apartments, we craft each project with attention to detail and a focus on client satisfaction.
