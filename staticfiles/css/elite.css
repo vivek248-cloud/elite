@@ -4470,12 +4470,6 @@ video, .overlay {
 	}
   }
 
-/* Example backgrounds (update with your own images if needed) */
-.scroller-img1 { background: url("../images/stairs.jpg");background-position: center; background-size: cover; object-fit: cover; background-repeat: no-repeat; }
-.scroller-img2 { background: url("../images/home2.jpg");background-position: center; background-size: cover; object-fit: cover; background-repeat: no-repeat;  }
-.scroller-img3 { background: url("../images/residentel.jpg");background-position: center; background-size: cover; object-fit: cover; background-repeat: no-repeat;  }
-.scroller-img4 { background: url("../images/landscape\ house.jpg");background-position: center; background-size: cover; object-fit: cover; background-repeat: no-repeat;  }
-.scroller-img5 { background: url("../images/luxury.jpg");background-position: center; background-size: cover; object-fit: cover; background-repeat: no-repeat;  }
 
 
 /* contsct form */
@@ -5441,7 +5435,7 @@ video, .overlay {
 		.social-sidebar {
 			position: fixed;
 			bottom: 13%;
-			left: 8px;
+			right: 8px;
 			}
 }
 
@@ -5569,7 +5563,7 @@ video, .overlay {
 	.social-sidebar {
 			position: fixed;
 			bottom: 13%;
-			left: 8px;
+			right: 8px;
 			}
   }
 
@@ -6204,7 +6198,7 @@ margin-right: 5rem;
   .social-sidebar {
 			position: fixed;
 			bottom: 20%!important;
-			left: 8px;
+			right: 8px;
 }
 	.scroller-content h1
 	{
@@ -6271,7 +6265,7 @@ margin-right: 5rem;
  .social-sidebar {
 			position: fixed;
 			bottom: 15%;
-			left: 8px;
+			right: 8px;
 }
 }
 
@@ -6290,7 +6284,7 @@ margin-right: 5rem;
 .social-sidebar {
   position: fixed;
   bottom: 13%;
-  left: 9px;
+  right: 9px;
   display: flex;
   flex-direction: column;
   gap: 15px;
