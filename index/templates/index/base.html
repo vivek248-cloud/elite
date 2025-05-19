@@ -62,68 +62,84 @@
   }
     
 
-    /* LOADER STYLES */
-    .loader {
-      position: relative;
-      width: 164px;
-      height: 164px;
-    }
-
-    .loader::before,
-    .loader::after {
-      content: '';
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      background-color: #fff;
-      left: 50%;
-      top: 50%;
-      animation: rotate 1s ease-in infinite;
-    }
-
-    .loader::after {
-      width: 20px;
-      height: 20px;
-      background-color: #FF3D00;
-      animation: rotate 1s ease-in infinite, moveY 1s ease-in infinite;
-    }
-
-    @keyframes moveY {
-      0%, 100% { top: 10%; }
-      45%, 55% { top: 49%; }
-      60% { top: 30%; }
-    }
-
-    @keyframes rotate {
-      0% { transform: translate(-50%, -100%) rotate(0deg) scale(1, 1); }
-      25% { transform: translate(-50%, 0%) rotate(180deg) scale(1, 1); }
-      45%, 55% { transform: translate(-50%, 100%) rotate(180deg) scale(3, 0.5); }
-      60% { transform: translate(-50%, 100%) rotate(180deg) scale(1, 1); }
-      75% { transform: translate(-50%, 0%) rotate(270deg) scale(1, 1); }
-      100% { transform: translate(-50%, -100%) rotate(360deg) scale(1, 1); }
-    }
-
-    /* LOGO STYLES */
-   .logo-container {
-  display: none;
-  animation: fadeIn 1s ease forwards;
+   body {
+  margin: 0;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  flex-direction: column;
 }
 
-    .logo-container.hide {
-      animation: fadeOut 1s ease forwards;
-    }
+/* LOADER STYLES */
+.loader {
+  position: relative;
+  width: 164px;
+  height: 164px;
+}
 
-    .logo-container img {
-      width: 200px;
-      height: auto;
-      filter: drop-shadow(0 0 10px gold);
-    }
+.loader::before,
+.loader::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  left: 50%;
+  top: 50%;
+  animation: rotate 1s ease-in infinite;
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.8); }
-      to { opacity: 1; transform: scale(1); }
-    }
-       @keyframes fadeOut {
+.loader::after {
+  width: 20px;
+  height: 20px;
+  background-color: #FF3D00;
+  animation: rotate 1s ease-in infinite, moveY 1s ease-in infinite;
+}
+
+@keyframes moveY {
+  0%, 100% { top: 10%; }
+  45%, 55% { top: 49%; }
+  60% { top: 30%; }
+}
+
+@keyframes rotate {
+  0% { transform: translate(-50%, -100%) rotate(0deg) scale(1, 1); }
+  25% { transform: translate(-50%, 0%) rotate(180deg) scale(1, 1); }
+  45%, 55% { transform: translate(-50%, 100%) rotate(180deg) scale(3, 0.5); }
+  60% { transform: translate(-50%, 100%) rotate(180deg) scale(1, 1); }
+  75% { transform: translate(-50%, 0%) rotate(270deg) scale(1, 1); }
+  100% { transform: translate(-50%, -100%) rotate(360deg) scale(1, 1); }
+}
+
+/* LOGO STYLES */
+.logo-container {
+  display: none;
+  animation: fadeIn 1s ease forwards;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logo-container.hide {
+  animation: fadeOut 1s ease forwards;
+}
+
+.logo-container img {
+  width: 200px;
+  height: auto;
+  filter: drop-shadow(0 0 10px gold);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeOut {
   from { opacity: 1; transform: scale(1); }
   to { opacity: 0; transform: scale(0.8); }
 }
@@ -183,22 +199,40 @@
         <div class="typing-shadow"></div>
     </div>
     </div> -->
- <!-- Loader shown first -->
-  <div class="loader" id="loader"></div>
+<!-- Loader shown first -->
+<div class="loader" id="loader"></div>
 
-  <!-- Logo shown after loading -->
-  <div class="logo-container" id="logoContainer">
-    <img src="{% static 'images/logo.PNG' %}" alt="The Elite Dream Builders" />
-  </div>
-    <script>
-    window.addEventListener("load", function () {
-      const loader = document.getElementById("loader");
-      const logo = document.getElementById("logoContainer");
+<!-- Logo shown after loader -->
+<div class="logo-container" id="logoContainer">
+  <img src="{% static 'images/logo.PNG' %}" alt="The Elite Dream Builders" />
+</div>
 
-      loader.style.display = "none";
-      logo.style.display = "block";
-    });
-  </script>
+<!-- Main Content (hidden initially) -->
+<div id="mainContent" style="display: none;">
+  <!-- Replace this with your actual homepage content -->
+  <h1 style="color: white; text-align: center;">Welcome to The Elite Dream Builders</h1>
+</div>
+
+  <script>
+  window.addEventListener("load", function () {
+    const loader = document.getElementById("loader");
+    const logo = document.getElementById("logoContainer");
+
+    loader.style.display = "none";
+    logo.style.display = "block";
+
+    // After 3 seconds, fade out the logo
+    setTimeout(() => {
+      logo.classList.add("hide");
+    }, 3000);
+
+    (Optional) After logo fades out, redirect or show homepage content
+    setTimeout(() => {
+      window.location.href = "/home"; // example redirection
+    }, 4000);
+  });
+</script>
+
     <main>
         {% block content %}{% endblock %}
 
