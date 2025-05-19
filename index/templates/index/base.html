@@ -1,3 +1,4 @@
+
 {%load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -60,28 +61,26 @@
     padding-left: 0;
     padding-right: 0;
   }
-    
-
-   body {
-  margin: 0;
-  background: #000;
+       #loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #111; /* Optional: match your site theme */
+  z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  overflow: hidden;
-  flex-direction: column;
 }
 
-/* LOADER STYLES */
 .loader {
   position: relative;
   width: 164px;
   height: 164px;
 }
 
-.loader::before,
-.loader::after {
+.loader::before, .loader::after {
   content: '';
   position: absolute;
   width: 40px;
@@ -101,87 +100,81 @@
 
 @keyframes moveY {
   0%, 100% { top: 10%; }
-  45%, 55% { top: 49%; }
-  60% { top: 30%; }
+  45%, 55% { top: 59%; }
+  60% { top: 40%; }
 }
 
 @keyframes rotate {
-  0% { transform: translate(-50%, -100%) rotate(0deg) scale(1, 1); }
-  25% { transform: translate(-50%, 0%) rotate(180deg) scale(1, 1); }
+  0%   { transform: translate(-50%, -100%) rotate(0deg) scale(1, 1); }
+  25%  { transform: translate(-50%, 0%) rotate(180deg) scale(1, 1); }
   45%, 55% { transform: translate(-50%, 100%) rotate(180deg) scale(3, 0.5); }
-  60% { transform: translate(-50%, 100%) rotate(180deg) scale(1, 1); }
-  75% { transform: translate(-50%, 0%) rotate(270deg) scale(1, 1); }
+  60%  { transform: translate(-50%, 100%) rotate(180deg) scale(1, 1); }
+  75%  { transform: translate(-50%, 0%) rotate(270deg) scale(1, 1); }
   100% { transform: translate(-50%, -100%) rotate(360deg) scale(1, 1); }
 }
 
-/* LOGO STYLES */
-.logo-container {
-  display: none;
-  animation: fadeIn 1s ease forwards;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.logo-container.hide {
-  animation: fadeOut 1s ease forwards;
-}
-
-.logo-container img {
-  width: 200px;
-  height: auto;
-  filter: drop-shadow(0 0 10px gold);
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.8); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes fadeOut {
-  from { opacity: 1; transform: scale(1); }
-  to { opacity: 0; transform: scale(0.8); }
-}
-
 </style>
-</head>
-<body>
-<div class="loader" id="loader"></div>
-<div class="logo-container" id="logoContainer">
-    <img src="{% static 'images/logo.PNG' %}" alt="The Elite Dream Builders">
-</div>
-<div id="mainContent" style="display: none;">
-    <header class="header">
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top px-3" id="container">
-            <div class="container-fluid d-flex align-items-center justify-content-between">
-                <div class="logo-title-wrapper">
-                    <a class="navbar-logo me-2" href="{% url 'home' %}">
-                        <img src="{% static 'images/logo.PNG' %}" alt="Logo">
-                    </a>
-                    <div class="navbar-title text-white">
-                        <span class="w-title">THE ELITE DREAM BUILDERS <sup>&reg;</sup></span>
-                    </div>
-                </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link text-white" href="{% url 'home' %}">Home</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="{% url 'about' %}">About</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="{% url 'projects' %}">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="{% url 'get_quote' %}">Get Quote</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="{% url 'testimonals' %}">Testimonials</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="{% url 'contact' %}">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
 
-    <main class="flex-grow-1">
+<div class="header">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top px-3" id="container">
+    <div class="container-fluid d-flex align-items-center justify-content-between flex-nowrap">
+
+      <!-- Logo and Title on the far left -->
+      <div class="logo-title-wrapper ms-0">
+        <a class="navbar-logo d-flex align-items-center me-2" href="{% url 'contact' %}">
+          <img src="{% static 'images/logo.PNG' %}" alt="Logo">
+        </a>
+        <div class="navbar-title text-white">
+          <span class="w-title">THE ELITE DREAM BUILDERS <sup class="sup">&reg;</sup></span>
+        </div>
+      </div>
+
+      <!-- Toggle Button on the far right -->
+      <button class="navbar-toggler z-3" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+              aria-expanded="false" aria-label="Toggle navigation" style="border-style: none;">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Nav Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav gap-3 ms-auto text-start text-lg-start">
+          <li class="nav-item"><a class="nav-link text-white" href="{% url 'home' %}">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="{% url 'about' %}">About</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="{% url 'projects' %}">Projects</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="{% url 'get_quote' %}">Get Quote</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="{% url 'testimonals' %}">Testimonials</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="line3" id="line3"></div>
+  </nav>
+</div>
+
+
+
+
+
+    <!-- Loader -->
+<!--     <div id="loader">
+      <div class="typing-indicator">
+        <div class="typing-circle"></div>
+        <div class="typing-circle"></div>
+        <div class="typing-circle"></div>
+        <div class="typing-shadow"></div>
+        <div class="typing-shadow"></div>
+        <div class="typing-shadow"></div>
+    </div>
+    </div> -->
+    <div id="loader" class="d-flex justify-content-center align-items-center">
+  <span class="loader"></span>
+</div>
+
+    <main>
         {% block content %}{% endblock %}
+
     </main>
     
     <div class="pg-footer">
@@ -327,29 +320,8 @@
       <!-- js -->
     {% block extra_js %}
     {% endblock %}
-     <script>
-    window.addEventListener("load", function () {
-        const loader = document.getElementById("loader");
-        const logo = document.getElementById("logoContainer");
-        const mainContent = document.getElementById("mainContent");
-
-        loader.style.display = "none";
-        logo.style.display = "block";
-
-        setTimeout(() => {
-            logo.classList.add("hide");
-        }, 3000);
-
-        setTimeout(() => {
-            logo.style.display = "none";
-            mainContent.style.display = "block";
-            document.body.style.overflow = "auto";
-        }, 4000);
-    });
-</script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
     <script src={% static "js/elite.js" %}></script>
-   
     <script>
   document.addEventListener("DOMContentLoaded", () => {
     const animatedItems = document.querySelectorAll("[data-animate]");
