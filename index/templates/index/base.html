@@ -45,7 +45,7 @@
     }
   }
 
-  .navbar-logo img {
+/*   .navbar-logo img {
     height: 100px;
   }
 
@@ -60,11 +60,9 @@
     padding-left: 0;
     padding-right: 0;
   } */
-      body {
+     body {
       margin: 0;
-      background-color: #000;
-      color: white;
-      font-family: 'Poppins', sans-serif;
+      background: #000;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -72,45 +70,62 @@
       overflow: hidden;
     }
 
-    .logo-wrapper {
+    /* LOADER STYLES */
+    .loader {
       position: relative;
-      width: 200px;
-      height: auto;
-      opacity: 0;
-      animation: fadeIn 1.5s ease forwards;
+      width: 164px;
+      height: 164px;
     }
 
-    .logo-wrapper img {
-      width: 100%;
+    .loader::before,
+    .loader::after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-color: #fff;
+      left: 50%;
+      top: 50%;
+      animation: rotate 1s ease-in infinite;
+    }
+
+    .loader::after {
+      width: 20px;
+      height: 20px;
+      background-color: #FF3D00;
+      animation: rotate 1s ease-in infinite, moveY 1s ease-in infinite;
+    }
+
+    @keyframes moveY {
+      0%, 100% { top: 10%; }
+      45%, 55% { top: 59%; }
+      60% { top: 40%; }
+    }
+
+    @keyframes rotate {
+      0% { transform: translate(-50%, -100%) rotate(0deg) scale(1, 1); }
+      25% { transform: translate(-50%, 0%) rotate(180deg) scale(1, 1); }
+      45%, 55% { transform: translate(-50%, 100%) rotate(180deg) scale(3, 0.5); }
+      60% { transform: translate(-50%, 100%) rotate(180deg) scale(1, 1); }
+      75% { transform: translate(-50%, 0%) rotate(270deg) scale(1, 1); }
+      100% { transform: translate(-50%, -100%) rotate(360deg) scale(1, 1); }
+    }
+
+    /* LOGO STYLES */
+    .logo-container {
+      display: none;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .logo-container img {
+      width: 200px;
       height: auto;
-      display: block;
       filter: drop-shadow(0 0 10px gold);
     }
 
-    .spinner-ring {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 60px;
-      height: 60px;
-      margin: -30px 0 0 -30px;
-      border: 3px solid rgba(255, 215, 0, 0.4);
-      border-top: 3px solid gold;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-
     @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    /* Hide loader after load */
-    .logo-wrapper.loaded .spinner-ring {
-      display: none;
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
     }
 </style>
 
@@ -167,14 +182,20 @@
         <div class="typing-shadow"></div>
     </div>
     </div> -->
-<div class="logo-wrapper" id="logoWrapper">
+ <!-- Loader shown first -->
+  <div class="loader" id="loader"></div>
+
+  <!-- Logo shown after loading -->
+  <div class="logo-container" id="logoContainer">
     <img src="{% static 'images/logo.PNG' %}" alt="The Elite Dream Builders" />
-    <div class="spinner-ring"></div>
   </div>
     <script>
     window.addEventListener("load", function () {
-      const logoWrapper = document.getElementById("logoWrapper");
-      logoWrapper.classList.add("loaded");
+      const loader = document.getElementById("loader");
+      const logo = document.getElementById("logoContainer");
+
+      loader.style.display = "none";
+      logo.style.display = "block";
     });
   </script>
     <main>
