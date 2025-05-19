@@ -1,5 +1,5 @@
 {% extends 'index/base.html' %}
-{%load static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +28,6 @@
 </head>
 <body>
 {% block content %}
-<!-- HTML -->
 <div class="bg-video">
   {% if about_title_video %}
     <video autoplay loop muted playsinline controls>
@@ -41,8 +40,6 @@
   {% endif %}
 </div>
 
-
-
 <div class="text-bg animation slide-up" id="bg-grow2">
   <div class="outline-text">
     <h1>THE ELITE DREAM BUILDERS</h1>
@@ -54,18 +51,19 @@
     <div class="box1-text">
       <h1 data-animate="from-top"><span class="who">WHO </span>WE ARE ?</h1>
       <div class="line5 animation flip"></div>
-      <p data-animate="from-top">At The Elite Dream Builders, we understand the importance of your investment and the trust you place in us. With over a decade of experience and a strong reputation in Trichy, we don't just promise quality – we deliver it consistently.</p>
+      <p data-animate="from-top">At The Elite Dream Builders, we understand the importance of your investment...</p>
 
-      <p data-animate="from-top">Our commitment to transparency means no hidden fees, no surprises – just honest, reliable service. We treat your home as a serious investment, and we take every step to ensure it meets the highest standards. From open communication to respecting your budget, our team is dedicated to building your dream home.</p>
+      <p data-animate="from-top">Our commitment to transparency means no hidden fees...</p>
 
-      <p data-animate="from-top">Interested in seeing our work in progress? Explore our ongoing projects to see the quality and innovation we bring to every home.</p>
+      <p data-animate="from-top">Interested in seeing our work in progress? Explore our ongoing projects...</p>
 
       <h1 data-animate="from-left"><span class="who">OUR</span> STORY</h1>
       <div class="line5" data-animate="from-right"></div>
-      <p data-animate="fade-in">The Elite Dream Builders was founded by two visionary brothers, Hari (Founder) and Aravind (Managing Director), who grew up in Trichy, Tamil Nadu, with a shared mission to bring world-class construction standards to their hometown.</p>
+      <p data-animate="fade-in">The Elite Dream Builders was founded by two visionary brothers...</p>
 
-      <p data-animate="fade-in">At The Elite Dream Builders, we believe in building more than just homes. We’re creating spaces that transform communities. With Hari’s industry expertise and Aravind’s design excellence, we deliver premium-quality villas, turnkey homes, and commercial projects. Our commitment to quality, integrity, and client satisfaction makes us the trusted name for construction in Trichy.</p>
+      <p data-animate="fade-in">At The Elite Dream Builders, we believe in building more than just homes...</p>
     </div>
+
     <div class="box1-img" data-animate="from-bottom">
       {% if about %}
         <video autoplay loop muted controls playsinline>
@@ -74,10 +72,10 @@
       {% else %}
         <h2>Video not available</h2>
       {% endif %}
+    </div>
+  </div>
 </div>
 
-</div>
-</div>
 <div class="counters" data-animate="from-bottom">
   <div class="counter-grid">
     <div class="counter">
@@ -98,44 +96,43 @@
     </div>
   </div>
 </div>
+{% endblock %}
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
-    <script src={% static "js/elite.js" %}></script>
-    {% block extra_js %}
-    <script>
-      function isInViewport(element) {
-        const rect = element.getBoundingClientRect();
-        return (
-            rect.top < window.innerHeight && rect.bottom > 0 &&
-            rect.left < window.innerWidth && rect.right > 0
-        );
-    }
-    
-    function animateOnScroll() {
-        const elements = document.querySelectorAll('.animation');
-        elements.forEach(element => {
-            if (isInViewport(element) && !element.classList.contains('show')) {
-                element.classList.add('show');
-                element.getBoundingClientRect(); // Force repaint
-            }
-        });
-    }
-    
-    function optimizedScroll() {
-        requestAnimationFrame(animateOnScroll);
-    }
-    
-    document.addEventListener('DOMContentLoaded', animateOnScroll);
-    window.addEventListener('scroll', optimizedScroll);
+{% block extra_js %}
+<script>
+  function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top < window.innerHeight && rect.bottom > 0 &&
+      rect.left < window.innerWidth && rect.right > 0
+    );
+  }
 
-    window.addEventListener("load", function () {
-      document.getElementById("loader").style.display = "none";
+  function animateOnScroll() {
+    const elements = document.querySelectorAll('.animation');
+    elements.forEach(element => {
+      if (isInViewport(element) && !element.classList.contains('show')) {
+        element.classList.add('show');
+      }
     });
-  
-    setTimeout(() => {
-      document.getElementById("loader").style.display = "none";
+  }
+
+  function optimizedScroll() {
+    requestAnimationFrame(animateOnScroll);
+  }
+
+  document.addEventListener('DOMContentLoaded', animateOnScroll);
+  window.addEventListener('scroll', optimizedScroll);
+
+  window.addEventListener("load", function () {
+    document.getElementById("loader").style.display = "none";
+  });
+
+  setTimeout(() => {
+    document.getElementById("loader").style.display = "none";
   }, 3000);
-  </script>
- {% endblock %}
+</script>
+{% endblock %}
+
 </body>
 </html>
