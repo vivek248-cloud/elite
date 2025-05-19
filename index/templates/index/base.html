@@ -98,8 +98,8 @@
 
     @keyframes moveY {
       0%, 100% { top: 10%; }
-      45%, 55% { top: 59%; }
-      60% { top: 40%; }
+      45%, 55% { top: 49%; }
+      60% { top: 30%; }
     }
 
     @keyframes rotate {
@@ -112,9 +112,13 @@
     }
 
     /* LOGO STYLES */
-    .logo-container {
-      display: none;
-      animation: fadeIn 1s ease forwards;
+   .logo-container {
+  display: none;
+  animation: fadeIn 1s ease forwards;
+}
+
+    .logo-container.hide {
+      animation: fadeOut 1s ease forwards;
     }
 
     .logo-container img {
@@ -127,6 +131,11 @@
       from { opacity: 0; transform: scale(0.8); }
       to { opacity: 1; transform: scale(1); }
     }
+       @keyframes fadeOut {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.8); }
+}
+
 </style>
 
 <div class="header">
