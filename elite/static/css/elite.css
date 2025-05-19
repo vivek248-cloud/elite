@@ -2328,7 +2328,7 @@ p, a, li, span, button, input, textarea {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	gap: 5rem;
-	padding: 5rem;
+	padding: 3rem;
 	justify-content: center;
 	/* backdrop-filter: blur(5px) brightness(90%); */
 }
@@ -2392,12 +2392,12 @@ p, a, li, span, button, input, textarea {
 /* Responsive Tweaks */
 @media (max-width: 992px) {
 	.home-content-1 {
-		padding: 3rem;
+		padding: 2rem;
 		gap: 3rem;
 	}
 
 	.home-content-1-col-1 {
-		padding: 4rem;
+		padding: 3rem;
 		height: auto;
 	}
 
@@ -4747,12 +4747,15 @@ video, .overlay {
 	}
 	.home-content-1-col-1 h1
 	{
-		font-size: 3rem!important;
+		font-size: 3.2rem!important;
+		text-align: left;
+		margin-left: -20px;
 	}
 	
   }
 
   @media (min-width: 801px) and (max-width: 1100px) {
+	
   .home-circles {
     flex-direction: row;
     justify-content: center;
@@ -5054,7 +5057,7 @@ video, .overlay {
 	{
 		font-size: 3.5rem!important;
 		text-align: left;
-		margin-left: -100px;
+		margin-left: -80px;
 	}
 }
 /* nest hub max */
