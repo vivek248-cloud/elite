@@ -456,6 +456,7 @@ p, a, li, span, button, input, textarea {
 	.animated-button
 	{
 		margin-top: 200px;
+		margin-right: -15px;
 		position: absolute;
 	}
 	
@@ -537,7 +538,7 @@ p, a, li, span, button, input, textarea {
 	display: block;
 	height: 50px;
 	width: 130px;
-	margin-left: 10px;
+	margin-right: -5px;
 	margin-bottom: 60px; /* centers the button horizontally */
 	align-items: center;
 	justify-content: center;
@@ -554,7 +555,8 @@ p, a, li, span, button, input, textarea {
 	overflow: hidden;
 	transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 	transform: none;
-	bottom:5% ;
+	bottom:9% ;
+	right: 0%;
 	z-index: 999;
 	opacity: 0;
    	animation: slideInRight 1s ease-in forwards;
@@ -5429,12 +5431,12 @@ video, .overlay {
 		  flex-wrap: wrap;
 		  width: 100px;
 		  transform: rotate(-90deg) translate(-20px, 3px)!important;
-		  margin-left: -23px;
+		  margin-right: -23px;
 		  
 		}
 		.social-sidebar {
 			position: fixed;
-			bottom: 20%;
+			bottom: 27%;
 			right: 8px;
 			}
 }
@@ -5562,7 +5564,7 @@ video, .overlay {
 	}
 	.social-sidebar {
 			position: fixed;
-			bottom: 20%;
+			bottom: 27%;
 			right: 8px;
 			}
   }
@@ -6197,7 +6199,7 @@ margin-right: 5rem;
   }
   .social-sidebar {
 			position: fixed;
-			bottom: 25%!important;
+			bottom: 27%!important;
 			right: 8px;
 }
 	.scroller-content h1
@@ -6264,7 +6266,7 @@ margin-right: 5rem;
   }
  .social-sidebar {
 			position: fixed;
-			bottom: 20%;
+			bottom: 27%;
 			right: 8px;
 }
 }
@@ -6293,7 +6295,7 @@ margin-right: 5rem;
 /* Social Sidebar */
 .social-sidebar {
   position: fixed;
-  bottom: 20%;
+  bottom: 23%;
   right: 9px;
   display: flex;
   flex-direction: column;
