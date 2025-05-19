@@ -60,6 +60,27 @@
     padding-left: 0;
     padding-right: 0;
   }
+       .logo-loader {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 28px;
+    }
+
+    .loader {
+      width: 16px;
+      height: 16px;
+      border: 2px solid #fff;
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
 </style>
 
 <div class="header">
@@ -105,7 +126,7 @@
 
 
     <!-- Loader -->
-    <div id="loader">
+<!--     <div id="loader">
       <div class="typing-indicator">
         <div class="typing-circle"></div>
         <div class="typing-circle"></div>
@@ -114,8 +135,11 @@
         <div class="typing-shadow"></div>
         <div class="typing-shadow"></div>
     </div>
-    </div>
-
+    </div> -->
+<div class="logo-loader">
+    <span class="logo-text">YourLogo</span>
+    <span class="loader" id="logo-loader"></span>
+  </div>
     <main>
         {% block content %}{% endblock %}
 
@@ -266,6 +290,12 @@
     {% endblock %}
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
     <script src={% static "js/elite.js" %}></script>
+    <script>
+    window.addEventListener('load', function () {
+      const loader = document.getElementById('logo-loader');
+      if (loader) loader.style.display = 'none';
+    });
+  </script>
     <script>
   document.addEventListener("DOMContentLoaded", () => {
     const animatedItems = document.querySelectorAll("[data-animate]");
