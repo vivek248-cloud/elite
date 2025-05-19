@@ -26,7 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static "css/elite.css" %}">
    <style>
-  @media (max-width: 768px) {
+/*   @media (max-width: 768px) {
     .navbar-title {
       max-width: 200px;
       overflow: hidden;
@@ -59,27 +59,58 @@
   .container-fluid {
     padding-left: 0;
     padding-right: 0;
-  }
-       .logo-loader {
+  } */
+      body {
+      margin: 0;
+      background-color: #000;
+      color: white;
+      font-family: 'Poppins', sans-serif;
       display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 10px;
-      font-size: 28px;
+      height: 100vh;
+      overflow: hidden;
     }
 
-    .loader {
-      width: 16px;
-      height: 16px;
-      border: 2px solid #fff;
-      border-top-color: transparent;
+    .logo-wrapper {
+      position: relative;
+      width: 200px;
+      height: auto;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    .logo-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 0 10px gold);
+    }
+
+    .spinner-ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 60px;
+      height: 60px;
+      margin: -30px 0 0 -30px;
+      border: 3px solid rgba(255, 215, 0, 0.4);
+      border-top: 3px solid gold;
       border-radius: 50%;
-      animation: spin 0.8s linear infinite;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
 
     @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Hide loader after load */
+    .logo-wrapper.loaded .spinner-ring {
+      display: none;
     }
 </style>
 
@@ -136,10 +167,16 @@
         <div class="typing-shadow"></div>
     </div>
     </div> -->
-<div class="logo-loader">
-    <span class="logo-text">YourLogo</span>
-    <span class="loader" id="logo-loader"></span>
+<div class="logo-wrapper" id="logoWrapper">
+    <img src="{% static 'images/logo.PNG' %}" alt="The Elite Dream Builders" />
+    <div class="spinner-ring"></div>
   </div>
+    <script>
+    window.addEventListener("load", function () {
+      const logoWrapper = document.getElementById("logoWrapper");
+      logoWrapper.classList.add("loaded");
+    });
+  </script>
     <main>
         {% block content %}{% endblock %}
 
@@ -290,12 +327,7 @@
     {% endblock %}
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
     <script src={% static "js/elite.js" %}></script>
-    <script>
-    window.addEventListener('load', function () {
-      const loader = document.getElementById('logo-loader');
-      if (loader) loader.style.display = 'none';
-    });
-  </script>
+    
     <script>
   document.addEventListener("DOMContentLoaded", () => {
     const animatedItems = document.querySelectorAll("[data-animate]");
