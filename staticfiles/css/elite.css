@@ -1,5 +1,15 @@
 :root
 {
+	--backGround:      #222831;
+	--highlight:       #393E46;
+	--contentColor:    #948979;
+	--textColor:       #DFD0B8;
+
+	--goldAccent:      #D4AF37; /*Gold Accent	#D4AF37	Buttons, highlights, icons (logo match) */
+	--goldLight:       #F0E1B3; /*Gold Light	#F0E1B3	Text highlight, borders */
+	--deepBronze:      #7A5E2A; /*Deep Bronze	#7A5E2A	Hover state, footer border, accents */
+	--shadowDark:      #1A1A1A; /*Shadow Gray	#1A1A1A	Nav shadows, footer bg, depth layers*/
+	--bgWhite: #f4f4f4;
 	--h1-font-size: 2rem;
 	--h2-font-size:1.5rem;
 	--heigh: 300px;
@@ -96,7 +106,7 @@ body {
     min-height: 100vh;
     width: 100%;
     overflow-x: hidden;
-    /* background-image: url("../images/Elevation\ -\ 01_5\ -\ Photo.jpg"); */
+	background-color: var(--bgWhite);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -145,7 +155,7 @@ body {
 }
 
 .box1 {
-	background-color: #fefefe;
+	background-color:#f4f4f4;
 	padding: 4rem 2rem;
 	display: flex;
 	justify-content: center;
@@ -367,7 +377,7 @@ p, a, li, span, button, input, textarea {
     height: 5px;
     bottom: -5px;
     left: -10px;
-    background: gold;
+    background:var(--contentColor);
     border-radius: 50%;
     box-shadow: 0px 0px 8px rgba(255, 215, 0, 0.7);
     opacity: 0;
@@ -542,15 +552,16 @@ p, a, li, span, button, input, textarea {
 	margin-bottom: 60px; /* centers the button horizontally */
 	align-items: center;
 	justify-content: center;
+	text-transform: uppercase;
 	gap: 4px;
 	padding-top: 5px;
 	border: 4px solid transparent;
 	font-size: 16px;
-	background-color: gold;
+	background-color:currentColor;
 	border-radius: 100px;
 	font-weight: 600;
 	color: var(--gold);
-	box-shadow: 0 0 0 2px var(--gold);
+	box-shadow: 0 0 0 2px currentColor;
 	cursor: pointer;
 	overflow: hidden;
 	transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
@@ -806,7 +817,7 @@ p, a, li, span, button, input, textarea {
 	position: relative;
 	top: 0%;
 	height:fit-content;
-	background-color:white;
+	background-color:var(--bgWhite);
 	padding:5rem  5rem  0rem 5rem;
 	align-items: center;
 }
@@ -816,7 +827,7 @@ p, a, li, span, button, input, textarea {
 	position: relative;
 	padding-left: 0%;
 	height:fit-content;
-	margin-bottom: 5rem;
+	margin-bottom: 0rem;
 }
 .head{
 	padding-bottom: 2rem;
@@ -1219,7 +1230,8 @@ p, a, li, span, button, input, textarea {
     color:var(--gold);
 }
 .w2{
-	color:black;
+	color:var(--butterMilk);
+	letter-spacing: normal;
 	font-weight: 600;
 }
   .w-title {
@@ -1233,7 +1245,7 @@ p, a, li, span, button, input, textarea {
   
   /* counters */
   .counters {
-	background: gold;
+	background:var(--textColor);
 	color: #fff;
 	text-align: center;
 	padding: 4rem 2rem;
@@ -1253,17 +1265,17 @@ p, a, li, span, button, input, textarea {
 	padding: 1rem;
   }
   
-  .counter h1 {
+  .counter h1,.counter span  {
 	font-size: 3.2rem;
-	font-weight: 700;
+	font-weight: 800;
 	margin-bottom: 0.5rem;
-	color: #fff;
+	color:var(--backGround);
   }
   
-  .counter h3 {
-	font-size: 1.2rem;
+  .counter h3{
+	font-size: 1.5rem;
 	letter-spacing: 1px;
-	color: #fff;
+	color: var(--backGround);
   }
   
   .counter:not(:last-child)::before {
@@ -1274,7 +1286,7 @@ p, a, li, span, button, input, textarea {
 	transform: translateY(-50%);
 	width: 2px;
 	height: 60%;
-	background-color: #ffffffa5;
+	background-color:rgba(255, 255, 255, 0.479);
   }
   
 
@@ -1291,14 +1303,6 @@ p, a, li, span, button, input, textarea {
   text-align: center;
 }
 
-.circles {
-  background-color: #fff;
-  border-radius: 12px;
-  padding: 2rem;
-  width: 250px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
 
   .footer-contant-col a
   {
@@ -1418,7 +1422,7 @@ p, a, li, span, button, input, textarea {
 	left: 0;
 	width: 100%;
 	padding: 0;
-	background-color: #000;
+	background-color:var(--highlight);
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -1470,10 +1474,7 @@ p, a, li, span, button, input, textarea {
 	padding: 4rem 2rem;
 	z-index: 5;
 	position: relative;
-	background-color: rgba(255, 255, 255, 0.05);
 	border-radius: 15px;
-	backdrop-filter: blur(6px);
-	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   }
   
   .contact-box2-text p {
@@ -1491,7 +1492,6 @@ p, a, li, span, button, input, textarea {
   font-size: 5rem;
   text-transform: uppercase;
   font-family: 'Poppins', sans-serif;
-  text-shadow: 0 4px 10px rgba(255, 215, 0, 0.4);
   margin-bottom: 1rem;
 }
 
@@ -1561,7 +1561,7 @@ p, a, li, span, button, input, textarea {
   }
   .outline-text4 h1 {
 	font-size: 10rem;
-	-webkit-text-stroke: 1px gold;
+	-webkit-text-stroke: 1px var(--goldAccent);
 	color: transparent;
 	font-family:'Poppins', sans-serif;
   }
@@ -1710,7 +1710,7 @@ p, a, li, span, button, input, textarea {
 	top: 0%;
 	display: grid;
 	width: 100vw;
-	/* background-image: url("../images/DSC07500.jpg"); */
+	background-color: var(--bgWhite);
 	background-position: center;
 	background-size: cover;
 	padding: 0rem;
@@ -1845,10 +1845,10 @@ p, a, li, span, button, input, textarea {
 	text-align: center;
 	border-radius: 20px;
 	background: rgba(255, 255, 255, 0.1);
-	backdrop-filter: blur(10px) saturate(180%);
-	-webkit-backdrop-filter: blur(10px) saturate(180%);
+	/* backdrop-filter: blur(10px) saturate(180%);
+	-webkit-backdrop-filter: blur(10px) saturate(180%); */
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-	border: 1px solid rgba(255, 255, 255, 0.2);
+	
 	transition: all 0.4s ease-in-out;
 	overflow: hidden;
 	position: relative;
@@ -1926,7 +1926,7 @@ p, a, li, span, button, input, textarea {
   
   
   .footer2 {
-	  background-color: #0a0a0a;
+	  background-color: var(--backGround);
 	  color:gold;
   }
   .footer-wave-svg {
@@ -1938,7 +1938,7 @@ p, a, li, span, button, input, textarea {
 	  width: 100%;
   }
   .footer-wave-path {
-	  fill: gold;
+	  fill:var(--textColor);
   }
   
   .footer-content {
@@ -2010,10 +2010,10 @@ p, a, li, span, button, input, textarea {
 	  margin-right: 0;
   }
   .footer-call-to-action-button {
-	  background-color: gold;
+	  background-color:var(--textColor);
 	  height: 30px;
 	  width: 150px;
-	  border: 1px solid gold;
+	  border: 1px solid var(--textColor);
 	  text-align: center;
 	  border-radius: 21px;
 	  color: #fffff2;
@@ -2066,7 +2066,7 @@ p, a, li, span, button, input, textarea {
 	display: block;
 	width: 0%;
 	height: 1px;
-	background: gold;
+	background: var(--textColor);
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -2097,7 +2097,7 @@ p, a, li, span, button, input, textarea {
   }
   
   .footer-social-amoeba-path {
-	  fill: gold;
+	  fill:var(--textColor);
   }
   
   
@@ -2166,10 +2166,10 @@ p, a, li, span, button, input, textarea {
   }
   
   .footer-copyright {
-	  background-color: gold;
+	  background-color: var(--textColor);
 	  color: #fff;
 	  padding: 15px 30px;
-	text-align: center;
+		text-align: center;
 	
   }
   
@@ -2306,7 +2306,7 @@ p, a, li, span, button, input, textarea {
 	background-size: cover;
 	position: relative;
 	/* background-image: url("../images/DSC07493.JPG"); */
-	background-color: white!important;
+	background-color: var(--highlight)!important;
 }
 .card-link {
   text-decoration: none;
@@ -2321,7 +2321,9 @@ p, a, li, span, button, input, textarea {
 	position: relative;
 	padding: 2rem;
 	justify-content: center;
-	backdrop-filter: blur(0px) brightness(90%);
+	background-position: center;
+	background-size: cover;
+	background-color: var(--highlight);
 	color: rgb(255, 255, 255);
 	
 }
@@ -2351,38 +2353,41 @@ p, a, li, span, button, input, textarea {
 }
 
 .home-content-1-col-1 h1 {
-	font-size: 6rem;
-	color: gold;
+
+  font-size: 6rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
 	text-align: left;
-	background-clip: text;
-	background-position: center;
-	background-size: cover;
-	letter-spacing: 2px;
-	font-family: 'Poppins', sans-serif;
-  	font-weight: 800;
+	background-color:var(--textColor);
+  background-clip: text;
+  background-size: 100% auto;
+  -webkit-background-clip: text;
+  color: transparent;
+
 }
 
-.home-content-1-col-1 h1 sup {
-	color: var(--gold);
-}
+
 
 .home-content-1-col-2 {
 	color: white;
 	word-spacing: 2px;
-	font-size: large;
+	font-size: 16px;
 }
-.home-content-1-col-2 .h4
+.home-content-1-col-2 .h4,.home-content-1-col-2 h3
 {
 	font-size: 1.5rem;
-	font-weight: 500;
+	font-weight: 600;
 	text-align: center;
-	color: black;
+	color: rgb(255, 255, 255);
 }
 .home-content-1-col-2 h3,
 .home-content-1-col-2 h4,
 .home-content-1-col-2 h5,
 .home-content-1-col-2 p {
-	color: rgb(0, 0, 0);
+	color: white;
 	text-align: justify;
 }
 
@@ -2416,7 +2421,7 @@ p, a, li, span, button, input, textarea {
 
 .home-content-1-col-1 h1 sup
 {
-	color: var(--gold);
+	color: var(--textColor);
 	font-family: 'Poppins', sans-serif;
   	font-weight: 800;
 }
@@ -2435,13 +2440,7 @@ p, a, li, span, button, input, textarea {
   color: transparent;
 
 }
-.home-content-2
-{
-	background-image: url("../images/stairs.jpg");
-	background-position: center;
-	background-size: cover;
-	
-}
+
 
 .home-content-2-row
 {
@@ -2458,7 +2457,6 @@ p, a, li, span, button, input, textarea {
 	padding: 2rem;
 	text-align: center;
 	color: #ffffff;
-	text-shadow: var(--text-shadow);
 }
 .home-content-head h3
 {
@@ -2468,10 +2466,10 @@ p, a, li, span, button, input, textarea {
 .e-card {
 	margin: 100px auto;
 	background: transparent;
-	box-shadow: 0px 8px 28px -9px rgba(0,0,0,0.45);
+	box-shadow: 0px 8px 28px -9px rgba(255, 255, 255, 0.45);
 	position: relative;
 	width: 350px;
-	height: 350px;
+	height: 380px;
 	border-radius: 16px;
 	overflow: hidden;
 	box-shadow: 5px 5px 15px black;
@@ -2482,8 +2480,11 @@ p, a, li, span, button, input, textarea {
 	color: gold;
 }
 
-.e-card:hover .infotop p {
-	color: white;
+.e-card .infotop p {
+	  font-size: 15px;
+  line-height: 1.6;
+
+	color: rgb(255, 255, 255);
 }
 .card-link:hover .hover-indicator {
   opacity: 1;
@@ -2503,7 +2504,7 @@ p, a, li, span, button, input, textarea {
   transition: all 0.3s ease;
 }
 .e-card:hover .home-content-2-row-svg {
-	fill: rgb(255, 255, 255);
+	fill: rgb(0, 0, 0);
 }
   .wave {
 	position: absolute;
@@ -2514,7 +2515,7 @@ p, a, li, span, button, input, textarea {
 	top: 0;
 	margin-left: -50%;
 	margin-top: -70%;
-	background: linear-gradient(744deg,#2f2d30,rgb(0, 0, 0) 60%,#000000);
+	background: linear-gradient(744deg,#000000,rgb(154, 154, 154) 60%,#ffffff);
   }
   
   .icon {
@@ -2531,8 +2532,8 @@ p, a, li, span, button, input, textarea {
 	top: 5.6em;
 	left: 0;
 	right: 0;
-	color: rgb(255, 255, 255);
-	font-weight: 600;
+	color: rgb(253, 199, 3);
+	font-weight: 700;
   }
   
   .name {
@@ -2588,11 +2589,12 @@ p, a, li, span, button, input, textarea {
   .home-content-2-row-svg
   {
 	fill: gold;
-	height: 30px;
+	height: 40px;
+	margin-top: -50px;
   }
   .home-content-1-col-2 h3
   {
-	font-family: poppins, sans-serif;
+	font-family:'Poppins', sans-serif;
   }
   .home-content-2-row2 {
 	display: grid;
@@ -2624,13 +2626,14 @@ p, a, li, span, button, input, textarea {
 	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 	gap: 1rem;
 	width: 100%;
+	margin-bottom: 2rem;
   }
   .home-logo-col {
 	flex: 1 1 10%;
 	display: flex;
 	justify-content: flex-end;
 	align-items: flex-start; /* Aligns content to top vertically */
-	padding-top: 20px;        /* Adds a little spacing from the top */
+	padding-top: 10px;        /* Adds a little spacing from the top */
 }
 .home-logo-col img {
 	max-width: 100%;
@@ -2640,7 +2643,7 @@ p, a, li, span, button, input, textarea {
 	margin-top: -100px; /* Adjust as needed */
 }
   .home-content-2-row-col-1 p {
-	color: #ffffff;
+	color:white;
 	line-height: 1.6;
 	font-size: 1rem;
   }
@@ -2650,8 +2653,8 @@ p, a, li, span, button, input, textarea {
 	transition: transform .5s ease-in;
   }
   .home-content-2-row-col-1-box p {
-	color: #ffffff;
-	background-color: rgba(12, 12, 12, 0.234);
+	color: white;
+	background-color: rgba(12, 12, 12, 0.48);
 	padding: 1rem;
 	border-radius: 10px;
 	display: flex;
@@ -2669,7 +2672,7 @@ p, a, li, span, button, input, textarea {
   
   .home-content-2-row-col-1-box svg {
 	height: 20px;
-	fill: gold;
+	fill:var(--contentColor);
   }
   .home-content-3
   {
@@ -2678,7 +2681,7 @@ p, a, li, span, button, input, textarea {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	backdrop-filter: brightness(90%);
+	background-color: var(--highlight);
   }
   /* Media Queries */
   @media (min-width: 768px) {
@@ -2699,7 +2702,7 @@ p, a, li, span, button, input, textarea {
   padding: 3rem 1.5rem;
   display: flex;
   flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.993);
+  background-color: var(--textColor);
   text-align: center;
 }
 .project-section h4
@@ -2729,16 +2732,16 @@ p, a, li, span, button, input, textarea {
   text-align: left;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
-  color: #333;
+  color:var(--backGround);
   text-decoration: none;
   border-radius: 8px;
   transition: all 0.3s ease;
 }
 
 
-.project-sidebar li a:hover,
-.project-sidebar li.active a {
-  background-color: gold;
+.project-sidebar li :hover,
+.project-sidebar li.active  {
+  background-color: var(--contentColor);
   color: #fff;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -2801,11 +2804,12 @@ p, a, li, span, button, input, textarea {
   
   .project-sidebar li {
 	padding: 1.2rem 0;
-	border-bottom: 1px solid #e0dcd7;
+	border-bottom: 1px solid var(--shadowDark);
 	position: relative;
   }
   .project-sidebar li :hover{
-	padding: .5rem 0;
+	padding: 1rem 0;
+	margin-left: 5px!important;
   }
   .project-sidebar a {
 	text-decoration: none;
@@ -2820,11 +2824,12 @@ p, a, li, span, button, input, textarea {
   }
   
   /* Arrow to the right */
-.project-sidebar a::after {
-  content: '→';
+.project-sidebar a::before {
+  content: '⮚';
+  font-family: 'Poppins', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
-  color: gold;
+  color: var(--shadowDark);
   margin-left: 10px;
   display: inline-block;
   transition: transform 0.3s ease, color 0.3s ease;
@@ -2835,8 +2840,8 @@ p, a, li, span, button, input, textarea {
   color: #000;
 }
 
-.project-sidebar li a:hover::after {
-  transform: translateX(10px);
+.project-sidebar li a:hover::before {
+  transform: translateX(-5px);
   color: #000000; 
 }
 
@@ -2982,22 +2987,36 @@ p, a, li, span, button, input, textarea {
 /* Overlay Content */
 .overlay {
     position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100vw!important;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
     transition: opacity 0.5s ease-in-out;
+	
 }
 
-/* Heading */
+/* Heading 
 .overlay h1 {
     font-size: 2.5rem;
     font-weight: bold;
     text-transform: uppercase;
+} */
+
+.overlay h1 {
+  font-size: 4rem; /* adjust as needed */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 2px rgb(255, 255, 255); 
+ 
+  text-align: center;
 }
 
 /* Paragraph */
@@ -3352,10 +3371,11 @@ video, .overlay {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		background-color: rgb(255, 235, 235);
+		background-color: var(--bgWhite);
 		padding: 20px;
 		width: 350px;
 		border-radius: 8px;
+		border: 1px solid black;
 		height: 350px;
 	  }
 	  
@@ -3397,6 +3417,7 @@ video, .overlay {
 	  
 	  .infinite-animation {
 		margin: 0;
+		background-color: var(--highlight);
 		padding: 20px 0;
 		max-width: 100vw;
 		overflow: hidden;
@@ -3453,7 +3474,7 @@ video, .overlay {
 	  .completed-projects {
 		text-align: center;
 		padding: 80px 20px;
-		background: #f4f4f4;
+		background:#f4f4f4;
 		position: relative;
 		border-radius: 10px;
 		top: 10%;
@@ -3466,7 +3487,7 @@ video, .overlay {
 		font-weight: 700;
 		text-align: center;
 		margin-bottom: 20px;
-		color: #1a1a1a;
+		color:var(--backGround);
 		text-transform: uppercase;
 		font-family: 'Poppins', sans-serif;
 		position: relative;
@@ -3479,7 +3500,7 @@ video, .overlay {
 		display: block;
 		width: 60px;
 		height: 4px;
-		background: gold;
+		background:var(--goldAccent);
 		margin: 15px auto 0;
 		border-radius: 2px;
 	  }
@@ -3609,16 +3630,7 @@ video, .overlay {
 		  font-family: 'Poppins', sans-serif
 		}
 
-.cards {
-	width: 300px;
-	height: 300px;
-	border-radius: 16px;
-	overflow: hidden;
-	position: relative;
-	cursor: pointer;
-	transition: transform 0.4s ease;
-	overflow: hidden;
-  }
+
   .cards img {
 	width: 300px;
 	height: 300px;
@@ -3743,11 +3755,9 @@ video, .overlay {
   
 
   
-
 .cards {
 	width: 300px;
 	height: 300px;
-	border-radius: 16px;
 	overflow: hidden;
 	position: relative;
 	cursor: pointer;
@@ -3879,6 +3889,8 @@ video, .overlay {
 	display: none;
 	width: 100vw;
 	overflow: hidden;
+	margin: 0px;
+	padding: 0px;
 }
 .slide2 video {
 	width: 100vw;
@@ -3894,7 +3906,7 @@ video, .overlay {
 
 
    .team-section {
-	background-color: #f8f8f8;
+	background-color: var(--bgWhite);
 	padding: 80px 20px;
   }
   
@@ -3907,6 +3919,7 @@ video, .overlay {
   .team-header h2 {
 	color: #004a99;
 	font-size: 2.2rem;
+	font-weight: 700;
 	margin-bottom: 1rem;
   }
   
@@ -4172,7 +4185,7 @@ video, .overlay {
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	gap: 2rem;
 	padding: 40px 20px;
-	background-color: #f9f9f9;
+	background-color: var(--bgWhite);
 	max-width: 1200px;
 	margin: 0 auto;
 	box-sizing: border-box;
@@ -4180,7 +4193,7 @@ video, .overlay {
   
   /* Individual Video Card */
   .video_cards {
-	background: #fff;
+	background: var(--bgWhite);
 	border-radius: 15px;
 	overflow: hidden;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
@@ -4249,7 +4262,7 @@ video, .overlay {
   }
   
   .youtube-frame {
-	background-color: #ffffff;
+	background-color:var(--backGround);
 	border-radius: 12px;
 	padding: 15px;
 	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
@@ -4291,7 +4304,7 @@ video, .overlay {
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	gap: 2rem;
 	padding: 40px 20px;
-	background-color: #f9f9f9;
+	background-color: var(--bgWhite);
 	max-width: 1200px;
 	margin: 0 auto;
 	box-sizing: border-box;
@@ -4299,8 +4312,8 @@ video, .overlay {
   
   /* Individual Video Card */
   .video_cards {
-	background: #fff;
-	border-radius: 15px;
+	background: var(--bgWhite);
+
 	overflow: hidden;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -4497,7 +4510,8 @@ video, .overlay {
   .contact-title {
 	font-size: 2.5rem;
 	margin-bottom: 0.5rem;
-	color: var(--gold);
+	color: #004a99;
+	font-weight: 700;
 	text-align: center;
 	font-family: var(--head-font1);
 	
@@ -4537,7 +4551,7 @@ video, .overlay {
   
   .submit-btn {
 	width: 100%;
-	background-color: var(--gold);
+	background-color: var(--backGround);
 	color: white;
 	font-size: 1.1rem;
 	font-weight: bold;
@@ -4549,7 +4563,7 @@ video, .overlay {
   }
   
   .submit-btn:hover {
-	background-color: #d4af37;
+	background-color: var(--highlight);
   }
 
 
@@ -4587,11 +4601,12 @@ video, .overlay {
 }
 
 /* Style for each circle */
+
 .circles {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background-color: gold;
+  background-color: var(--textColor);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -4602,14 +4617,17 @@ video, .overlay {
   text-align: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
-.circles h1
+.circles h1 span,.circles h1
 {
 	font-size: 2rem;
+	color: #000000;
+	font-weight: 800;
 }
 .circle-text {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
   font-family: 'Poppins', sans-serif;
+  color: var(--backGround);
 }
 
 .circle-label {
@@ -4701,7 +4719,7 @@ video, .overlay {
   
 	.project-gallery {
 	  flex: 2;
-	  order: 2; /* Gallery comes first on tablets */
+	  order: 1; /* Gallery comes first on tablets */
 	  display: grid;
 	  grid-template-columns: repeat(2, 1fr); /* 2 projects per row */
 	  gap: 1.5rem;
@@ -4756,6 +4774,93 @@ video, .overlay {
 	}
 	
   }
+@media (max-width: 768px) {
+  .home-content-1-col-2 {
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .home-content-1-col-2 h1.w2 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    text-align: center;
+  }
+
+  .home-content-1-col-2 h4.h4 {
+    font-size: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .line5 {
+    width: 60px;
+    height: 3px;
+    margin: 1rem auto;
+  }
+
+  .counters-div {
+    margin-top: 1.5rem;
+  }
+
+  .counter-grid.home-circles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	justify-content:center;
+    gap: 1.5rem;
+  }
+.circles
+{
+	margin-left: 35px!important;
+}
+  .counter.circles h1 {
+    font-size: 1.8rem;
+  }
+
+  .counter.circles h3.circle-text {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 360px) {
+  .home-content-1-col-2 {
+    padding: 1.5rem 1rem;
+    text-align: center;
+  }
+
+  .home-content-1-col-2 h1.w2 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    word-break: break-word;
+  }
+
+  .home-content-1-col-2 h4.h4 {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+
+  .line5 {
+    width: 50px;
+    height: 2px;
+    margin: 0.8rem auto;
+  }
+
+  .counter-grid.home-circles {
+    flex-direction: column;
+	justify-content: center!important;
+    gap: 1rem;
+  }
+.circles
+{
+	margin-left: 29px!important;
+}
+  .counter.circles h1 {
+    font-size: 1.5rem;
+  }
+
+  .counter.circles h3.circle-text {
+    font-size: 0.9rem;
+  }
+}
 
   @media (min-width: 801px) and (max-width: 1100px) {
 	
@@ -5332,6 +5437,7 @@ video, .overlay {
 		height: 80%;
 		padding: 1.5rem;
 	}
+	
 }
 @media (max-width: 767px) {
 	.contact-head {
@@ -5350,7 +5456,34 @@ video, .overlay {
   .circles {
     margin-bottom: 2rem;
   }
-  
+  .project-layout {
+		flex-direction: column;
+		gap: 1.5rem;
+		padding: 0.5rem;
+	  }
+	
+	  .project-sidebar {
+		order: 2; /* Sidebar comes first */
+		width: 100%;
+		padding: 0.5rem;
+	  }
+	
+	  .project-sidebar a {
+		font-size: 1.2rem;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.2rem;
+	  }
+	  .project-gallery {
+		order: 1; /* Gallery comes after sidebar */
+		display: flex;
+		flex-direction:row;
+		gap: 0.5rem;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		width: 100%;
+	  }
+	
   }
   
 @media (max-width: 600px) {
@@ -5365,7 +5498,7 @@ video, .overlay {
     }
 
     .overlay h1 {
-        font-size: 1.6rem;
+        font-size: 2.6rem;
     }
 
     .overlay p {
@@ -5504,7 +5637,7 @@ video, .overlay {
 	  }
 	
 	  .project-sidebar {
-		order: 1; /* Sidebar comes first */
+		order: 2; /* Sidebar comes first */
 		width: 100%;
 		padding: 0.5rem;
 	  }
@@ -5517,7 +5650,7 @@ video, .overlay {
 	  }
 	
 	  .project-gallery {
-		order: 2; /* Gallery comes after sidebar */
+		order: 1; /* Gallery comes after sidebar */
 		display: flex;
 		flex-direction:row;
 		gap: 0.5rem;
@@ -5672,7 +5805,6 @@ video, .overlay {
 	  .cards {
 		  width: 200px;
 		  height: 200px;
-		  border-radius: 16px;
 		  overflow: hidden;
 		  position: relative;
 		  cursor: pointer;
@@ -6025,7 +6157,7 @@ margin-right: 5rem;
 		height: auto;
 		width: 450px;
 		object-fit: contain;
-		margin-top: -20px; /* Adjust as needed */
+		margin-top: -50px; /* Adjust as needed */
 	}
 	.scroller-content-2 h3 {
 		font-size: 1rem;
@@ -6053,7 +6185,7 @@ margin-right: 5rem;
 	  }
 	
 	  .project-sidebar {
-		order: 1; /* Sidebar comes first */
+		order: 2; /* Sidebar comes first */
 		width: 100%;
 		padding: 0.5rem;
 	  }
@@ -6066,7 +6198,7 @@ margin-right: 5rem;
 	  }
 	
 	  .project-gallery {
-		order: 2; /* Gallery comes after sidebar */
+		order: 1; /* Gallery comes after sidebar */
 		display: flex;
 		flex-direction:row;
 		gap: 0.5rem;
@@ -6169,6 +6301,21 @@ margin-right: 5rem;
 		top: 112px;
 		position: absolute;
 		display:block;
+	}
+	.home-logo-col {
+	flex: 1 1 10%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-start; /* Aligns content to top vertically */
+	padding-top: 10px;        /* Adds a little spacing from the top */
+	margin-left: -200px!important;
+	}
+	.home-logo-col img {
+		max-width: 100%;
+		height: auto;
+		width: 300px;
+		object-fit: contain;
+		/* margin-top: -100px; Adjust as needed */
 	}
 }
 
@@ -6275,6 +6422,38 @@ margin-right: 5rem;
 			bottom: 27%;
 			right: 8px;
 }
+}
+
+@media (max-width: 360px) {
+  .timeline {
+    padding: 20px 10px;
+  }
+
+  .timeline::after {
+    left: 20px; /* Move the line to the left side */
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding: 20px 20px 20px 40px;
+    text-align: left !important;
+    left: 0 !important;
+  }
+
+  .timeline-item h2 {
+    font-size: 1.6rem;
+    transform: rotate(0deg);
+    text-align: left;
+  }
+
+  .timeline-item.right h2 {
+    transform: rotate(0deg);
+  }
+
+  .timeline-item p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
 }
 
 @keyframes slideInLeft {
@@ -6736,37 +6915,8 @@ margin-right: 5rem;
     background-position: 200px 0;
   }
 }
-@media (max-width: 360px) {
-  .timeline {
-    padding: 20px 10px;
-  }
 
-  .timeline::after {
-    left: 20px; /* Move the line to the left side */
-  }
 
-  .timeline-item {
-    width: 100%;
-    padding: 20px 20px 20px 40px;
-    text-align: left !important;
-    left: 0 !important;
-  }
-
-  .timeline-item h2 {
-    font-size: 1.6rem;
-    transform: rotate(0deg);
-    text-align: left;
-  }
-
-  .timeline-item.right h2 {
-    transform: rotate(0deg);
-  }
-
-  .timeline-item p {
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-}
 /* animations */
 
 @keyframes fadeIn {
@@ -6845,4 +6995,53 @@ margin-right: 5rem;
 
 .from-bottom {
   animation: fromBottom 1s ease forwards;
+}
+
+.professional-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.professional-list li {
+  flex: 0 0 auto;
+  margin: 10px;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+.stat-card {
+  background: rgb(255, 255, 255);
+  padding: 30px 15px;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.326);
+  height: 100%;
+  width: 100%;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.professional-list li.active .stat-card {
+  background-color:var(--contentColor);
+  color: rgb(255, 255, 255);
+}
+
+.professional-list li.active .stat-card h3,
+.professional-list li.active .stat-card p {
+  color: rgb(255, 255, 255);
+}
+
+
+.stat-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000000; 
+  margin-bottom: 10px;
 }
