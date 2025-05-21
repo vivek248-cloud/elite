@@ -5071,7 +5071,7 @@ video, .overlay {
     left: -100%;
     width: 70%;
     height: 100vh;
-    background-color: #000; /* background of menu */
+    background-color: var(--backGround); /* background of menu */
     padding: 2rem 1rem;
     transition: left 0.4s ease-in-out;
     z-index: 1;
