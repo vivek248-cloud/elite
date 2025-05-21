@@ -1,3 +1,4 @@
+
 :root
 {
 	--backGround:      #222831;
@@ -2426,7 +2427,7 @@ p, a, li, span, button, input, textarea {
   	font-weight: 800;
 }
 
-/* .dream-text {
+.dream-text {
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
 
@@ -2439,7 +2440,7 @@ p, a, li, span, button, input, textarea {
   background-clip: text;
   color: transparent;
 
-} */
+}
 
 
 .home-content-2-row
@@ -7047,5 +7048,3 @@ margin-right: 5rem;
   color: #000000; 
   margin-bottom: 10px;
 }
-
-
