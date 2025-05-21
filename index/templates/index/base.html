@@ -45,7 +45,31 @@
       height: 100px !important; /* Smaller logo on mobile */
     }
   }
+.w-title {
+  font-size: 1.3rem;
+  font-weight: 750;
+  text-align: center;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
 
+  background: linear-gradient(
+    60deg,
+    #ffe168 0%,
+    #f1c40f 25%,
+    #d7ac00 45%,
+    #fff198 50%,
+    #e5b900 55%,
+    #f1c40f 75%,
+    #fde483 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
   .navbar-logo img {
     height: 100px;
   }
@@ -67,7 +91,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: black; /* Optional: match your site theme */
+  background-color: var(--backGround); /* Optional: match your site theme */
   z-index: 9999;
   display: flex;
   justify-content: center;
