@@ -6430,7 +6430,7 @@ margin-right: 5rem;
   }
 
   .timeline::after {
-    left: 20px; /* Move the line to the left side */
+    left: 20px!important; /* Move the line to the left side */
   }
 
   .timeline-item {
@@ -6441,7 +6441,7 @@ margin-right: 5rem;
   }
 
   .timeline-item h2 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     transform: rotate(0deg);
     text-align: left;
   }
@@ -6455,6 +6455,7 @@ margin-right: 5rem;
     line-height: 1.5;
   }
 }
+
 
 @keyframes slideInLeft {
   from {
@@ -6870,6 +6871,7 @@ margin-right: 5rem;
 .timeline-item .content {
   padding: 0;
   margin: 0;
+  width: fit-content;
   background: none;
   box-shadow: none;
   backdrop-filter: none;
