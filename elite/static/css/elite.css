@@ -1,4 +1,3 @@
-
 :root
 {
 	--backGround:      #222831;
@@ -1607,7 +1606,6 @@ p, a, li, span, button, input, textarea {
 	top: 0;
 	width: 100%;
 	height: 100vh; /* Adjust to avoid taking full height */
-	background-color: #4CAF50;
 	color: white;
 	text-align: center;
 	font-size: 24px;
@@ -1615,7 +1613,7 @@ p, a, li, span, button, input, textarea {
 	align-items: center;
 	justify-content: center;
 	transition: transform 0.3s ease;
-	background-image: url("../images/Elevation\ -\ 01_5\ -\ Photo.jpg");
+	background-image: url("https://res.cloudinary.com/doczkiibv/image/upload/v1747474916/home_slider/rukibcqsnaeozgyycuxb.jpg");
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -7048,3 +7046,5 @@ margin-right: 5rem;
   color: #000000; 
   margin-bottom: 10px;
 }
+
+
