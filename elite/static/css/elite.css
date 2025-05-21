@@ -51,6 +51,12 @@
     0 0 250px rgb(255, 208, 0),
     0 0 300px rgba(255, 0, 0, 1),
     -250px -100px 100px rgba(255, 0, 0, 1);
+	--neon-effect2: 
+    0 0 5px #222831,
+    0 0 10px #00ffc3,
+    0 0 20px #00ffc3,
+    0 0 40px #00ffc3,
+    0 0 60px #00ffc3;
 	--blur: 1rem;
 	--glow: var(--gold);
 	--lite-white:rgba(255, 255, 255, 0.664);
@@ -97,7 +103,7 @@ a
   }
   
   .dot.active {
-    background-color: gold;
+    background-color: var(--backGround);
   }
 
 
@@ -773,7 +779,6 @@ p, a, li, span, button, input, textarea {
     transform: translate(10px, -10px);
   }
 
-
 .line3
 {
 	position:absolute;
@@ -783,9 +788,9 @@ p, a, li, span, button, input, textarea {
     height: 2px;
 	transition: all 0.5s ease;
 	border-radius: 5px;
-    background-color: gold;
+    background-color: var(--textColor);
 	border-color:var(--color5);
-	border: 1.5px solid gold;
+	border: 1.5px solid var(--textColor);
 	animation: glow-border 2s infinite alternate;
 	animation-direction:normal;
 	box-shadow: var(--neon-effect) ;
@@ -1209,10 +1214,9 @@ p, a, li, span, button, input, textarea {
   {
 	width: 100%;
 	height: 2px;
-	background-color: gold;
+	background-color:var(--backGround);
 	border-color:var(--color5);
-	border: 1.5px solid gold;
-	box-shadow: var(--neon-effect) ;
+	border: 1.5px solid var(--backGround);
 	margin-bottom: 1rem;
   }
   .box1-text
@@ -1291,7 +1295,7 @@ p, a, li, span, button, input, textarea {
   
 
 .counters-div {
-  padding: 2rem 1rem;
+  padding: 1rem 1rem;
   width: 100%;
 }
 
@@ -1891,7 +1895,7 @@ p, a, li, span, button, input, textarea {
 }
 
 .card4:hover h6 {
-	transform: translateY(-3px);
+	transform: translateY(-3px) scale(1.1);
 	color: gold;
 }
 .card4:hover address {
@@ -2298,6 +2302,8 @@ p, a, li, span, button, input, textarea {
 {
 	top: 0%;
 	position: relative;
+	padding: 0;
+	margin: 0%;
 }
 .home-conntent-bg {
 	
@@ -2305,7 +2311,7 @@ p, a, li, span, button, input, textarea {
 	background-size: cover;
 	position: relative;
 	/* background-image: url("../images/DSC07493.JPG"); */
-	background-color: var(--highlight)!important;
+	background-color: var(--bgWhite)!important;
 }
 .card-link {
   text-decoration: none;
@@ -2331,8 +2337,8 @@ p, a, li, span, button, input, textarea {
 .home-content-1 {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-	gap: 5rem;
-	padding: 3rem;
+	gap: 2rem;
+	padding: 2rem;
 	justify-content: center;
 	/* backdrop-filter: blur(5px) brightness(90%); */
 }
@@ -2345,7 +2351,7 @@ p, a, li, span, button, input, textarea {
 	background-size: cover;
 	justify-content: center;
 	align-items: center;
-	padding: 8rem;
+	padding:1rem 5rem!important;
 	text-wrap:wrap;
 	display: flex;
 	text-align: left;
@@ -2355,12 +2361,12 @@ p, a, li, span, button, input, textarea {
 
   font-size: 6rem;
   font-weight: 800;
-  margin-bottom: 20px;
+  margin-bottom: 10px!important;
   text-transform: uppercase;
   font-family: 'Poppins', sans-serif;
   letter-spacing: 1px;
 	text-align: left;
-	background-color:var(--textColor);
+	background-color:var(--backGround);
   background-clip: text;
   background-size: 100% auto;
   -webkit-background-clip: text;
@@ -2371,27 +2377,31 @@ p, a, li, span, button, input, textarea {
 
 
 .home-content-1-col-2 {
-	color: white;
+	color: var(--backGround);
 	word-spacing: 2px;
-	font-size: 16px;
+	font-size: 10px;
 }
 .home-content-1-col-2 .h4,.home-content-1-col-2 h3
 {
 	font-size: 1.5rem;
 	font-weight: 600;
 	text-align: center;
-	color: rgb(255, 255, 255);
+	color: var(--backGround);
 }
 .home-content-1-col-2 h3,
 .home-content-1-col-2 h4,
 .home-content-1-col-2 h5,
 .home-content-1-col-2 p {
-	color: white;
+	color: var(--backGround);
 	text-align: justify;
 }
 
 .home-content-1-col-2 h1 {
-	font-size: 3rem;
+	font-size: 2.5rem;
+}
+.home-content-1-col-2 p
+{
+	font-size: 16px;
 }
 
 
@@ -2420,7 +2430,7 @@ p, a, li, span, button, input, textarea {
 
 .home-content-1-col-1 h1 sup
 {
-	color: var(--textColor);
+	color: var(--backGround);
 	font-family: 'Poppins', sans-serif;
   	font-weight: 800;
 }
@@ -2455,12 +2465,12 @@ p, a, li, span, button, input, textarea {
 {
 	padding: 2rem;
 	text-align: center;
-	color: #ffffff;
+	color:var(--bgWhite);
 }
 .home-content-head h3
 {
 	text-align: center;
-	color: #ffffff;
+	color: var(--bgWhite);
 }
 .e-card {
 	margin: 100px auto;
@@ -2503,7 +2513,7 @@ p, a, li, span, button, input, textarea {
   transition: all 0.3s ease;
 }
 .e-card:hover .home-content-2-row-svg {
-	fill: rgb(0, 0, 0);
+	fill: var(--bgWhite);
 }
   .wave {
 	position: absolute;
@@ -2531,7 +2541,7 @@ p, a, li, span, button, input, textarea {
 	top: 5.6em;
 	left: 0;
 	right: 0;
-	color: rgb(253, 199, 3);
+	color: var(--backGround);
 	font-weight: 700;
   }
   
@@ -2587,7 +2597,7 @@ p, a, li, span, button, input, textarea {
 
   .home-content-2-row-svg
   {
-	fill: gold;
+	fill: var(--backGround);
 	height: 40px;
 	margin-top: -50px;
   }
@@ -2609,7 +2619,6 @@ p, a, li, span, button, input, textarea {
 	flex-direction: column;
 	align-items: center;
 	text-align: left;
-	height: 500px;
   }
   
   .home-content-2-row-col-1 a img {
@@ -2617,7 +2626,7 @@ p, a, li, span, button, input, textarea {
 	max-width: 800px;
 	height: auto;
 	border-radius: 20% 0;
-	margin-bottom: 5rem;
+	margin-bottom: 2rem;
   }
   
   .home-content-2-row-col-1-content {
@@ -2642,7 +2651,7 @@ p, a, li, span, button, input, textarea {
 	margin-top: -100px; /* Adjust as needed */
 }
   .home-content-2-row-col-1 p {
-	color:white;
+	color:var(--backGround);
 	line-height: 1.6;
 	font-size: 1rem;
   }
@@ -2652,8 +2661,8 @@ p, a, li, span, button, input, textarea {
 	transition: transform .5s ease-in;
   }
   .home-content-2-row-col-1-box p {
-	color: white;
-	background-color: rgba(12, 12, 12, 0.48);
+	color: var(--bgWhite);
+	background-color: rgba(12, 12, 12, 0.632);
 	padding: 1rem;
 	border-radius: 10px;
 	display: flex;
@@ -2671,7 +2680,7 @@ p, a, li, span, button, input, textarea {
   
   .home-content-2-row-col-1-box svg {
 	height: 20px;
-	fill:var(--contentColor);
+	fill:var(--bgWhite);
   }
   .home-content-3
   {
@@ -2680,7 +2689,7 @@ p, a, li, span, button, input, textarea {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	background-color: var(--highlight);
+	background-color: var(--bgWhite);
   }
   /* Media Queries */
   @media (min-width: 768px) {
@@ -2697,11 +2706,11 @@ p, a, li, span, button, input, textarea {
   
 
 
-   .project-section {
-  padding: 3rem 1.5rem;
+.project-section {
+  padding: 1.5rem 1rem!important;
   display: flex;
   flex-direction: column;
-  background-color: var(--textColor);
+  background-color: var(--bgWhite);
   text-align: center;
 }
 .project-section h4
@@ -2733,18 +2742,21 @@ p, a, li, span, button, input, textarea {
   font-weight: 500;
   color:var(--backGround);
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 3px;
   transition: all 0.3s ease;
 }
 
 
-.project-sidebar li :hover,
-.project-sidebar li.active  {
-  background-color: var(--contentColor);
-  color: #fff;
+.project-sidebar li a:hover,
+.project-sidebar li.active {
+  background-color: var(--backGround);
+  color: #fff!important;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   padding-left: 6px;
+}
+.project-sidebar li:hover a::before{
+  color: #fff;
 }
 .project-sidebar {
   flex: 1 1 100%;
@@ -2782,7 +2794,7 @@ p, a, li, span, button, input, textarea {
 	top: 0; left: 0;
 	width: 100%; height: 100%;
 	background: rgba(0, 0, 0, 0);
-	transition: background 0.3s ease;
+	transition: all 0.3s ease;
 	z-index: 1;
   }
   
@@ -2805,10 +2817,6 @@ p, a, li, span, button, input, textarea {
 	padding: 1.2rem 0;
 	border-bottom: 1px solid var(--shadowDark);
 	position: relative;
-  }
-  .project-sidebar li :hover{
-	padding: 1rem 0;
-	margin-left: 5px!important;
   }
   .project-sidebar a {
 	text-decoration: none;
@@ -2835,13 +2843,11 @@ p, a, li, span, button, input, textarea {
 }
 
 /* Hover Effect */
-.project-sidebar li a:hover {
-  color: #000;
-}
+
 
 .project-sidebar li a:hover::before {
   transform: translateX(-5px);
-  color: #000000; 
+  color: #ffffff; 
 }
 
 /* Active State */
@@ -3153,8 +3159,8 @@ video, .overlay {
     padding: 12px 32px;
     font-size: 17px;
     font-weight: 500;
-    background: linear-gradient(135deg, #fcd34d, #fbbf24);
-    color: #111;
+    background: var(--shadowDark);
+    color: var(--bgWhite);
     border: none;
     border-radius: 50px;
     cursor: pointer;
@@ -3165,7 +3171,7 @@ video, .overlay {
 }
 
 .load-more-button:hover {
-    background: linear-gradient(135deg, #facc15, #eab308);
+    background: var(--highlight);
     transform: translateY(-2px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
@@ -3499,7 +3505,7 @@ video, .overlay {
 		display: block;
 		width: 60px;
 		height: 4px;
-		background:var(--goldAccent);
+		background:var(--shadowDark);
 		margin: 15px auto 0;
 		border-radius: 2px;
 	  }
@@ -3521,21 +3527,7 @@ video, .overlay {
 	 
 	  
 	  /* Load More Button */
-	  .load-more-button {
-		margin-top: 40px;
-		padding: 12px 30px;
-		font-size: 1rem;
-		background-color: #1a1a1a;
-		color: #fff;
-		border: none;
-		border-radius: 8px;
-		cursor: pointer;
-		transition: background-color 0.3s ease;
-	  }
 	  
-	  .load-more-button:hover {
-		background-color: #333;
-	  }
 	  
 
 	  
@@ -4149,26 +4141,6 @@ video, .overlay {
 	font-size: 2rem;
 }
 
-/* Unique section styling */
-
-
-/* Load More Button */
-.load-more-button {
-    margin-top: 40px;
-    padding: 12px 32px;
-    font-size: 1rem;
-    font-weight: 600;
-    background-color: #004a99;
-    color: #fff;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.load-more-button:hover {
-    background-color: #003570;
-}
 
 
 .project-videos-section {
@@ -4605,12 +4577,12 @@ video, .overlay {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background-color: var(--textColor);
+  background-color: var(--backGround);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #000000;
+  color: var(--bgWhite);
   font-weight: bold;
   position: relative;
   text-align: center;
@@ -4619,14 +4591,14 @@ video, .overlay {
 .circles h1 span,.circles h1
 {
 	font-size: 2rem;
-	color: #000000;
+	color: var(--bgWhite);
 	font-weight: 800;
 }
 .circle-text {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
   font-family: 'Poppins', sans-serif;
-  color: var(--backGround);
+  color: var(--bgWhite);
 }
 
 .circle-label {
@@ -4775,7 +4747,7 @@ video, .overlay {
   }
 @media (max-width: 768px) {
   .home-content-1-col-2 {
-    padding: 2rem;
+    padding:0rem 2rem;
     text-align: center;
   }
 
@@ -4822,7 +4794,7 @@ video, .overlay {
 }
 @media (max-width: 360px) {
   .home-content-1-col-2 {
-    padding: 1.5rem 1rem;
+    padding: .5rem 1rem;
     text-align: center;
   }
 
@@ -5489,7 +5461,7 @@ video, .overlay {
 	.home-content-1-col-1 h1{
 		font-size: 3rem!important;
 		margin-left: 20px;
-		padding: 5rem;
+		padding: 1rem;
 	}
     .overlay {
         padding: 15px 20px;
@@ -5663,7 +5635,7 @@ video, .overlay {
 	}
 
 	.home-content-1-col-1 {
-		padding: 2rem;
+		padding:0rem  1rem!important;
 	}
 
 	.home-content-1-col-1 h1 {
@@ -7030,7 +7002,7 @@ margin-right: 5rem;
 }
 
 .professional-list li.active .stat-card {
-  background-color:var(--contentColor);
+  background-color:var(--backGround);
   color: rgb(255, 255, 255);
 }
 
