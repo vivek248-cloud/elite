@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Navbar background toggle
     if (navbar) {
-      navbar.style.backgroundColor = scrollY > 50 ? "#1b1b1b" : "transparent";
+      navbar.style.backgroundColor = scrollY > 50 ? "#222831" : "transparent";
       navbar.style.width = "100vw";
     }
 
@@ -100,3 +100,15 @@ document.addEventListener("DOMContentLoaded", () => {
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+document.addEventListener("DOMContentLoaded", function () {
+  const items = document.querySelectorAll(".professional-list li");
+  let current = 0;
+
+  function rotateActive() {
+    items.forEach(item => item.classList.remove("active"));
+    items[current].classList.add("active");
+    current = (current + 1) % items.length;
+  }
+
+  setInterval(rotateActive, 2000); // Rotate every 3 seconds
+});
