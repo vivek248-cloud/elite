@@ -60,7 +60,7 @@
       </div>
       <div id="projects-container" class="parent">
           {% for project in projects %}
-          <div class="cards animation zoom-in">
+          <div class="cards" data-animate="from-bottom">
               <a href="{% url 'projects_details' project.id %}">
                   <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy" data-animate="fade-in">
                   <div class="info">
@@ -73,14 +73,14 @@
           </div>
           {% endfor %}
       </div>
-      <button id="load-more-btn" class="load-more-button">Load More</button>
+      <button id="load-more-btn" class="load-more-button" data-animate="from-bottom">Load More</button>
     </section>
     
   <section class="completed-projects">
     <div class="section-title-wrapper">
       <h2 class="section-title" data-animate="from-bottom">Ongoing Projects</h2>
     </div>
-    <div class="parent"  id='upcoming-projects-container'>
+    <div class="parent"  id='upcoming-projects-container' data-animate="from-bottom">
       {% for project in upcoming_projects %}
         <div class="cards animation zoom-in">
             <a href="{% url 'projects_details' project.id %}">
@@ -104,7 +104,7 @@
   <h2 class="section-title" data-animate="from-bottom">Explore Our Projects</h2>
   <div id="youtube-video-grid" class="youtube-video-grid">
     {% for video in youtube_videos %}
-      <div class="youtube-frame animation fade-in-up">
+      <div class="youtube-frame" data-animate="from-bottom">
         <div class="video-wrapper">
           <iframe 
             width="100%" 
@@ -122,16 +122,16 @@
       </div>
     {% endfor %}
   </div>
-  <button id="load-more-youtube-video-btn" class="load-more-button">Load More</button>
+  <button id="load-more-youtube-video-btn" class="load-more-button" data-animate="from-bottom">Load More</button>
 </section>
 
 
 <section class="project-videos-section">
-  <h2 class="section-title" data-animate="from-right">Client Video References</h2>
+  <h2 class="section-title" data-animate="from-bottom">Client Video References</h2>
   
   <div id="project-videos-container" class="video-grid">
     {% for projectvideo in project_videos %}
-      <div class="video_cards" data-animate="fade-in">
+      <div class="video_cards"  data-animate="from-bottom">
        <video controls width="100%" autoplay loop muted>
           <source src="{{ project_video_url }}" type="video/mp4" preload="auto">
           Your browser does not support the video tag.
@@ -141,7 +141,7 @@
       </div>
     {% endfor %}
   </div>
-  <button id="load-more-video-btn" class="load-more-button">Load More</button>
+  <button id="load-more-video-btn" class="load-more-button" data-animate="from-bottom">Load More</button>
 </section>
 
 {% comment %} /*youtube videos*/ {% endcomment %}
@@ -194,12 +194,12 @@
 
 <div class="projects-text">
   <div class="head">
-    <h1 data-animate="from-left"><span class="h1">D</span>elivering Dreams with Integrity</h1>
+    <h1 data-animate="from-left">Delivering Dreams with Integrity</h1>
   </div>
 
 
-  <div class="details animation slide-down">
-      <p data-animate="fade-in">
+  <div class="details">
+      <p  data-animate="from-bottom">
         At Elite Dream Builders, we are committed to delivering exceptional construction experiences. Our projects are guided by precise scheduling using Gantt charts and monitored through our dedicated mobile app, ensuring complete transparency at every stage. 
     <br><br>
         Every structure we build goes through over 200 rigorous quality checks, guaranteeing strength, safety, and longevity. From premium villas and modern duplexes to stylish apartments, we craft each project with attention to detail and a focus on client satisfaction.
