@@ -14,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('DJANGO_SECRET_KEY', default='your-secret-key-here')
 DEBUG = env.bool('DEBUG', default=False)
 
-ALLOWED_HOSTS = ['theelitedreambuilders.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['elite-2f67.onrender.com', 'localhost', '127.0.0.1']
 
 # Database configuration
 DATABASES = {
