@@ -585,7 +585,7 @@ p, a, li, span, button, input, textarea {
   .animated-button svg {
 	position: absolute;
 	width: 24px;
-	fill:var(--textColor);
+	fill:var(--backGround);
 	z-index: 9;
 	transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
   }
@@ -838,6 +838,16 @@ p, a, li, span, button, input, textarea {
 }
 .head h1{
 	text-shadow:none;
+}
+.projects-text-bg
+{
+	background-color: var(--textColor)!important;
+	margin-bottom: -30px!important;
+	padding-bottom: 2rem;
+	padding-top: 1rem;
+	padding-left:.8rem ;
+	padding-right:.8rem ;
+	text-align: justify;
 }
 .projects-text p
 {
@@ -1582,8 +1592,7 @@ p, a, li, span, button, input, textarea {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("../images/stairs.jpg");
-	
+	background-color: var(--textColor);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -2337,9 +2346,18 @@ p, a, li, span, button, input, textarea {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	gap: 2rem;
-	padding: 2rem;
+	padding: 1rem;
 	justify-content: center;
 	/* backdrop-filter: blur(5px) brightness(90%); */
+}
+.home-content-1-bg {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 2rem;
+	padding: 1rem;
+	justify-content: center;
+	/* backdrop-filter: blur(5px) brightness(90%); */
+	background-color: var(--textColor)!important;
 }
 
 .home-content-1-col-1 {
@@ -2396,7 +2414,8 @@ p, a, li, span, button, input, textarea {
 }
 
 .home-content-1-col-2 h1 {
-	font-size: 2.5rem;
+	font-size: 3rem;
+	font-weight: 700;
 }
 .home-content-1-col-2 p
 {
@@ -7111,5 +7130,26 @@ margin-right: 5rem;
   }
   100% {
     transform: translateY(0) scale(1);
+  }
+}
+
+.section-h1 h1{
+  font-size: clamp(2.5rem, 6vw, 6rem);
+  font-weight: 800;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--textColor);
+  margin: 0;
+  text-align: center;
+  color:var(--backGround);
+}
+@media (min-width: 768px) {
+  .section-h1 h1 {
+    font-size: 4.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .section-h1 h1 {
+    font-size: 6rem;
   }
 }
