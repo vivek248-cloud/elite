@@ -49,31 +49,31 @@
     </div>
     <div class="test-div">
       <div class="package">
-        <div class="package2" data-animate="fade-in">
-          <h2 class="animation slide-up">Mr. Balasubramanian</h2>
-            <h3>Chennai, TN</h3>
-            <p class="animation slide-left">Elite Dream Builders are dedicated to deliver their best to delight their Customer & has highly professional Team.
+        <div class="package2"  data-animate="from-bottom">
+          <h2 data-animate="from-bottom">Mr. Balasubramanian</h2>
+            <h3 data-animate="from-bottom">Chennai, TN</h3>
+            <p  data-animate="from-bottom">Elite Dream Builders are dedicated to deliver their best to delight their Customer & has highly professional Team.
               Have always gave Importance to our need, suggests the best possible solutions to achieve our needs.
               Glad to associate with them to build our dreams come true, soon. We, wish them all the Very Best to attain greater heights in the society.</p>
         </div>
     </div>
-    <div class="package animation zoom-in">
-      <div class="package2" data-animate="fade-in">
-            <h2 class="animation slide-up">Mr. Murali G</h2>
-            <h3>Trichy, TN</h3>
-            <p class="animation slide-left">Hari and Aravind are young, energetic, and highly active engineers. They maintain excellent time management in every project. They won the Best Trichy Business and Startup (Favorite Builders & Construction) Runner-Up award in 2022. Their dedication and effort will surely take them to the next level and help them become one of the leading developers in Trichy.</p>
+    <div class="package">
+      <div class="package2"  data-animate="from-bottom"
+            <h2 data-animate="from-bottom">Mr. Murali G</h2>
+            <h3 data-animate="from-bottom">Trichy, TN</h3>
+            <p data-animate="from-bottom">Hari and Aravind are young, energetic, and highly active engineers. They maintain excellent time management in every project. They won the Best Trichy Business and Startup (Favorite Builders & Construction) Runner-Up award in 2022. Their dedication and effort will surely take them to the next level and help them become one of the leading developers in Trichy.</p>
       </div>
     </div>
     <div class="package">
-      <div class="package2" data-animate="fade-in">
-            <h2 class="package2-h2 animation slide-up">Mr. Vigneshwaran</h2>
-            <h3>Trichy, TN</h3>
-            <p class="animation slide-left">Delivering a home beyond our expectations – Elite Dream Builders. We are very pleased and immensely happy to take possession of our dream home with Elite Dream Builders. We thank all of you for the timely handover. We are also grateful for all the help extended to us – always ready to clarify our doubts and address our concerns, and always ready to answer our calls.</p>
+      <div class="package2"  data-animate="from-bottom">
+            <h2 data-animate="from-bottom">Mr. Vigneshwaran</h2>
+            <h3 data-animate="from-bottom">Trichy, TN</h3>
+            <p data-animate="from-bottom">Delivering a home beyond our expectations – Elite Dream Builders. We are very pleased and immensely happy to take possession of our dream home with Elite Dream Builders. We thank all of you for the timely handover. We are also grateful for all the help extended to us – always ready to clarify our doubts and address our concerns, and always ready to answer our calls.</p>
       </div>
     </div>
 </div>
 <div class="section-title-container">
-<h2 class="section-title" data-animate="fade-in" >"Hear from Our Happy Clients"</h2>
+<h2 class="section-title"  data-animate="from-bottom" >"Hear from Our Happy Clients"</h2>
 </div>
 <div class="infinite-animation">
   
@@ -148,7 +148,7 @@
   <button class="nav-button prev" onclick="prevVideo()">❮</button>
   <div class="video-container" id="videoContainer" data-animate="fade-in">
       {% for video in videos %}
-      <video class="slide" controls autoplay muted loop>
+      <video class="slide" controls autoplay muted loop  data-animate="from-bottom">
           <source src="{{ video_url }}" type="video/mp4" preload="auto">
           Your browser does not support the video tag.
       </video>
