@@ -126,7 +126,7 @@ class UpcomingProject(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     image = models.ImageField(upload_to='projects/upcoming/')
-    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
+   
     # image = CloudinaryField('image',folder='upcomming-projects-img')
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='ongoing')  # ✅ NEW FIELD
     location = models.CharField(max_length=255, null=True, blank=True)
