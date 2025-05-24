@@ -118,11 +118,7 @@ class Project(models.Model):
 
 
 class UpcomingProject(models.Model):
-    CATEGORY_CHOICES = [
-        ('residential', 'Residential'),
-        ('commercial', 'Commercial'),
-        ('interior', 'interior'),
-    ]
+   
     STATUS_CHOICES = [
         ('ongoing', 'Ongoing'),
         ('completed', 'Completed'),
