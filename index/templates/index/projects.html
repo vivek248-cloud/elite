@@ -31,28 +31,29 @@
 <body>
   {% block content %}
 
-<div class="terms-head">
-  <div class="terms-head-overlay"></div>
-  <div class="content-wrapper">
-    <h1 class="projects-title" data-animate="from-top">Our Signature Projects</h1>
-    <p class="projects-subtitle" data-animate="from-top">
-      Crafted with precision, excellence, and timeless architectural elegance.
-    </p>
-  </div>
-</div>
-
-<div class="projects">
-    <div class="projects-text">
-     <div class="section-title-wrapper" style="text-align:center;">
-        <h1 class="animation slide-up section-title"><span class="h1">O</span>ur Projects</h1>  
-      </div>
-
-      <div class="intro">
-        <p data-animate="fade-in">
-          At Elite Dream Builders, we focus on top-quality construction and timely delivery. Our strong client relationships and dedication to excellence make us one of the most trusted builders in Trichy.
-        </p>
+    <div class="terms-head">
+      <div class="terms-head-overlay"></div>
+        <div class="content-wrapper animation fade-in">
+          <h1 class="projects-title">Our Signature Projects</h1>
+          <p class="projects-subtitle">
+            Crafted with precision, excellence, and timeless architectural elegance.
+          </p>
+        </div>
       </div>
     </div>
+  <div class="projects">
+      <div class="projects-text">
+        <div class="section-title-wrapper" style="text-align:center;">
+          <h1 class="section-title" data-animate="from-bottom">Our Projects</h1>  
+        </div>
+
+        <div class="intro animation slide-down">
+          <p data-animate="from-bottom">
+            At Elite Dream Builders, we focus on top-quality construction and timely delivery. Our strong client relationships and dedication to excellence make us one of the most trusted builders in Trichy.
+          </p>
+        </div>
+      </div>
+
 
     <section class="completed-projects">
       <div class="section-title-wrapper">
@@ -60,9 +61,9 @@
       </div>
       <div id="projects-container" class="parent">
           {% for project in projects %}
-          <div class="cards" data-animate="from-bottom">
+          <div class="cards animation zoom-in">
               <a href="{% url 'projects_details' project.id %}">
-                  <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy" data-animate="fade-in">
+                  <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy">
                   <div class="info">
                       <h3 class="c animation slide-up">{{ project.title }}</h3>
                       <strong class="animation slide-up">{{ project.budget_range}}</strong>
@@ -76,29 +77,29 @@
       <button id="load-more-btn" class="load-more-button" data-animate="from-bottom">Load More</button>
     </section>
     
-  <section class="completed-projects">
-    <div class="section-title-wrapper">
-      <h2 class="section-title" data-animate="from-bottom">Ongoing Projects</h2>
-    </div>
-    <div class="parent"  id='upcoming-projects-container' data-animate="from-bottom">
-      {% for project in upcoming_projects %}
-        <div class="cards animation zoom-in">
-            <a href="{% url 'projects_details' project.id %}">
-                <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy" data-animate="fade-in">
-                <div class="info">
-                    <h3 class="c animation slide-up">{{ project.title }}</h3>
-                    <strong class="animation slide-up">{{ project.budget_range }}</strong>
-                    <p class="animation slide-up">{{ project.bhk }}</p>
-                    <p class="animation slide-up">{{ project.description }}</p>
-                </div>
-            </a>
-        </div>
-        {% empty %}
-        <p>No images available</p>
+    <section class="completed-projects">
+      <div class="section-title-wrapper">
+        <h2 class="section-title" data-animate="from-bottom">Ongoing Projects</h2>
+      </div>
+      <div class="parent"  id='upcoming-projects-container'>
+        {% for project in upcoming_projects %}
+          <div class="cards" data-animate="from-bottom">
+              <a href="{% url 'projects_details' project.id %}">
+                  <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy">
+                  <div class="info">
+                      <h3 class="c animation slide-up">{{ project.title }}</h3>
+                      <strong class="animation slide-up">{{ project.budget_range }}</strong>
+                      <p class="animation slide-up">{{ project.bhk }}</p>
+                      <p class="animation slide-up">{{ project.description }}</p>
+                  </div>
+              </a>
+          </div>
+          {% empty %}
+          <p>No images available</p>
         {% endfor %}
-    </div>
-    <button id="load-more-upcoming-btn" class="load-more-button" data-animate="from-bottom">Load More</button>
-</section>
+      </div>
+      <button id="load-more-upcoming-btn" class="load-more-button" data-animate="from-bottom">Load More</button>
+    </section>
 
 <section class="youtube-gallery-section">
   <h2 class="section-title" data-animate="from-bottom">Explore Our Projects</h2>
@@ -131,13 +132,13 @@
   
   <div id="project-videos-container" class="video-grid">
     {% for projectvideo in project_videos %}
-      <div class="video_cards"  data-animate="from-bottom">
+      <div class="video_cards" data-animate="from-bottom">
        <video controls width="100%" autoplay loop muted>
-          <source src="{{ project_video_url }}" type="video/mp4" preload="auto">
+          <source src="{{ projectvideo.video_file.url }}" type="video/mp4" preload="auto">
           Your browser does not support the video tag.
         </video>
 
-<!--         <h4 class="c animation slide-up">{{ projectvideo.title }}</h4> -->
+        <h4 class="c animation slide-up">{{ projectvideo.title }}</h4>
       </div>
     {% endfor %}
   </div>
@@ -191,23 +192,22 @@
   });
   
 </script>
-
+</div>
 <div class="projects-text projects-text-bg">
   <div class="head">
     <h1 class="h4" data-animate="from-bottom">Delivering Dreams with Integrity</h1>
   </div>
 
 
-      <div class="details animation slide-down">
-          <p data-animate="from-bottom">
-            At Elite Dream Builders, we are committed to delivering exceptional construction experiences. Our projects are guided by precise scheduling using Gantt charts and monitored through our dedicated mobile app, ensuring complete transparency at every stage. 
-        <br><br>
-            Every structure we build goes through over 200 rigorous quality checks, guaranteeing strength, safety, and longevity. From premium villas and modern duplexes to stylish apartments, we craft each project with attention to detail and a focus on client satisfaction.
-            <br><br>
-                We're currently active in locations like Kalkandar Kottai, Ponamalipatty, Urayur, and Srirangam, with upcoming developments in Tiruvanaikovil and more. Our designs are not only aesthetic but also eco-conscious, energy-efficient, and tailored to meet diverse budgets and dreams.
-          </p>
-    </div>
-    
+  <div class="details animation slide-down">
+      <p data-animate="from-bottom">
+        At Elite Dream Builders, we are committed to delivering exceptional construction experiences. Our projects are guided by precise scheduling using Gantt charts and monitored through our dedicated mobile app, ensuring complete transparency at every stage. 
+    <br><br>
+        Every structure we build goes through over 200 rigorous quality checks, guaranteeing strength, safety, and longevity. From premium villas and modern duplexes to stylish apartments, we craft each project with attention to detail and a focus on client satisfaction.
+    <br><br>
+        We're currently active in locations like Kalkandar Kottai, Ponamalipatty, Urayur, and Srirangam, with upcoming developments in Tiruvanaikovil and more. Our designs are not only aesthetic but also eco-conscious, energy-efficient, and tailored to meet diverse budgets and dreams.
+  </p>
+  </div>
 </div>
 
 
@@ -254,7 +254,6 @@
   
   </script>
 
-    
   <script>
     let offset = 3;
     const loadMoreUrl = "{% url 'load_more_projects' %}";
