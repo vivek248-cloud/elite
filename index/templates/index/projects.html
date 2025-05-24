@@ -59,11 +59,11 @@
       <div class="section-title-wrapper">
         <h2 class="section-title" data-animate="from-bottom">Completed Projects</h2>
       </div>
-      <div id="projects-container" class="parent">
+      {% comment %} <div id="projects-container" class="parent">
           {% for project in projects %}
           <div class="cards animation zoom-in">
               <a href="{% url 'projects_details' project.id %}">
-                  <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy">
+                  <img src="{{ project.image_url }}" alt="{{ project.title }}">
                   <div class="info">
                       <h3 class="c animation slide-up">{{ project.title }}</h3>
                       <strong class="animation slide-up">{{ project.budget_range}}</strong>
@@ -73,7 +73,21 @@
               </a>
           </div>
           {% endfor %}
+      </div> {% endcomment %}
+      <div class="project-gallery" id="projects-container">
+      {% for project in projects %}
+        <div class="project-tile">
+          <a href="{% url 'projects_details' project.id %}">
+            <img src="{{ project.image.url }}" alt="{{ project.title }}">
+          </a>
+          <div class="view-link">
+            <a href="{% url 'projects_details' project.id %}">View Project</a>
+            <span class="circle-arrow">&#10140;</span> <!-- Unicode arrow matching your screenshot -->
+          </div>
+        </div>
+      {% endfor %}
       </div>
+
       <button id="load-more-btn" class="load-more-button" data-animate="from-bottom">Load More</button>
     </section>
     
@@ -81,11 +95,11 @@
       <div class="section-title-wrapper">
         <h2 class="section-title" data-animate="from-bottom">Ongoing Projects</h2>
       </div>
-      <div class="parent"  id='upcoming-projects-container'>
+      {% comment %} <div class="parent"  id='upcoming-projects-container'>
         {% for project in upcoming_projects %}
           <div class="cards" data-animate="from-bottom">
               <a href="{% url 'projects_details' project.id %}">
-                  <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy">
+                  <img src="{{ project.image.url}}" alt="{{ project.title }}" loading="lazy">
                   <div class="info">
                       <h3 class="c animation slide-up">{{ project.title }}</h3>
                       <strong class="animation slide-up">{{ project.budget_range }}</strong>
@@ -96,7 +110,20 @@
           </div>
           {% empty %}
           <p>No images available</p>
-        {% endfor %}
+        {% endfor %} {% endcomment %}
+        <div class="project-gallery" id="upcoming-projects-container">
+      {% for project in projects %}
+        <div class="project-tile">
+          <a href="{% url 'projects_details' project.id %}">
+            <img src="{{ project.image.url }}" alt="{{ project.title }}">
+          </a>
+          <div class="view-link">
+            <a href="{% url 'projects_details' project.id %}">View Project</a>
+            <span class="circle-arrow">&#10140;</span> <!-- Unicode arrow matching your screenshot -->
+          </div>
+        </div>
+      {% endfor %}
+      </div>
       </div>
       <button id="load-more-upcoming-btn" class="load-more-button" data-animate="from-bottom">Load More</button>
     </section>
@@ -264,21 +291,20 @@
             .then(data => {
                 const container = document.getElementById('projects-container');
                 data.projects.forEach(project => {
-                    const card = document.createElement('div');
-                    card.classList.add('cards', 'animation', 'zoom-in');
-                    card.innerHTML = `
-                        <a href="/projects/${project.id}/">
-                            <img src="${project.image_url}" alt="${project.title}">
-                            <div class="info">
-                                <h3 class="c animation slide-up">${project.title}</h3>
-                                <strong class="animation slide-up">${project.budget_range}</strong>
-                                <p class="animation slide-up">${project.bhk}</p>
-                                <p class="animation slide-up">${project.description}</p>
-                            </div>
-                        </a>
-                    `;
-                    container.appendChild(card);
-                });
+                const card = document.createElement('div');
+                card.classList.add('project-tile'); // use the new class, not 'cards'
+                card.innerHTML = `
+                    <a href="/projects/${project.id}/">
+                        <img src="${project.image.url}" alt="${project.title}">
+                    </a>
+                    <div class="view-link">
+                        <a href="/projects/${project.id}/">View Project</a>
+                        <span class="circle-arrow">&#10140;</span>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+
 
                 offset += 3;
                 if (!data.has_more) {
@@ -304,19 +330,19 @@
           .then(data => {
               const container = document.getElementById('upcoming-projects-container');
               data.projects.forEach(project => {
-                  const card = document.createElement('div');
-                  card.classList.add('cards', 'animation', 'zoom-in');
-                  card.innerHTML = `
-                      <img src="${project.image_url}" alt="${project.title}">
-                      <div class="info">
-                          <h3 class="c animation slide-up">${project.title}</h3>
-                          <strong class="animation slide-up">${project.budget_range}</strong>
-                          <p class="animation slide-up">${project.bhk}</p>
-                          <p class="animation slide-up">${project.location}</p>
-                      </div>
-                  `;
-                  container.appendChild(card);
-              });
+                const card = document.createElement('div');
+                card.classList.add('project-tile'); // use the new class, not 'cards'
+                card.innerHTML = `
+                    <a href="/projects/${project.id}/">
+                        <img src="${project.image.url}" alt="${project.title}">
+                    </a>
+                    <div class="view-link">
+                        <a href="/projects/${project.id}/">View Project</a>
+                        <span class="circle-arrow">&#10140;</span>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
 
               upcomingOffset += 3;
               if (!data.has_more) {
