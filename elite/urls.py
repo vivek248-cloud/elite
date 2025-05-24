@@ -8,7 +8,7 @@ from django.conf.urls.static import static
 from index.views import custom_404
 from index.views import custom_500
 from index.views import serve_media
-
+from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,3 +33,6 @@ if not settings.DEBUG:
     urlpatterns += [
         re_path(r'^media/(?P<path>.*)$', serve_media),
     ]
+urlpatterns += [
+    path('i18n/', include('django.conf.urls.i18n')),
+]
