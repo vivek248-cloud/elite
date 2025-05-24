@@ -99,7 +99,7 @@
         {% for project in upcoming_projects %}
           <div class="cards" data-animate="from-bottom">
               <a href="{% url 'projects_details' project.id %}">
-                  <img src="{{ project.image.url}}" alt="{{ project.title }}" loading="lazy">
+                  <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy">
                   <div class="info">
                       <h3 class="c animation slide-up">{{ project.title }}</h3>
                       <strong class="animation slide-up">{{ project.budget_range }}</strong>
@@ -115,7 +115,7 @@
      {% for project in upcoming_projects %}
         <div class="project-tile">
           <a href="{% url 'projects_details' project.id %}">
-            <img src="{{ project.image_url }}" alt="{{ project.title }}">
+            <img src="{{ project.image.url }}" alt="{{ project.title }}">
           </a>
           <div class="view-link">
             <a href="{% url 'projects_details' project.id %}">View Project</a>
@@ -295,7 +295,7 @@
                 card.classList.add('project-tile'); // use the new class, not 'cards'
                 card.innerHTML = `
                     <a href="/projects/${project.id}/">
-                        <img src="${project.image.url}" alt="${project.title}">
+                        <img src="${project.image_url}" alt="${project.title}">
                     </a>
                     <div class="view-link">
                         <a href="/projects/${project.id}/">View Project</a>
