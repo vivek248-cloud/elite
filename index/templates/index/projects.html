@@ -59,21 +59,6 @@
       <div class="section-title-wrapper">
         <h2 class="section-title" data-animate="from-bottom">Completed Projects</h2>
       </div>
-      {% comment %} <div id="projects-container" class="parent">
-          {% for project in projects %}
-          <div class="cards animation zoom-in">
-              <a href="{% url 'projects_details' project.id %}">
-                  <img src="{{ project.image_url }}" alt="{{ project.title }}">
-                  <div class="info">
-                      <h3 class="c animation slide-up">{{ project.title }}</h3>
-                      <strong class="animation slide-up">{{ project.budget_range}}</strong>
-                      <p class="animation slide-up">{{ project.bhk }}</p>
-                      <p class="animation slide-up">{{ project.description }}</p>
-                  </div>
-              </a>
-          </div>
-          {% endfor %}
-      </div> {% endcomment %}
       <div class="project-gallerys" id="projects-container">
       {% for project in projects %}
         <div class="project-tile">
@@ -85,6 +70,8 @@
             <span class="circle-arrow">&#10140;</span> <!-- Unicode arrow matching your screenshot -->
           </div>
         </div>
+          {% empty %}
+          <p>No images available</p>
       {% endfor %}
       </div>
 
@@ -122,6 +109,8 @@
             <span class="circle-arrow">&#10140;</span> <!-- Unicode arrow matching your screenshot -->
           </div>
         </div>
+        {% empty %}
+          <p>No images available</p>
       {% endfor %}
       </div>
       </div>
@@ -219,7 +208,7 @@
   });
   
 </script>
-</div>
+
 <div class="projects-text projects-text-bg">
   <div class="head">
     <h1 class="h4" data-animate="from-bottom">Delivering Dreams with Integrity</h1>
