@@ -74,7 +74,7 @@
           </div>
           {% endfor %}
       </div> {% endcomment %}
-      <div class="project-gallery" id="projects-container">
+      <div class="project-gallerys" id="projects-container">
       {% for project in projects %}
         <div class="project-tile">
           <a href="{% url 'projects_details' project.id %}">
@@ -111,7 +111,7 @@
           {% empty %}
           <p>No images available</p>
         {% endfor %} {% endcomment %}
-        <div class="project-gallery" id="upcoming-projects-container">
+        <div class="project-gallerys" id="upcoming-projects-container">
       {% for project in projects %}
         <div class="project-tile">
           <a href="{% url 'projects_details' project.id %}">
