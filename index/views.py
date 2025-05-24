@@ -53,7 +53,7 @@ def services(request):
 def projects(request):
     all_projects = Project.objects.all()[:6]
     projectvideo = ProjectVideo.objects.all()[:3]
-    upcoming_projects = UpcomingProject.objects.all()[:6]
+    upcoming_projects = Project.objects.filter(status='ongoing')[:6]
     youtube_videos = YouTubeVideo.objects.all()[:3]
     videoslider = SliderVideo.objects.all()
 
