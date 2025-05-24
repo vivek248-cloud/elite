@@ -7156,7 +7156,7 @@ margin-right: 5rem;
 
 /* Responsive tweaks for smaller devices */
 /* Container as responsive 3-column grid */
-.project-gallery {
+.project-gallerys {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   justify-items: center;
