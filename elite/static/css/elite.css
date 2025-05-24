@@ -845,8 +845,8 @@ p, a, li, span, button, input, textarea {
 	margin-bottom: -30px!important;
 	padding-bottom: 2rem;
 	padding-top: 1rem;
-	padding-left:.8rem ;
-	padding-right:.8rem ;
+	padding-left:0rem ;
+	padding-right:0rem ;
 	text-align: justify;
 }
 .projects-text p
@@ -2850,7 +2850,7 @@ p, a, li, span, button, input, textarea {
   
   /* Arrow to the right */
 .project-sidebar a::before {
-  content: '⮚';
+  content: '\2B9A';
   font-family: 'Poppins', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
@@ -7108,7 +7108,7 @@ margin-right: 5rem;
   font-weight: 500;
   font-size: 1.1rem;
   color: var(--textColor);
-  opacity: 0;
+  opacity: 1;
   transform: translateY(30px) scale(0.95);
   animation: popupIntro 1s ease-out forwards;
   animation-delay: 0.4s; /* Optional delay for extra elegance */
@@ -7121,7 +7121,7 @@ margin-right: 5rem;
 /* Keyframe for pop-up on load */
 @keyframes popupIntro {
   0% {
-    opacity: 0;
+    opacity: 1;
     transform: translateY(30px) scale(0.95);
   }
   60% {
@@ -7153,3 +7153,74 @@ margin-right: 5rem;
     font-size: 6rem;
   }
 }
+
+/* Responsive tweaks for smaller devices */
+/* Container as responsive 3-column grid */
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center;
+  gap: 3rem;
+  padding: 2rem 0;
+}
+
+/* Card */
+.project-tile {
+  max-width: 350px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1rem;
+}
+
+/* Image styling */
+.project-tile img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.project-tile img:hover {
+  transform: scale(1.02);
+}
+
+/* View Project link + arrow */
+.view-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #000;
+}
+
+.view-link a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #000;
+}
+
+/* Circle arrow styling */
+.circle-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid red;
+  border-radius: 50%;
+  color: red;
+  font-size: 1rem;
+  line-height: 1;
+  margin-top: -18px!important;
+  transition: background 0.3s;
+}
+
+.view-link:hover .circle-arrow {
+  background: rgba(255, 0, 0, 0.05);
+}
+
+
