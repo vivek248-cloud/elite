@@ -329,7 +329,7 @@
           .then(response => response.json())
           .then(data => {
               const container = document.getElementById('upcoming-projects-container');
-              data.projects.forEach(project => {
+              data.upcoming_projects.forEach(project => {
                 const card = document.createElement('div');
                 card.classList.add('project-tile'); // use the new class, not 'cards'
                 card.innerHTML = `
