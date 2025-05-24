@@ -295,7 +295,7 @@
                 card.classList.add('project-tile'); // use the new class, not 'cards'
                 card.innerHTML = `
                     <a href="/projects/${project.id}/">
-                        <img src="${project.image_url}" alt="${project.title}">
+                        <img src="${project.image.url}" alt="${project.title}">
                     </a>
                     <div class="view-link">
                         <a href="/projects/${project.id}/">View Project</a>
@@ -334,7 +334,7 @@
                 card.classList.add('project-tile'); // use the new class, not 'cards'
                 card.innerHTML = `
                     <a href="/projects/${project.id}/">
-                        <img src="${project.image_url}" alt="${project.title}">
+                        <img src="${project.image.url" alt="${project.title}">
                     </a>
                     <div class="view-link">
                         <a href="/projects/${project.id}/">View Project</a>
@@ -370,7 +370,7 @@
                   card.classList.add('video_cards', 'animation', 'zoom-in');
                   card.innerHTML = `
                       <video controls width="100%">
-                          <source src="${video.video_file}" type="video/mp4">
+                          <source src="${video.video_file.url}" type="video/mp4">
                           Your browser does not support the video tag.
                       </video>
                       <h4 class="c animation slide-up">${video.title}</h4>
