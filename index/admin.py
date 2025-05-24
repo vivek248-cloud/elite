@@ -21,7 +21,7 @@ admin.site.site_header = "Elite Dream Builders Admin"
 admin.site.site_title = "Elite Admin Portal"
 admin.site.index_title = "Welcome to Elite Dream Builders Admin Panel"
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('title', 'category', 'created_at')
+    list_display = ('title', 'category', 'created_at', 'status')
 
     def changelist_view(self, request, extra_context=None):
         # Get category count for dashboard-style stats
