@@ -126,7 +126,7 @@ def load_more_upcomming_projects(request):
     limit = 3
 
     # Only fetch projects with status 'ongoing'
-    ongoing_projects = Project.objects.filter(status='ongoing')
+    ongoing_projects = Project.objects.filter(status='ongoing').order_by('id')
     upcoming_projects = ongoing_projects[offset:offset + limit]
 
     project_data = []
