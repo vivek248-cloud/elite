@@ -104,10 +104,10 @@ def load_more_projects(request):
 def load_more_upcomming_projects(request):
     offset = int(request.GET.get('offset', 0))
     limit = 3
-    projects = UpcomingProject.objects.all()[offset:offset + limit]
+    upcoming_projects = Project.objects.filter(status='ongoing')[offset:offset + limit]
 
     project_data = []
-    for project in projects :
+    for project in upcoming_projects :
         project_data.append({
             'id': project.id,
             'title': project.title,
@@ -119,7 +119,7 @@ def load_more_upcomming_projects(request):
 
     has_more = UpcomingProject.objects.count() > offset + limit
 
-    return JsonResponse({'projects': project_data, 'has_more': has_more})
+    return JsonResponse({'upcoming_projects': project_data, 'has_more': has_more})
 
 # ProjectVideo
 
