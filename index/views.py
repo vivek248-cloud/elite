@@ -101,23 +101,47 @@ def load_more_projects(request):
 # UpcomingProject
 
 
+# def load_more_upcomming_projects(request):
+#     offset = int(request.GET.get('offset', 0))
+#     limit = 3
+#     upcoming_projects = Project.objects.filter(status='ongoing')[offset:offset + limit]
+
+#     project_data = []
+#     for project in upcoming_projects :
+#         project_data.append({
+#             'id': project.id,
+#             'title': project.title,
+#             'image_url': project.image.url,
+#             'budget_range': str(project.budget_range),  # <-- Convert to string
+#             'bhk': project.bhk,
+#             'description': project.description,
+#         })
+
+#     has_more = Project.objects.count() > offset + limit
+
+#     return JsonResponse({'upcoming_projects': project_data, 'has_more': has_more})
+
 def load_more_upcomming_projects(request):
     offset = int(request.GET.get('offset', 0))
     limit = 3
-    upcoming_projects = Project.objects.filter(status='ongoing')[offset:offset + limit]
+
+    # Only fetch projects with status 'ongoing'
+    ongoing_projects = Project.objects.filter(status='ongoing')
+    upcoming_projects = ongoing_projects[offset:offset + limit]
 
     project_data = []
-    for project in upcoming_projects :
+    for project in upcoming_projects:
         project_data.append({
             'id': project.id,
             'title': project.title,
             'image_url': project.image.url,
-            'budget_range': str(project.budget_range),  # <-- Convert to string
+            'budget_range': str(project.budget_range),
             'bhk': project.bhk,
             'description': project.description,
         })
 
-    has_more = UpcomingProject.objects.count() > offset + limit
+    # Use the same filtered queryset for counting
+    has_more = ongoing_projects.count() > offset + limit
 
     return JsonResponse({'upcoming_projects': project_data, 'has_more': has_more})
 
