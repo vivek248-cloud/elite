@@ -150,7 +150,7 @@
     {% for projectvideo in project_videos %}
       <div class="video_cards" data-animate="from-bottom">
         <video controls width="100%" autoplay loop muted>
-          <source src="{{ projectvideo.video_file.url }}" type="video/mp4" preload="auto">
+         <source src="{{ projectvideo.secure_url }}" type="video/mp4" preload="auto">
           Your browser does not support the video tag.
         </video>
         <h4 class="c animation slide-up">{{ projectvideo.title }}</h4>
