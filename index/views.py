@@ -64,15 +64,16 @@ def projects(request):
     else:
         project_video_url = ''
 
-    context = {
+        context = {
         'title': 'Projects - Elite Dream Builders',
         'projects': all_projects,
         'upcoming_projects': upcoming_projects,
-        'project_videos': project_videos,  # list of 3 videos
+        'project_videos': project_videos,  # ✅ correct
         'project_video_url': project_video_url,  # secure URL of the first video
         'youtube_videos': youtube_videos,
         'videoslider': videoslider,
     }
+
     return render(request, 'index/projects.html', context)
 
 
