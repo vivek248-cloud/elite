@@ -5204,7 +5204,7 @@ video, .overlay {
     }
 
   .video-grid {
-  padding: 30px 15px;
+  padding: 0px 0px!important;
   gap: 1.5rem;
   }
   .video_cards h4 {
@@ -5692,8 +5692,8 @@ video, .overlay {
 	  .video_cards {
 		width: 100%;
 		max-width: 100%;
-			padding: 0.8rem;
-		  width: 250px;
+		padding: 0;
+		  width: 300px!important;
 	  }
 	  
 		.video_cards h4 {
@@ -5922,20 +5922,19 @@ height: 200px;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 	gap: 1.5rem;
-	padding: 30px 10px;
-	margin: 0 auto; /* Center the whole grid */
+	padding: 0px 0px;
+	margin: 2rem auto; /* Center the whole grid */
 	justify-items: center; /* Center items inside each grid column */
 	max-width: 1000px; /* Optional: limits width on large screens */
   }
   
   .video_cards {
-	padding: 0.8rem;
 	width: 100%;
-	max-width: 320px; /* Optional: makes each card consistent */
+	max-width: 250px; /* Optional: makes each card consistent */
   }
   
   .video_cards video {
-	border-radius: 8px;
+	border-radius: 5px;
   }
   .content-wrapper h1
   {
@@ -7122,7 +7121,7 @@ margin-right: 5rem;
 /* Container as responsive 3-column grid */
 .project-gallerys {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   justify-items: center;
   gap: 3rem;
   padding: 2rem 0;
@@ -7186,6 +7185,26 @@ margin-right: 5rem;
 .view-link:hover .circle-arrow {
   background: rgba(255, 0, 0, 0.05);
 }
+
+@media (max-width: 360px) {
+  .project-gallerys {
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .view-link {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .circle-arrow {
+    width: 24px;
+    height: 24px;
+    font-size: 0.9rem;
+    margin-top: 0 !important;
+  }
+}
+
 
 .client-video-section {
   padding: 4rem 2rem;
