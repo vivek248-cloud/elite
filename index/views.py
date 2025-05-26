@@ -51,7 +51,7 @@ def services(request):
 
 
 def projects(request):
-     all_projects = Project.objects.all().order_by('id')[:6]
+    all_projects = Project.objects.all().order_by('id')[:6]
     upcoming_projects = Project.objects.filter(status='ongoing').order_by('id')[:6]
     project_videos = ProjectVideo.objects.all().order_by('id')[:3]
     youtube_videos = YouTubeVideo.objects.all().order_by('id')[:3]
@@ -81,7 +81,7 @@ def projects(request):
 
 def load_more_projects(request):
     offset = int(request.GET.get('offset', 0))
-    limit = 3
+    limit = 6
     projects = Project.objects.all()[offset:offset + limit]
 
     project_data = []
@@ -104,7 +104,7 @@ def load_more_projects(request):
 
 def load_more_upcomming_projects(request):
     offset = int(request.GET.get('offset', 0))
-    limit = 3
+    limit = 6
 
     # Only fetch projects with status 'ongoing'
     ongoing_projects = Project.objects.filter(status='ongoing').order_by('id')
