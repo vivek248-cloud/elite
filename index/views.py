@@ -53,13 +53,11 @@ def services(request):
 def projects(request):
     all_projects = Project.objects.all().order_by('id')[:6]
     upcoming_projects = Project.objects.filter(status='ongoing').order_by('id')[:6]
-    project_videos = ProjectVideo.objects.all().order_by('id')[:3]
+    full_project_videos = ProjectVideo.objects.all().order_by('id')
+    project_videos = full_project_videos[:3]
     youtube_videos = YouTubeVideo.objects.all().order_by('id')[:3]
     videoslider = SliderVideo.objects.all().order_by('id')
 
-
-    # Fix: Get the first video from the full queryset, not from the sliced one
-    full_project_videos = ProjectVideo.objects.all()
     if full_project_videos.exists():
         first_video = full_project_videos.first()
         project_video_url = first_video.video_file.build_url(resource_type='video', secure=True)
@@ -70,12 +68,13 @@ def projects(request):
         'title': 'Projects - Elite Dream Builders',
         'projects': all_projects,
         'upcoming_projects': upcoming_projects,
-        'project_videos': project_video_url,  # sliced list of 3 for display
+        'project_videos': project_videos,  # list of 3 videos
         'project_video_url': project_video_url,  # secure URL of the first video
         'youtube_videos': youtube_videos,
         'videoslider': videoslider,
     }
     return render(request, 'index/projects.html', context)
+
 
 
 
