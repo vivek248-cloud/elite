@@ -59,7 +59,7 @@ def projects(request):
 
 
     # Fix: Get the first video from the full queryset, not from the sliced one
-    first_video = ProjectVideo.objects.order_by('id').first()
+    first_video = ProjectVideo.objects.all()
     if full_project_videos.exists():
         first_video = full_project_videos.first()
         project_video_url = first_video.video_file.build_url(resource_type='video', secure=True)
