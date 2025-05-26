@@ -53,33 +53,40 @@ def services(request):
 def projects(request):
     all_projects = Project.objects.all().order_by('id')[:6]
     upcoming_projects = Project.objects.filter(status='ongoing').order_by('id')[:6]
-    project_videos = ProjectVideo.objects.all().order_by('id')[:3]
     youtube_videos = YouTubeVideo.objects.all().order_by('id')[:3]
     videoslider = SliderVideo.objects.all().order_by('id')
 
-    # Get secure URL of the first video if available
-    try:
-        full_project_videos = ProjectVideo.objects.all()
-        if full_project_videos.exists():
-            first_video = full_project_videos.first()
-            project_video_url = first_video.video_file.build_url(resource_type='video', secure=True)
-        else:
-            project_video_url = ''
-    except Exception as e:
-        print(f"Error getting project video URL: {e}")
+    # Project videos with secure URLs
+    raw_project_videos = ProjectVideo.objects.all().order_by('id')[:3]
+    project_videos = []
+
+    for video in raw_project_videos:
+        try:
+            secure_url = video.video_file.build_url(resource_type='video', secure=True)
+        except Exception as e:
+            print(f"Error building secure URL for video {video.id}: {e}")
+            secure_url = ''
+        video.secure_url = secure_url
+        project_videos.append(video)
+
+    # First video secure URL
+    if project_videos:
+        project_video_url = project_videos[0].secure_url
+    else:
         project_video_url = ''
 
     context = {
         'title': 'Projects - Elite Dream Builders',
         'projects': all_projects,
         'upcoming_projects': upcoming_projects,
-        'project_videos': project_videos,  # sliced list of 3 for display
-        'project_video_url': project_video_url,  # secure URL of the first video
+        'project_videos': project_videos,  # with secure_url added to each
+        'project_video_url': project_video_url,
         'youtube_videos': youtube_videos,
         'videoslider': videoslider,
     }
 
     return render(request, 'index/projects.html', context)
+
 
 
 
