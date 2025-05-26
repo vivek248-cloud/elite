@@ -4189,7 +4189,7 @@ video, .overlay {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	gap: 2rem;
-	padding: 40px 20px;
+
 	background-color: var(--bgWhite);
 	max-width: 1200px;
 	margin: 0 auto;
@@ -4199,12 +4199,11 @@ video, .overlay {
   /* Individual Video Card */
   .video_cards {
 	background: var(--bgWhite);
-	border-radius: 15px;
+	border-radius: 5px;
 	overflow: hidden;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 	text-align: center;
-	padding: 1rem;
   }
   
   .video_cards:hover {
@@ -4216,19 +4215,11 @@ video, .overlay {
   .video_cards video {
 	width: 100%;
 	height: auto;
-	border-radius: 10px;
+	border-radius: 5px;
 	object-fit: cover;
-	margin-bottom: 1rem;
   }
   
-  /* Title Styling */
-  .video_cards h4 {
-	font-size: 1.2rem;
-	color: #1a1a1a;
-	font-weight: 600;
-	margin-top: 0.5rem;
-	font-family: 'Poppins', sans-serif;
-  }
+
   
 
 .video_cards h4 {
@@ -4304,50 +4295,7 @@ video, .overlay {
 	line-height: 1.6;
   }
   
-  .video-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-	gap: 2rem;
-	padding: 40px 20px;
-	background-color: var(--bgWhite);
-	max-width: 1200px;
-	margin: 0 auto;
-	box-sizing: border-box;
-  }
   
-  /* Individual Video Card */
-  .video_cards {
-	background: var(--bgWhite);
-
-	overflow: hidden;
-	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
-	text-align: center;
-	padding: 1rem;
-  }
-  
-  .video_cards:hover {
-	transform: translateY(-8px);
-	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-  }
-  
-  /* Video Styling */
-  .video_cards video {
-	width: 100%;
-	height: auto;
-	border-radius: 10px;
-	object-fit: cover;
-	margin-bottom: 1rem;
-  }
-  
-  /* Title Styling */
-  .video_cards h4 {
-	font-size: 1.2rem;
-	color: #1a1a1a;
-	font-weight: 600;
-	margin-top: 0.5rem;
-	font-family: 'Poppins', sans-serif;
-  }
   
   
   .youtube-title {
@@ -7239,4 +7187,15 @@ margin-right: 5rem;
   background: rgba(255, 0, 0, 0.05);
 }
 
+.client-video-section {
+  padding: 4rem 2rem;
+  background: #f9f9f9;
+  text-align: center;
+}
 
+.section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 3rem;
+  color: #333;
+}
