@@ -53,29 +53,33 @@ def services(request):
 def projects(request):
     all_projects = Project.objects.all().order_by('id')[:6]
     upcoming_projects = Project.objects.filter(status='ongoing').order_by('id')[:6]
-    full_project_videos = ProjectVideo.objects.all().order_by('id')
-    project_videos = full_project_videos[:3]
+    project_videos = ProjectVideo.objects.all().order_by('id')[:3]
     youtube_videos = YouTubeVideo.objects.all().order_by('id')[:3]
     videoslider = SliderVideo.objects.all().order_by('id')
 
-    if full_project_videos.exists():
-        first_video = full_project_videos.first()
-        project_video_url = first_video.video_file.build_url(resource_type='video', secure=True)
-    else:
+    # Get secure URL of the first video if available
+    try:
+        full_project_videos = ProjectVideo.objects.all()
+        if full_project_videos.exists():
+            first_video = full_project_videos.first()
+            project_video_url = first_video.video_file.build_url(resource_type='video', secure=True)
+        else:
+            project_video_url = ''
+    except Exception as e:
+        print(f"Error getting project video URL: {e}")
         project_video_url = ''
 
-        context = {
+    context = {
         'title': 'Projects - Elite Dream Builders',
         'projects': all_projects,
         'upcoming_projects': upcoming_projects,
-        'project_videos': project_videos,  # ✅ correct
+        'project_videos': project_videos,  # sliced list of 3 for display
         'project_video_url': project_video_url,  # secure URL of the first video
         'youtube_videos': youtube_videos,
         'videoslider': videoslider,
     }
 
     return render(request, 'index/projects.html', context)
-
 
 
 
