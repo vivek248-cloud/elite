@@ -51,14 +51,15 @@ def services(request):
 
 
 def projects(request):
-    all_projects = Project.objects.all()[:6]
-    projectvideo = ProjectVideo.objects.all()[:3]
-    upcoming_projects = Project.objects.filter(status='ongoing')[:6]
-    youtube_videos = YouTubeVideo.objects.all()[:3]
-    videoslider = SliderVideo.objects.all()
+     all_projects = Project.objects.all().order_by('id')[:6]
+    upcoming_projects = Project.objects.filter(status='ongoing').order_by('id')[:6]
+    project_videos = ProjectVideo.objects.all().order_by('id')[:3]
+    youtube_videos = YouTubeVideo.objects.all().order_by('id')[:3]
+    videoslider = SliderVideo.objects.all().order_by('id')
+
 
     # Fix: Get the first video from the full queryset, not from the sliced one
-    full_project_videos = ProjectVideo.objects.all()
+    first_video = ProjectVideo.objects.order_by('id').first()
     if full_project_videos.exists():
         first_video = full_project_videos.first()
         project_video_url = first_video.video_file.build_url(resource_type='video', secure=True)
@@ -100,26 +101,6 @@ def load_more_projects(request):
 
 # UpcomingProject
 
-
-# def load_more_upcomming_projects(request):
-#     offset = int(request.GET.get('offset', 0))
-#     limit = 3
-#     upcoming_projects = Project.objects.filter(status='ongoing')[offset:offset + limit]
-
-#     project_data = []
-#     for project in upcoming_projects :
-#         project_data.append({
-#             'id': project.id,
-#             'title': project.title,
-#             'image_url': project.image.url,
-#             'budget_range': str(project.budget_range),  # <-- Convert to string
-#             'bhk': project.bhk,
-#             'description': project.description,
-#         })
-
-#     has_more = Project.objects.count() > offset + limit
-
-#     return JsonResponse({'upcoming_projects': project_data, 'has_more': has_more})
 
 def load_more_upcomming_projects(request):
     offset = int(request.GET.get('offset', 0))
