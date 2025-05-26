@@ -70,7 +70,7 @@ def projects(request):
         'title': 'Projects - Elite Dream Builders',
         'projects': all_projects,
         'upcoming_projects': upcoming_projects,
-        'project_videos': projectvideo,  # sliced list of 3 for display
+        'project_videos': project_videos,  # sliced list of 3 for display
         'project_video_url': project_video_url,  # secure URL of the first video
         'youtube_videos': youtube_videos,
         'videoslider': videoslider,
