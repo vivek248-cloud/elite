@@ -142,14 +142,19 @@ def load_more_upcomming_projects(request):
 def load_more_projects_videos(request):
     offset = int(request.GET.get('offset', 0))
     limit = 3
-    projects = ProjectVideo.objects.all()[offset:offset + limit]
+    projects = ProjectVideo.objects.all().order_by('id')[offset:offset + limit]
 
     project_data = []
     for project in projects:
+        try:
+            secure_url = project.video_file.build_url(resource_type='video', secure=True)
+        except Exception as e:
+            print(f"Error generating secure URL for video {project.id}: {e}")
+            secure_url = ''
         project_data.append({
             'id': project.id,
             'title': project.title,
-            'video_file': project.video_file.url,
+            'video_file': secure_url,
         })
 
     has_more = ProjectVideo.objects.count() > offset + limit
