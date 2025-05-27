@@ -843,7 +843,7 @@ p, a, li, span, button, input, textarea {
 }
 .projects-text-bg
 {
-	background-color: var(--textColor)!important;
+	background-color: var(--bgWhite)!important;
 	margin-bottom: -30px!important;
 	padding-bottom: 2rem;
 	padding-top: 1rem;
@@ -1264,6 +1264,7 @@ p, a, li, span, button, input, textarea {
 	color: #fff;
 	text-align: center;
 	padding: 4rem 2rem;
+	margin-bottom: 1rem;
   }
   
   .counter-grid {
@@ -1951,7 +1952,7 @@ p, a, li, span, button, input, textarea {
 	  width: 100%;
   }
   .footer-wave-path {
-	  fill:var(--textColor);
+	  fill:var(--bgWhite);
   }
   
   .footer-content {
@@ -2359,7 +2360,7 @@ p, a, li, span, button, input, textarea {
 	padding: 1rem;
 	justify-content: center;
 	/* backdrop-filter: blur(5px) brightness(90%); */
-	background-color: var(--textColor)!important;
+	background-color: var(--bgWhite)!important;
 }
 
 .home-content-1-col-1 {
@@ -2483,14 +2484,14 @@ p, a, li, span, button, input, textarea {
 }
 .home-content-head 
 {
-	padding: 2rem;
+	padding:0rem 2rem!important;
 	text-align: center;
 	color:var(--bgWhite);
 }
-.home-content-head h3
+.home-content-head h3,.home-content-head h4
 {
 	text-align: center;
-	color: var(--bgWhite);
+	color: var(--backGround);
 }
 .e-card {
 	margin: 100px auto;
@@ -2630,7 +2631,7 @@ p, a, li, span, button, input, textarea {
 	grid-template-columns: 1fr;
 	gap: 3rem;
 	justify-content: center;
-	padding: 4rem 2rem;
+	padding: 2rem 2rem!important;
 	color: white;
   }
  
@@ -6656,7 +6657,7 @@ margin-right: 5rem;
 
 .projects-text .details {
   font-weight: 400;
-  color: #666;
+  color:var(--backGround);
   padding: 50px!important;
   text-align: justify;
 }
@@ -7221,6 +7222,6 @@ margin-right: 5rem;
 .section-title {
   font-size: 2rem;
   font-weight: 600;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   color: #333;
 }
