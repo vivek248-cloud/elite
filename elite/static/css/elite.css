@@ -1595,7 +1595,7 @@ p, a, li, span, button, input, textarea {
     display: flex;
     justify-content: center;
     align-items: center;
-	background-color: var(--textColor);
+	background-color: var(--bgWhite);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -6657,6 +6657,7 @@ margin-right: 5rem;
 
 .projects-text .details {
   font-weight: 400;
+  font-size: 3rem;
   color:var(--backGround);
   padding: 50px!important;
   text-align: justify;
