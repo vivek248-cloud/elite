@@ -4450,7 +4450,7 @@ video, .overlay {
 
 /* contsct form */
 .contact-sections {
-	background: #f9f9f9;
+	background: var(--bgWhite);
 	padding: 4rem 2rem;
 	display: flex;
 	justify-content: center;
