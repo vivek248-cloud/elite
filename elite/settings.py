@@ -16,12 +16,13 @@ DEBUG = env.bool('DEBUG', default=False)
 
 # ALLOWED_HOSTS = ['elite-2f67.onrender.com', 'localhost', '127.0.0.1']
 ALLOWED_HOSTS = [
+    'theelitedreambuilders.in',
+    'www.theelitedreambuilders.in',
     'elite-2f67.onrender.com',
     'localhost',
     '127.0.0.1',
-    'elitedreambuilders.in',
-    'www.elitedreambuilders.in',
 ]
+
 
 
 # Database configuration
