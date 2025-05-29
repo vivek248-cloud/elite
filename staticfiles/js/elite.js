@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 setInterval(rotateActive, 2000); // Rotate every 3 seconds
 
-
+});
 
 
 // document.addEventListener('contextmenu', event => event.preventDefault());
