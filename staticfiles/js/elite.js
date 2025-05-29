@@ -105,13 +105,13 @@ document.addEventListener("DOMContentLoaded", function () {
   let current = 0;
 
   function rotateActive() {
-    items.forEach(item => item.classList.remove("active"));
-    items[current].classList.add("active");
-    current = (current + 1) % items.length;
-  }
+  items.forEach(item => item.classList.remove("active"));
+  items[current].classList.add("active");
+  current = (current + 1) % items.length;
+}
 
-  setInterval(rotateActive, 2000); // Rotate every 3 seconds
-});
+setInterval(rotateActive, 2000); // Rotate every 3 seconds
+
 
 
 
