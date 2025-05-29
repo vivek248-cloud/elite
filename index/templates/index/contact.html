@@ -183,7 +183,7 @@
   </div>
   <div class="team-container">
     {% for section in about_sections %}
-    <div class="team-card" data-aos="fade-up" data-aos-duration="1000"   data-animate="from-bottom">
+    <div class="team-card"   data-animate="from-bottom">
       <div class="team-img-wrapper">
         <img src="{{ section.image.url }}" alt="{{ section.author_name }}">
       </div>
@@ -200,7 +200,7 @@
 </section>
 
 <section class="contact-sections">
-  <div class="contact-container-2" data-aos="fade-up" data-aos-duration="1000"  data-animate="from-bottom">
+  <div class="contact-container-2"  data-animate="from-bottom">
     <h2 class="contact-title">Get in Touch</h2>
     <p class="contact-subtitle">We’d love to hear from you. Send us a message!</p>
     {% if messages %}
