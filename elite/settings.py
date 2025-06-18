@@ -64,11 +64,11 @@ AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
 MEDIA_URL = f"{AWS_S3_ENDPOINT_URL}/{AWS_STORAGE_BUCKET_NAME}/"
 
 
-
+AWS_DEFAULT_ACL = 'public-read'
 AWS_S3_ADDRESSING_STYLE = "path"
 AWS_S3_REGION_NAME = "auto"  # or your region
 AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
+
 
 # Cloudinary media storage
 # DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
