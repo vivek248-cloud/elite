@@ -48,19 +48,35 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary_storage',
     'cloudinary',
-    
+    'storages',
     'index',
 ]
 
-# Cloudinary media storage
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME', default='your-cloud-name'),
-    'API_KEY': config('CLOUDINARY_API_KEY', default='your-api-key'),
-    'API_SECRET': config('CLOUDINARY_API_SECRET', default='your-api-secret'),
-    'SECURE': True  # This forces HTTPS
-}
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_S3_ENDPOINT_URL = config('AWS_S3_ENDPOINT_URL')
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+
+
+
+AWS_S3_ADDRESSING_STYLE = "path"
+AWS_S3_REGION_NAME = "auto"  # or your region
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+
+# Cloudinary media storage
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME', default='your-cloud-name'),
+#     'API_KEY': config('CLOUDINARY_API_KEY', default='your-api-key'),
+#     'API_SECRET': config('CLOUDINARY_API_SECRET', default='your-api-secret'),
+#     'SECURE': True  # This forces HTTPS
+# }
 
 # Use Cloudinary for media URL
 MEDIA_URL = f'https://res.cloudinary.com/{config("CLOUDINARY_CLOUD_NAME")}/'
