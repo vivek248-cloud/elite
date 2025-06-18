@@ -350,17 +350,17 @@ def send_whatsapp_to_admin(quote):
                     "code": "en"
                 },
                 "components": [
-                    {
-                        "type": "body",
-                        "parameters": [
-                            {"type": "text", "text": quote.name},
-                            {"type": "text", "text": quote.email},
-                            {"type": "text", "text": quote.phone},
-                            {"type": "text", "text": quote.service_type},
-                            {"type": "text", "text": quote.budget_range.name if quote.budget_range else "N/A"},
-                        ]
-                    }
+                  {
+                    "type": "body",
+                    "parameters": [
+                      {"type": "text", "text": quote.name},
+                      {"type": "text", "text": quote.email},
+                      {"type": "text", "text": quote.service_type},
+                      {"type": "text", "text": quote.budget_range.name if quote.budget_range else "N/A"},
+                    ]
+                  }
                 ]
+
             }
         }
 
