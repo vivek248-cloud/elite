@@ -308,27 +308,69 @@ from .forms import QuoteRequestForm
 from twilio.rest import Client
 import json
 
+# def send_whatsapp_to_admin(quote):
+#     try:
+#         client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
+#         message = client.messages.create(
+#             from_='whatsapp:' + settings.TWILIO_WHATSAPP_NUMBER,
+#             to='whatsapp:' + settings.ADMIN_WHATSAPP_NUMBER,
+#             content_sid=settings.TWILIO_TEMPLATE_SID_TWO,
+#             content_variables=json.dumps({
+#                 "1": quote.name,
+#                 "2": quote.email,
+#                 "3": quote.phone,
+#                 "4": quote.service_type,
+#                 "5": quote.budget_range.name if quote.budget_range else "N/A",
+#             })
+#         )
+#         print("✅ WhatsApp message sent successfully.")
+#         return True
+#     except Exception as e:
+#         print(f"[Twilio Error] WhatsApp not sent: {e}")
+#         return False
+
+import requests
+
 def send_whatsapp_to_admin(quote):
     try:
-        client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
-        message = client.messages.create(
-            from_='whatsapp:' + settings.TWILIO_WHATSAPP_NUMBER,
-            to='whatsapp:' + settings.ADMIN_WHATSAPP_NUMBER,
-            content_sid=settings.TWILIO_TEMPLATE_SID_TWO,
-            content_variables=json.dumps({
-                "1": quote.name,
-                "2": quote.email,
-                "3": quote.phone,
-                "4": quote.service_type,
-                "5": quote.budget_range.name if quote.budget_range else "N/A",
-            })
-        )
-        print("✅ WhatsApp message sent successfully.")
-        return True
-    except Exception as e:
-        print(f"[Twilio Error] WhatsApp not sent: {e}")
-        return False
+        url = f"https://graph.facebook.com/v19.0/{settings.WHATSAPP_PHONE_NUMBER_ID}/messages"
 
+        headers = {
+            "Authorization": f"Bearer {settings.WHATSAPP_ACCESS_TOKEN}",
+            "Content-Type": "application/json"
+        }
+
+        data = {
+            "messaging_product": "whatsapp",
+            "to": settings.ADMIN_WHATSAPP_NUMBER,  # e.g., '919XXXXXXXXX'
+            "type": "template",
+            "template": {
+                "name": "admin_quote_notify",  # Template name from WhatsApp Manager
+                "language": {
+                    "code": "en"
+                },
+                "components": [
+                    {
+                        "type": "body",
+                        "parameters": [
+                            {"type": "text", "text": quote.name},
+                            {"type": "text", "text": quote.email},
+                            {"type": "text", "text": quote.phone},
+                            {"type": "text", "text": quote.service_type},
+                            {"type": "text", "text": quote.budget_range.name if quote.budget_range else "N/A"},
+                        ]
+                    }
+                ]
+            }
+        }
+
+        response = requests.post(url, headers=headers, json=data)
+        print("📤 WhatsApp Response:", response.json())
+        return response.status_code == 200
+
+    except Exception as e:
+        print(f"[Meta API Error] WhatsApp not sent: {e}")
+        return False
 
 
 # clite messages
