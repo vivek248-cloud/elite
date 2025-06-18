@@ -39,5 +39,6 @@ cloudinary==1.40.0
 django-cloudinary-storage==0.3.0
 python-decouple==3.8
 django-jazzmin==2.6.0
+requests>=2.25.1
 
 
