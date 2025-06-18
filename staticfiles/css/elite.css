@@ -1628,7 +1628,7 @@ p, a, li, span, button, input, textarea {
 	align-items: center;
 	justify-content: center;
 	transition: transform 0.3s ease;
-	background-image: url("https://res.cloudinary.com/doczkiibv/image/upload/v1747817744/Elevation_-_01_5_-_Photo_tfooqt.jpg");
+	background-image: url("https://ik.imagekit.io/zygvxqqhx/construction-crane-3592473(1).jpg?updatedAt=1750241266380");
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -3342,7 +3342,7 @@ video, .overlay {
 	position: relative;
 	width: 100%;
 	height: 100px;
-	background-image: url("../images/cranes-4421213.jpg");
+	background-image: url("https://ik.imagekit.io/zygvxqqhx/construction-crane-3592473(1).jpg?updatedAt=1750241266380");
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -3716,17 +3716,23 @@ video, .overlay {
 
 
 .terms-head {
-	position: relative;
-	width: 100%;
-	height: 100vh;
-	background: url("https://res.cloudinary.com/doczkiibv/image/upload/v1747817744/Elevation_-_01_5_-_Photo_tfooqt.jpg")  center / cover no-repeat;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	overflow: hidden;
-	border-radius: 0 0 40px 40px;
-	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  }
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url("https://ik.imagekit.io/zygvxqqhx/Elevation%20-%2001_5%20-%20Photo.jpg?updatedAt=1750241917507");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  border-radius: 0 0 40px 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
   
   .terms-head-overlay {
 	position: absolute;
