@@ -9,8 +9,8 @@ class HomeSlider(models.Model):
     sub_headline = models.CharField(max_length=255)
     quotes = models.TextField(blank=True, null=True)  # Optional quotes field
     title = models.CharField(max_length=255)
-    # image = models.ImageField(upload_to='home_slider/')
-    image = CloudinaryField('image', folder='home_slider')
+    image = models.ImageField(upload_to='home_slider/')
+    # image = CloudinaryField('image', folder='home_slider')
     description = models.TextField(blank=True, null=True)  # Optional description
     location = models.CharField(max_length=255, null=True, blank=True)  # ✅ New field
     created_at = models.DateTimeField(auto_now_add=True)
@@ -100,7 +100,8 @@ class Project(models.Model):
     title = models.CharField(max_length=255)
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
     description = models.TextField()
-    image = CloudinaryField('image',folder='projects-img')
+    image = models.ImageField(upload_to='projects-img/') 
+    # image = CloudinaryField('image',folder='projects-img')
     location = models.CharField(max_length=255, null=True, blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     date = models.DateField(default=datetime.date.today)
@@ -125,8 +126,8 @@ class UpcomingProject(models.Model):
     ]
     title = models.CharField(max_length=255)
     description = models.TextField()
-   
-    image = CloudinaryField('image',folder='upcomming-projects-img')
+    image = models.ImageField(upload_to='upcomming-project-img/') 
+    # image = CloudinaryField('image',folder='upcomming-projects-img')
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='ongoing')  # ✅ NEW FIELD
     location = models.CharField(max_length=255, null=True, blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
@@ -164,8 +165,8 @@ class GalleryImage(models.Model):
 class AboutSection(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
-    # image = models.ImageField(upload_to="about_images/")
-    image = CloudinaryField('image',folder='team')
+    image = models.ImageField(upload_to="about_images/")
+    # image = CloudinaryField('image',folder='team')
     author_name = models.CharField(max_length=100)
     author_designation = models.CharField(max_length=100)
 
