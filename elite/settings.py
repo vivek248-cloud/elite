@@ -56,18 +56,17 @@ INSTALLED_APPS = [
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-AWS_S3_ENDPOINT_URL = config('AWS_S3_ENDPOINT_URL')
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
-
+AWS_STORAGE_BUCKET_NAME = 'web'
+AWS_S3_ENDPOINT_URL = 'https://6f8ee577ee779928f03c50fd3fbd2988.r2.cloudflarestorage.com'
 AWS_S3_ADDRESSING_STYLE = "path"
-AWS_DEFAULT_ACL = "public-read"
 AWS_S3_FILE_OVERWRITE = False
-AWS_S3_REGION_NAME = "auto"
+AWS_DEFAULT_ACL = 'public-read'
 
-# R2 PUBLIC URL for images
+# Serve media via your custom domain
 MEDIA_URL = "https://media.elitedreambuilders.in/"
+
 
 
 
