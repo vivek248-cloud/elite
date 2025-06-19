@@ -61,15 +61,13 @@ AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
 
-MEDIA_URL = f"{AWS_S3_ENDPOINT_URL}/{AWS_STORAGE_BUCKET_NAME}/"
-
-
-
-
-AWS_DEFAULT_ACL = 'public-read'
 AWS_S3_ADDRESSING_STYLE = "path"
-AWS_S3_REGION_NAME = "auto"  # or your region
+AWS_DEFAULT_ACL = "public-read"
 AWS_S3_FILE_OVERWRITE = False
+AWS_S3_REGION_NAME = "auto"
+
+# R2 PUBLIC URL for images
+MEDIA_URL = "https://pub-93d5c5dc4e13444fa908bc96f7d0ec8e.r2.dev/"
 
 
 # Cloudinary media storage
