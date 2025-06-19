@@ -61,12 +61,12 @@ AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = 'web'
 AWS_S3_ENDPOINT_URL = 'https://6f8ee577ee779928f03c50fd3fbd2988.r2.cloudflarestorage.com'
-
-AWS_S3_FILE_OVERWRITE = False
 AWS_S3_ADDRESSING_STYLE = "path"
-AWS_DEFAULT_ACL = "public-read"
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = 'public-read'
 
 MEDIA_URL = "https://media.elitedreambuilders.in/"
+
 
 
 
