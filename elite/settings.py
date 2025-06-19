@@ -67,7 +67,8 @@ AWS_S3_FILE_OVERWRITE = False
 AWS_S3_REGION_NAME = "auto"
 
 # R2 PUBLIC URL for images
-MEDIA_URL = "https://pub-93d5c5dc4e13444fa908bc96f7d0ec8e.r2.dev/"
+MEDIA_URL = "https://media.elitedreambuilders.in/"
+
 
 
 # Cloudinary media storage
