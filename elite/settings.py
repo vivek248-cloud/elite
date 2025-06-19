@@ -47,42 +47,42 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'storages',
-    # 'cloudinary_storage',
-    # 'cloudinary',
+    'cloudinary_storage',
+    'cloudinary',
     
     'index',
 ]
 
 
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = 'web'
-AWS_S3_ENDPOINT_URL = 'https://6f8ee577ee779928f03c50fd3fbd2988.r2.cloudflarestorage.com'
-AWS_S3_ADDRESSING_STYLE = "path"
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = 'public-read'
+# AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+# AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+# AWS_STORAGE_BUCKET_NAME = 'web'
+# AWS_S3_ENDPOINT_URL = 'https://6f8ee577ee779928f03c50fd3fbd2988.r2.cloudflarestorage.com'
+# AWS_S3_ADDRESSING_STYLE = "path"
+# AWS_S3_FILE_OVERWRITE = False
+# AWS_DEFAULT_ACL = 'public-read'
 
-MEDIA_URL = "https://media.elitedreambuilders.in/"
+# MEDIA_URL = "https://media.elitedreambuilders.in/"
 
 
 
 
 
 # Cloudinary media storage
-# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-# CLOUDINARY_STORAGE = {
-#     'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME', default='your-cloud-name'),
-#     'API_KEY': config('CLOUDINARY_API_KEY', default='your-api-key'),
-#     'API_SECRET': config('CLOUDINARY_API_SECRET', default='your-api-secret'),
-#     'SECURE': True  # This forces HTTPS
-# }
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME', default='your-cloud-name'),
+    'API_KEY': config('CLOUDINARY_API_KEY', default='your-api-key'),
+    'API_SECRET': config('CLOUDINARY_API_SECRET', default='your-api-secret'),
+    'SECURE': True  # This forces HTTPS
+}
 
 # Use Cloudinary for media URL
-# MEDIA_URL = f'https://res.cloudinary.com/{config("CLOUDINARY_CLOUD_NAME")}/'
+MEDIA_URL = f'https://res.cloudinary.com/{config("CLOUDINARY_CLOUD_NAME")}/'
 
 # Static files (CSS, JS)
 STATIC_URL = '/static/'
