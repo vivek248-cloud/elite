@@ -47,10 +47,7 @@ DATABASES = {
 }
 
 
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 # Installed apps
 INSTALLED_APPS = [
     "admin_interface",
@@ -87,7 +84,7 @@ INSTALLED_APPS = [
 
 
 # Cloudinary media storage
-<<<<<<< Updated upstream
+
 # DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # CLOUDINARY_STORAGE = {
@@ -100,14 +97,9 @@ INSTALLED_APPS = [
 # Use Cloudinary for media URL
 # MEDIA_URL = f'https://res.cloudinary.com/{config("CLOUDINARY_CLOUD_NAME")}/'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-=======
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
->>>>>>> Stashed changes
 
 # Static files (CSS, JS)
 STATIC_URL = '/static/'  # ✅ This must be present and global
