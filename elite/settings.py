@@ -29,12 +29,13 @@ ALLOWED_HOSTS = [
 
 
 # Database configuration
+import dj_database_url
+from decouple import config
+
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv("DATABASE_URL"),
-        conn_max_age=600,
-    )
+    'default': dj_database_url.config(default=config('DATABASE_URL'))
 }
+
 
 # Installed apps
 INSTALLED_APPS = [
