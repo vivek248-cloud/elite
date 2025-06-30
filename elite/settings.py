@@ -29,12 +29,21 @@ ALLOWED_HOSTS = [
 
 
 # Database configuration
+import dj_database_url
+from decouple import config
+
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv("DATABASE_URL"),
-        conn_max_age=600,
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'elite_db',
+        'USER': 'elite_user',
+        'PASSWORD': 'Admin123',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+    }
 }
+
+
 
 # Installed apps
 INSTALLED_APPS = [
@@ -72,27 +81,31 @@ INSTALLED_APPS = [
 
 
 # Cloudinary media storage
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME', default='your-cloud-name'),
-    'API_KEY': config('CLOUDINARY_API_KEY', default='your-api-key'),
-    'API_SECRET': config('CLOUDINARY_API_SECRET', default='your-api-secret'),
-    'SECURE': True  # This forces HTTPS
-}
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME', default='your-cloud-name'),
+#     'API_KEY': config('CLOUDINARY_API_KEY', default='your-api-key'),
+#     'API_SECRET': config('CLOUDINARY_API_SECRET', default='your-api-secret'),
+#     'SECURE': True  # This forces HTTPS
+# }
 
 # Use Cloudinary for media URL
-MEDIA_URL = f'https://res.cloudinary.com/{config("CLOUDINARY_CLOUD_NAME")}/'
+# MEDIA_URL = f'https://res.cloudinary.com/{config("CLOUDINARY_CLOUD_NAME")}/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Static files (CSS, JS)
-STATIC_URL = '/static/'
+STATIC_URL = '/static/'  # ✅ This must be present and global
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'elite', 'static'),
     os.path.join(BASE_DIR, 'static'),
 ]
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# WhiteNoise for static file serving
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Middleware
