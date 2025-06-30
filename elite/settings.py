@@ -8,7 +8,10 @@ from decouple import config
 env = environ.Env()
 environ.Env.read_env()
 
+from pathlib import Path
+
 BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 # Security settings
 SECRET_KEY = env('DJANGO_SECRET_KEY', default='your-secret-key-here')
@@ -44,7 +47,10 @@ DATABASES = {
 }
 
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 # Installed apps
 INSTALLED_APPS = [
     "admin_interface",
@@ -81,6 +87,7 @@ INSTALLED_APPS = [
 
 
 # Cloudinary media storage
+<<<<<<< Updated upstream
 # DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # CLOUDINARY_STORAGE = {
@@ -95,6 +102,12 @@ INSTALLED_APPS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+=======
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+>>>>>>> Stashed changes
 
 # Static files (CSS, JS)
 STATIC_URL = '/static/'  # ✅ This must be present and global
@@ -107,6 +120,7 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Middleware
 MIDDLEWARE = [
