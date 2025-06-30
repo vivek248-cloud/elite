@@ -81,17 +81,20 @@ INSTALLED_APPS = [
 
 
 # Cloudinary media storage
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME', default='your-cloud-name'),
-    'API_KEY': config('CLOUDINARY_API_KEY', default='your-api-key'),
-    'API_SECRET': config('CLOUDINARY_API_SECRET', default='your-api-secret'),
-    'SECURE': True  # This forces HTTPS
-}
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME', default='your-cloud-name'),
+#     'API_KEY': config('CLOUDINARY_API_KEY', default='your-api-key'),
+#     'API_SECRET': config('CLOUDINARY_API_SECRET', default='your-api-secret'),
+#     'SECURE': True  # This forces HTTPS
+# }
 
 # Use Cloudinary for media URL
-MEDIA_URL = f'https://res.cloudinary.com/{config("CLOUDINARY_CLOUD_NAME")}/'
+# MEDIA_URL = f'https://res.cloudinary.com/{config("CLOUDINARY_CLOUD_NAME")}/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Static files (CSS, JS)
 STATIC_URL = '/static/'
