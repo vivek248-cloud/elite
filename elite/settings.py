@@ -33,7 +33,14 @@ import dj_database_url
 from decouple import config
 
 DATABASES = {
-    'default': dj_database_url.config(default=config('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'elite_db',
+        'USER': 'elite_user',
+        'PASSWORD': 'Admin123',
+        'HOST': '31.97.62.126',
+        'PORT': '3306',
+    }
 }
 
 
