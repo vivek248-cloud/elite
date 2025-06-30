@@ -38,10 +38,11 @@ DATABASES = {
         'NAME': 'elite_db',
         'USER': 'elite_user',
         'PASSWORD': 'Admin123',
-        'HOST': '31.97.62.126',
+        'HOST': '127.0.0.1',
         'PORT': '3306',
     }
 }
+
 
 
 # Installed apps
