@@ -123,14 +123,28 @@
   <div id="youtube-video-grid" class="youtube-video-grid">
     {% for video in youtube_videos %}
       <div class="youtube-frame" data-animate="from-bottom">
-        <div class="video-wrapper">
-          <iframe 
-            src="https://www.youtube.com/embed/{{ video.youtube_link }}" 
-            title="{{ video.title }}" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-          </iframe>
-        </div>
+        <div class="video-wrapper" data-video-id="{{ video.youtube_link }}">
+  <iframe
+    src="https://www.youtube.com/embed/{{ video.youtube_link }}"
+    title="{{ video.title }}"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+    onerror="handleEmbedError(this)">
+  </iframe>
+</div>
+
+<script>
+function handleEmbedError(iframe) {
+  const videoId = iframe.parentElement.getAttribute('data-video-id');
+  iframe.parentElement.innerHTML = `
+    <p class="text-danger">Video unavailable</p>
+    <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" class="btn btn-outline-primary btn-sm">
+      Watch on YouTube
+    </a>
+  `;
+}
+</script>
+
         <div class="youtube-title">{{ video.title }}</div>
       </div>
     {% endfor %}
