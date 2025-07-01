@@ -119,25 +119,28 @@
 
 <section class="youtube-gallery-section">
   <h2 class="section-title" data-animate="from-bottom">Explore Our Projects</h2>
+
   <div id="youtube-video-grid" class="youtube-video-grid">
     {% for video in youtube_videos %}
       <div class="youtube-frame" data-animate="from-bottom">
         <div class="video-wrapper">
           <iframe 
-            width="100%" 
-            height="300" 
             src="https://www.youtube.com/embed/{{ video.youtube_link }}" 
             title="{{ video.title }}" 
-            frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
             allowfullscreen>
           </iframe>
         </div>
+        <div class="youtube-title">{{ video.title }}</div>
       </div>
     {% endfor %}
   </div>
-  <button id="load-more-youtube-video-btn" class="load-more-button" data-animate="from-bottom">Load More</button>
+
+  <button id="load-more-youtube-video-btn" class="btn btn-outline-dark mt-4 px-4 rounded-pill" data-animate="from-bottom">
+    Load More
+  </button>
 </section>
+
 
 
 <!-- <section class="project-videos-section">
