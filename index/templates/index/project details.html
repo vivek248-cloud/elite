@@ -60,17 +60,25 @@
 <!-- Project Info Section -->
 <section class="py-5 bg-light" data-aos="fade-up" data-aos-duration="1000">
   <div class="container">
-    <div class="card shadow border-0 p-4 mx-auto" style="max-width: 800px;">
-      <h2 class="text-center mb-4" data-animate="from-bottom">{{ project.title }}</h2>
+    <div class="card shadow border-0 p-4 mx-auto bg-white" style="max-width: 800px;">
       <ul class="list-unstyled fs-5">
-        <li class="mb-2" data-animate="from-bottom"><strong>📍 Location:</strong> {{ project.location }}</li>
-        <li class="mb-2" data-animate="from-bottom"><strong>📅 Completion Date:</strong> {{ project.date }}</li>
-        <li class="mb-2" data-animate="from-bottom"><strong>🏠 BHK:</strong> {{ project.bhk }}</li>
-        <li data-animate="from-bottom"><strong>📝 Description:</strong> {{ project.description }}</li>
+        <li class="mb-2" data-animate="from-bottom">
+          <span class="fw-semibold">📍 Location:</span> {{ project.location }}
+        </li>
+        <li class="mb-2" data-animate="from-bottom">
+          <span class="fw-semibold">📅 Completion Date:</span> {{ project.date }}
+        </li>
+        <li class="mb-2" data-animate="from-bottom">
+          <span class="fw-semibold">🏠 BHK:</span> {{ project.bhk }}
+        </li>
+        <li data-animate="from-bottom">
+          <span class="fw-semibold">📝 Description:</span> {{ project.description }}
+        </li>
       </ul>
     </div>
   </div>
 </section>
+
 
 {% endblock %}
 
