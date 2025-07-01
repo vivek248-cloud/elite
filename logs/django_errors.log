@@ -788,3 +788,278 @@ Traceback (most recent call last):
   File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
     raise DisallowedHost(msg)
 django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '/run/gunicorn.sock:'. The domain name provided is not valid according to RFC 1034/1035.
+ERROR 2025-06-30 12:06:03,988 exception Invalid HTTP_HOST header: '31.97.62.126:80'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126:80'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 14:17:38,036 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 14:17:38,339 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 15:39:05,884 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 16:49:57,754 exception Invalid HTTP_HOST header: '31.97.62.126:80'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126:80'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 17:05:21,838 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 17:05:21,921 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 17:05:21,964 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 17:05:22,048 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 17:05:22,091 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 17:05:22,136 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 17:05:22,178 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 17:05:22,221 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 18:18:15,409 exception Invalid HTTP_HOST header: '31.97.62.126:80'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126:80'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 18:28:42,077 exception Invalid HTTP_HOST header: '31.97.62.126:80'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126:80'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 20:51:52,555 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 21:12:01,286 exception Invalid HTTP_HOST header: '31.97.62.126:80'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126:80'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 21:25:10,719 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 21:31:33,102 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 21:31:34,456 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 21:54:08,949 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 22:42:03,917 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-07-01 00:11:03,555 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-07-01 00:11:04,063 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-07-01 00:23:07,379 exception Invalid HTTP_HOST header: '31.97.62.126:443'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126:443'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
