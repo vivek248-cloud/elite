@@ -30,7 +30,7 @@
 <body>
    {% block content %}
 
-<div class="terms-head2" style="background-image: url('{{ project.image.url }}' ); height: 100vh; background-size: cover; background-position: center;width:100%;">
+<!-- <div class="terms-head2" style="background-image: url('{{ project.image.url }}' ); height: 100vh; background-size: cover; background-position: center;width:100%;">
   <div class="overlay2">
     <h1 class="project-title" data-animate="from-left">{{ project.location }}</h1>
   </div>
@@ -45,7 +45,32 @@
       <li data-animate="from-bottom"><strong>Description:</strong> {{ project.description }}</li>
     </ul>
   </div>
-</div> 
+</div>  -->
+
+
+    <!-- Hero Section -->
+<div class="terms-head2 d-flex align-items-center justify-content-center text-white text-center"
+     style="background-image: url('{{ project.image.url }}'); height: 100vh; background-size: cover; background-position: center;">
+  <div class="overlay2 position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+  <div class="position-relative z-1">
+    <h1 class="display-4 fw-bold" data-animate="from-left">{{ project.location }}</h1>
+  </div>
+</div>
+
+<!-- Project Info Section -->
+<section class="py-5 bg-light" data-aos="fade-up" data-aos-duration="1000">
+  <div class="container">
+    <div class="card shadow border-0 p-4 mx-auto" style="max-width: 800px;">
+      <h2 class="text-center mb-4" data-animate="from-bottom">{{ project.title }}</h2>
+      <ul class="list-unstyled fs-5">
+        <li class="mb-2" data-animate="from-bottom"><strong>📍 Location:</strong> {{ project.location }}</li>
+        <li class="mb-2" data-animate="from-bottom"><strong>📅 Completion Date:</strong> {{ project.date }}</li>
+        <li class="mb-2" data-animate="from-bottom"><strong>🏠 BHK:</strong> {{ project.bhk }}</li>
+        <li data-animate="from-bottom"><strong>📝 Description:</strong> {{ project.description }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
 {% endblock %}
 
