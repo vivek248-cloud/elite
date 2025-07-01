@@ -4240,79 +4240,66 @@ video, .overlay {
 }
 
 .youtube-gallery-section {
-	max-width: 1000px;
-	width: 100%;
-	margin: 0 auto;
-	padding: 60px 20px;
-	text-align: center;
-  }
-  
-  .section-title {
-	font-size: 2.4rem;
-	font-weight: 700;
-	color: #222;
-	margin-bottom: 40px;
-	font-family: 'Poppins', sans-serif;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	position: relative;
-  }
-  
-  .youtube-video-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-	gap: 40px;
-	justify-content: center;
-	align-items: start;
-  }
-  
-  .youtube-frame {
-	background-color:var(--backGround);
-	border-radius: 12px;
-	padding: 15px;
-	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .youtube-frame:hover {
-	transform: translateY(-6px);
-	box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-  }
-  
-  .video-wrapper {
-	position: relative;
-	padding-bottom: 56.25%;
-	height: 0;
-	overflow: hidden;
-	border-radius: 8px;
-  }
-  
-  .video-wrapper iframe {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	border: none;
-	border-radius: 8px;
-  }
-  
-  .video-description {
-	margin-top: 12px;
-	font-size: 0.95rem;
-	color: #555;
-	line-height: 1.6;
-  }
-  
-  
-  
-  
-  .youtube-title {
-	font-size: 1rem;
-	font-weight: 600;
-	margin-top: 10px;
-	color: #222;
-  }
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 50px;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.youtube-video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.youtube-frame {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.youtube-frame:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.youtube-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  padding: 15px 10px;
+  background-color: #f9f9f9;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
 
  
 
