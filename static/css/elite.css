@@ -3192,7 +3192,10 @@ video, .overlay {
 
 .load-more-button {
     display: block;
-    margin: 40px auto;
+    margin-top: 2rem;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 1rem;
     padding: 12px 32px;
     font-size: 17px;
     font-weight: 500;
