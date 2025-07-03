@@ -4382,9 +4382,7 @@ video, .overlay {
   font-weight: 600;
   animation: fadeInUp 1s ease-in-out;
 }
-.scroller-content h1::first-letter {
-  font-size: 6rem;
-}
+
 .scroller-content h2 {
   font-size: 3rem; /* Adjust as needed */
   font-weight: 800;
@@ -5285,10 +5283,7 @@ video, .overlay {
 		{
 			font-size: 2rem!important;
 		}
-		.scroller-content h4::first-letter
-		{
-			font-size: 2rem!important;
-		}
+		
 		.scroller-content h1
 		{
 			font-size: 2.5rem;
