@@ -54,7 +54,6 @@ def projects(request):
     all_projects =  Project.objects.filter(status='completed').order_by('id')[:6]
     upcoming_projects = Project.objects.filter(status='ongoing').order_by('id')[:6]
     youtube_videos = YouTubeVideo.objects.all().order_by('id')[:3]
-    videoslider = SliderVideo.objects.all().order_by('id')
 
 
     context = {
@@ -63,7 +62,7 @@ def projects(request):
         'upcoming_projects': upcoming_projects,
 
         'youtube_videos': youtube_videos,
-        'videoslider': videoslider,
+        
     }
 
     return render(request, 'index/projects.html', context)
