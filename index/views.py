@@ -56,31 +56,12 @@ def projects(request):
     youtube_videos = YouTubeVideo.objects.all().order_by('id')[:3]
     videoslider = SliderVideo.objects.all().order_by('id')
 
-    # Project videos with secure URLs
-    raw_project_videos = ProjectVideo.objects.all().order_by('id')[:3]
-    project_videos = []
-
-    for video in raw_project_videos:
-        try:
-            secure_url = video.video_file.build_url(resource_type='video', secure=True)
-        except Exception as e:
-            print(f"Error building secure URL for video {video.id}: {e}")
-            secure_url = ''
-        video.secure_url = secure_url
-        project_videos.append(video)
-
-    # First video secure URL
-    if project_videos:
-        project_video_url = project_videos[0].secure_url
-    else:
-        project_video_url = ''
 
     context = {
         'title': 'Projects - Elite Dream Builders',
         'projects': all_projects,
         'upcoming_projects': upcoming_projects,
-        'project_videos': project_videos,  # with secure_url added to each
-        'project_video_url': project_video_url,
+
         'youtube_videos': youtube_videos,
         'videoslider': videoslider,
     }
