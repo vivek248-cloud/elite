@@ -7202,3 +7202,31 @@ margin-right: 5rem;
 	text-decoration: none!important;
 	color: #fff!important;
 }
+
+
+
+.carousel-inner {
+  height: 100vh;
+}
+
+.carousel-item {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.overlay2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.carousel-item h1 {
+  z-index: 2;
+  position: relative;
+}
+
