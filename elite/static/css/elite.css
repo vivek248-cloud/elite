@@ -3729,7 +3729,6 @@ video, .overlay {
   justify-content: center;
 
   overflow: hidden;
-  border-radius: 0 0 40px 40px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
