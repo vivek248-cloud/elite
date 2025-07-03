@@ -480,15 +480,12 @@ def about(request):
     about_data = AboutVideo.objects.order_by('-id').first()
     about_title_video = AboutTitleVideo.objects.order_by('-id').first()
 
-    video_url = about_title_video.video_file.build_url(resource_type='video', secure=True) if about_title_video else ''
-    about_url = about_data.video_file.build_url(resource_type='video', secure=True) if about_data else ''
-
+   
     context = {
         'title': 'About Us - Elite Dream Builders',
         'about': about_data,
         'about_title_video': about_title_video,
-        'video_url': video_url,
-        'about_url': about_url,
+        
     }
     return render(request, 'index/about.html', context)
 
