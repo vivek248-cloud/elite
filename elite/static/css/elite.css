@@ -5215,15 +5215,7 @@ video, .overlay {
 	  max-width: 100%;
 	  min-height: 250px;
 	}
-	.scroller-content h4{
-		padding: 10px 15px;
-		bottom: 15px;
-		font-size: 0.5rem !important;
-	  }
 	
-	  .scroller-content h1 {
-		font-size: 1.2rem;
-	  }
 	
 	  .scroller-content p {
 		font-size: 0.5rem;
