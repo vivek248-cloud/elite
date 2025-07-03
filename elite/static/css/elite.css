@@ -2451,7 +2451,7 @@ p, a, li, span, button, input, textarea {
 
 .home-content-1-col-1 h1 sup
 {
-	color: var(--backGround);
+	color: var(--gold);
 	font-family: 'Poppins', sans-serif;
   	font-weight: 800;
 }
