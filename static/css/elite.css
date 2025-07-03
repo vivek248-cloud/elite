@@ -2449,7 +2449,7 @@ p, a, li, span, button, input, textarea {
 }
 
 
-.home-content-1-col-1 h1 .sup
+.home-content-1-col-1 h1 sup
 {
 	color: var(--backGround);
 	font-family: 'Poppins', sans-serif;
