@@ -3706,11 +3706,11 @@ video, .overlay {
   }
 
 
-
 .sup
 {
-	color: white;
+	color:var(--gold);
 }
+
 
 /* terms */
 
