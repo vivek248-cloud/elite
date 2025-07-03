@@ -3711,7 +3711,7 @@ video, .overlay {
 
 .sup
 {
-	color:var(--gold)!important;
+	color:gold!important;
 }
 
 
@@ -6090,15 +6090,7 @@ margin-right: 5rem;
 		font-size: .5rem!important;
 		text-align: center;
 	  }
-	  .scroller-content h1::first-letter {
-		font-size: 2rem;
-		color: gold;
-	  }
-	  .scroller-content h4::first-letter
-	  {
-		font-size: 1rem;
-		color: gold;
-	  }
+	  
 	  .home-logo-col img {
 		max-width: 100%;
 		height: auto;
@@ -6235,8 +6227,7 @@ margin-right: 5rem;
   }
   .scroller-content h1
 	{
-		font-size: 1.5rem !important;
-		font-weight: 100;
+		font-size: 2rem!important;
 		animation: fadeInUp 1s ease-in-out;
 	}
 	.scroller-content h4
@@ -6305,7 +6296,6 @@ margin-right: 5rem;
 	.scroller-content h1
 	{
 		font-size: 1.5rem !important;
-		font-weight: 100;
 		animation: fadeInUp 1s ease-in-out;
 	}
 	.scroller-content h4
