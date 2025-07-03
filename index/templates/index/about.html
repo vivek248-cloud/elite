@@ -67,7 +67,7 @@
     <div class="box1-img" data-animate="from-bottom">
       {% if about %}
         <video autoplay loop muted controls playsinline>
-          <source src="{{ about_url }}" type="video/mp4">
+          <source src="{{ about.video_file.url }}" type="video/mp4">
         </video>
       {% else %}
         <h2>Video not available</h2>
