@@ -2451,7 +2451,7 @@ p, a, li, span, button, input, textarea {
 
 .home-content-1-col-1 h1 sup
 {
-	color: var(--backGround);
+	color: var(--backGround)!important;
 	font-family: 'Poppins', sans-serif;
   	font-weight: 800;
 }
@@ -3729,7 +3729,6 @@ video, .overlay {
   justify-content: center;
 
   overflow: hidden;
-  border-radius: 0 0 40px 40px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
