@@ -100,7 +100,9 @@ class Project(models.Model):
     title = models.CharField(max_length=255)
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
     description = models.TextField()
-    image = models.ImageField(upload_to='projects-img/') 
+    image = models.ImageField(upload_to='projects-img/')
+    image2 = models.ImageField(upload_to='projects-img/', null=True, blank=True)
+
     location = models.CharField(max_length=255, null=True, blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     date = models.DateField(default=datetime.date.today)
