@@ -300,10 +300,7 @@ p, a, li, span, button, input, textarea {
 	justify-content: center;
 	align-items: center;
 }
-.carousel-item  ::first-letter
-{
-	color: var(--gold);
-}
+
 .carousel-item q
 {
 	color: var(--gold);
@@ -521,7 +518,7 @@ p, a, li, span, button, input, textarea {
 	.carousel-item h1
 	{
 		color:white;
-		font-size: 3rem;
+		font-size: 1rem;
 		text-shadow: var(--text-shadow);
 	}
 	.line3
