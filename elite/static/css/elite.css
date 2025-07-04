@@ -7207,12 +7207,20 @@ margin-right: 5rem;
 
 .carousel-inner {
   height: 100vh;
+  max-height: 100vh;
 }
 
 .carousel-item {
+  position: relative;
+  height: 100vh;
+}
+
+.carousel-bg {
   background-size: cover;
   background-position: center;
-  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 400px;
 }
 
 .overlay2 {
@@ -7225,8 +7233,29 @@ margin-right: 5rem;
   z-index: 1;
 }
 
-.carousel-item h1 {
+.carousel-heading {
   z-index: 2;
   position: relative;
+  font-size: 3.5rem;
 }
+
+@media (max-width: 768px) {
+  .carousel-bg {
+    height: 70vh;
+  }
+  .carousel-heading {
+    font-size: 2rem;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-bg {
+    height: 60vh;
+  }
+  .carousel-heading {
+    font-size: 1.5rem;
+  }
+}
+
 
