@@ -63,27 +63,27 @@
 
     <!-- Hero Section -->
 <div id="projectImageCarousel" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner" style="height: 100vh;">
+  <div class="carousel-inner">
 
     <!-- First Image -->
     <div class="carousel-item active">
-      <div class="terms-head2 d-flex align-items-center justify-content-center text-white text-center"
-           style="background-image: url('{{ project.image.url }}'); background-size: cover; background-position: center; height: 100vh;">
-        <div class="overlay2 position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+      <div class="terms-head2 d-flex align-items-center justify-content-center text-white text-center carousel-bg"
+           style="background-image: url('{{ project.image.url }}');">
+        <div class="overlay2"></div>
         <div class="position-relative z-1">
-          <h1 class="display-4 fw-bold" data-animate="from-left">{{ project.location }}</h1>
+          <h1 class="carousel-heading" data-animate="from-left">{{ project.location }}</h1>
         </div>
       </div>
     </div>
 
-    <!-- Second Image (optional) -->
+    <!-- Second Image -->
     {% if project.image2 %}
     <div class="carousel-item">
-      <div class="terms-head2 d-flex align-items-center justify-content-center text-white text-center"
-           style="background-image: url('{{ project.image2.url }}'); background-size: cover; background-position: center; height: 100vh;">
-        <div class="overlay2 position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+      <div class="terms-head2 d-flex align-items-center justify-content-center text-white text-center carousel-bg"
+           style="background-image: url('{{ project.image2.url }}');">
+        <div class="overlay2"></div>
         <div class="position-relative z-1">
-          <h1 class="display-4 fw-bold" data-animate="from-left">{{ project.location }}</h1>
+          <h1 class="carousel-heading" data-animate="from-left">{{ project.location }}</h1>
         </div>
       </div>
     </div>
@@ -91,7 +91,6 @@
 
   </div>
 
-  <!-- Controls -->
   {% if project.image2 %}
   <button class="carousel-control-prev" type="button" data-bs-target="#projectImageCarousel" data-bs-slide="prev">
     <span class="carousel-control-prev-icon"></span>
@@ -101,6 +100,7 @@
   </button>
   {% endif %}
 </div>
+
 
 
 <!-- Project Info Section -->
