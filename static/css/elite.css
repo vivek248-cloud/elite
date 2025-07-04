@@ -250,7 +250,6 @@ body {
     .navbar-collapse {
         background-color: rgba(27, 27, 27, 0.765);
         padding: 1rem;
-        border-radius: var(--border-radius);
 		z-index: 999;
     }
 	.animated-button
@@ -4848,7 +4847,7 @@ video, .overlay {
     height: 100vh;
     background-color:var(--backGround); /* slide menu background */
     padding: 2rem 1rem;
-    transition: left 0.3s ease-in-out;
+    transition: left 0.1s ease-in-out;
     z-index: 1000; /* Ensure it appears over other content */
   }
 
@@ -5022,7 +5021,7 @@ video, .overlay {
     height: 100vh;
     background-color: var(--backGround); /* background of menu */
     padding: 2rem 1rem;
-    transition: left 0.3s ease-in-out;
+    transition: left 0.1s ease-in;
     z-index: 1;
   }
 
@@ -6573,7 +6572,6 @@ margin-right: 5rem;
   align-items: flex-end;
 /*   padding: 2rem; */
   color: white;
-  border-radius: 20px;
   overflow: hidden;
 }
 
@@ -7254,3 +7252,5 @@ margin-right: 5rem;
     font-size: 1.5rem;
   }
 }
+
+
