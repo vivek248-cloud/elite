@@ -102,17 +102,15 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Static files (CSS, JS)
-STATIC_URL = '/static/'  # ✅ This must be present and global
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'elite', 'static'),
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'elite', 'static'),  # Use only this
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 
 # Middleware
 MIDDLEWARE = [
