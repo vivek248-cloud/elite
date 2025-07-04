@@ -300,10 +300,7 @@ p, a, li, span, button, input, textarea {
 	justify-content: center;
 	align-items: center;
 }
-.carousel-item  ::first-letter
-{
-	color: var(--gold);
-}
+
 .carousel-item q
 {
 	color: var(--gold);
@@ -521,7 +518,7 @@ p, a, li, span, button, input, textarea {
 	.carousel-item h1
 	{
 		color:white;
-		font-size: 3rem;
+		font-size: 1rem;
 		text-shadow: var(--text-shadow);
 	}
 	.line3
@@ -7201,8 +7198,59 @@ margin-right: 5rem;
 {
 	text-decoration: none!important;
 	color: #fff!important;
-<<<<<<< HEAD
 }
-=======
+
+
+
+.carousel-inner {
+  height: 100vh;
+  max-height: 100vh;
 }
->>>>>>> 051ec18f3cd9d679bbdcaa0f609af42d0b47571e
+
+.carousel-item {
+  position: relative;
+  height: 100vh;
+}
+
+.carousel-bg {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  min-height: 400px;
+}
+
+.overlay2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.carousel-heading {
+  z-index: 2;
+  position: relative;
+  font-size: 3.5rem;
+}
+
+@media (max-width: 768px) {
+  .carousel-bg {
+    height: 70vh;
+  }
+  .carousel-heading {
+    font-size: 2rem;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-bg {
+    height: 60vh;
+  }
+  .carousel-heading {
+    font-size: 1.5rem;
+  }
+}
