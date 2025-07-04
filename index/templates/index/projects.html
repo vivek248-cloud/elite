@@ -1,0 +1,381 @@
+{% extends 'index/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Elite Dream Builders offers premium construction services for residential and commercial spaces. Get quotes, view projects, and read reviews.">
+    <meta name="keywords" content="construction, house building, residential, commercial, elite, dream builders">
+    <meta name="author" content="Elite Dream Builders Team">
+    <title>{% if title %}{{ title }}{% else %}Elite Dream Builders{% endif %}</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="{% static 'images/favicon-512x512.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
+    <link rel="manifest" href="{% static 'site.webmanifest' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static "css/elite.css" %}">
+
+</head>
+<body>
+  {% block content %}
+
+    <div class="terms-head">
+      <div class="terms-head-overlay"></div>
+        <div class="content-wrapper animation fade-in">
+          <h1 class="projects-title" >OUR SIGNATURE PROJECTS</h1>
+          <p class="projects-subtitle">
+            Crafted with precision, excellence, and timeless architectural elegance.
+          </p>
+        </div>
+      </div>
+    </div>
+  <div class="projects">
+      <div class="projects-text">
+        <div class="section-title-wrapper" style="text-align:center;">
+          <h1 class="section-title" data-animate="from-bottom">Our Projects</h1>  
+        </div>
+
+        <div class="intro animation slide-down">
+          <p data-animate="from-bottom">
+            At Elite Dream Builders, we focus on top-quality construction and timely delivery. Our strong client relationships and dedication to excellence make us one of the most trusted builders in Trichy.
+          </p>
+        </div>
+      </div>
+
+
+    <section class="completed-projects">
+      <div class="section-title-wrapper">
+        <h2 class="section-title" data-animate="from-bottom">Completed Projects</h2>
+      </div>
+      <div class="project-gallerys" id="projects-container">
+      {% for project in projects %}
+        <div class="project-tile">
+          <a href="{% url 'projects_details' project.id %}">
+            <img src="{{ project.image.url }}" alt="{{ project.title }}"  style="height:250px;width:300px;object-fit:cover;">
+          </a>
+          <div class="view-link">
+            <a href="{% url 'projects_details' project.id %}">View Project</a>
+            <span class="circle-arrow">&#10140;</span> <!-- Unicode arrow matching your screenshot -->
+          </div>
+        </div>
+          {% empty %}
+          <p>No images available</p>
+      {% endfor %}
+      </div>
+
+      <button id="load-more-btn" class="load-more-button" data-animate="from-bottom">Load More</button>
+    </section>
+    
+    <section class="completed-projects">
+      <div class="section-title-wrapper">
+        <h2 class="section-title" data-animate="from-bottom">Ongoing Projects</h2>
+      </div>
+      {% comment %} <div class="parent"  id='upcoming-projects-container'>
+        {% for project in upcoming_projects %}
+          <div class="cards" data-animate="from-bottom">
+              <a href="{% url 'projects_details' project.id %}">
+                  <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy">
+                  <div class="info">
+                      <h3 class="c animation slide-up">{{ project.title }}</h3>
+                      <strong class="animation slide-up">{{ project.budget_range }}</strong>
+                      <p class="animation slide-up">{{ project.bhk }}</p>
+                      <p class="animation slide-up">{{ project.description }}</p>
+                  </div>
+              </a>
+          </div>
+          {% empty %}
+          <p>No images available</p>
+        {% endfor %} {% endcomment %}
+        <div class="project-gallerys" id="upcoming-projects-container">
+     {% for project in upcoming_projects %}
+        <div class="project-tile">
+          <a href="{% url 'projects_details' project.id %}">
+            <img src="{{ project.image.url }}" alt="{{ project.title }}" style="height:250px;width:300px;object-fit:cover;">
+          </a>
+          <div class="view-link">
+            <a href="{% url 'projects_details' project.id %}">View Project</a>
+            <span class="circle-arrow">&#10140;</span> <!-- Unicode arrow matching your screenshot -->
+          </div>
+        </div>
+        {% empty %}
+          <p>No images available</p>
+      {% endfor %}
+      </div>
+      </div>
+      <button id="load-more-upcoming-btn" class="load-more-button" data-animate="from-bottom">Load More</button>
+    </section>
+
+<section class="youtube-gallery-section">
+  <h2 class="section-title" data-animate="from-bottom">Explore Our Projects</h2>
+
+  <div id="youtube-video-grid" class="youtube-video-grid">
+    {% for video in youtube_videos %}
+      <div class="youtube-frame" data-animate="from-bottom">
+        <div class="video-wrapper">
+          <iframe 
+            width="100%" 
+            height="300" 
+            src="https://www.youtube.com/embed/{{ video.youtube_link }}" 
+            title="{{ video.title }}" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <button id="load-more-youtube-video-btn" class="load-more-button" data-animate="from-bottom">Load More</button>
+</section>
+
+
+
+<!-- <section class="project-videos-section">
+  <h2 class="section-title" data-animate="from-bottom">Client Video References</h2>
+  
+  <div id="project-videos-container" class="video-grid">
+    {% for projectvideo in project_videos %}
+      <div class="video_cards" data-animate="from-bottom">
+        <video controls width="100%" autoplay loop muted>
+         <source src="{{ projectvideo.secure_url }}" type="video/mp4" preload="auto">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    {% endfor %}
+
+  </div>
+  <button id="load-more-video-btn" class="load-more-button" data-animate="from-bottom">Load More</button>
+</section> -->
+
+{% comment %} /*youtube videos*/ {% endcomment %}
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    let youtubeOffset = 3;
+    const loadMoreYouTubeBtn = document.getElementById('load-more-youtube-video-btn');
+    const youtubeVideoGrid = document.getElementById('youtube-video-grid');
+    const loadMoreYouTubeUrl = "/load-more-youtube-videos/";
+  
+    if (loadMoreYouTubeBtn && youtubeVideoGrid) {
+      loadMoreYouTubeBtn.addEventListener('click', () => {
+        fetch(`${loadMoreYouTubeUrl}?offset=${youtubeOffset}`)
+          .then(response => response.json())
+          .then(data => {
+            data.videos.forEach(video => {
+              const card = document.createElement('div');
+              card.classList.add('youtube-frame', 'animation', 'fade-in-up');
+              card.innerHTML = `
+                <div class="video-wrapper">
+                  <iframe 
+                    width="100%" 
+                    height="300" 
+                    src="https://www.youtube.com/embed/${video.youtube_link}" 
+                    title="${video.title}" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                  </iframe>
+                </div>
+                ${video.description ? `<p class="video-description">${video.description}</p>` : ''}
+              `;
+              youtubeVideoGrid.appendChild(card);
+            });
+  
+            youtubeOffset += 3;
+  
+            if (!data.has_more) {
+              loadMoreYouTubeBtn.style.display = 'none';
+            }
+          })
+          .catch(error => {
+            console.error('Error loading more YouTube videos:', error);
+          });
+      });
+    }
+  });
+  
+</script>
+
+<div class="projects-text projects-text-bg">
+  <div class="head" style="text-align:center;">
+    <h1 class="h4" data-animate="from-bottom">Delivering Dreams with Integrity</h1>
+  </div>
+
+
+  <div class="details animation slide-down">
+      <p data-animate="from-bottom">
+        At <strong> The Elite Dream Builders</strong>, we are committed to delivering exceptional construction experiences. Our projects are guided by precise scheduling using Gantt charts and monitored through our dedicated mobile app, ensuring complete transparency at every stage. 
+    <br><br>
+        Every structure we build goes through over 200 rigorous quality checks, guaranteeing strength, safety, and longevity. From premium villas and modern duplexes to stylish apartments, we craft each project with attention to detail and a focus on client satisfaction.
+    <br><br>
+        We're currently active in locations like Kalkandar Kottai, Ponamalipatty, Urayur, and Srirangam, with upcoming developments in Tiruvanaikovil and more. Our designs are not only aesthetic but also eco-conscious, energy-efficient, and tailored to meet diverse budgets and dreams.
+  </p>
+  </div>
+</div>
+
+
+{% endblock %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static "js/elite.js" %}"></script>
+    {% block extra_js %}
+    <script>
+      function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top < window.innerHeight && rect.bottom > 0 &&
+            rect.left < window.innerWidth && rect.right > 0
+        );
+    }
+    
+    function animateOnScroll() {
+        const elements = document.querySelectorAll('.animation');
+        elements.forEach(element => {
+            if (isInViewport(element) && !element.classList.contains('show')) {
+                element.classList.add('show');
+                element.getBoundingClientRect(); // Force repaint
+            }
+        });
+    }
+    
+    function optimizedScroll() {
+        requestAnimationFrame(animateOnScroll);
+    }
+    
+    document.addEventListener('DOMContentLoaded', animateOnScroll);
+    window.addEventListener('scroll', optimizedScroll);
+
+
+    
+    window.addEventListener("load", function () {
+      document.getElementById("loader").style.display = "none";
+    });
+    
+    setTimeout(() => {
+      document.getElementById("loader").style.display = "none";
+  }, 3000); // Hides loader after 5 seconds    
+  
+  </script>
+
+  <script>
+    let offset = 6;
+    const loadMoreUrl = "{% url 'load_more_projects' %}";
+
+    document.getElementById('load-more-btn').addEventListener('click', () => {
+        fetch(`${loadMoreUrl}?offset=${offset}`)
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('projects-container');
+                data.projects.forEach(project => {
+                const card = document.createElement('div');
+                card.classList.add('project-tile'); // use the new class, not 'cards'
+                card.innerHTML = `
+                    <a href="/projects/${project.id}/">
+                        <img src="${project.image_url}" alt="${project.title}">
+                    </a>
+                    <div class="view-link">
+                        <a href="/projects/${project.id}/">View Project</a>
+                        <span class="circle-arrow">&#10140;</span>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+
+
+                offset += 3;
+                if (!data.has_more) {
+                    document.getElementById('load-more-btn').style.display = 'none';
+                }
+            })
+            .catch(error => {
+                console.error('Error loading more projects:', error);
+            });
+    });
+</script>
+
+{% comment %} upcomming projects {% endcomment %}
+
+<script>
+ 
+  let upcomingOffset = 6;
+  const loadMoreUpcomingUrl = "{% url 'load_more_upcomming_projects' %}";
+
+  document.getElementById('load-more-upcoming-btn').addEventListener('click', () => {
+      fetch(`${loadMoreUpcomingUrl}?offset=${upcomingOffset}`)
+          .then(response => response.json())
+          .then(data => {
+              const container = document.getElementById('upcoming-projects-container');
+              data.upcoming_projects.forEach(project => {
+                const card = document.createElement('div');
+                card.classList.add('project-tile'); // use the new class, not 'cards'
+                card.innerHTML = `
+                    <a href="/projects/${project.id}/">
+                        <img src="${project.image_url}" alt="${project.title}">
+                    </a>
+                    <div class="view-link">
+                        <a href="/projects/${project.id}/">View Project</a>
+                        <span class="circle-arrow">&#10140;</span>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+
+              upcomingOffset += 3;
+              if (!data.has_more) {
+                  document.getElementById('load-more-upcoming-btn').style.display = 'none';
+              }
+          })
+          .catch(error => {
+              console.error('Error loading more upcoming projects:', error);
+          });
+  });
+</script>
+{% comment %} project videos {% endcomment %}
+
+<!-- <script>
+  let videoOffset = 3; // Start from 3 if 3 are loaded initially
+  const loadMoreVideosUrl = "{% url 'load_more_projects_videos' %}";
+
+  document.getElementById('load-more-video-btn').addEventListener('click', () => {
+      fetch(`${loadMoreVideosUrl}?offset=${videoOffset}`)
+          .then(response => response.json())
+          .then(data => {
+              const container = document.getElementById('project-videos-container');
+              data.projects.forEach(video => {
+                  const card = document.createElement('div');
+                  card.classList.add('video_cards', 'animation', 'zoom-in');
+                  card.innerHTML = `
+                      <video controls width="100%">
+                          <source src="${video.video_file}" type="video/mp4">
+                          Your browser does not support the video tag.
+                      </video>
+                      
+                  `;
+                  container.appendChild(card);
+              });
+
+              videoOffset += 3;
+
+              if (!data.has_more) {
+                  document.getElementById('load-more-video-btn').style.display = 'none';
+              }
+          })
+          .catch(error => {
+              console.error('Error loading more project videos:', error);
+          });
+  });
+</script> -->
+{% endblock %}
+</body>
+</html>

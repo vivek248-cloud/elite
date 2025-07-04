@@ -1,0 +1,1065 @@
+ERROR 2025-06-30 06:06:31,640 log Internal Server Error: /
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 279, in ensure_connection
+    self.connect()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "dpg-d0ndl49r0fns738tqtm0-a" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/elite/index/views.py", line 30, in home
+    return render(request, 'index/home.html',{
+  File "/root/elite/venv/lib/python3.10/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/defaulttags.py", line 199, in render
+    len_values = len(values)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/query.py", line 366, in __len__
+    self._fetch_all()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1945, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 320, in cursor
+    return self._cursor()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 279, in ensure_connection
+    self.connect()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: could not translate host name "dpg-d0ndl49r0fns738tqtm0-a" to address: Temporary failure in name resolution
+
+ERROR 2025-06-30 06:06:36,571 log Internal Server Error: /
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 279, in ensure_connection
+    self.connect()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "dpg-d0ndl49r0fns738tqtm0-a" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/elite/index/views.py", line 30, in home
+    return render(request, 'index/home.html',{
+  File "/root/elite/venv/lib/python3.10/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/defaulttags.py", line 199, in render
+    len_values = len(values)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/query.py", line 366, in __len__
+    self._fetch_all()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1945, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 320, in cursor
+    return self._cursor()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 279, in ensure_connection
+    self.connect()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: could not translate host name "dpg-d0ndl49r0fns738tqtm0-a" to address: Temporary failure in name resolution
+
+ERROR 2025-06-30 06:14:22,707 log Internal Server Error: /
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 279, in ensure_connection
+    self.connect()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "dpg-d0ndl49r0fns738tqtm0-a" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/elite/index/views.py", line 30, in home
+    return render(request, 'index/home.html',{
+  File "/root/elite/venv/lib/python3.10/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/defaulttags.py", line 199, in render
+    len_values = len(values)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/query.py", line 366, in __len__
+    self._fetch_all()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1945, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 320, in cursor
+    return self._cursor()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 279, in ensure_connection
+    self.connect()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: could not translate host name "dpg-d0ndl49r0fns738tqtm0-a" to address: Temporary failure in name resolution
+
+ERROR 2025-06-30 06:14:24,518 log Internal Server Error: /
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 279, in ensure_connection
+    self.connect()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "dpg-d0ndl49r0fns738tqtm0-a" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/elite/index/views.py", line 30, in home
+    return render(request, 'index/home.html',{
+  File "/root/elite/venv/lib/python3.10/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/defaulttags.py", line 199, in render
+    len_values = len(values)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/query.py", line 366, in __len__
+    self._fetch_all()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1945, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 320, in cursor
+    return self._cursor()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 279, in ensure_connection
+    self.connect()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: could not translate host name "dpg-d0ndl49r0fns738tqtm0-a" to address: Temporary failure in name resolution
+
+ERROR 2025-06-30 06:14:26,018 log Internal Server Error: /
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 279, in ensure_connection
+    self.connect()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "dpg-d0ndl49r0fns738tqtm0-a" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/elite/index/views.py", line 30, in home
+    return render(request, 'index/home.html',{
+  File "/root/elite/venv/lib/python3.10/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/defaulttags.py", line 199, in render
+    len_values = len(values)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/query.py", line 366, in __len__
+    self._fetch_all()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1945, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 320, in cursor
+    return self._cursor()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 279, in ensure_connection
+    self.connect()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: could not translate host name "dpg-d0ndl49r0fns738tqtm0-a" to address: Temporary failure in name resolution
+
+ERROR 2025-06-30 06:14:30,595 log Internal Server Error: /
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 279, in ensure_connection
+    self.connect()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "dpg-d0ndl49r0fns738tqtm0-a" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/elite/index/views.py", line 30, in home
+    return render(request, 'index/home.html',{
+  File "/root/elite/venv/lib/python3.10/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/defaulttags.py", line 199, in render
+    len_values = len(values)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/query.py", line 366, in __len__
+    self._fetch_all()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1945, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 320, in cursor
+    return self._cursor()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 279, in ensure_connection
+    self.connect()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: could not translate host name "dpg-d0ndl49r0fns738tqtm0-a" to address: Temporary failure in name resolution
+
+ERROR 2025-06-30 06:14:32,515 log Internal Server Error: /
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 279, in ensure_connection
+    self.connect()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "dpg-d0ndl49r0fns738tqtm0-a" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/elite/index/views.py", line 30, in home
+    return render(request, 'index/home.html',{
+  File "/root/elite/venv/lib/python3.10/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/defaulttags.py", line 199, in render
+    len_values = len(values)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/query.py", line 366, in __len__
+    self._fetch_all()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1945, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 320, in cursor
+    return self._cursor()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 279, in ensure_connection
+    self.connect()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: could not translate host name "dpg-d0ndl49r0fns738tqtm0-a" to address: Temporary failure in name resolution
+
+ERROR 2025-06-30 06:14:37,484 log Internal Server Error: /
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 279, in ensure_connection
+    self.connect()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "dpg-d0ndl49r0fns738tqtm0-a" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/elite/index/views.py", line 30, in home
+    return render(request, 'index/home.html',{
+  File "/root/elite/venv/lib/python3.10/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/template/defaulttags.py", line 199, in render
+    len_values = len(values)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/query.py", line 366, in __len__
+    self._fetch_all()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1945, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 320, in cursor
+    return self._cursor()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 279, in ensure_connection
+    self.connect()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/root/elite/venv/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: could not translate host name "dpg-d0ndl49r0fns738tqtm0-a" to address: Temporary failure in name resolution
+
+ERROR 2025-06-30 06:18:25,086 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 07:45:30,273 exception Invalid HTTP_HOST header: '/run/gunicorn.sock:'. The domain name provided is not valid according to RFC 1034/1035.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '/run/gunicorn.sock:'. The domain name provided is not valid according to RFC 1034/1035.
+ERROR 2025-06-30 12:06:03,988 exception Invalid HTTP_HOST header: '31.97.62.126:80'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126:80'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 14:17:38,036 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 14:17:38,339 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 15:39:05,884 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 16:49:57,754 exception Invalid HTTP_HOST header: '31.97.62.126:80'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126:80'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 17:05:21,838 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 17:05:21,921 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 17:05:21,964 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 17:05:22,048 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 17:05:22,091 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 17:05:22,136 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 17:05:22,178 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 17:05:22,221 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 18:18:15,409 exception Invalid HTTP_HOST header: '31.97.62.126:80'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126:80'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 18:28:42,077 exception Invalid HTTP_HOST header: '31.97.62.126:80'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126:80'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 20:51:52,555 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 21:12:01,286 exception Invalid HTTP_HOST header: '31.97.62.126:80'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126:80'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 21:25:10,719 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 21:31:33,102 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 21:31:34,456 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 21:54:08,949 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-06-30 22:42:03,917 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-07-01 00:11:03,555 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-07-01 00:11:04,063 exception Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+ERROR 2025-07-01 00:23:07,379 exception Invalid HTTP_HOST header: '31.97.62.126:443'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/root/elite/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "/root/elite/venv/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/root/elite/venv/lib/python3.10/site-packages/django/http/request.py", line 186, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '31.97.62.126:443'. You may need to add '31.97.62.126' to ALLOWED_HOSTS.

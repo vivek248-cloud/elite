@@ -1,0 +1,279 @@
+{% extends 'index/base.html' %}
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Elite Dream Builders offers premium construction services for residential and commercial spaces. Get quotes, view projects, and read reviews.">
+    <meta name="keywords" content="construction, house building, residential, commercial, elite, dream builders">
+    <meta name="author" content="Elite Dream Builders Team">
+    <title>{% if title %}{{ title }}{% else %}Elite Dream Builders{% endif %}</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="{% static 'images/favicon-512x512.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
+    <link rel="manifest" href="{% static 'site.webmanifest' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "css/elite.css" %}">
+</head>
+<body>
+  {% block content %}
+  
+  <div class="contact-container">
+    <div class="contact-bg">
+      <div class="sliders-box grid-slideshow">
+        {% for slide in sliders %}
+          <section class="slider-sections {% if forloop.first %}active{% endif %}"   style="background-image: url('{{ slide.image.url }}'); background-size: cover; background-position: center;">
+            <div class="scroller-content-bg" >
+              <div class="scroller-content">
+                <h1>{{ slide.healine }}</h1>
+                <h4 class="animation slide-up">{{ slide.sub_headline }}</h4>
+                {% if slide.quotes %}
+                  <p class="animation slide-up">{{ slide.quotes }}</p>
+                {% endif %}
+              </div>
+              <div class="scroller-content-2">
+                <p data-animate="from-bottom"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gold" height="28px" class="location">
+                  <path fill-rule="evenodd" d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" clip-rule="evenodd" />
+                </svg></span>&nbsp&nbsp{{ slide.location }}
+                </p>
+            </div>
+          </section>
+        {% endfor %}
+        <div class="pagination-dots"></div>
+      </div>
+      
+    </div>
+  </div>
+
+<div class="home-conntent-bg">
+  <div class="home-content">
+    <div class="home-content-1">
+
+      <div class="home-content-1-col-1">
+        <h1 data-animate="from-left">THE <br>ELITE <span class="dream-text-bg"><span class="dream-text" data-animate="from-bottom"> <br>DREAM </span></span> BUILDERS<sup data-animate="from-top">&reg;</sup></h1>
+      </div>
+
+      <div class="home-content-1-col-2">
+        <h1 class="w2" data-animate="from-right">Welcome to Elite Dream Builders</h1>
+        <div class="line5" data-animate="from-top"></div>
+        <h4 class="h4" data-animate="from-right">WE DO ONLY WHAT WE ARE GREAT ON</h4>
+
+        <div class="counters animation zoom-in counters-div" style="background-color: rgba(240, 240, 240, 0);">
+          <div class="counter-grid home-circles">
+            <div class="counter circles" data-animate="from-bottom">
+              <h1  style="font-family: 'Poppins', sans-serif;text-align:center;" data-animate="from-bottom"><span>1L +</span></h1>
+              <h3 class="circle-text" style="font-family: 'Poppins', sans-serif;font-weight: 600;text-align:center;color:var(--bgWhite);" data-animate="from-bottom">SQ-FEET BUILT</h3>
+            </div>
+            <div class="counter circles" data-animate="from-bottom">
+              <h1 style="font-family: 'Poppins', sans-serif;text-align:center;" data-animate="from-bottom"><span data-count="90">0</span>+</h1>
+              <h3 class="circle-text" style="font-family: 'Poppins', sans-serif;font-weight: 600;text-align:center;color:var(--bgWhite);" data-animate="from-bottom">COMPLETED PROJECTS</h3>
+            </div>
+          </div>
+        </div>
+        <div class="download-wrapper">
+          <p data-animate="from-bottom">click to download brochure</p><br>
+          <br>
+          <a href="{% static 'pdf/ELITE DREAM BUILDERS BROCHURE.pdf' %}" download>
+            <button class="downloadButton" data-animate="from-bottom">
+              <span>Download PDF</span>
+            </button>
+          </a>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<div class="project-section">
+    <h2 class="section-title">Our Projects</h2>
+    <div class="project-layout">
+      
+      <!-- Sidebar (left) -->
+      <div class="project-sidebar">
+        <ul>
+          <li class="{% if active_category == 'residential' %}active{% endif %} "  data-animate="from-left">
+            <a href="{% url 'home_with_category' 'residential' %}"><svg version="1.1" id="icons" class="project-sidebar-svg" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 128 128" style="enable-background:new 0 0 128 128" xml:space="preserve"><style>.st0,.st1{display:none;fill:#191919}.st1,.st3{fill-rule:evenodd;clip-rule:evenodd}.st3,.st4{display:inline;fill:#191919}</style><g id="row1"><path id="nav:2_3_" d="M64 1 17.9 127 64 99.8l46.1 27.2L64 1zm0 20.4 32.6 89.2L64 91.3V21.4z" style="fill:#191919"/></g></svg> RESIDENTIAL</a>
+          </li>
+          <li class="{% if active_category == 'commercial' %}active{% endif %}" data-animate="from-left">
+            <a href="{% url 'home_with_category' 'commercial' %}"><svg version="1.1" id="icons" class="project-sidebar-svg" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 128 128" style="enable-background:new 0 0 128 128" xml:space="preserve"><style>.st0,.st1{display:none;fill:#191919}.st1,.st3{fill-rule:evenodd;clip-rule:evenodd}.st3,.st4{display:inline;fill:#191919}</style><g id="row1"><path id="nav:2_3_" d="M64 1 17.9 127 64 99.8l46.1 27.2L64 1zm0 20.4 32.6 89.2L64 91.3V21.4z" style="fill:#191919"/></g></svg> COMMERCIAL</a>
+          </li>
+          <li class="{% if active_category == 'interior' %}active{% endif %}" data-animate="from-left">
+            <a href="{% url 'home_with_category' 'interior' %}"><svg version="1.1" id="icons" class="project-sidebar-svg" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 128 128" style="enable-background:new 0 0 128 128" xml:space="preserve"><style>.st0,.st1{display:none;fill:#191919}.st1,.st3{fill-rule:evenodd;clip-rule:evenodd}.st3,.st4{display:inline;fill:#191919}</style><g id="row1"><path id="nav:2_3_" d="M64 1 17.9 127 64 99.8l46.1 27.2L64 1zm0 20.4 32.6 89.2L64 91.3V21.4z" style="fill:#191919"/></g></svg> INTERIOR</a>
+          </li>
+        </ul>
+      </div>
+      
+  
+      <!-- Project Gallery (right) -->
+      <div class="project-gallery" id="project-gallery">
+        {% for project in projects %}
+        <div class="project-card-horizontal animation zoom-in">
+          
+            <div class="image-section"  data-animate="fade-in">
+              <img src="{{ project.image.url }}" alt="{{ project.title }}"  loading="lazy" data-animate="from-left" />
+            </div>
+         
+        </div>
+        {% empty %}
+          <p>No projects found in this category.</p>
+        {% endfor %}
+      </div>
+  
+    </div>
+    <button class="load-more-button" data-animate="from-bottom">
+      <a href="{% url 'projects' %}" style=" color:var(--bgWhite)  data-animate="fade-in">know More</a>
+    </button>
+  </div>
+
+  <div class="home-content-2">
+    <div class="home-content-2-bg">
+      <div class="home-content-head">
+        
+        <h2 class="h4  section-title" style="color:var(--textColor);" data-animate="from-bottom">WHY CHOOSE US</h2>
+      </div>
+      <div class="home-content-2-row">
+        <a href="{% url 'category' 'residential' %}" class="card-link"  data-animate="from-bottom">
+        <div class="e-card playing animation zoom-in e-card-playing {% if active_category == 'residential' %}active{% endif %}">
+          <div class="image"></div>
+          
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="infotop">
+            <svg xmlns="http://www.w3.org/2000/svg"    class="home-content-2-row-svg" viewBox="0 0 576 512" data-animate="from-bottom"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+        <br>      
+          Turnkey House Construction <span class="hover-indicator">→</span>
+        <br>
+        <div class="name"><p>"" We provide Turnkey House construction services all over Tamil Nadu, Check out our free construction cost calculator tool below. Just choose the package, type in the construction area and little other basic info and get the construction cost."</p></div>
+          </div>
+        </div>
+      </a>
+      <a href="{% url 'category' 'commercial' %}"  class="card-link" data-animate="from-bottom">
+        <div class="e-card playing animation zoom-in">
+          <div class="image"></div>
+          
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="infotop">
+            <svg xmlns="http://www.w3.org/2000/svg"  class="home-content-2-row-svg"  data-animate="from-bottom" viewBox="0 0 384 512"><path d="M48 0C21.5 0 0 21.5 0 48L0 464c0 26.5 21.5 48 48 48l96 0 0-80c0-26.5 21.5-48 48-48s48 21.5 48 48l0 80 96 0c26.5 0 48-21.5 48-48l0-416c0-26.5-21.5-48-48-48L48 0zM64 240c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32zm112-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16zm80 16c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32zM80 96l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16zm80 16c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32zM272 96l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16z"/></svg>
+            <br>      
+              Commercial Construction <span class="hover-indicator">→</span>
+            <br>
+          <div class="name"> <p>We provide commercial construction services all over Tamil Nadu. Check out our pricing above. You can also use our free commercial construction cost calculator tool above to find out the cost of commercial construction. Just type in the buildup area and choose the package, you will get the final cost within seconds.""</p></div>
+          </div>
+        </div>
+        </a>
+    </div>
+  </div>
+</div>
+
+    <div class="slider-container2  sticky-images4">
+      <div class="slide2 active">
+          <video autoplay muted loop>
+              <source src="https://pub-9c1665977a4c4135b3fd86b50e70cdfb.r2.dev/video1.mp4" type="video/mp4">
+          </video>
+          <div class="overlay"  style="background-color: transparent;">
+            <h1 class="w" data-animate="from-bottom">MISSION</h1>
+            <p data-animate="from-bottom" style="background: rgba(0, 0, 0, 0.42);padding: 20px;border-radius: 10px;">At The Elite Dream Builders, our mission is to deliver a customer-centric construction experience rooted in trust, transparency, and excellence.</p>
+          </div>
+      </div>
+      <div class="slide2"  style="background-color: transparent;">
+          <video autoplay muted loop>
+              <source src="https://pub-9c1665977a4c4135b3fd86b50e70cdfb.r2.dev/video4.mp4" type="video/mp4" preload="auto">
+          </video>
+          <div class="overlay"  style="background-color: transparent;">
+            <h1 class="w" data-animate="from-bottom">VISION</h1>
+            <p style="background: rgba(0, 0, 0, 0.42);padding: 20px;border-radius: 10px;" data-animate="from-bottom">Our vision is to transform Trichy into a city celebrated for its beautiful, high-quality homes. At The Elite Dream Builders, we are committed to setting new benchmarks in trust, quality, and transparency as a leading construction company in Trichy. By building homes that enrich our clients’ lives and contribute to Trichy’s growth, we aim to leave a lasting legacy in the city’s construction landscape.</p>
+          </div>
+      </div>
+  </div>
+
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.slide2');
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    const intervalTime = 8000; // 8 seconds per slide
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+          slide.classList.add('active');
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      showSlide(currentIndex);
+    }
+
+    // Start the slider
+    setInterval(nextSlide, intervalTime);
+  });
+</script>
+
+  
+</div>
+
+
+<div class="home-conntent-bg" stlye="background-image: url('../images/luxury.jpg');">
+  
+  <div class="home-content">
+  
+    <div class="home-content-1-bg">
+      
+      <div class="home-content-1-col-2" style="text-align:center">
+        <h1 style="text-align:center;"  data-animate="from-bottom">Welcome to Elite Dream Builders</h1>
+        
+        <h4 class="h4 section-title"  data-animate="from-bottom">WE DO ONLY WHAT WE ARE GREAT ON</h4>
+        
+
+        <p data-animate="from-bottom">The Elite Dream Builders, We ensure the delivered projects and services are of the highest quality and consistently satisfy our customer requirements.We strongly believe that customer satisfaction plays an important role to make each project a complete success. Our team members are capable of building enduring houses and good rapport with each customer. Our engineers focus on using the excellent quality construction materials for housing solutions that stand the test of time.
+          We design each and every one as per customer satisfaction. We have done commercial, residential and commercial cum residential projects. Most of our residential projects are either duplex house or apartment or villas.
+          No matter what the project size or cost we will always be working in close with the clients in order to design and also implement all those in the construction too. Each and every customization or request made by the client will be taken into account. We have done projects for every budget.
+          </p>
+         <h3 class="counter" style="text-align:center;"  data-animate="from-bottom"><span  data-count="10" style="font-weight:600;color:var(--backGround);">0</span> YEARS OF EXPERIENCE</h3>
+            <ul class="professional-list d-flex flex-wrap justify-content-center text-center">
+          <li class="col-md-auto active"  data-animate="from-bottom">
+            <div class="stat-card">
+              <h3>High Efficiency</h3>
+            </div>
+          </li>
+          <li class="col-md-auto"  data-animate="from-bottom">
+            <div class="stat-card">
+              <h3>Low Cost</h3>
+            </div>
+          </li>
+          <li class="col-md-auto" data-animate="from-bottom">
+            <div class="stat-card">
+              <h3>High Quality</h3>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+   
+{% block extra_js %}
+{% endblock %}
+ 
+
+</body>
+</html>

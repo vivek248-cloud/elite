@@ -1,0 +1,182 @@
+{% extends 'index/base.html' %}
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Elite Dream Builders offers premium construction services for residential and commercial spaces. Get quotes, view projects, and read reviews.">
+    <meta name="keywords" content="construction, house building, residential, commercial, elite, dream builders">
+    <meta name="author" content="Elite Dream Builders Team">
+    <title>{% if title %}{{ title }}{% else %}Elite Dream Builders{% endif %}</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="{% static 'images/favicon-512x512.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
+    <link rel="manifest" href="{% static 'site.webmanifest' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "css/elite.css" %}">
+   
+</head>
+<body>
+ 
+{% block content %}
+
+<div class="sticky-header-bg">
+<div class="sticky-header">
+    <div class="outline-text4"><h1>Let's Build Your Dream Project</h1></div>
+</div>
+</div>
+
+{% if messages %}
+  <div class="alert-bg">
+    {% for message in messages %}
+      <div class="alert alert-success animation bounce" id="success-message">
+        {{ message }}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+  
+<div class="get-box" data-animate="from-bottom">
+      <form method="post">
+        {% csrf_token %}
+        <div class="get-form animation zoom-in">
+        <label for="id_name">Name:</label>
+        {{ form.name }}
+        
+        <label for="id_email">Email:</label>
+        {{ form.email }}
+        
+        <label for="id_number">Number:</label>
+        {{ form.phone }}
+        
+        <label for="id_service_type">Service Type:</label>
+        {{ form.service_type }}
+        
+        <label for="id_budget_range">Budget Range:</label>
+            <select name="budget_range" id="id_budget_range">
+              <option value="3">Gold</option>
+            </select>
+
+        
+        <label for="area">Total Area (sq. ft):</label>
+        <input type="number" id="area" name="area" placeholder="Enter area in sq. ft" oninput="calculateEstimate()">
+        <input type="hidden" id="estimated_cost" name="estimated_cost">
+
+        <p id="estimate">Estimated Cost: ₹0</p>
+
+        <button type="submit">Get Quote</button>
+        </div>
+    </form>
+    
+{% endblock %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
+    <script src={% static "js/elite.js" %}></script>
+    {% block extra_js %}
+    <script>
+      function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top < window.innerHeight && rect.bottom > 0 &&
+            rect.left < window.innerWidth && rect.right > 0
+        );
+    }
+    
+    function animateOnScroll() {
+        const elements = document.querySelectorAll('.animation');
+        elements.forEach(element => {
+            if (isInViewport(element) && !element.classList.contains('show')) {
+                element.classList.add('show');
+                element.getBoundingClientRect(); // Force repaint
+            }
+        });
+    }
+    
+    function optimizedScroll() {
+        requestAnimationFrame(animateOnScroll);
+    }
+    
+    document.addEventListener('DOMContentLoaded', animateOnScroll);
+    window.addEventListener('scroll', optimizedScroll);
+
+    window.onscroll = function() {stickyEffect()};
+
+let header = document.querySelector(".sticky-header");
+let sticky = header.offsetTop;
+
+function stickyEffect() {
+  if (window.scrollY > sticky) {
+    header.classList.add("sticky-active");
+  } else {
+    header.classList.remove("sticky-active");
+  }
+}
+
+
+window.addEventListener("load", function () {
+  document.getElementById("loader").style.display = "none";
+});
+
+setTimeout(() => {
+  document.getElementById("loader").style.display = "none";
+}, 3000); // Hides loader after 5 seconds    
+
+
+function calculateEstimate() {
+  let area = document.getElementById("area").value;
+
+  // Get the selected budget range (ID)
+  let budgetDropdown = document.getElementById("id_budget_range");
+  
+  if (!budgetDropdown) {
+      console.error("Budget range dropdown not found!");
+      return;
+  }
+
+  let selectedBudgetId = budgetDropdown.value;
+
+  // Define rates based on the correct ID from BudgetRange
+  let ratePerSqFt = 2099;  // Default medium budget
+
+  if (selectedBudgetId == "1") {  // Silver
+      ratePerSqFt = 2099;
+  } else if (selectedBudgetId == "3") {  // Gold
+      ratePerSqFt = 2199;
+  } else if (selectedBudgetId == "2") {  // Platinum
+      ratePerSqFt = 2499;
+  }
+
+  let estimate = area * ratePerSqFt;
+
+  if (!isNaN(estimate) && area > 0) {
+      document.getElementById("estimate").innerHTML = `Estimated Cost: ₹${estimate.toLocaleString('en-IN')}`;
+      document.getElementById("estimated_cost").value = estimate;  // Store in hidden input
+  } else {
+      document.getElementById("estimate").innerHTML = "Estimated Cost: ₹0";
+      document.getElementById("estimated_cost").value = 0;
+  }
+}
+
+setTimeout(() => {
+  const msg = document.getElementById("success-message");
+  if (msg) {
+    msg.style.display = "none";
+  }
+}, 5000); // hide after 5 seconds
+
+
+
+  </script>
+  {% endblock %}
+</body>
+</html>
