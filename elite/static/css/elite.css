@@ -3705,10 +3705,13 @@ video, .overlay {
   }
 
 
-.sup
-{
-	color:gold!important;
+.sup {
+  color: gold !important;
+  font-size: 0.7em;   /* Slightly smaller than text */
+  vertical-align: super; /* Ensure it's treated as a superscript */
+  line-height: 1;
 }
+
 
 
 /* terms */
@@ -7263,6 +7266,20 @@ margin-right: 5rem;
   .carousel-heading {
     font-size: 1.5rem;
   }
+  .carousel-inner {
+  height: 60vh;
+ 
+}
+
+.carousel-item {
+  
+  height: 60vh;
+}
+
+.carousel-bg {
+
+  height: 60vh;
+}
 }
 
 @media (max-width: 400px) {
