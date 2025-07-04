@@ -7234,6 +7234,18 @@ margin-right: 5rem;
   font-size: 3.5rem;
 }
 
+.carousel-control-prev,
+.carousel-control-next {
+  top: 50%;
+  transform: translateY(-50%);
+  bottom: auto;
+  height: auto;
+}
+.carousel-inner {
+  position: relative;
+}
+
+
 @media (max-width: 768px) {
   .carousel-bg {
     height: 70vh;
@@ -7253,4 +7265,17 @@ margin-right: 5rem;
   }
 }
 
+@media (max-width: 400px) {
+  .carousel-bg {
+    height: 55vh;
+  }
 
+  .carousel-heading {
+    font-size: 1.25rem;
+    padding: 0 10px;
+  }
+
+  .carousel-item h1 {
+    font-size: 1.25rem!important;
+  }
+}
