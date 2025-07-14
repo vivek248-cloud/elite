@@ -7105,11 +7105,10 @@ margin-right: 5rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 3rem;
-  justify-content: center;
+  justify-items: center;
   padding: 2rem 0;
 }
 
-/* Card */
 .project-tile {
   width: 100%;
   max-width: 300px;
@@ -7126,6 +7125,7 @@ margin-right: 5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease;
 }
+
 
 
 .project-tile img:hover {
