@@ -7111,6 +7111,7 @@ margin-right: 5rem;
 
 .project-tile {
   width: 100%;
+  height: 100%;
   max-width: 300px;
   text-align: center;
   border-bottom: 1px solid #ccc;
