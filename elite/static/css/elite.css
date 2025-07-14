@@ -3417,7 +3417,7 @@ video, .overlay {
 		width: 350px;
 		border-radius: 8px;
 		border: 1px solid black;
-		height: 350px;
+		height: fit-content;
 	  }
 	  
 	  .stars {
@@ -3447,6 +3447,7 @@ video, .overlay {
 		margin-top: 0.4rem;
 		line-height: 1.625;
 		color: rgb(0, 0, 0);
+        text-overflow: ellipsis;
 	  }
 	  
 	  .author {
