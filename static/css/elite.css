@@ -7100,6 +7100,14 @@ margin-right: 5rem;
   padding: 2rem 0;
 }
 
+
+#projects-container{
+	display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-items: center;
+  gap: 3rem;
+  padding: 2rem 0;
+}
 /* Card */
 .project-tile {
   width: 300px;
