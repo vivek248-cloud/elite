@@ -63,7 +63,7 @@
       {% for project in projects %}
         <div class="project-tile">
           <a href="{% url 'projects_details' project.id %}">
-            <img src="{{ project.image.url }}" alt="{{ project.title }}"  style="height:250px;width:300px;object-fit:cover;">
+            <img src="{{ project.image.url }}" alt="{{ project.title }}">
           </a>
           <div class="view-link">
             <a href="{% url 'projects_details' project.id %}">View Project</a>
