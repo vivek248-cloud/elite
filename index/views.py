@@ -73,25 +73,24 @@ def projects(request):
 def load_more_projects(request):
     offset = int(request.GET.get('offset', 0))
     limit = 6
-    projects = Project.objects.all()[offset:offset + limit]
+
+    # Only fetch completed projects to match the main view
+    completed_projects = Project.objects.filter(status='completed').order_by('id')[offset:offset + limit]
 
     project_data = []
-    for project in projects:
+    for project in completed_projects:
         project_data.append({
             'id': project.id,
             'title': project.title,
             'image_url': project.image.url,
-            'budget_range': str(project.budget_range),  # <-- Convert to string
+            'budget_range': str(project.budget_range),
             'bhk': project.bhk,
             'description': project.description,
         })
 
-    has_more = Project.objects.count() > offset + limit
+    has_more = Project.objects.filter(status='completed').count() > offset + limit
 
     return JsonResponse({'projects': project_data, 'has_more': has_more})
-
-# UpcomingProject
-
 
 def load_more_upcomming_projects(request):
     offset = int(request.GET.get('offset', 0))
