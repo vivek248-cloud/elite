@@ -7093,39 +7093,40 @@ margin-right: 5rem;
 /* Responsive tweaks for smaller devices */
 /* Container as responsive 3-column grid */
 .project-gallerys {
+ display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 3rem;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+
+#projects-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 3rem;
+  justify-content: center;
   padding: 2rem 0;
 }
 
-
-#projects-container{
-	display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  justify-items: center;
-  gap: 3rem;
-  padding: 2rem 0;
-}
 /* Card */
 .project-tile {
-  width: 300px;
-  height: 250px;
+  width: 100%;
+  max-width: 300px;
   text-align: center;
   border-bottom: 1px solid #ccc;
   padding-bottom: 1rem;
 }
 
-/* Image styling */
 .project-tile img {
-  width: 300px!important;
-  height: 250px!important;
-  border-radius: 5px;
+  width: 100%;
+  height: 250px;
   object-fit: cover;
+  border-radius: 5px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease;
 }
+
 
 .project-tile img:hover {
   transform: scale(1.02);
