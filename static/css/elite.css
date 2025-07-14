@@ -7111,6 +7111,7 @@ margin-right: 5rem;
 /* Card */
 .project-tile {
   width: 300px;
+  height: 250px;
   text-align: center;
   border-bottom: 1px solid #ccc;
   padding-bottom: 1rem;
