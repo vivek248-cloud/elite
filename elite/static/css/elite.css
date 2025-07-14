@@ -3417,7 +3417,8 @@ video, .overlay {
 		width: 350px;
 		border-radius: 8px;
 		border: 1px solid black;
-		height: fit-content;
+		height: 350px;
+        overflow-y: scroll;
 	  }
 	  
 	  .stars {
