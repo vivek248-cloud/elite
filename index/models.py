@@ -172,15 +172,35 @@ class AboutSection(models.Model):
     def __str__(self):
         return self.title
     
+# class Video(models.Model):
+#     title = models.CharField(max_length=255)
+#     video_file = models.FileField(upload_to='testimonals/videos/')
+#     uploaded_at = models.DateTimeField(auto_now_add=True)
+
+#     def __str__(self):
+#         return self.title
+#     class Meta:
+#         verbose_name_plural = "video testimonials"
+
+
 class Video(models.Model):
     title = models.CharField(max_length=255)
-    video_file = models.FileField(upload_to='testimonals/videos/')
+    youtube_url = models.URLField()
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title
+
     class Meta:
         verbose_name_plural = "video testimonials"
+
+    def youtube_id(self):
+        # Extracts YouTube ID from full URL
+        import re
+        pattern = r'(?:v=|be/|embed/)([a-zA-Z0-9_-]{11})'
+        match = re.search(pattern, self.youtube_url)
+        return match.group(1) if match else None
+
     
 class ProjectVideo(models.Model):
     title = models.CharField(max_length=255)
