@@ -27,6 +27,41 @@
     <link rel="stylesheet" href="{% static "css/elite.css" %}">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     
+
+
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Elite Dream Builders Construction Services",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "{{ reviews|average_rating|floatformat:1 }}",
+    "reviewCount": "{{ reviews|length }}"
+  },
+  "review": [
+    {% for review in reviews %}
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "{{ review.name|escapejs }}"
+      },
+      "datePublished": "{{ review.date|date:'Y-m-d' }}",
+      "reviewBody": "{{ review.comment|escapejs }}",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "{{ review.rating }}",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+
 </head>
 <body>
 
