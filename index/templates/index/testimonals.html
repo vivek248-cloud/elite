@@ -142,20 +142,24 @@
     {% endfor %}
   </div>
 
-</div>
 <div class="video-slider2">
   <h2 class="section-title" style="color:black;">Trusted by Thousands</h2>
   <button class="nav-button prev" onclick="prevVideo()">❮</button>
+  
   <div class="video-container" id="videoContainer" data-animate="fade-in">
-      {% for video in videos %}
-      <video class="slide" controls autoplay muted loop  data-animate="from-bottom">
-          <source src="{{ video_url }}" type="video/mp4" preload="auto">
-          Your browser does not support the video tag.
-      </video>
-      {% endfor %}
+    {% for video in videos %}
+      {% if video.youtube_id %}
+        <div class="video-thumb slide" onclick="playYouTube('{{ video.youtube_id }}', this)">
+          <img src="https://img.youtube.com/vi/{{ video.youtube_id }}/hqdefault.jpg" alt="{{ video.title }}">
+          <div class="play-button-overlay">&#9658;</div>
+        </div>
+      {% endif %}
+    {% endfor %}
   </div>
+  
   <button class="nav-button next" onclick="nextVideo()">❯</button>
 </div>
+
 
 
 {% endblock %}
@@ -211,27 +215,23 @@
 }, 3000); // Hides loader after 5 seconds    
 
 
-let index = 0;
-    const videos = document.querySelectorAll(".video-container video");
-    const totalVideos = videos.length;
-
-    function showVideo(index) {
-        const container = document.getElementById("videoContainer");
-        container.style.transform = `translateX(${-index * 100}%)`;
-    }
-
-    function nextVideo() {
-        index = (index + 1) % totalVideos;
-        showVideo(index);
-    }
-
-    function prevVideo() {
-        index = (index - 1 + totalVideos) % totalVideos;
-        showVideo(index);
-    }
-
 
   </script>
+
+
+  <script>
+function playYouTube(videoId, container) {
+  container.innerHTML = `
+    <iframe width="100%" height="100%" 
+            src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+    </iframe>`;
+}
+</script>
+
+
 {% endblock %}
 
 </body>
