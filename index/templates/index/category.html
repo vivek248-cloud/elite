@@ -45,17 +45,17 @@
         </div>
         <div class="parent" id="projects-container-category" data-category="{{ category }}">
             {% for project in projects %}
-            <div class="cards animation zoom-in">
-                <a href="{% url 'projects_details' project.id %}">
-                    <img src="{{ project.image.url }}" alt="{{ project.title }}">
-                    <div class="info">
-                        <h3>{{ project.title }}</h3>
-                        <strong>{{ project.budget_range }}</strong>
-                        <p>{{ project.bhk }}</p>
-                        <p>{{ project.location }}</p>
-                    </div>
-                </a>
-            </div>
+            <div class="project-tile">
+          <a href="{% url 'projects_details' project.id %}">
+            <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy">
+          </a>
+          <div class="view-link">
+            <a href="{% url 'projects_details' project.id %}">View Project</a>
+            <span class="circle-arrow">&#10140;</span> <!-- Unicode arrow matching your screenshot -->
+          </div>
+        </div>
+          {% empty %}
+          <p>No images available</p>
             {% endfor %}
         </div>
         
