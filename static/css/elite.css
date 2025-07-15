@@ -3419,8 +3419,31 @@ video, .overlay {
 		border: 1px solid black;
 		height: 350px;
         overflow-y: scroll;
+		scrollbar-width: thin;              /* Firefox */
+  		scrollbar-color: #000000 #f1f1f1;   
 	  }
 	  
+	  
+/* WebKit Browsers (Chrome, Edge, Safari) */
+.card-review::-webkit-scrollbar {
+  width: 8px;
+}
+
+.card-review::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+.card-review::-webkit-scrollbar-thumb {
+  background: #000000;
+  border-radius: 5px;
+}
+
+.card-review::-webkit-scrollbar-thumb:hover {
+  background: #000000;
+}
+
+
 	  .stars {
 		display: flex;
 		grid-gap: 0.125rem;
@@ -5854,7 +5877,8 @@ video, .overlay {
 {
   width:250px;
   text-align: center;
-  height: fit-content;
+  height: 350px;
+  overflow-y: scroll;
 }
 .card-review h1
 {
