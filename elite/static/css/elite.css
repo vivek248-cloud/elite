@@ -5877,7 +5877,7 @@ video, .overlay {
 {
   width:250px;
   text-align: center;
-  height: 350px;
+  height: 300px!important;
   overflow-y: scroll;
 }
 .card-review h1
@@ -7194,6 +7194,14 @@ margin-right: 5rem;
 }
 
 @media (max-width: 360px) {
+
+	.card-review
+{
+  width:250px;
+  text-align: center;
+  height: 300px!important;
+  overflow-y: scroll;
+}
   .project-gallerys {
     gap: 1.5rem;
     padding: 1rem;
@@ -7370,4 +7378,12 @@ margin-right: 5rem;
   .carousel-item h1 {
     font-size: 1.25rem!important;
   }
+
+  .card-review
+{
+  width:250px;
+  text-align: center;
+  height: 300px!important;
+  overflow-y: scroll;
+}
 }
