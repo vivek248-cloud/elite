@@ -31,11 +31,11 @@
 <div class="bg-video">
   {% if about_title_video %}
     <video autoplay loop muted playsinline controls>
-      <source src="https://pub-9c1665977a4c4135b3fd86b50e70cdfb.r2.dev/video1.mp4" type="video/mp4">
+      <source src="https://pub-9c1665977a4c4135b3fd86b50e70cdfb.r2.dev/video1.mp4" type="video/mp4" loading="lazy">
     </video>
   {% else %}
     <video autoplay loop muted playsinline>
-      <source src="https://pub-9c1665977a4c4135b3fd86b50e70cdfb.r2.dev/video1.mp4" type="video/mp4">
+      <source src="https://pub-9c1665977a4c4135b3fd86b50e70cdfb.r2.dev/video1.mp4" type="video/mp4" loading="lazy">
     </video>
   {% endif %}
 </div>
@@ -67,7 +67,7 @@
     <div class="box1-img" data-animate="from-bottom">
       {% if about %}
         <video autoplay loop muted controls playsinline>
-          <source src="{{ about.video_file.url }}" type="video/mp4">
+          <source src="{{ about.video_file.url }}" type="video/mp4" loading="lazy">
         </video>
       {% else %}
         <h2>Video not available</h2>

@@ -113,7 +113,7 @@
       {% for review in reviews %}
       <div class="card-review animation zoom-in">
         <div class="review-avatar">
-          <img src="{% static 'images/user.png' %}" alt="Default Avatar" class="avatar-img" type="image/png">
+          <img src="{% static 'images/user.png' %}" alt="Default Avatar" class="avatar-img" type="image/png" loading="lazy">
         </div>
         <div class="stars">
           {% for i in "12345"|make_list %}
