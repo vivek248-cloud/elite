@@ -17,6 +17,12 @@ class HomeSlider(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def delete(self, *args, **kwargs):
+        if self.image:
+            self.image.delete(save=False)
+        super().delete(*args, **kwargs)
+
 
 class BudgetRange(models.Model):
     name = models.CharField(max_length=50, unique=True)  # Silver, Gold, Platinum
@@ -114,7 +120,14 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+    
 
+    def delete(self, *args, **kwargs):
+        if self.image:
+            self.image.delete(save=False)
+        if self.image2:
+            self.image2.delete(save=False)
+        super().delete(*args, **kwargs)
     
     # on going project
 
@@ -139,6 +152,13 @@ class UpcomingProject(models.Model):
 
     def __str__(self):
         return self.title
+    
+
+    def delete(self, *args, **kwargs):
+        if self.image:
+            self.image.delete(save=False)
+        super().delete(*args, **kwargs)
+
     class Meta:
         verbose_name_plural = "Ongoing projects"
     # about page AboutVideo
@@ -148,9 +168,13 @@ class AboutVideo(models.Model):
     video_file = models.FileField(upload_to='videos/', null=True, blank=True)
     
 
-
     def __str__(self):
         return self.title
+    
+    def delete(self, *args, **kwargs):
+        if self.video_file:
+            self.video_file.delete(save=False)
+        super().delete(*args, **kwargs)
     
 
 
@@ -172,6 +196,12 @@ class AboutSection(models.Model):
     def __str__(self):
         return self.title
     
+    def delete(self, *args, **kwargs):
+        if self.image:
+            self.image.delete(save=False)
+        super().delete(*args, **kwargs)
+
+
 # class Video(models.Model):
 #     title = models.CharField(max_length=255)
 #     video_file = models.FileField(upload_to='testimonals/videos/')
@@ -224,6 +254,8 @@ class YouTubeVideo(models.Model):
     def __str__(self):
         return self.title
     
+
+    
 class SliderVideo(models.Model):
     title = models.CharField(max_length=255)
     video_file = models.FileField(upload_to='contact-slider/')  # Stores uploaded videos
@@ -233,6 +265,13 @@ class SliderVideo(models.Model):
     def __str__(self):
         return self.title
     
+    def delete(self, *args, **kwargs):
+        if self.video_file:
+            self.video_file.delete(save=False)
+        super().delete(*args, **kwargs)
+
+
+    
 class AboutTitleVideo(models.Model):
     title = models.CharField(max_length=255)
     video_file = models.FileField(upload_to='about-head/')  # Stores uploaded videos
@@ -241,3 +280,8 @@ class AboutTitleVideo(models.Model):
 
     def __str__(self):
         return self.title
+
+    def delete(self, *args, **kwargs):
+        if self.video_file:
+            self.video_file.delete(save=False)
+        super().delete(*args, **kwargs)
