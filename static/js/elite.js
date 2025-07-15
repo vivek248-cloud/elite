@@ -158,16 +158,23 @@ const cursor = document.getElementById('customCursor');
 let mouseX = 0, mouseY = 0;
 let currentX = 0, currentY = 0;
 
-document.addEventListener('mousemove', (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-});
+// Check if the device supports touch
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-function animateCursor() {
-  currentX += (mouseX - currentX) * 0.1;
-  currentY += (mouseY - currentY) * 0.1;
-  cursor.style.left = currentX + 'px';
-  cursor.style.top = currentY + 'px';
-  requestAnimationFrame(animateCursor);
+if (!isTouchDevice) {
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function animateCursor() {
+    currentX += (mouseX - currentX) * 0.1;
+    currentY += (mouseY - currentY) * 0.1;
+    cursor.style.left = currentX + 'px';
+    cursor.style.top = currentY + 'px';
+    requestAnimationFrame(animateCursor);
+  }
+
+  animateCursor();
 }
-animateCursor();
+
