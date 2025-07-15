@@ -1,0 +1,21 @@
+[0;1;32m●[0m gunicorn.service - gunicorn daemon for Django project
+     Loaded: loaded (/etc/systemd/system/gunicorn.service; enabled; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Mon 2025-07-14 11:23:19 UTC; 5min ago
+   Main PID: 129554 (gunicorn)
+      Tasks: 4 (limit: 9477)
+     Memory: 134.9M
+        CPU: 1.416s
+     CGroup: /system.slice/gunicorn.service
+             ├─129554 /root/edb/billing/venv/bin/python3 /root/edb/billing/venv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/run/gunicorn.sock ledger_system.wsgi:application
+             ├─129555 /root/edb/billing/venv/bin/python3 /root/edb/billing/venv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/run/gunicorn.sock ledger_system.wsgi:application
+             ├─129556 /root/edb/billing/venv/bin/python3 /root/edb/billing/venv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/run/gunicorn.sock ledger_system.wsgi:application
+             └─129557 /root/edb/billing/venv/bin/python3 /root/edb/billing/venv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/run/gunicorn.sock ledger_system.wsgi:application
+
+Jul 14 11:23:19 srv888437 systemd[1]: Started gunicorn daemon for Django project.
+Jul 14 11:23:19 srv888437 gunicorn[129554]: [2025-07-14 11:23:19 +0000] [129554] [INFO] Starting gunicorn 23.0.0
+Jul 14 11:23:19 srv888437 gunicorn[129554]: [2025-07-14 11:23:19 +0000] [129554] [INFO] Listening at: unix:/run/gunicorn.sock (129554)
+Jul 14 11:23:19 srv888437 gunicorn[129554]: [2025-07-14 11:23:19 +0000] [129554] [INFO] Using worker: sync
+Jul 14 11:23:19 srv888437 gunicorn[129555]: [2025-07-14 11:23:19 +0000] [129555] [INFO] Booting worker with pid: 129555
+Jul 14 11:23:19 srv888437 gunicorn[129556]: [2025-07-14 11:23:19 +0000] [129556] [INFO] Booting worker with pid: 129556
+Jul 14 11:23:19 srv888437 gunicorn[129557]: [2025-07-14 11:23:19 +0000] [129557] [INFO] Booting worker with pid: 129557
+Jul 14 11:24:56 srv888437 gunicorn[129555]:  - - [14/Jul/2025:16:54:56 +0530] "HEAD /home/ HTTP/1.0" 200 4480 "https://www.edbbilling.com/home/" "Mozilla/5.0+(compatible; UptimeRobot/2.0; http://www.uptimerobot.com/)"
