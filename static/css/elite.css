@@ -3427,6 +3427,7 @@ video, .overlay {
 /* WebKit Browsers (Chrome, Edge, Safari) */
 .card-review::-webkit-scrollbar {
   width: 8px;
+  height: 50px;
 }
 
 .card-review::-webkit-scrollbar-track {
@@ -7406,6 +7407,3 @@ margin-right: 5rem;
   z-index: 9999;
   transition: transform 0.1s ease-out;
 }
-
-
-
