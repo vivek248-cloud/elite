@@ -101,75 +101,72 @@
 <div class="section-title-container">
 <h2 class="section-title"  data-animate="from-bottom" >"Hear from Our Happy Clients"</h2>
 </div>
-
-
-<div class="review-slider">
-  <div class="slider-track" id="review-track">
+<div class="infinite-animation">
+  
+  <div class="group" id="review">
     {% for review in reviews %}
-    <div class="card-review">
+    <div class="card-review animation zoom-in">
       <div class="review-avatar">
-        <img src="{% static 'images/user.png' %}" class="avatar-img" alt="Avatar">
+        <img src="{% static 'images/user.png' %}" alt="Default Avatar" class="avatar-img" type="image/png">
       </div>
       <div class="stars">
         {% for i in "12345"|make_list %}
           {% if forloop.counter <= review.rating %}
-            <!-- Filled star -->
-            <svg viewBox="0 0 20 20" fill="currentColor" class="star"><path d="M9.049..."/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="star animation slide-up">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+            </svg>
           {% else %}
-            <!-- Empty star -->
-            <svg viewBox="0 0 20 20" fill="gray" class="star"><path d="M9.049..."/></svg>
+            <!-- Empty Star (Optional) -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="gray" class="star animation slide-up">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+            </svg>
           {% endif %}
         {% endfor %}
       </div>
+      
       <div class="infos">
         <p class="date-time">{{ review.date|timesince }} ago</p>
-        <p class="review-description">{{ review.comment }}</p>
+        <p class="review-description animation slide-up">{{ review.comment }}</p>
       </div>
-      <div class="author">— {{ review.name }}</div>
+      
+      <div class="author animation slide-right">
+        — {{ review.name }}
+      </div>
     </div>
+  {% endfor %}
+  </div>
+  <div aria-hidden class="group">
+      {% for review in reviews %}
+      <div class="card-review animation zoom-in">
+        <div class="review-avatar">
+          <img src="{% static 'images/user.png' %}" alt="Default Avatar" class="avatar-img" type="image/png" loading="lazy">
+        </div>
+        <div class="stars">
+          {% for i in "12345"|make_list %}
+            {% if forloop.counter <= review.rating %}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="star animation slide-up">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+            {% else %}
+              <!-- Empty Star (Optional) -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="gray" class="star animation slide-up">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+            {% endif %}
+          {% endfor %}
+        </div>
+        
+        <div class="infos">
+          <p class="date-time">{{ review.date|timesince }} ago</p>
+          <p class="review-description animation slide-up">{{ review.comment }}</p>
+        </div>
+        
+        <div class="author animation slide-right">
+          — {{ review.name }}
+        </div>
+      </div>
     {% endfor %}
   </div>
-
-  <!-- Navigation buttons -->
-  <div class="slider-controls">
-    <button id="prevBtn">‹</button>
-    <button id="nextBtn">›</button>
-  </div>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const track = document.querySelector("#review-track");
-    const cards = document.querySelectorAll(".card-review");
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
-
-    let currentIndex = 0;
-    const cardWidth = cards[0].offsetWidth + 30; // width + gap
-    const maxIndex = cards.length - 1;
-
-    function slideTo(index) {
-      gsap.to(track, {
-        x: -index * cardWidth,
-        duration: 0.5,
-        ease: "power2.out"
-      });
-    }
-
-    nextBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) > maxIndex ? 0 : currentIndex + 1;
-      slideTo(currentIndex);
-    });
-
-    prevBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex - 1) < 0 ? maxIndex : currentIndex - 1;
-      slideTo(currentIndex);
-    });
-  });
-</script>
-
-
 
 <div class="video-slider2">
   <h2 class="section-title" style="color:black;">Trusted by Thousands</h2>
