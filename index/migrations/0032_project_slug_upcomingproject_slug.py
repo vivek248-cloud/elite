@@ -29,17 +29,9 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AddField(
-            model_name='project',
-            name='slug',
-            field=models.SlugField(blank=True),
-        ),
+     
         migrations.RunPython(populate_slugs),
-        migrations.AlterField(
-            model_name='project',
-            name='slug',
-            field=models.SlugField(unique=True, blank=True),
-        ),
+   
         migrations.AddField(
             model_name='upcomingproject',
             name='slug',
