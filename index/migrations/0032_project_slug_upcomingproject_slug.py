@@ -13,11 +13,13 @@ def generate_unique_slug(model, value):
 
 
 def populate_slugs(apps, schema_editor):
+    from index.utils import generate_unique_slug  # Import inside the function
     Project = apps.get_model('index', 'Project')
     for project in Project.objects.all():
-        if not project.slug:
-            project.slug = generate_unique_slug(Project, project.name)
+        if project.title and not project.slug:
+            project.slug = generate_unique_slug(Project, project.title)
             project.save()
+
 
 
 class Migration(migrations.Migration):
