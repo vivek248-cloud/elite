@@ -253,13 +253,13 @@ def contact(request):
 
 
 
-def project_details(request, slug):
+def project_details(request, project_id):
     try:
-        project = Project.objects.get(slug=slug)
+        project = Project.objects.get(id=project_id)
         project_type = 'project'
     except Project.DoesNotExist:
         try:
-            project = UpcomingProject.objects.get(slug=slug)
+            project = UpcomingProject.objects.get(id=project_id)
             project_type = 'upcoming'
         except UpcomingProject.DoesNotExist:
             raise Http404("No matching project found.")
