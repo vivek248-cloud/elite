@@ -4,6 +4,26 @@ import datetime
 from django.utils import timezone
 
 
+
+
+
+from django.utils.text import slugify
+import uuid
+
+def generate_unique_slug(model_class, value):
+    """
+    Generates a unique slug for the model based on the title.
+    Appends a short UUID if the slug already exists.
+    """
+    slug = slugify(value)
+    unique_slug = slug
+    num = 1
+    while model_class.objects.filter(slug=unique_slug).exists():
+        unique_slug = f"{slug}-{str(uuid.uuid4())[:8]}"
+        num += 1
+    return unique_slug
+
+
 class HomeSlider(models.Model):
     healine = models.CharField(max_length=255)
     sub_headline = models.CharField(max_length=255)
@@ -104,6 +124,7 @@ class Project(models.Model):
     ]
 
     title = models.CharField(max_length=255)
+    slug = models.SlugField(unique=True, blank=True)  # ✅ Add slug field
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
     description = models.TextField()
     image = models.ImageField(upload_to='projects-img/')
@@ -117,6 +138,11 @@ class Project(models.Model):
     budget_range = models.ForeignKey(BudgetRange, on_delete=models.SET_NULL, null=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='completed')  # ✅ NEW FIELD
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = generate_unique_slug(Project, self.title)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
@@ -139,6 +165,7 @@ class UpcomingProject(models.Model):
         ('completed', 'Completed'),
     ]
     title = models.CharField(max_length=255)
+    slug = models.SlugField(unique=True, blank=True)  # ✅ Add slug field
     description = models.TextField()
     image = models.ImageField(upload_to='upcomming-project-img/') 
     # image = CloudinaryField('image',folder='upcomming-projects-img')
@@ -149,6 +176,12 @@ class UpcomingProject(models.Model):
     bhk = models.CharField(max_length=100,null=True, blank=True)
     budget_range = models.ForeignKey('BudgetRange', on_delete=models.SET_NULL, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = generate_unique_slug(UpcomingProject, self.title)
+        super().save(*args, **kwargs)
+
 
     def __str__(self):
         return self.title
