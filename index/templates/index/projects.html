@@ -66,7 +66,7 @@
             <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy">
           </a>
           <div class="view-link">
-            <a href="{% url 'projects_details' project.id %}">View Project</a>
+            <a href="{% url 'projects_details' project.slug %}">View Project</a>
             <span class="circle-arrow">&#10140;</span> <!-- Unicode arrow matching your screenshot -->
           </div>
         </div>
@@ -101,7 +101,7 @@
         <div class="project-gallerys" id="upcoming-projects-container">
      {% for project in upcoming_projects %}
         <div class="project-tile">
-          <a href="{% url 'projects_details' project.id %}">
+          <a href="{% url 'projects_details' project.slug %}">
             <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy">
           </a>
           <div class="view-link">
