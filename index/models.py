@@ -165,7 +165,7 @@ class UpcomingProject(models.Model):
         ('completed', 'Completed'),
     ]
     title = models.CharField(max_length=255)
-    # slug = models.SlugField(unique=True, blank=True)  # ✅ Add slug field
+    slug = models.SlugField(unique=True, blank=True)  # ✅ Add slug field
     description = models.TextField()
     image = models.ImageField(upload_to='upcomming-project-img/') 
     # image = CloudinaryField('image',folder='upcomming-projects-img')
@@ -177,10 +177,10 @@ class UpcomingProject(models.Model):
     budget_range = models.ForeignKey('BudgetRange', on_delete=models.SET_NULL, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
-    # def save(self, *args, **kwargs):
-    #     if not self.slug:
-    #         self.slug = generate_unique_slug(UpcomingProject, self.title)
-    #     super().save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = generate_unique_slug(UpcomingProject, self.title)
+        super().save(*args, **kwargs)
 
 
     def __str__(self):
