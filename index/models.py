@@ -141,7 +141,7 @@ class Project(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = generate_unique_slug(Project)
+            self.slug = generate_unique_slug(Project, self.title)
         super().save(*args, **kwargs)
 
     def __str__(self):
@@ -179,9 +179,8 @@ class UpcomingProject(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = generate_unique_slug(UpcomingProject)
+            self.slug = generate_unique_slug(UpcomingProject, self.title)
         super().save(*args, **kwargs)
-
 
 
     def __str__(self):
