@@ -82,22 +82,6 @@
       <div class="section-title-wrapper">
         <h2 class="section-title" data-animate="from-bottom">Ongoing Projects</h2>
       </div>
-      {% comment %} <div class="parent"  id='upcoming-projects-container'>
-        {% for project in upcoming_projects %}
-          <div class="cards" data-animate="from-bottom">
-              <a href="{% url 'projects_details' project.id %}">
-                  <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy">
-                  <div class="info">
-                      <h3 class="c animation slide-up">{{ project.title }}</h3>
-                      <strong class="animation slide-up">{{ project.budget_range }}</strong>
-                      <p class="animation slide-up">{{ project.bhk }}</p>
-                      <p class="animation slide-up">{{ project.description }}</p>
-                  </div>
-              </a>
-          </div>
-          {% empty %}
-          <p>No images available</p>
-        {% endfor %} {% endcomment %}
         <div class="project-gallerys" id="upcoming-projects-container">
      {% for project in upcoming_projects %}
         <div class="project-tile">
