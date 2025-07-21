@@ -268,8 +268,9 @@
   
   </script>
 
-  <script>
-    let offset = 6;
+<script>
+    let offset = 6; // First 6 are already loaded initially
+    const limit = 6; // Match with Django's view
     const loadMoreUrl = "{% url 'load_more_projects' %}";
 
     document.getElementById('load-more-btn').addEventListener('click', () => {
@@ -278,22 +279,22 @@
             .then(data => {
                 const container = document.getElementById('projects-container');
                 data.projects.forEach(project => {
-                const card = document.createElement('div');
-                card.classList.add('project-tile'); // use the new class, not 'cards'
-                card.innerHTML = `
-                    <a href="/projects/${project.slug}/">
-                        <img src="${project.image_url}" alt="${project.title}">
-                    </a>
-                    <div class="view-link">
-                        <a href="/projects/${project.slug}/">View Project</a>
-                        <span class="circle-arrow">&#10140;</span>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
+                    const card = document.createElement('div');
+                    card.classList.add('project-tile');
+                    card.innerHTML = `
+                        <a href="/projects/${project.slug}/">
+                            <img src="${project.image_url}" alt="${project.title}">
+                        </a>
+                        <div class="view-link">
+                            <a href="/projects/${project.slug}/">View Project</a>
+                            <span class="circle-arrow">&#10140;</span>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
 
+                offset += limit; // ✅ increment by the same amount fetched
 
-                offset += 3;
                 if (!data.has_more) {
                     document.getElementById('load-more-btn').style.display = 'none';
                 }
@@ -304,43 +305,46 @@
     });
 </script>
 
+
 {% comment %} upcomming projects {% endcomment %}
 
 <script>
- 
   let upcomingOffset = 6;
+  const limit = 6;
   const loadMoreUpcomingUrl = "{% url 'load_more_upcomming_projects' %}";
 
   document.getElementById('load-more-upcoming-btn').addEventListener('click', () => {
-      fetch(`${loadMoreUpcomingUrl}?offset=${upcomingOffset}`)
-          .then(response => response.json())
-          .then(data => {
-              const container = document.getElementById('upcoming-projects-container');
-              data.upcoming_projects.forEach(project => {
-                const card = document.createElement('div');
-                card.classList.add('project-tile'); // use the new class, not 'cards'
-                card.innerHTML = `
-                    <a href="/projects/${project.id}/">
-                        <img src="${project.image_url}" alt="${project.title}">
-                    </a>
-                    <div class="view-link">
-                        <a href="/projects/${project.id}/">View Project</a>
-                        <span class="circle-arrow">&#10140;</span>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
+    fetch(`${loadMoreUpcomingUrl}?offset=${upcomingOffset}`)
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('upcoming-projects-container');
+        data.upcoming_projects.forEach(project => {
+          const card = document.createElement('div');
+          card.classList.add('project-tile');
+          card.innerHTML = `
+            <a href="/projects/${project.slug}/">
+              <img src="${project.image_url}" alt="${project.title}">
+            </a>
+            <div class="view-link">
+              <a href="/projects/${project.slug}/">View Project</a>
+              <span class="circle-arrow">&#10140;</span>
+            </div>
+          `;
+          container.appendChild(card);
+        });
 
-              upcomingOffset += 3;
-              if (!data.has_more) {
-                  document.getElementById('load-more-upcoming-btn').style.display = 'none';
-              }
-          })
-          .catch(error => {
-              console.error('Error loading more upcoming projects:', error);
-          });
+        upcomingOffset += limit;
+
+        if (!data.has_more) {
+          document.getElementById('load-more-upcoming-btn').style.display = 'none';
+        }
+      })
+      .catch(error => {
+        console.error('Error loading more upcoming projects:', error);
+      });
   });
 </script>
+
 {% comment %} project videos {% endcomment %}
 
 <!-- <script>
