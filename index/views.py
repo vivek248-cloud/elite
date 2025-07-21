@@ -103,7 +103,7 @@ def load_more_upcomming_projects(request):
     project_data = []
     for project in upcoming_projects:
         project_data.append({
-            'slug': project.id,
+            'slug': project.slug,
             'title': project.title,
             'image_url': project.image.url,
             'budget_range': str(project.budget_range),
