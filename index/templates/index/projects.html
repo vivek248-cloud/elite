@@ -281,11 +281,11 @@
                 const card = document.createElement('div');
                 card.classList.add('project-tile'); // use the new class, not 'cards'
                 card.innerHTML = `
-                    <a href="/projects/${project.id}/">
+                    <a href="/projects/${project.slug}/">
                         <img src="${project.image_url}" alt="${project.title}">
                     </a>
                     <div class="view-link">
-                        <a href="/projects/${project.id}/">View Project</a>
+                        <a href="/projects/${project.slug}/">View Project</a>
                         <span class="circle-arrow">&#10140;</span>
                     </div>
                 `;
@@ -320,11 +320,11 @@
                 const card = document.createElement('div');
                 card.classList.add('project-tile'); // use the new class, not 'cards'
                 card.innerHTML = `
-                    <a href="/projects/${project.id}/">
+                    <a href="/projects/${project.slug}/">
                         <img src="${project.image_url}" alt="${project.title}">
                     </a>
                     <div class="view-link">
-                        <a href="/projects/${project.id}/">View Project</a>
+                        <a href="/projects/${project.slug}/">View Project</a>
                         <span class="circle-arrow">&#10140;</span>
                     </div>
                 `;
