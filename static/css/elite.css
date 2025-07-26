@@ -7589,7 +7589,7 @@ margin-right: 5rem;
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  
+  cursor: none;
 }
 
 .bg-video {
