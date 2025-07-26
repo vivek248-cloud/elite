@@ -7409,3 +7409,175 @@ margin-right: 5rem;
 }
 
 
+
+
+.fixed-img
+{
+	position:fixed;
+	top: 0;
+	left: 0;
+	background-image: url('https://ik.imagekit.io/zygvxqqhx/20250726_1234_Construction%20Logo%20Design_remix_01k12rmzbsf9rvd9mfn1m3g2sc.jpg?updatedAt=1753518833161');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	object-fit: cover;
+	height: 100vh;
+	width: 100vw;
+	z-index: -1;
+	filter: brightness(30%);
+}
+.careers-section {
+  padding: 80px 20px;
+	background-color: transparent;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.section-titles {
+  font-size: 2.8rem;
+  margin-bottom: 12px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 50px;
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.careers-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #0000003d;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(5px);
+}
+
+.career-openings {
+  flex: 1;
+  text-align: left;
+  list-style: none;
+  padding-left: 0;
+  color: #ffffff;
+}
+
+.career-openings li {
+  margin-bottom: 18px;
+  font-size: 1.05rem;
+  position: relative;
+  padding-left: 20px;
+}
+
+.career-openings li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.career-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.career-form input,
+.career-form textarea {
+  padding: 14px 16px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  border-radius: 8px;
+  width: 100%;
+  transition: border 0.3s ease;
+}
+
+.career-form input:focus,
+.career-form textarea:focus {
+  outline: none;
+  border-color: #007B5E;
+  box-shadow: 0 0 0 3px rgba(0, 123, 94, 0.15);
+}
+
+.career-form button {
+  padding: 14px;
+  background-color: #21007b;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.career-form button:hover {
+  background-color: #005f47;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .careers-content {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+  }
+}
+
+
+
+.career-form-wrapper {
+  flex: 1;
+  min-width: 300px;
+}
+
+.career-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.career-form input,
+.career-form textarea,
+.career-form button {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.career-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.career-form button {
+  background-color: #007B5E;
+  color: #fff;
+  font-weight: 500;
+  border: none;
+  transition: background 0.3s ease;
+}
+
+.career-form button:hover {
+  background-color: #005f47;
+}

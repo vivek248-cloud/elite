@@ -124,6 +124,57 @@
       </div>
     </div>
 
+
+
+  <div class="fixed-img">
+</div>
+
+<section id="careers" class="careers-section">
+  <div class="container">
+    <h2 class="section-titles">Join Our Team</h2>
+    <p class="section-subtitle">We’re always looking for passionate professionals to grow with us.</p>
+
+    <div class="careers-content">
+      <ul class="career-openings">
+        <li><strong>Site Engineer</strong> – Trichy, 2+ years experience</li>
+        <li><strong>Interior Designer</strong> – Trichy, Freshers welcome</li>
+        <li><strong>Project Manager</strong> – Trichy, 5+ years experience</li>
+      </ul>
+      <div class="career-form-wrapper">
+        <form id="whatsapp-form" enctype="multipart/form-data" class="career-form">
+          {% csrf_token %}
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <input type="text" name="position" placeholder="Position Applying For" required />
+          <input type="text" name="experience" placeholder=" How many years Experience" required />
+          <textarea name="message" placeholder="Why should we hire you?" required></textarea>
+          <button type="submit">Apply Now</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  document.getElementById('whatsapp-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = this.name.value.trim();
+    const email = this.email.value.trim();
+    const position = this.position.value.trim();
+    const experience = this.experience.value.trim();
+    const message = this.message.value.trim();
+
+    const whatsappMessage = `New Career Application:\n\nName: ${name}\nEmail: ${email}\nPosition: ${position}\nExperience: ${experience}\nMessage: ${message}`;
+
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    const whatsappNumber = '919342234856'; // ✅ Your number in international format (no + or spaces)
+
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+  });
+</script>
+
 {% endblock %}
 
 {% block extra_js %}

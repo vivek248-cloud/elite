@@ -518,5 +518,39 @@ def serve_media(request, path):
         return HttpResponse(f.read(), content_type=content_type)
 
 
+from .forms import QuoteRequestForm,CareerEmailForm
 
+from django.core.mail import EmailMessage
+from django.conf import settings
+from django.shortcuts import render
+from .forms import CareerEmailForm
+import logging
 
+def careers(request):
+    success = False
+    error = False
+
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        resume = request.FILES.get('resume')
+
+        try:
+            email_message = EmailMessage(
+                subject=f"New Career Application from {name}",
+                body=f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}",
+                from_email=settings.EMAIL_HOST_USER,
+                to=['elitedreambuilders.in@gmail.com'],
+            )
+
+            if resume:
+                email_message.attach(resume.name, resume.read(), resume.content_type)
+
+            email_message.send()
+            success = True
+        except Exception as e:
+            print(f"Error sending email: {e}")
+            error = True
+
+    return render(request, 'main/about.html', {'success': success, 'error': error})
