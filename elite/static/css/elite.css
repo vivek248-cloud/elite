@@ -7580,3 +7580,101 @@ margin-right: 5rem;
 .career-form button:hover {
   background-color: #005f47;
 }
+
+
+
+
+.video-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  
+}
+
+.bg-video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.video-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* dark overlay */
+  z-index: 2;
+}
+
+.video-content {
+  position: relative;
+  z-index: 3;
+  color: #fff;
+  text-align: center;
+  top: 40%;
+}
+
+.mouse-tracker {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid #fff;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 99;
+  display: none;
+  backdrop-filter: blur(5px);
+  transition: transform 0.05s ease;
+}
+
+
+.villa-section {
+  padding: 150px 0;
+  background-color: var(--bgWhite);
+  text-align: center;
+  mix-blend-mode: multiply;
+}
+
+.villa-card {
+  position: relative;
+  width: 90%; /* Or set fixed width like 800px */
+  max-width: 1000px;
+  margin: auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.villa-image {
+  position: relative;
+}
+
+.villa-image img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+
+/* BOOKED overlay ribbon */
+.overlay-booked {
+  position: absolute;
+  top: 20px;
+  left: -50px;
+  background: crimson;
+  color: white;
+  font-weight: bold;
+  padding: 10px 80px;
+  font-size: 18px;
+  transform: rotate(-45deg);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}

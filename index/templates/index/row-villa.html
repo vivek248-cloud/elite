@@ -1,0 +1,15 @@
+{% extends 'index/base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static "css/elite.css" %}">
+{% block content %}
+
+<section class="villa-section">
+  <div class="villa-card">
+    <div class="villa-image">
+      <img src="{% static 'images/row-villa.jpg' %}" alt="Row Villa" />
+      <div class="overlay-booked">BOOKED</div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

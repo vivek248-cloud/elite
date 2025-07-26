@@ -554,3 +554,7 @@ def careers(request):
             error = True
 
     return render(request, 'main/about.html', {'success': success, 'error': error})
+
+
+def row_villa_view(request):
+    return render(request, 'index/row-villa.html')

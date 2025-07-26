@@ -170,3 +170,24 @@ function animateCursor() {
   requestAnimationFrame(animateCursor);
 }
 animateCursor();
+
+
+
+const videoSection = document.getElementById("video-section");
+const mouseTracker = document.getElementById("mouseTracker");
+
+videoSection.addEventListener("mousemove", function (e) {
+  const rect = videoSection.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+
+  mouseTracker.style.transform = `translate(${x - 30}px, ${y - 30}px)`; // offset to center
+});
+
+videoSection.addEventListener("mouseleave", () => {
+  mouseTracker.style.display = "none";
+});
+
+videoSection.addEventListener("mouseenter", () => {
+  mouseTracker.style.display = "flex";
+});

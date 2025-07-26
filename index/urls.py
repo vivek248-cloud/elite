@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import home, services, about, projects, contact, get_quote,project_details,testimonals,terms,load_more_projects,load_more_upcomming_projects,load_more_projects_videos,load_more_youtube_videos
-from .views import category,load_more_projects_category
+from .views import category,load_more_projects_category,row_villa_view
 urlpatterns = [
     path('', home, name='home'),
     path('elite/home/<str:category>/', home, name='home_with_category'),
@@ -18,5 +18,7 @@ urlpatterns = [
     path('load-more-upcomming-projects/', load_more_upcomming_projects, name='load_more_upcomming_projects'),
     path('load-more-projects-videos/', load_more_projects_videos, name='load_more_projects_videos'),
     path('load-more-youtube-videos/',load_more_youtube_videos, name='load_more_youtube_videos'),
+
+    path('row-villa/', row_villa_view, name='row_villa'),
 
 ]
