@@ -3148,18 +3148,15 @@ video, .overlay {
 .text-bg {
 	background-color: gold;
 	width:70px;
-	max-width: 632.5px;
 	height: fit-content;
 	max-height: 690px;
 	display:inline-block;
 	align-items: flex-start;
 	justify-content: center;
 	background-clip: text;
-	position: absolute;
-	left: 10%;
-	top: 0%;
+	position: relative;
 	z-index: 2;
-	padding: 5rem 0rem 0 0rem;
+	padding: 5rem 0rem 0 2rem;
 	transition: all .6s ease-in-out;
 }
 .box1-text p
@@ -3172,7 +3169,7 @@ video, .overlay {
 	-webkit-text-stroke: 1px gold;
 	color: transparent;
 	font-family:'Poppins', sans-serif;
-	white-space:wrap;
+	white-space:nowrap;
 	text-align: left;
 }
 
@@ -4635,8 +4632,7 @@ video, .overlay {
 	}
 	.text-bg
 	{
-		top: 5%;
-		max-width: 400px!important;
+		/* max-width: 305px!important; */
 	}
 	.home-content-1-col-1 h1
 	{
@@ -4725,7 +4721,8 @@ video, .overlay {
 	}
 	.text-bg
 	{
-		top: 10%;
+		padding-top: 6rem!important;
+		/* max-width: 305px!important; */
 	}
 	.home-logo-col {
 		flex: 1 1 10%;
@@ -5081,7 +5078,7 @@ video, .overlay {
 			
 			left: 5%;
 			top: 10%;
-			max-width: 400px;
+			/* max-width: 305px!important; */
 			padding: 4rem 0rem 2rem 2rem;
 		}
 		.box1{
@@ -5120,10 +5117,7 @@ video, .overlay {
 	{
 		height: 100vh;
 	}
-	.text-bg
-	{
-		max-width: 370px;
-	}
+
 	.outline-text4 h1
 	{
 		font-size: 5rem!important;
@@ -5290,10 +5284,6 @@ video, .overlay {
 		.outline-text h1
 		{
 			font-size: 4rem;
-		}
-		.text-bg
-		{
-			top: 10%;
 		}
 		.scroller-content h4
 		{
@@ -5561,10 +5551,7 @@ video, .overlay {
 		padding: 2rem 1rem;
 	}
 	  .text-bg {
-		left: 0;
-		padding: 3rem 0rem 0rem 3rem;
-		max-width: 230px;
-		text-align: auto;
+		padding: 7rem 0rem 2rem 3rem;
 		
 	}
 
@@ -7463,6 +7450,11 @@ margin-right: 5rem;
 .career-openings {
   flex: 1;
   text-align: left;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 400px;
   list-style: none;
   padding-left: 0;
   color: #ffffff;
@@ -7487,6 +7479,8 @@ margin-right: 5rem;
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 18px;
 }
 
@@ -7496,7 +7490,6 @@ margin-right: 5rem;
   border: 1px solid #ccc;
   font-size: 1rem;
   border-radius: 8px;
-  width: 100%;
   transition: border 0.3s ease;
 }
 
@@ -7544,6 +7537,10 @@ margin-right: 5rem;
 .career-form-wrapper {
   flex: 1;
   min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
 }
 
 .career-form {
@@ -7556,7 +7553,7 @@ margin-right: 5rem;
 .career-form input,
 .career-form textarea,
 .career-form button {
-  width: 100%;
+  width: 80%;
   padding: 12px 14px;
   font-size: 1rem;
   border: 1px solid #ccc;
