@@ -28,17 +28,17 @@
 </head>
 <body>
 {% block content %}
-<div class="bg-video">
+{% comment %} <div class="bg-video">
   {% if about_title_video %}
     <video autoplay loop muted playsinline controls>
       <source src="https://pub-9c1665977a4c4135b3fd86b50e70cdfb.r2.dev/video1.mp4" type="video/mp4" loading="lazy">
     </video>
   {% else %}
     <video autoplay loop muted playsinline>
-      {% comment %} <source src="https://pub-9c1665977a4c4135b3fd86b50e70cdfb.r2.dev/video1.mp4" type="video/mp4" loading="lazy"> {% endcomment %}
+      <source src="https://pub-9c1665977a4c4135b3fd86b50e70cdfb.r2.dev/video1.mp4" type="video/mp4" loading="lazy">
     </video>
   {% endif %}
-</div>
+</div> {% endcomment %}
 
 <div class="text-bg animation slide-up" id="bg-grow2">
   <div class="outline-text">
