@@ -558,3 +558,7 @@ def careers(request):
 
 def row_villa_view(request):
     return render(request, 'index/row-villa.html')
+
+
+def builders_in_trichy(request):
+    return render(request, 'index/builders_in_trichy.html')
