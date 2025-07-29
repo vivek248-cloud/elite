@@ -33,17 +33,15 @@
     <div class="contact-bg">
       <div class="sliders-box grid-slideshow">
         {% for slide in sliders %}
-         <section class="slider-sections relative {% if forloop.first %}active{% endif %}">
-            <img 
-              src="{{ slide.image.url }}" 
-              alt="{{ slide.title }}" 
-              loading="eager" 
-              decoding="async" 
-              
-              class=" inset-0 w-full h-full object-cover z-0" 
-              fetchpriority="high"
-            />
+          <section class="slider-sections {% if forloop.first %}active{% endif %}"   style="background-image: url('{{ slide.image.url }}'); background-size: cover; background-position: center;">
+             <img 
+          src="{{ slide.image.url }}" 
+          alt="{{ slide.title|default:'Slide image' }}" 
+          loading="lazy" 
+          decoding="async" 
 
+          style="display: none;" 
+        />
             <div class="scroller-content-bg" >
               <div class="scroller-content">
                 <h1>{{ slide.healine }}</h1>
