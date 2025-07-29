@@ -2,62 +2,127 @@
 {% load static %}
 
 {% block title %}Builders in Trichy | Elite Dream Builders{% endblock %}
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
 
 {% block content %}
-<section class="py-12 px-4 bg-white" style="margin-top: 3rem; margin-bottom: 20px;">
-  <div class="max-w-4xl mx-auto text-center">
-    <h1 class="text-4xl font-bold text-green-700 mb-4">Builders in Trichy</h1>
-    <p class="text-lg text-dark mb-6">Elite Dream Builders is one of the most trusted names when it comes to house and commercial construction in Trichy. We bring your dream spaces to life with precision, design, and transparency.</p>
-    
-  </div>
-</section>
 
- <!-- Why Choose Us -->
-<section class="builders-in-trichy-section py-20 px-4 md:px-20 bg-gradient-to-b from-gray-50 via-white to-gray-100 text-gray-900 mt-5">
-  <div class="max-w-7xl mx-auto">
-    <h2 class="text-3xl font-bold mb-2 text-green-700 text-center">Why Choose Elite Dream Builders?</h2>
-    <div class="w-24 h-1 bg-green-700 mx-auto mb-8 rounded-full animate-pulse"></div>
-    <ul class="grid sm:grid-cols-2 gap-6 mb-16 list-disc list-inside text-lg max-w-4xl mx-auto text-dark">
-      <li>Trusted by 500+ clients across Trichy</li>
-      <li>Experienced architects and site engineers</li>
-      <li>Complete turnkey solutions</li>
-      <li>Transparent pricing & on-time delivery</li>
-    </ul>
+<!-- Hero Banner - Newspaper Masthead Style -->
+<div style="background-image: url('{% static 'images/luxury.jpg' %}'); background-size: cover; background-position: center; height: 400px; position: fixed;top: 0; left: 0; width: 100%; z-index: -1; height: 100vh;">
+  <div class="absolute inset-0 bg-black opacity-50" style="backdrop-filter: blur(5px); position:absolute;top:0;left:0;width:100%;height:100%;"></div>
+</div>
 
-    <!-- Services -->
-    <h2 class="text-3xl font-bold mb-2 text-green-700 text-center">Our Core Services</h2>
-    <div class="w-24 h-1 bg-green-700 mx-auto mb-10 rounded-full"></div>
-
-    <div class="grid md:grid-cols-3 gap-8 mb-20">
-      <!-- Service Card -->
-      <div class="bg-white text-gray-900 max-w-sm mx-auto p-6 rounded-2xl border-t-4 border-green-500 shadow-md hover:shadow-2xl transition duration-300 text-center" style="border-radius: 1.5rem;"  data-animate="from-bottom">
-        <h3 class="text-2xl font-semibold mb-3 text-green-700">🏠 Residential Construction</h3>
-        <p class="text-dark">We build modern homes tailored to your lifestyle using high-quality materials and engineering excellence.</p>
-      </div>
-
-      <div class="bg-white text-gray-900 max-w-sm mx-auto p-6 rounded-2xl border-t-4 border-green-500 shadow-md hover:shadow-2xl transition duration-300 text-center" style="border-radius: 1.5rem;" data-animate="from-bottom">
-        <h3 class="text-2xl font-semibold mb-3 text-green-700">🏢 Commercial Buildings</h3>
-        <p class="text-dark">End-to-end commercial building services for shops, showrooms, offices, and other business needs.</p>
-      </div>
-
-      <div class="bg-white text-gray-900 max-w-sm mx-auto p-6 rounded-2xl border-t-4 border-green-500 shadow-md hover:shadow-2xl transition duration-300 text-center" style="border-radius: 1.5rem;" data-animate="from-bottom">
-        <h3 class="text-2xl font-semibold mb-3 text-green-700">🎨 Interior Design & Renovation</h3>
-        <p class="text-dark">Elegant, functional interiors and renovations for both new and existing properties, done with care.</p>
-      </div>
-    </div>
-
-    <!-- Projects -->
-    <h2 class="text-3xl font-semibold mb-4 text-green-700 text-center">Explore Our Projects in Trichy</h2>
-    <p class="text-lg mb-12 text-center max-w-3xl mx-auto text-dark">
-      We’re proud to be ranked among the <strong><a href="{% url 'builders-in-trichy' %}" class="text-dark">builders in Trichy</a></strong>. Visit our <a href="{% url 'projects' %}" class="text-green-700 font-semibold underline hover:text-green-900 transition"><strong>project list</strong></a> to explore completed and ongoing constructions in the region.
+<section class=" py-12 px-4 md:px-16 border-b border-gray-300 font-serif text-center" style=" margin-top: 6rem; height: 100vh; display: flex; align-items: center; justify-content: center; position: relative;">
+  <div class="max-w-6xl mx-auto">
+    <p class="text-xs uppercase tracking-wider text-gray-500 border-b border-dotted inline-block pb-1" style="margin-top:2rem;">Trichy Today • Industry Feature</p>
+    <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-4" style="font-weight: 700;">Elite Dream Builders</h1>
+    <p class="text-xl italic text-gray-600 mb-4">The Name Behind the Best Builders in Trichy</p>
+    <p class="text-lg text-gray-700 leading-relaxed max-w-2xl mx-auto border-t pt-4 mt-4">
+      Shaping Trichy’s skyline with trust, quality, and innovative design. Whether residential or commercial, we build dreams — brick by brick.
     </p>
-
-    <!-- CTA Button -->
-    <div class="text-center" style="margin-top: 20px; margin-bottom: 40px;">
-      <a href="{% url 'get_quote' %}" class="inline-block bg-dark text-white px-8 py-4 rounded-full text-lg font-bold shadow-xl hover:from-green-700 hover:to-emerald-600 hover:scale-105 transition-all duration-300" style="background: linear-gradient(to right, #1a202c, #2d3748);border-radius:15px;box-shadow:0 4px 6px rgba(0, 0, 0, 0.1);">
-        📝 Get a Free Quote
-      </a>
-    </div>
   </div>
 </section>
+
+
+<!-- Newspaper Style Layout -->
+<section class="bg-gray-50 py-16 px-6 md:px-20 font-serif text-gray-900" style="backdrop-filter: blur(5px) grayscale(1); position: relative; z-index: 1;display: flex; flex-direction: column; align-items: center; justify-content: center; ">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
+
+    <!-- Main Content Area -->
+    <article class="md:col-span-2 space-y-12">
+
+      <!-- Why Choose Us -->
+      <div class="border-b border-gray-300 pb-10 px-4 md:px-8" style="backdrop-filter: blur(5px); position: relative; z-index: 1; ">
+  <h2 class="font-bold text-white mb-6 border-l-4 border-green-700 pl-4 font-serif text-2xl text-center">
+    Why Choose Us?
+  </h2>
+  <ul class="text-center leading-relaxed space-y-3 max-w-2xl mx-auto" style="list-style-type: none;color:white;">
+    <li class="transition duration-300 ease-in-out hover:bg-green-50 hover:text-green-800 hover:shadow-md px-4 py-2 rounded cursor-pointer">
+      ✅ Trusted by over 100+ clients across Trichy
+    </li>
+    <li class="transition duration-300 ease-in-out hover:bg-green-50 hover:text-green-800 hover:shadow-md px-4 py-2 rounded cursor-pointer">
+      🏗️ Experienced architects and engineers who understand your needs
+    </li>
+    <li class="transition duration-300 ease-in-out hover:bg-green-50 hover:text-green-800 hover:shadow-md px-4 py-2 rounded cursor-pointer">
+      🔧 End-to-end turnkey construction solutions
+    </li>
+    <li class="transition duration-300 ease-in-out hover:bg-green-50 hover:text-green-800 hover:shadow-md px-4 py-2 rounded cursor-pointer">
+      💰 Transparent pricing and reliable timelines
+    </li>
+  </ul>
+</div>
+
+
+      <!-- Our Core Services -->
+      <div class="border-b border-gray-300 pb-6">
+        <h2 class="text-2xl font-bold text-white mb-4 border-l-4 border-green-700 pl-4 text-center">Our Core Services</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class=" border border-gray-200 p-5 shadow-sm hover:shadow-md transition rounded-md text-center ">
+            <h3 class="text-lg font-semibold mb-2 text-white">🏠 Residential</h3>
+            <p class="text-sm text-white leading-relaxed">Modern homes designed and built with style and structural integrity, tailored to your lifestyle.</p>
+          </div>
+          <div class=" border border-gray-200 p-5 shadow-sm hover:shadow-md transition rounded-md text-center">
+            <h3 class="text-lg font-semibold mb-2 text-white">🏢 Commercial</h3>
+            <p class="text-sm text-white leading-relaxed">Efficient and elegant business spaces — offices, retail, and commercial units built to perform.</p>
+          </div>
+          <div class=" border border-gray-200 p-5 shadow-sm hover:shadow-md transition rounded-md text-center">
+            <h3 class="text-lg font-semibold mb-2 text-white">🎨 Interiors</h3>
+            <p class="text-sm text-white leading-relaxed">Elevate your interiors with tailored designs, smart layouts, and high-quality finishings.</p>
+          </div>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- Sidebar - Right Column -->
+    <aside class="space-y-8">
+
+      <!-- Featured Project -->
+      <div class="bg-white border border-gray-300 p-5 shadow-sm " style=" position: relative; z-index: 1;">
+        <h4 class="text-lg font-bold text-green-700 mb-2 border-b border-dotted pb-1">📌 Featured Project</h4>
+        <p class="text-sm text-gray-800 leading-relaxed">Elite Dream Builders recently completed a 5-story commercial hub near Trichy Junction — delivered ahead of schedule and within budget.</p>
+        <a href="{% url 'projects' %}" class="text-sm text-green-700 underline mt-3 inline-block">See all projects →</a>
+      </div>
+
+      <!-- Quote CTA -->
+      <div class="bg-white border border-gray-300 p-5 shadow-sm " style=" position: relative; z-index: 1;">
+        <h4 class="text-lg font-bold text-green-700 mb-2 border-b border-dotted pb-1">📋 Get a Free Quote</h4>
+        <p class="text-sm text-gray-800 leading-relaxed">Contact us today to discuss your project requirements and get a personalized quote.</p>
+        <a href="{% url 'get_quote' %}" class="text-sm text-green-700 underline mt-3 inline-block">Request a Quote →</a>
+      </div>
+
+    </aside>
+
+  </div>
+</section>
+<div class=" p-6 text-dark rounded-lg shadow-md text-center  mt-5" style="position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;  padding: 2rem; margin-top: 2rem;background-color:#f4f4f4;">
+        <h4 class="text-xl font-bold mb-2">Get a Free Quote</h4>
+        <p class="text-sm mb-4 text-dark">No obligations. Just a conversation that could shape your future.</p>
+        <a href="{% url 'get_quote' %}" class=" text-dark font-semibold py-2 px-5 rounded-full  transition" style="font-weight: 600;">📝 Request Now</a>
+        <p class="text-sm mb-4 text-dark"> © {{ now.year }} Elite Dream Builders — Proudly listed among the best <br><a href="{% url 'builders-in-trichy' %}" class="underline text-dark hover:text-green-900"><strong>builders in Trichy</strong></a>.</p>
+      </div>
+
+<!-- Footer Note -->
+<footer class="py-6 px-4 text-center text-sm text-gray-500 bg-white font-serif">
+  
+</footer>
+
+
+<script>
+    // tailwind.config.js
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      fontFamily: {
+        serif: ['Playfair Display', 'serif'],
+      },
+    },
+  },
+  plugins: [],
+}
+
+
+</script>
+
 {% endblock %}
