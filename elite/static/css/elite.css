@@ -4375,7 +4375,7 @@ video, .overlay {
   top: 0;
   left: 0;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4401,7 +4401,7 @@ video, .overlay {
 .scroller-content h1 {
   font-size: 6rem;
   font-weight: 600;
-  animation: fadeInUp 1s ease-in-out;
+  
 }
 
 .scroller-content h2 {
@@ -4630,10 +4630,7 @@ video, .overlay {
 	{
 		font-size: 5rem;
 	}
-	.text-bg
-	{
-		/* max-width: 305px!important; */
-	}
+	
 	.home-content-1-col-1 h1
 	{
 		font-size: 5rem!important;
