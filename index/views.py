@@ -51,8 +51,8 @@ def services(request):
 
 
 def projects(request):
-    all_projects =  Project.objects.filter(status='completed').order_by('id')[:6]
-    upcoming_projects = Project.objects.filter(status='ongoing').order_by('id')[:6]
+    all_projects =  Project.objects.filter(status='completed').order_by('id')[:12]
+    upcoming_projects = Project.objects.filter(status='ongoing').order_by('id')[:12]
     youtube_videos = YouTubeVideo.objects.all().order_by('id')[:3]
 
 
