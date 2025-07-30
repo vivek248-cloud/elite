@@ -177,29 +177,7 @@
 </script>
 
 
-<section class="team-section">
-  <div class="team-header">
-    <h2 data-animate="from-bottom">OUR TEAM</h2>
-    <p data-animate="from-bottom">At Elite Dream Builders, our strength lies in a passionate team of visionaries, engineers, and creators who bring a wealth of experience and innovation to every project.</p>
-    <p data-animate="from-bottom">We don't just build structures — we build dreams. With a commitment to excellence and a drive to lead by example, our team ensures every project stands as a testament to quality, trust, and craftsmanship.</p>
-  </div>
-  <div class="team-container">
-    {% for section in about_sections %}
-    <div class="team-card"   data-animate="from-bottom">
-      <div class="team-img-wrapper">
-        <img src="{{ section.image.url }}" alt="{{ section.author_name }}">
-      </div>
-      <div class="team-info">
-        <h3>{{ section.author_name }}</h3>
-        <p>{{ section.author_designation }}</p>
-        <span class="plus-icon">+</span>
-      </div>
-    </div>
-    {% empty %}
-      <p>No team members available</p>
-    {% endfor %}
-  </div>
-</section>
+
 
 <section class="contact-sections">
   <div class="contact-container-2"  data-animate="from-bottom">

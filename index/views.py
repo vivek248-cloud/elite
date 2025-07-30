@@ -458,12 +458,13 @@ Budget Range: {quote.budget_range.name if quote.budget_range else 'N/A'}
 def about(request):
     about_data = AboutVideo.objects.order_by('-id').first()
     about_title_video = AboutTitleVideo.objects.order_by('-id').first()
-
+    about_sections = AboutSection.objects.all()
    
     context = {
         'title': 'About Us - Elite Dream Builders',
         'about': about_data,
         'about_title_video': about_title_video,
+        'about_sections': about_sections,
         
     }
     return render(request, 'index/about.html', context)
