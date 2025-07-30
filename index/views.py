@@ -112,7 +112,7 @@ def load_more_upcomming_projects(request):
         })
 
     # Use the same filtered queryset for counting
-    has_more = ongoing_projects.count() > offset + limit
+    has_more = ongoing_projects.objects.filter(status='ongoing').count() > offset + limit
 
     return JsonResponse({'upcoming_projects': project_data, 'has_more': has_more})
 
