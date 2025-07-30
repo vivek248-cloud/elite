@@ -64,7 +64,7 @@
       {% for project in projects %}
         <div class="project-tile">
           <a href="{% url 'projects_details' project.slug %}">
-            <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy">
+            <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy" decoding="async">
           </a>
           <div class="view-link">
             <a href="{% url 'projects_details' project.slug %}">View Project</a>
@@ -87,7 +87,7 @@
      {% for project in upcoming_projects %}
         <div class="project-tile">
           <a href="{% url 'projects_details' project.slug %}">
-            <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy">
+            <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy" decoding="async">
           </a>
           <div class="view-link">
             <a href="{% url 'projects_details' project.slug %}">View Project</a>
