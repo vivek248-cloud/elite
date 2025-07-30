@@ -273,7 +273,7 @@
   </script>
 
 <script>
-    let offset = 6; // First 6 are already loaded initially
+    let offset = 12; // First 12 are already loaded initially
     const limit = 6; // Match with Django's view
     const loadMoreUrl = "{% url 'load_more_projects' %}";
 
@@ -313,7 +313,7 @@
 {% comment %} upcomming projects {% endcomment %}
 
 <script>
-  let upcomingOffset = 6;
+  let upcomingOffset = 12; // First 12 are already loaded initially
   const limit = 6;
   const loadMoreUpcomingUrl = "{% url 'load_more_upcomming_projects' %}";
 
