@@ -96,26 +96,51 @@
   </div>
 </section>
 
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+<div class="p-6 text-dark rounded-lg shadow-md text-center mt-5" style="background-color: #f4f4f4;">
+  <div class="mt-12 bg-gray-50 p-8 rounded-2xl shadow-md w-full max-w-3xl mx-auto">
+    <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">Frequently Asked Questions – Builders in Trichy</h2>
 
-<div class=" p-6 text-dark rounded-lg shadow-md text-center  mt-5" style="position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;  padding: 2rem; margin-top: 2rem;background-color:#f4f4f4;">
-  <div class="mt-12 bg-gray-50 p-8 rounded-2xl shadow-md">
-  <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">Frequently Asked Questions – Builders in Trichy</h2>
+    <div class="space-y-4 text-left" x-data="{ open: null }">
+      <!-- FAQ 1 -->
+      <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 cursor-pointer" @click="open === 1 ? open = null : open = 1">
+        <div class="flex justify-between items-center">
+          <h3 class="text-xl font-semibold text-gray-800">Who are the best builders in Trichy?</h3>
+          <svg :class="open === 1 ? 'rotate-45 text-blue-500' : 'rotate-0'" class="w-6 h-6 transition-transform duration-300 transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+          </svg>
+        </div>
+        <div x-show="open === 1" x-transition.duration.300ms class="text-dark mt-3">
+          Elite Dream Builders is considered one of the best <strong>builders in Trichy</strong> due to our consistent delivery of quality projects, transparent pricing, and customer-focused approach.
+        </div>
+      </div>
 
-  <div class="space-y-6">
-    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300">
-      <h3 class="text-xl font-semibold text-gray-800">Who are the best builders in Trichy?</h3>
-      <p class="text-gray-600 mt-2">Elite Dream Builders is considered one of the best <strong>builders in Trichy</strong> due to our consistent delivery of quality projects, transparent pricing, and customer-focused approach.</p>
-    </div>
+      <!-- FAQ 2 -->
+      <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 cursor-pointer" @click="open === 2 ? open = null : open = 2">
+        <div class="flex justify-between items-center">
+          <h3 class="text-xl font-semibold text-gray-800">Why choose Elite Dream Builders in Trichy?</h3>
+          <svg :class="open === 2 ? 'rotate-45 text-blue-500' : 'rotate-0'" class="w-6 h-6 transition-transform duration-300 transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+          </svg>
+        </div>
+        <div x-show="open === 2" x-transition.duration.300ms class="text-dark mt-3">
+          We offer turnkey construction, interior design, and architectural planning all under one roof, making us a one-stop solution for all your building needs in Trichy.
+        </div>
+      </div>
 
-    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300">
-      <h3 class="text-xl font-semibold text-gray-800">Why choose Elite Dream Builders in Trichy?</h3>
-      <p class="text-gray-600 mt-2">We offer turnkey construction, interior design, and architectural planning all under one roof, making us a one-stop solution for all your building needs in Trichy.</p>
-    </div>
-
-    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300">
-      <h3 class="text-xl font-semibold text-gray-800">What areas do you serve in Trichy?</h3>
-      <p class="text-gray-600 mt-2">We serve all major neighborhoods in Trichy including Thillai Nagar, KK Nagar, Srirangam, and Cantonment. Contact us to know if we serve your area too!</p>
+      <!-- FAQ 3 -->
+      <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 cursor-pointer" @click="open === 3 ? open = null : open = 3">
+        <div class="flex justify-between items-center">
+          <h3 class="text-xl font-semibold text-gray-800">What areas do you serve in Trichy?</h3>
+          <svg :class="open === 3 ? 'rotate-45 text-blue-500' : 'rotate-0'" class="w-6 h-6 transition-transform duration-300 transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+          </svg>
+        </div>
+        <div x-show="open === 3" x-transition.duration.300ms class="text-dark mt-3">
+          We serve all major neighborhoods in Trichy including Thillai Nagar, KK Nagar, Srirangam, and Cantonment. Contact us to know if we serve your area too!
+        </div>
+      </div>
     </div>
   </div>
 </div>
