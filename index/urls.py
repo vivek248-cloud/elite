@@ -1,6 +1,9 @@
 from django.urls import path
 
 from .views import*
+from django.views.generic import TemplateView
+
+
 
 urlpatterns = [
     path('', home, name='home'),
@@ -24,4 +27,7 @@ urlpatterns = [
 
     path('builders-in-trichy/', builders_in_trichy, name='builders-in-trichy'),
 
+
+
+    path('sitemap.xml', TemplateView.as_view(template_name="sitemap.xml", content_type='text/xml')),
 ]

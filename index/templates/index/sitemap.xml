@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://elitedreambuilders.in/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://elitedreambuilders.in/services/</loc>
+  </url>
+
+  <url>
+    <loc>https://elitedreambuilders.in/about/</loc>
+  </url>
+
+  <url>
+    <loc>https://elitedreambuilders.in/projects/</loc>
+  </url>
+
+  <url>
+    <loc>https://elitedreambuilders.in/contact/</loc>
+  </url>
+
+  <url>
+    <loc>https://elitedreambuilders.in/get-quote/</loc>
+  </url>
+
+  <url>
+    <loc>https://elitedreambuilders.in/testimonals/</loc>
+  </url>
+
+  <url>
+    <loc>https://elitedreambuilders.in/terms&amp;conditions/</loc>
+  </url>
+
+  <url>
+    <loc>https://elitedreambuilders.in/row-villa/</loc>
+  </url>
+
+  <url>
+    <loc>https://elitedreambuilders.in/builders-in-trichy/</loc>
+  </url>
+
+  <!-- Dynamic endpoints (optional: don't index these if they're AJAX based) -->
+  <url>
+    <loc>https://elitedreambuilders.in/load-more-projects/</loc>
+  </url>
+  <url>
+    <loc>https://elitedreambuilders.in/load-more-projects-category/</loc>
+  </url>
+  <url>
+    <loc>https://elitedreambuilders.in/load-more-upcomming-projects/</loc>
+  </url>
+  <url>
+    <loc>https://elitedreambuilders.in/load-more-projects-videos/</loc>
+  </url>
+  <url>
+    <loc>https://elitedreambuilders.in/load-more-youtube-videos/</loc>
+  </url>
+
+</urlset>
