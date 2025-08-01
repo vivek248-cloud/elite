@@ -105,43 +105,20 @@
   <div class="space-y-6">
     
     <!-- FAQ 1 -->
-    <div class="bg-white p-6 rounded-xl shadow-sm transition duration-300">
-      <button @click="active === 1 ? active = null : active = 1" class="flex items-center justify-between w-full text-left">
-        <h3 class="text-xl font-semibold text-gray-800">Who are the best builders in Trichy?</h3>
-        <svg :class="{ 'rotate-180': active === 1 }" class="w-5 h-5 text-gray-600 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
-      <div x-show="active === 1" x-transition.duration.300ms class="mt-3 text-gray-600 leading-relaxed">
-        <p><strong>Elite Dream Builders</strong> is considered one of the top <strong>builders in Trichy</strong> because of our commitment to quality, on-time delivery, and customer satisfaction. Many homeowners and commercial clients choose us for their dream projects.</p>
+  <template x-for="faq in [
+      { id: 1, q: 'Who are the best builders in Trichy?', a: '<strong>Elite Dream Builders</strong> is considered one of the top <strong>builders in Trichy</strong> because of our commitment to quality, on-time delivery, and customer satisfaction.' },
+      { id: 2, q: 'Why choose Elite Dream Builders in Trichy?', a: 'As trusted <strong>builders in Trichy</strong>, we offer turnkey construction, interior design, and architecture — making us the one-stop solution for all construction needs.' },
+      { id: 3, q: 'What areas do you serve in Trichy?', a: 'We proudly serve all major areas including Thillai Nagar, KK Nagar, Srirangam, and Cantonment. For <strong>builders in Trichy</strong> near your area, contact us today.' }
+    ]" :key="faq.id">
+      <div class="bg-white p-6 rounded-xl shadow-sm">
+        <button @click="active === faq.id ? active = null : active = faq.id" class="flex items-center justify-between w-full text-left">
+          <h3 class="text-xl font-semibold text-gray-800" x-text="faq.q"></h3>
+          <span class="text-2xl font-bold text-gray-500" x-text="active === faq.id ? '-' : '+'"></span>
+        </button>
+        <div x-show="active === faq.id" x-transition class="mt-3 text-gray-600 leading-relaxed" x-html="faq.a"></div>
       </div>
-    </div>
+    </template>
 
-    <!-- FAQ 2 -->
-    <div class="bg-white p-6 rounded-xl shadow-sm transition duration-300">
-      <button @click="active === 2 ? active = null : active = 2" class="flex items-center justify-between w-full text-left">
-        <h3 class="text-xl font-semibold text-gray-800">Why choose Elite Dream Builders in Trichy?</h3>
-        <svg :class="{ 'rotate-180': active === 2 }" class="w-5 h-5 text-gray-600 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
-      <div x-show="active === 2" x-transition.duration.300ms class="mt-3 text-gray-600 leading-relaxed">
-        <p>As trusted <strong>builders in Trichy</strong>, we offer turnkey construction, interior design, and architecture — making Elite Dream Builders the one-stop solution for residential and commercial construction needs.</p>
-      </div>
-    </div>
-
-    <!-- FAQ 3 -->
-    <div class="bg-white p-6 rounded-xl shadow-sm transition duration-300">
-      <button @click="active === 3 ? active = null : active = 3" class="flex items-center justify-between w-full text-left">
-        <h3 class="text-xl font-semibold text-gray-800">What areas do you serve in Trichy?</h3>
-        <svg :class="{ 'rotate-180': active === 3 }" class="w-5 h-5 text-gray-600 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
-      <div x-show="active === 3" x-transition.duration.300ms class="mt-3 text-gray-600 leading-relaxed">
-        <p>We proudly serve all major areas of Trichy including Thillai Nagar, KK Nagar, Srirangam, and Cantonment. If you’re looking for reliable <strong>builders in Trichy</strong> near your area, contact us today for a free consultation.</p>
-      </div>
-    </div>
 
   </div>
 </div>
