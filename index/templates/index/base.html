@@ -16,17 +16,17 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
     <link rel="manifest" href="{% static 'site.webmanifest' %}">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" as="style">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css" as="style">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preload" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" as="style">
+    <link rel="preload" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" as="style">
+    <link rel="preload" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css" as="style">
+    <link rel="preconnect" href="https://fonts.googleapis.com" as="preconnect">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    <link rel="preload" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
 
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap" as="style">
-    <link rel="preload" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min." as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&display=swap" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" as="style">
+    <link rel="preload" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap" as="style">
+    <link rel="preload" rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min." as="style">
+    <link rel="preload" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&display=swap" as="style">
+    <link rel="preload" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" as="style">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{% static "css/elite.css" %}">
    <style>
@@ -145,20 +145,29 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "HomeAndConstructionBusiness",
   "name": "Elite Dream Builders",
-  "image": "https://elitedreambuilders.in/static/images/logo.PNG",
+  "image": "https://elitedreambuilders.in/static/images/logo.png",
+  "url": "https://elitedreambuilders.in",
+  "telephone": "+91-9865907104",
+  "description": "Elite Dream Builders is one of the top builders in Trichy offering residential and commercial construction services with transparency and trust.",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": " No. 9, Ground Floor, MKS Building, Ganesh Nagar, Kattur, Thanjavur road, Tiruchirappalli",
+    "streetAddress": "No. 9, Ground Floor, MKS Building, Ganesh Nagar, Kattur, Thanjavur Road",
     "addressLocality": "Trichy",
     "addressRegion": "Tamil Nadu",
     "postalCode": "620019",
     "addressCountry": "IN"
   },
-  "url": "https://elitedreambuilders.in",
-  "telephone": "+91-9865907104",
-  "description": "Elite Dream Builders is one of the top builders in Trichy providing residential and commercial construction services."
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 10.7905,
+    "longitude": 78.7047
+  },
+  "sameAs": [
+    "https://www.facebook.com/profile.php?id=100075791743413",
+    "https://www.instagram.com/elitedreambuilders/"
+  ]
 }
 </script>
 
@@ -385,34 +394,7 @@
     <script src={% static "js/elite.js" %}></script>
     
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "HomeAndConstructionBusiness",
-  "name": "Elite Dream Builders",
-  "url": "https://www.elitedreambuilders.in/",
-  "telephone": "+91-9865907104",
-  "image": "https://www.elitedreambuilders.in/static/images/logo.png",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Trichy - Tanjore Rd, Balaji Nagar, Pappakurichi Kattur",
-    "addressLocality": "Trichy",
-    "addressRegion": "Tamil Nadu",
-    "postalCode": "620019",
-    "addressCountry": "IN"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 10.7905,
-    "longitude": 78.7047
-  },
-  
-  "sameAs": [
-    "https://www.facebook.com/profile.php?id=100075791743413",
-    "https://www.instagram.com/elitedreambuilders/"
-  ]
-}
-</script>
+
 
 
 

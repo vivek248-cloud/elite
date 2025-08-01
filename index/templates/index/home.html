@@ -14,17 +14,17 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
     <link rel="manifest" href="{% static 'site.webmanifest' %}">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" as="style">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap" as="style">
-    <link rel="preload" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min." as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&display=swap" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" as="style">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" as="style">
-    <link rel="preload" href="{% static "css/elite.css" %}" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "css/elite.css" %}">
 </head>
 <body>
   {% block content %}
@@ -36,7 +36,7 @@
           <section class="slider-sections {% if forloop.first %}active{% endif %}"   style="background-image: url('{{ slide.image.url }}'); background-size: cover; background-position: center;">
              <img 
           src="{{ slide.image.url }}" 
-          alt="Top house construction project in Trichy by Elite Dream Builders" 
+          alt="{{ slide.title|default:'Slide image' }}" 
           loading="lazy" 
           decoding="async" 
 
@@ -155,7 +155,7 @@
         <div class="project-card-horizontal animation zoom-in">
           
             <div class="image-section">
-              <img src="{{ project.image.url }}" alt="Top house construction project in Trichy by Elite Dream Builders"  loading="lazy"  decoding="async" />
+              <img src="{{ project.image.url }}" alt="{{ project.title|default:'Project image' }}"  loading="lazy"  decoding="async" />
             </div>
          
         </div>
@@ -249,8 +249,8 @@
             <h1 class="w" data-animate="from-bottom">VISION</h1>
             <p style="background: rgba(0, 0, 0, 0.42);padding: 20px;border-radius: 10px;" data-animate="from-bottom">Our vision is to transform Trichy into a city celebrated for its beautiful, high-quality homes. At The Elite Dream Builders, we are committed to setting new benchmarks in trust, quality, and transparency as a leading construction company in Trichy. By building homes that enrich our clients’ lives and contribute to Trichy’s growth, we aim to leave a lasting legacy in the city’s construction landscape.</p>
           </div>
-      </div> {% endcomment %}
-  </div>
+      </div>
+  </div> {% endcomment %}
 
     {% comment %} <script>
   document.addEventListener('DOMContentLoaded', function () {
