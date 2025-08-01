@@ -2327,6 +2327,24 @@ p, a, li, span, button, input, textarea {
   height: 100%;
 }
 
+.home-content-2-sticky-bg
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	height: 100vh;
+	display: flex;
+}
+.home-content-2-sticky-bg img
+{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	filter: brightness(0.5);
+}
+
+
 .home-content-2-bg
 {
 	position: relative;
@@ -2334,7 +2352,7 @@ p, a, li, span, button, input, textarea {
 	justify-content: center;
 	background-position: center;
 	background-size: cover;
-	background-color: var(--highlight);
+	background-color: transparent;
 	color: rgb(255, 255, 255);
 	
 }
