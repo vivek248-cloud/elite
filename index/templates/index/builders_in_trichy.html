@@ -99,55 +99,56 @@
 
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
-<div class=" p-6 text-dark rounded-lg shadow-md text-center  mt-5" style="position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;  padding: 2rem; margin-top: 2rem;background-color:#f4f4f4;">
-  
-<div class="mt-12 bg-gray-50 p-8 rounded-2xl shadow-md w-full max-w-3xl mx-auto">
+<div x-data="{ active: null }" class="mt-12 bg-gray-50 p-8 rounded-2xl shadow-md w-full max-w-3xl mx-auto">
   <h2 class="text-3xl font-bold text-gray-900 text-center mb-10">Frequently Asked Questions – Builders in Trichy</h2>
 
   <div class="space-y-6">
-    <!-- FAQ Item -->
-    <div x-data="{ open: false }" class="bg-white p-6 rounded-xl shadow-sm transition duration-300">
-      <button @click="open = !open" class="flex items-center justify-between w-full text-left">
+    
+    <!-- FAQ 1 -->
+    <div class="bg-white p-6 rounded-xl shadow-sm transition duration-300">
+      <button @click="active === 1 ? active = null : active = 1" class="flex items-center justify-between w-full text-left">
         <h3 class="text-xl font-semibold text-gray-800">Who are the best builders in Trichy?</h3>
-        <svg :class="{ 'rotate-180': open }" class="w-5 h-5 text-gray-600 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg :class="{ 'rotate-180': active === 1 }" class="w-5 h-5 text-gray-600 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
         </svg>
       </button>
-      <div x-show="open" x-transition.duration.300ms class="mt-3 text-gray-600 leading-relaxed">
-        <p><strong>Elite Dream Builders</strong> is considered one of the best <strong>builders in Trichy</strong> due to our consistent delivery of quality projects, transparent pricing, and customer-focused approach.</p>
+      <div x-show="active === 1" x-transition.duration.300ms class="mt-3 text-gray-600 leading-relaxed">
+        <p><strong>Elite Dream Builders</strong> is considered one of the top <strong>builders in Trichy</strong> because of our commitment to quality, on-time delivery, and customer satisfaction. Many homeowners and commercial clients choose us for their dream projects.</p>
       </div>
     </div>
 
-    <!-- FAQ Item -->
-    <div x-data="{ open: false }" class="bg-white p-6 rounded-xl shadow-sm transition duration-300">
-      <button @click="open = !open" class="flex items-center justify-between w-full text-left">
+    <!-- FAQ 2 -->
+    <div class="bg-white p-6 rounded-xl shadow-sm transition duration-300">
+      <button @click="active === 2 ? active = null : active = 2" class="flex items-center justify-between w-full text-left">
         <h3 class="text-xl font-semibold text-gray-800">Why choose Elite Dream Builders in Trichy?</h3>
-        <svg :class="{ 'rotate-180': open }" class="w-5 h-5 text-gray-600 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg :class="{ 'rotate-180': active === 2 }" class="w-5 h-5 text-gray-600 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
         </svg>
       </button>
-      <div x-show="open" x-transition.duration.300ms class="mt-3 text-gray-600 leading-relaxed">
-        <p>We offer turnkey construction, interior design, and architectural planning all under one roof — making us a one-stop solution for all your building needs in Trichy.</p>
+      <div x-show="active === 2" x-transition.duration.300ms class="mt-3 text-gray-600 leading-relaxed">
+        <p>As trusted <strong>builders in Trichy</strong>, we offer turnkey construction, interior design, and architecture — making Elite Dream Builders the one-stop solution for residential and commercial construction needs.</p>
       </div>
     </div>
 
-    <!-- FAQ Item -->
-    <div x-data="{ open: false }" class="bg-white p-6 rounded-xl shadow-sm transition duration-300">
-      <button @click="open = !open" class="flex items-center justify-between w-full text-left">
+    <!-- FAQ 3 -->
+    <div class="bg-white p-6 rounded-xl shadow-sm transition duration-300">
+      <button @click="active === 3 ? active = null : active = 3" class="flex items-center justify-between w-full text-left">
         <h3 class="text-xl font-semibold text-gray-800">What areas do you serve in Trichy?</h3>
-        <svg :class="{ 'rotate-180': open }" class="w-5 h-5 text-gray-600 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg :class="{ 'rotate-180': active === 3 }" class="w-5 h-5 text-gray-600 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
         </svg>
       </button>
-      <div x-show="open" x-transition.duration.300ms class="mt-3 text-gray-600 leading-relaxed">
-        <p>We serve all major neighborhoods in Trichy including Thillai Nagar, KK Nagar, Srirangam, and Cantonment. Contact us to check if we serve your area too!</p>
+      <div x-show="active === 3" x-transition.duration.300ms class="mt-3 text-gray-600 leading-relaxed">
+        <p>We proudly serve all major areas of Trichy including Thillai Nagar, KK Nagar, Srirangam, and Cantonment. If you’re looking for reliable <strong>builders in Trichy</strong> near your area, contact us today for a free consultation.</p>
       </div>
     </div>
+
   </div>
 </div>
 
 
-
+<div class=" p-6 text-dark rounded-lg shadow-md text-center  mt-5" style="position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;  padding: 2rem; margin-top: 2rem;background-color:#f4f4f4;">
+  
         <h2 class="text-2xl font-bold mb-4">Ready to Build Your Dream Project?</h2>
         <p class="text-lg mb-6 text-dark">Contact us today for a free consultation and quote.</p>
         <p class="text-sm mb-4 text-dark"> © {{ now.year }} Elite Dream Builders — Proudly listed among the best <br><a href="{% url 'builders-in-trichy' %}" class="underline text-dark hover:text-green-900"><strong>builders in Trichy</strong></a>.</p>
