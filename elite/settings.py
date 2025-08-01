@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'storages',
     'cloudinary_storage',
     'cloudinary',
+    'compressor',
     
     'index',
 ]
@@ -111,6 +112,16 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+]
+
+COMPRESS_ENABLED = True
+COMPRESS_OFFLINE = True  # This is for production
+
 
 # Middleware
 MIDDLEWARE = [
