@@ -7177,14 +7177,7 @@ margin-right: 5rem;
 
 
 /* Image styling */
-.project-tile img {
-  width: 300px!important;
-  height: 250px!important;
-  border-radius: 5px;
-  object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
-}
+
 
 .project-tile img:hover {
   transform: scale(1.02);
