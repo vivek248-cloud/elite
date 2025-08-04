@@ -2821,6 +2821,7 @@ p, a, li, span, button, input, textarea {
 	position: relative;
 	overflow: hidden;
 	border: 4px double #020202b0;
+	border-radius: 8px;
   }
   
   .image-section img {
