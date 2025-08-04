@@ -3558,7 +3558,7 @@ video, .overlay {
 		background:#f4f4f4;
 		position: relative;
 		border-radius: 10px;
-		border: 1px solid #020202b0;
+		
 		top: 10%;
 		z-index: 1;
 	  }
@@ -7132,6 +7132,7 @@ margin-right: 5rem;
   /* Add these */
   max-width: 1200px; /* or 1100px, depending on your preference */
   margin: 0 auto;
+  border: 1px solid #020202b0;
 }
 
 
