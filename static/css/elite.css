@@ -7132,7 +7132,8 @@ margin-right: 5rem;
   /* Add these */
   max-width: 1200px; /* or 1100px, depending on your preference */
   margin: 0 auto;
-  border: 1px double #020202b0;
+  border: 4px double #020202b0;
+  border-radius: 8px;
 }
 
 
