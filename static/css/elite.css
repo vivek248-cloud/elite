@@ -2820,6 +2820,7 @@ p, a, li, span, button, input, textarea {
   .image-section {
 	position: relative;
 	overflow: hidden;
+	border: 4px double #020202b0;
   }
   
   .image-section img {
@@ -2827,6 +2828,7 @@ p, a, li, span, button, input, textarea {
 	height: 250px;
 	object-fit: cover;
 	transition: transform 0.4s ease, filter 0.3s ease;
+	
   }
   
   /* Hover Effect */
