@@ -7122,7 +7122,7 @@ margin-right: 5rem;
 /* Container as responsive 3-column grid */
 .project-gallerys {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(4, 1fr));
+  grid-template-columns:  repeat(4, 1fr);
   justify-items: center;
   gap: 3rem;
   padding: 2rem 0;
@@ -7131,7 +7131,7 @@ margin-right: 5rem;
 
 #projects-container{
 	display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(4, 1fr));
+  grid-template-columns:  repeat(4, 1fr);
   justify-items: center;
   gap: 3rem;
   padding: 2rem 0;
