@@ -7127,12 +7127,12 @@ margin-right: 5rem;
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
   gap: 3rem;
-  padding: 2rem 0;
+  padding: 2rem 1rem;
 
   /* Add these */
   max-width: 1200px; /* or 1100px, depending on your preference */
   margin: 0 auto;
-  border: 1px solid #020202b0;
+  border: 1px double #020202b0;
 }
 
 
