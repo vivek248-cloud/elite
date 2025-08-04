@@ -7120,22 +7120,43 @@ margin-right: 5rem;
 
 /* Responsive tweaks for smaller devices */
 /* Container as responsive 3-column grid */
-.project-gallerys {
+.project-gallerys,
+#projects-container {
   display: grid;
-  grid-template-columns:  repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   justify-items: center;
   gap: 3rem;
   padding: 2rem 0;
+
+  /* Add these */
+  max-width: 1200px; /* or 1100px, depending on your preference */
+  margin: 0 auto;
 }
 
 
-#projects-container{
-	display: grid;
-  grid-template-columns:  repeat(4, 1fr);
-  justify-items: center;
-  gap: 3rem;
-  padding: 2rem 0;
+@media (max-width: 1024px) {
+  .project-gallerys,
+  #projects-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
+
+@media (max-width: 768px) {
+  .project-gallerys,
+  #projects-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .project-gallerys,
+  #projects-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
 /* Card */
 .project-tile {
   width: 300px;
