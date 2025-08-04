@@ -2333,7 +2333,7 @@ p, a, li, span, button, input, textarea {
 	top: 0;
 	left: 0;
 	z-index: -1;
-	height: 100vh;
+	height: 200vh;
 	display: flex;
 }
 .home-content-2-sticky-bg img
