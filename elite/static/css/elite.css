@@ -1745,7 +1745,7 @@ p, a, li, span, button, input, textarea {
     display: block;
     width: 80px;
     height: 4px;
-    background:var(--backGround); /* Gold */
+    background: var(--backGround)!important; /* Gold */
     margin: 10px auto 0;
     border-radius: 2px;
 }
