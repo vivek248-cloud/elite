@@ -7,15 +7,20 @@
     <div class="contact-bg">
       <div class="sliders-box grid-slideshow">
         {% for slide in sliders %}
-          <section class="slider-sections {% if forloop.first %}active{% endif %}"   style="background-image: url('{{ slide.image.url }}'); background-size: cover; background-position: center;">
-             <img 
-          src="{{ slide.image.url }}" 
-          alt="{{ slide.title|default:'Slide image' }}" 
-          loading="lazy" 
-          decoding="async" 
+          <section class="slider-sections {% if forloop.first %}active{% endif %}">
+            <img 
+              src="{{ slide.image.url }}" 
+              alt="{{ slide.title|default:'Slide image' }}" 
+              {% if forloop.first %}
+                loading="eager" fetchpriority="high"
+              {% else %}
+                loading="lazy"
+              {% endif %}
+              decoding="async"
+              class="slider-bg-img"
+            />
 
-          style="display: none;" 
-        />
+
             <div class="scroller-content-bg" >
               <div class="scroller-content">
                 <h1>{{ slide.healine }}</h1>
