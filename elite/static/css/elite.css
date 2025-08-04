@@ -3552,12 +3552,13 @@ video, .overlay {
 		border: 2px solid #ccc;
 	  }
 
-	  .completed-projects {
+		  .completed-projects {
 		text-align: center;
 		padding: 80px 20px;
 		background:#f4f4f4;
 		position: relative;
 		border-radius: 10px;
+		border: 1px solid #020202b0;
 		top: 10%;
 		z-index: 1;
 	  }
