@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const bgGrow2 = document.getElementById("bg-grow2");
   const counters = document.querySelectorAll(".counter span[data-count]");
   const counterContainer = document.querySelector(".counters");
+  const marqueeEl = document.getElementById("scrolling-marquee");
 
   let scrollTicking = false;
   let countersActivated = false;
@@ -33,6 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (line3) line3.style.width = `${scrollProgress}%`;
     if (bgGrow) bgGrow.style.height = `${scrollProgress}%`;
     if (bgGrow2) bgGrow2.style.width = `${scrollProgress * 3}%`;
+
+    // ✅ Hide marquee at bottom
+    if (marqueeEl) {
+      marqueeEl.style.display = scrollBottom >= docHeight - 50 ? "none" : "block";
+    }
 
     // Counter activation
     if (
