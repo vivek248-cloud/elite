@@ -2337,8 +2337,7 @@ p, a, li, span, button, input, textarea {
   content: "";
   background-image: url("../images/home2.webp");
   background-size: cover;
-  background-attachment: sticky;
-  
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   position: absolute;
