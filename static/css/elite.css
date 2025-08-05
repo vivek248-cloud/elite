@@ -2331,7 +2331,7 @@ p, a, li, span, button, input, textarea {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: -1;
   height: 200vh;
   width: 100vw;
   display: flex;
@@ -7749,4 +7749,30 @@ margin-right: 5rem;
   transform: rotate(-45deg);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   pointer-events: none;
+}
+
+
+
+
+.marquee-wrapper {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: transparent;
+  overflow: hidden;
+  padding: 10px 0;
+  z-index: 10;
+}
+
+.marquee {
+  white-space: nowrap;
+  will-change: transform;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.marquee div {
+  display: inline-block;
+  padding-left: 100%;
 }

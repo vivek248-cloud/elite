@@ -191,3 +191,7 @@ videoSection.addEventListener("mouseleave", () => {
 videoSection.addEventListener("mouseenter", () => {
   mouseTracker.style.display = "flex";
 });
+
+
+
+
