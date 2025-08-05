@@ -2335,7 +2335,7 @@ p, a, li, span, button, input, textarea {
 
 .home-content-2-sticky-bg::before {
   content: "";
-  background-image: url('{% static "images/home2.webp" %}');
+  background-image: url("../images/home2.webp");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
