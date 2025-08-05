@@ -154,27 +154,7 @@
   </div>
 
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
-<script>
-  gsap.registerPlugin(ScrollTrigger);
-
-  const marquee = document.querySelector(".marquee div");
-  const text = "Best Builders in Trichy – The Elite Dream Builders 😎 ";
-  marquee.innerText = text.repeat(20);
-
-  gsap.to(".marquee div", {
-    xPercent: -50,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".relative", // wrapper with 200vh
-      start: "top top",
-      end: "bottom top",
-      scrub: true
-    }
-  });
-</script>
 
 
 
@@ -232,7 +212,27 @@
 </div>
 
 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  const marquee = document.querySelector(".marquee div");
+  const text = "Best Builders in Trichy – The Elite Dream Builders 😎 ";
+  marquee.innerText = text.repeat(20);
+
+  gsap.to(".marquee div", {
+    xPercent: -50,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".relative", // wrapper with 200vh
+      start: "top top",
+      end: "bottom top",
+      scrub: true
+    }
+  });
+</script>
 
 
 

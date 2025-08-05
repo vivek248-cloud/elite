@@ -2382,8 +2382,8 @@ p, a, li, span, button, input, textarea {
   font-size: var(--marquee-font-size);
   white-space: nowrap;
   overflow: hidden;
-  background-color: var(--color-background);
-  color: var(--color-chill);
+  background-color: transparent;
+  color: var(--color-text);
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   padding: 1rem 0;
 }
