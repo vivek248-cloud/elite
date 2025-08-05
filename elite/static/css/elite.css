@@ -2328,35 +2328,35 @@ p, a, li, span, button, input, textarea {
 }
 
 .home-content-2-sticky-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  height: 200vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
+  height: 100vh;
   overflow: hidden;
 }
 
-.home-content-2-sticky-bg img {
+.home-content-2-sticky-bg::before {
+  content: "";
+  background-image: url('{% static "images/home2.webp" %}');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 200%;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  z-index: -1;
   filter: brightness(0.8);
 }
 
-/* Mobile responsiveness (optional) */
+/* Mobile fallback */
 @media (max-width: 768px) {
-  .home-content-2-sticky-bg {
-    height: 150vh; /* reduce height for mobile if needed */
-  }
-
-  .home-content-2-sticky-bg img {
-    object-position: center;
+  .home-content-2-sticky-bg::before {
+    background-attachment: scroll; /* fallback for mobile devices */
+    height: 100%;
   }
 }
+
 
 
 
