@@ -2358,6 +2358,43 @@ p, a, li, span, button, input, textarea {
 }
 
 
+:root {
+  --duration: 0.6s;
+  --ease: ease-in-out;
+  --color-background: #0a0a0a;
+  --color-text: #ffffff;
+  --color-chill: #10b981;
+  --marquee-font-size: 2rem;
+}
+
+.marquee-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 30;
+}
+
+.marquee {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: var(--marquee-font-size);
+  white-space: nowrap;
+  overflow: hidden;
+  background-color: var(--color-background);
+  color: var(--color-chill);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  padding: 1rem 0;
+}
+
+.marquee div {
+  display: inline-block;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+
 
 
 .home-content-2-bg
@@ -7750,3 +7787,7 @@ margin-right: 5rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   pointer-events: none;
 }
+
+
+
+
