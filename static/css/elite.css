@@ -7755,10 +7755,10 @@ margin-right: 5rem;
 
 
 .marquee-wrapper {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
-  background: transparent;
+  background: black;
   overflow: hidden;
   padding: 10px 0;
   z-index: 10;
