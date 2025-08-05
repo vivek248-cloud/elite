@@ -3,11 +3,11 @@
 {% load compress %}
   {% block content %}
   
-  <div class="contact-container">
-    <div class="contact-bg">
-      <div class="sliders-box grid-slideshow">
+  <div class="contact-container"  style="background-color:#f4f4f4;">
+    <div class="contact-bg " style="background-color:#f4f4f4;">
+      <div class="sliders-box grid-slideshow" >
         {% for slide in sliders %}
-          <section class="slider-sections {% if forloop.first %}active{% endif %}">
+          <section class="slider-sections {% if forloop.first %}active{% endif %} animation slide-up">
             <img 
               src="{{ slide.image.url }}" 
               alt="{{ slide.title|default:'Slide image' }}" 
