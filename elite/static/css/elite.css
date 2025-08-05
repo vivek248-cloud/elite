@@ -2328,38 +2328,35 @@ p, a, li, span, button, input, textarea {
 }
 
 .home-content-2-sticky-bg {
-  position: relative;
-  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 200vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
 }
 
-.home-content-2-sticky-bg::before {
-  content: "";
-  background-image: url("../images/home2.webp");
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 200%;
+.home-content-2-sticky-bg img {
   width: 100%;
-  z-index: -1;
+  height: 100%;
+  object-fit: cover;
   filter: brightness(0.8);
 }
 
-/* Mobile fallback */
+/* Mobile responsiveness (optional) */
 @media (max-width: 768px) {
-  .home-content-2-sticky-bg::before {
-    background-attachment: scroll; /* fallback for mobile devices */
-    height: 80%;
+  .home-content-2-sticky-bg {
+    height: 150vh; /* reduce height for mobile if needed */
+  }
+
+  .home-content-2-sticky-bg img {
+    object-position: center;
   }
 }
-
-
-
-
 
 
 
@@ -7753,7 +7750,3 @@ margin-right: 5rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   pointer-events: none;
 }
-
-
-
-
