@@ -5499,11 +5499,7 @@ video, .overlay {
   }
   
 @media (max-width: 600px) {
-	.home-content-1-col-1 h1{
-		font-size: 3rem!important;
-		margin-left: 20px;
-		padding: 1rem;
-	}
+	
     .overlay {
         padding: 15px 20px;
         max-width: 95%;
