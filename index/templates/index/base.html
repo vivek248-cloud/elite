@@ -19,16 +19,14 @@
     <link rel="manifest" href="{% static 'site.webmanifest' %}">
 
 
-    {% compress css %}
-    <link rel="stylesheet" href="{% static "css/elite.css" %}">
-    {% endcompress %}
+    
 
 
-    {% comment %} <link rel="preload" as="image" href="{% static 'images/new-york-city.webp' %}">
+    <link rel="preload" as="image" href="{% static 'images/new-york-city.webp' %}">
     <link rel="preload" as="image" href="{% static 'images/terstimonals.jpg' %}">
     <link rel="preload" as="image" href="{% static 'images/logo.PNG' %}">
     <link rel="preload" as="image" href="{% static 'images/row-villa.jpg' %}">
-    <link rel="preload" as="image" href="{% static 'images/home2.webp' %}"> {% endcomment %}
+    <link rel="preload" as="image" href="{% static 'images/home2.webp' %}">
     
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -109,7 +107,9 @@
 }
 </script>
 
-
+    {% compress css %}
+    <link rel="stylesheet" href="{% static "css/elite.css" %}">
+    {% endcompress %}
     
    <style>
   @media (max-width: 768px) {
