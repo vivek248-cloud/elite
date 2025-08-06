@@ -10,11 +10,10 @@
           <section class="slider-sections {% if forloop.first %}active{% endif %} animation slide-up">
             <img 
               src="{{ slide.image.url }}" 
-              alt="{{ slide.title|default:'Slide image' }}" 
+              alt="best builders in trichy" 
               {% if forloop.first %}
                 loading="eager" fetchpriority="high"
               {% else %}
-                loading="lazy"
               {% endif %}
               decoding="async"
               class="slider-bg-img"
