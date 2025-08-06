@@ -4437,7 +4437,18 @@ video, .overlay {
  {
 	height: 60vh;
  }
+ .slider-sections
+ {
+	  height: 300px;
+ }
+ .slider-sections img{
+	  height: 100%;
+	  width: 100%;
+	  object-fit: cover;
+ }
 }
+
+
 .slider-sections.active {
   opacity: 1;
   z-index: 1;
