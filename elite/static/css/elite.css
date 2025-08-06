@@ -4430,11 +4430,11 @@ video, .overlay {
 @media (max-width: 768px) {
  .contact-container,.contact-bg
  {
-	height: 400px;
+	height: 300px;
  }
  .slider-sections
  {
-	  height: 400px;
+	  height: 300px;
  }
  .slider-sections img{
 	  height: 100%;
