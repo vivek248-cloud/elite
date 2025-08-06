@@ -2297,12 +2297,7 @@ p, a, li, span, button, input, textarea {
 	.footer-content-column {
 		width: 24.99%;
 	}
-	.home-content-1-col-1 h1
-	{
-		font-size: 2rem;
-		text-align: left;
-		margin-left: -50px;
-	}
+
   }
 .home-content
 {
@@ -5420,12 +5415,13 @@ video, .overlay {
 			flex-direction: row;
 			flex-wrap: wrap;
 			text-wrap: wrap;
+			height: 300px;
+			padding: 1rem 2rem !important;
 		}
 		.home-content-1-col-1 h1{
-			font-size: 3.5rem!important;
-			
+			font-size: 2.5rem!important;
+			line-height: 1.2;
 			margin-left: 20px;
-			padding: 0 3rem 0 3rem;
 		}
 		.dot
 		{
