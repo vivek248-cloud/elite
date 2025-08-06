@@ -4431,6 +4431,13 @@ video, .overlay {
 }
 
 
+
+@media (max-width: 768px) {
+ .contact-container,.contact-bg,.bg-video
+ {
+	height: 60vh;
+ }
+}
 .slider-sections.active {
   opacity: 1;
   z-index: 1;
