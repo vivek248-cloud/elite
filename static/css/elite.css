@@ -2491,7 +2491,12 @@ p, a, li, span, button, input, textarea {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  -webkit-text-stroke: 4px double var(--backGround);
+
+  /* Optional stroke for extra style */
+  -webkit-text-stroke: 2px var(--backGround); /* Adjust thickness and color */
+
+  /* Smooth rendering */
+  -webkit-font-smoothing: antialiased;
 }
 
 
