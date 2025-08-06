@@ -14,7 +14,8 @@
               {% if forloop.first %}
                 loading="eager" fetchpriority="high"
               {% else %}
-                loading="lazy"
+                loading="eager" fetchpriority="high"
+              {% else %}
               {% endif %}
               decoding="async"
               class="slider-bg-img"
