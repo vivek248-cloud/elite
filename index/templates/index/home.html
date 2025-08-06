@@ -13,6 +13,8 @@
               alt="{{ slide.title|default:'Slide image' }}" 
               {% if forloop.first %}
                 loading="eager" fetchpriority="high"
+                preload="true"
+                rel="preload"
               {% else %}
                 loading="eager"
               {% endif %}
