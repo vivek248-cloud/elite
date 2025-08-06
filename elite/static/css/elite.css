@@ -4435,11 +4435,11 @@ video, .overlay {
 @media (max-width: 768px) {
  .contact-container,.contact-bg
  {
-	height: 60vh;
+	height: 400px;
  }
  .slider-sections
  {
-	  height: 300px;
+	  height: 400px;
  }
  .slider-sections img{
 	  height: 100%;
