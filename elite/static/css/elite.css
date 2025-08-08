@@ -2414,6 +2414,7 @@ p, a, li, span, button, input, textarea {
   background-size: 100% auto;
   -webkit-background-clip: text;
   color: transparent;
+  font-display: swap;
 
 }
 

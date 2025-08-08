@@ -5,6 +5,14 @@
 {% block description %}Elite Dream Builders is one of the top construction companies in Trichy, offering expert services in house construction, commercial projects, and turnkey solutions. Quality, transparency, and timely delivery guaranteed.{% endblock %}
 {% block keywords %}Top builders in Trichy, house construction Trichy, commercial construction Trichy, best construction company in Trichy, Elite Dream Builders, Trichy builders, turnkey house contractors{% endblock %}
 
+{% if sliders %}
+  <link rel="preload" as="image"
+        href="{{ sliders.0.image.url }}"
+        imagesrcset="{{ sliders.0.image.url }} 800w, {{ sliders.0.image.url }} 1200w"
+        imagesizes="100vw"
+        fetchpriority="high">
+{% endif %}
+
 {% load compress %}
   {% block content %}
   
