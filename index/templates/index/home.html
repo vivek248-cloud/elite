@@ -6,6 +6,14 @@
 {% block keywords %}Top builders in Trichy, house construction Trichy, commercial construction Trichy, best construction company in Trichy, Elite Dream Builders, Trichy builders, turnkey house contractors{% endblock %}
 
 {% load compress %}
+{% if sliders %}
+  <link rel="preload" as="image"
+        href="{{ sliders.0.image.url }}"
+        imagesrcset="{{ sliders.0.image.url }} 800w, {{ sliders.0.image.url }} 1200w"
+        imagesizes="100vw"
+        fetchpriority="high">
+{% endif %}
+
   {% block content %}
   
   <div class="contact-container"  style="background-color:#f4f4f4;">
@@ -18,11 +26,11 @@
               alt="{{ slide.title|default:'Slide image' }}" 
               {% if forloop.first %}
                 loading="eager" fetchpriority="high"
-                preload="true"
+                
                 rel="preload"
               {% else %}
                 loading="eager"
-                preload="true"
+                fetchpriority="high"
                 rel="preload"
               {% endif %}
               decoding="async"
