@@ -214,7 +214,7 @@ def contact(request):
                 subject,
                 full_message,
                 settings.EMAIL_HOST_USER,
-                [settings.ADMIN_EMAIL],
+                [settings.ADMIN_EMAIL,"elitedreambuilders07@gmail.com"],
                 fail_silently=False
             )
         except Exception as e:
