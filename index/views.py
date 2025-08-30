@@ -433,7 +433,7 @@ Budget Range: {quote.budget_range.name if quote.budget_range else 'N/A'}
                 admin_subject,
                 admin_message,
                 settings.EMAIL_HOST_USER,
-                [settings.ADMIN_EMAIL],
+                [settings.ADMIN_EMAIL,"elitedreambuilders07@gmail.com"],
                 fail_silently=False,
             )
 
