@@ -50,7 +50,8 @@ DATABASES = {
 
 # Installed apps
 INSTALLED_APPS = [
-    "jazzmin",
+    "admin_interface",
+    "colorfield",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
