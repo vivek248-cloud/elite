@@ -4,9 +4,10 @@ import datetime
 from django.utils import timezone
 from urllib.parse import urlparse, parse_qs
 import re
-
-
-
+from django.utils.text import slugify
+from django.db.models.signals import post_delete
+from django.dispatch import receiver
+import os
 from django.utils.text import slugify
 import uuid
 
@@ -349,3 +350,43 @@ class AboutTitleVideo(models.Model):
         if self.video_file:
             self.video_file.delete(save=False)
         super().delete(*args, **kwargs)
+
+
+
+class SEOServicePage(models.Model):
+    title = models.CharField(max_length=255)
+    slug = models.SlugField(unique=True, blank=True)   # allow blank and auto-fill
+    short_description = models.TextField()
+    long_content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        # auto-generate slug, use underscores instead of hyphens
+        if not self.slug:
+            base = slugify(self.title)          # e.g. "Top Builders in Trichy" -> "top-builders-in-trichy"
+            base = base.replace('-', '_')       # -> "top_builders_in_trichy"
+            slug = base
+            # ensure uniqueness (append number if needed)
+            counter = 1
+            while SEOServicePage.objects.filter(slug=slug).exclude(pk=self.pk).exists():
+                counter += 1
+                slug = f"{base}_{counter}"
+            self.slug = slug
+        super().save(*args, **kwargs)
+
+
+class SEOServiceImage(models.Model):
+    page = models.ForeignKey(SEOServicePage, on_delete=models.CASCADE, related_name="images")
+    image = models.ImageField(upload_to="seo_pages/")
+    caption = models.CharField(max_length=255, blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.page.title} - Image"
+
+@receiver(post_delete, sender=SEOServiceImage)
+def delete_ad_image(sender, instance, **kwargs):
+    if instance.image and os.path.isfile(instance.image.path):
+        instance.image.delete(save=False)

@@ -1,0 +1,293 @@
+{# templates/index/seo_service_page.html #}
+{% extends "index/base.html" %}
+{% load static %}
+{% load tz %}
+
+{# ---------------------------
+   Head: title, meta, OpenGraph
+   --------------------------- #}
+{% block title %}{{ page.title }} | The Elite Dream Builders{% endblock %}
+
+{% block meta %}
+  <meta name="description" content="{{ page.short_description|truncatechars:160 }}">
+  <link rel="canonical" href="{{ request.build_absolute_uri }}">
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="{{ page.title }}" />
+  <meta property="og:description" content="{{ page.short_description|truncatechars:160 }}" />
+  {% if page.images.all %}
+    <meta property="og:image" content="{{ page.images.first.image.url }}" />
+  {% endif %}
+  <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+{% endblock %}
+
+{% block content %}
+
+<style>
+/* ----- Variables ----- */
+:root {
+  --primary: #25D366;
+  --primary-dark: #1ebe5d;
+  --text: #2d2d2d;
+  --text-light: #555;
+  --bg-light: #f9f9f9;
+  --border-radius: 16px;
+  --shadow-sm: 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-md: 0 10px 40px rgba(0,0,0,0.12);
+  --transition: all 0.35s ease;
+  --container-max: 1300px;
+}
+
+/* Container */
+.page-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 80px 20px 100px;
+}
+
+/* Hero */
+.hero-header {
+  position: relative;
+  min-height: 64vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3.5rem 1rem;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.hero-header .hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  filter: saturate(.95) contrast(1.02) brightness(.82);
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.32), rgba(0,0,0,0.36));
+}
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  max-width: 1100px;
+  padding: 0 16px;
+}
+.hero-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  margin-bottom: .75rem;
+}
+.hero-sub {
+  color: rgba(255,255,255,0.92);
+  max-width: 760px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Content */
+.content {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text);
+  margin: 3.5rem 0;
+}
+
+/* Gallery */
+.gallery {
+  margin: 3.5rem 0;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+.gallery-card {
+  border-radius: 12px;
+  overflow: hidden;
+  display: block;
+  position: relative;
+
+}
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s ease;
+}
+.gallery-card:hover img { transform: scale(1.04); }
+.caption-overlay {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 18px;
+  color: #000000ff;
+ 
+  font-weight: 600;
+}
+
+/* CTA */
+.cta2 {
+    position: relative;
+    text-align: center;
+    padding: 130px 40px;
+    margin: 80px auto;
+    max-width: 1100px;
+
+
+    border-radius: 10%;
+    
+    overflow: hidden;
+}
+
+
+
+
+
+
+.cta2 h2 { font-size: clamp(1.6rem, 2.4vw, 2.4rem); margin-bottom: 12px; color: var(--text); }
+.btn-whatsapp {
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  background:var(--primary);
+  color:#fff;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight:700;
+  text-decoration:none;
+  transition: transform .18s ease, box-shadow .18s ease;
+  
+}
+.btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(37,211,102,0.22); background:var(--primary-dark); color:#fff; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-container { padding: 36px 14px 64px; }
+  .hero-title { font-size: clamp(1.8rem, 7vw, 2.4rem); }
+  .hero-header { min-height: 44vh; padding: 2.5rem 1rem; }
+}
+</style>
+
+
+{% with hero=page.images.first %}
+  {% if hero %}
+    <header class="hero-header">
+      <img src="{{ hero.image.url }}" alt="{{ hero.caption|default:page.title }}" class="hero-bg" loading="lazy" />
+      <div class="hero-overlay"></div>
+
+      <div class="hero-inner container">
+        <div class="related-heading d-flex flex-column align-items-center gap-2 mb-3">
+            <div style="width:60px;height:2px;background:rgba(255,255,255,0.45);margin:0 auto 10px;"></div>
+            <h1 class="hero-title text-white">{{ page.title|capfirst }}</h1>
+            <div style="width:60px;height:2px;background:rgba(255,255,255,0.45);margin:10px auto 0;"></div>
+        </div>
+
+        {% if page.short_description %}
+          <p class="hero-sub">{{ page.short_description }}</p>
+        {% endif %}
+      </div>
+    </header>
+  {% else %}
+    {# fallback hero if no images #}
+    <header class="hero-header" style="background:linear-gradient(180deg,#071426,#0f1724);">
+      <div class="hero-inner container">
+        <h1 class="hero-title text-white">{{ page.title|capfirst }}</h1>
+        {% if page.short_description %}
+          <p class="hero-sub">{{ page.short_description }}</p>
+        {% endif %}
+      </div>
+    </header>
+  {% endif %}
+{% endwith %}
+
+<div class="page-container">
+
+  {# Optional small headline from the first image caption #}
+  {% with first_image=page.images.first %}
+    {% if first_image and first_image.caption %}
+      <section class="small-hero text-center mb-4">
+        <h2 class="mb-0">{{ first_image.caption|upper }}</h2>
+      </section>
+    {% endif %}
+  {% endwith %}
+
+<section class="page-content">
+    {{ page.long_content|safe }}
+</section>
+
+
+{# GALLERY (only show if more than one image exists) #}
+{% if page.images.count > 1 %}
+<section class="gallery">
+<h2 class="text-center mb-4" style="text-transform: uppercase;">
+    Our Completed Projects
+</h2>
+
+  <div class="gallery-grid">
+
+    {# skip the first hero image #}
+    {% for img in page.images.all|slice:"1:" %}
+      <a class="gallery-card"
+         href="{{ img.image.url }}"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="{{ img.caption|default:page.title }}">
+        <img src="{{ img.image.url }}"
+             alt="{{ img.caption|default:page.title }}"
+             loading="lazy" decoding="async">
+        {% if img.caption %}
+          <div class="caption-overlay">{{ img.caption }}</div>
+        {% endif %}
+      </a>
+    {% endfor %}
+
+  </div>
+</section>
+{% endif %}
+
+
+
+  {# CTA #}
+  <section class="cta2" aria-labelledby="cta-title">
+    <h2 id="cta-title">Ready to Transform ?</h2>
+    <p style="color:black;">Let’s discuss your vision. Get instant response on WhatsApp.</p>
+
+    <a class="btn-whatsapp" href="https://wa.me/8489716901?text=Hi!%20I%27m%20planning%20to%20build%20a%20house%20and%20would%20like%20to%20discuss%20budget%2C%20design%20and%20timeline%20with%20The%20Elite%20Dream%20Builders.
+" target="_blank" rel="noopener">
+<i class="fab fa-whatsapp whatsapp-icon"></i>
+
+      <span>Chat on WhatsApp</span>
+    </a>
+  </section>
+
+</div>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "{{ page.title|escapejs }}",
+  "description": "{{ page.short_description|striptags|truncatechars:200|escapejs }}",
+  "url": "{{ request.build_absolute_uri }}",
+  "datePublished": "{{ page.created_at|date:'Y-m-d' }}",
+  {% if page.images.first %}
+  "image": "{{ page.images.first.image.url }}",
+  {% endif %}
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Elite Dream Builders"
+  }
+}
+</script>
+
+{% endblock %}

@@ -83,7 +83,7 @@
               </div>
             </div>
 
-            <p class="rev-text">“{{ review.comment }}”</p>
+            <p class="rev-text">“{{ review.comment|truncatewords:200 }}”</p>
 
             <div class="rev-stars">
               {% for i in "12345"|make_list %}

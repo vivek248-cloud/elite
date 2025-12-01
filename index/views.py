@@ -12,6 +12,7 @@ from .models import UpcomingProject,GalleryImage,ProjectVideo,YouTubeVideo,HomeS
 from django.http import HttpResponseServerError
 from django.http import HttpResponse, Http404
 from django.http import JsonResponse
+from .models import*
 
 import os
 import mimetypes
@@ -663,3 +664,15 @@ def row_villa_view(request):
 
 def builders_in_trichy(request):
     return render(request, 'index/builders_in_trichy.html')
+
+def seo_page(request, slug):
+    page = get_object_or_404(SEOServicePage, slug=slug)
+
+    # Example context extras (you already referenced `grid` earlier — add whatever you use)
+    grid = []  # replace with real queryset if you have it
+
+    context = {
+        'page': page,
+        'grid': grid,
+    }
+    return render(request, 'index/seo_page.html', context)

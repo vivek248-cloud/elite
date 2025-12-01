@@ -9313,3 +9313,16 @@ position: relative;
     font-size: 1.6rem;
   }
 }
+
+
+    .whatsapp-icon {
+    font-size: 4em;   /* default for desktop */
+}
+
+@media (max-width: 768px) {
+    .whatsapp-icon {
+        font-size: 3em !important;
+    }
+}
+
+

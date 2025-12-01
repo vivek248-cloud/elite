@@ -3,7 +3,7 @@ from django.contrib import admin
 from .models import QuoteRequest, Project,AboutVideo,BudgetRange,Review,UpcomingProject,GalleryImage,AboutSection,Video,ProjectVideo,YouTubeVideo,HomeSlider,SliderVideo
 from .models import AboutTitleVideo
 admin.site.register(QuoteRequest)
-
+from .models import *
 admin.site.register(AboutVideo)
 admin.site.register(BudgetRange)
 admin.site.register(Review)
@@ -50,3 +50,12 @@ class ProjectAdmin(admin.ModelAdmin):
 
 admin.site.register(Project, ProjectAdmin)
 
+class SEOServiceImageInline(admin.TabularInline):
+    model = SEOServiceImage
+    extra = 1
+
+@admin.register(SEOServicePage)
+class SEOServicePageAdmin(admin.ModelAdmin):
+    list_display = ('title', 'slug', 'created_at')
+    prepopulated_fields = {"slug": ("title",)}   # optional — admin will prefill (but our save() still enforces underscores)
+    inlines = [SEOServiceImageInline]

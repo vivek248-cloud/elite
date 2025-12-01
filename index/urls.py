@@ -26,6 +26,7 @@ urlpatterns = [
     path('row-villa/', row_villa_view, name='row_villa'),
 
     path('builders-in-trichy/', builders_in_trichy, name='builders-in-trichy'),
+    path('<slug:slug>/', seo_page, name='seo_page'),  # e.g. /seo/top_builders_in_trichy/
 
     # path("send-notification/", send_notification, name="send-notification"),
 
