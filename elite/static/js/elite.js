@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const goto = document.getElementById("goto");
   const goto2 = document.getElementById("goto2");
-  const goto3 = document.getElementById("goto3");
   const navbar = document.getElementById("container");
   const line3 = document.getElementById("line3");
   const bgGrow = document.getElementById("bg-grow");
@@ -20,14 +19,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Navbar background toggle
     if (navbar) {
-      navbar.style.backgroundColor = scrollY > 50 ? "#222831" : "transparent";
+      navbar.style.background = scrollY > 50 ? "linear-gradient(180deg, var(--footer-bg) 0%, #071426 100%)" : "transparent";
       navbar.style.width = "100vw";
     }
 
     // Show/hide elements
-    if (goto) goto.style.display = scrollY > 100 ? "block" : "none";
+    if (goto) {
+      goto.classList.toggle("show", scrollBottom >= docHeight - 10);
+    }
+
     if (goto2) goto2.style.display = scrollY > 200 && scrollBottom < docHeight - 50 ? "block" : "none";
-    if (goto3) goto3.style.display = scrollY > 200 && scrollBottom < docHeight - 50 ? "block" : "none";
 
     // Progress lines
     const scrollProgress = (scrollY / (docHeight - window.innerHeight)) * 100;

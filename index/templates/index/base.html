@@ -107,6 +107,7 @@
     {% compress css %}
     <link rel="stylesheet" href="{% static "css/elite.css" %}">
     {% endcompress %}
+    
    <style>
   @media (max-width: 768px) {
     .navbar-title {
@@ -135,7 +136,7 @@
   font-family: 'Poppins', sans-serif;
   letter-spacing: 1px;
 
-  background: linear-gradient(
+  {% comment %} background: linear-gradient(
     60deg,
     #ffe168 0%,
     #f1c40f 25%,
@@ -144,12 +145,13 @@
     #e5b900 55%,
     #f1c40f 75%,
     #fde483 100%
-  );
+  ); {% endcomment %}
   background-size: 200% auto;
-  -webkit-background-clip: text;
+  {% comment %} -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
+  background-clip: text; {% endcomment %}
+  {% comment %} color: transparent; {% endcomment %}
+  color:#ffffff;
 }
   .navbar-logo img {
     height: 100px;
@@ -260,6 +262,12 @@
           <li class="nav-item"><a class="nav-link text-white" href="{% url 'testimonals' %}">Testimonials</a></li>
           <li class="nav-item"><a class="nav-link text-white" href="{% url 'about' %}#careers">careers</a></li>
           <li class="nav-item"><a class="nav-link text-white" href="{% url 'contact' %}">Contact</a></li>
+          <a href="{% static 'pdf/ELITE DREAM BUILDERS BROCHURE.pdf' %}" 
+            download 
+            class="download-btn" id="goto3">
+              <i class="bi bi-download"></i>
+              <span>BROCHURE</span>
+          </a>
         </ul>
       </div>
     </div>
@@ -272,18 +280,8 @@
 
 
 
-    <!-- Loader -->
-<!--     <div id="loader">
-      <div class="typing-indicator">
-        <div class="typing-circle"></div>
-        <div class="typing-circle"></div>
-        <div class="typing-circle"></div>
-        <div class="typing-shadow"></div>
-        <div class="typing-shadow"></div>
-        <div class="typing-shadow"></div>
-    </div>
-    </div> -->
-    <div id="loader" class="d-flex justify-content-center align-items-center">
+
+<div id="loader" class="d-flex justify-content-center align-items-center">
   <span class="loader"></span>
 </div>
 <script>
@@ -295,6 +293,20 @@
       loader.style.transition = 'opacity 0.5s ease-out';
     }
   });
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const goto3 = document.getElementById("goto3");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 20) {
+            goto3.classList.add("show");
+        } else {
+            goto3.classList.remove("show");
+        }
+    });
+});
+
 </script>
 
 <div class="cursor" id="customCursor"></div>
@@ -305,120 +317,150 @@
 
     </main>
     
-    <div class="pg-footer">
-        <footer class="footer2">
-          <svg class="footer-wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100" preserveAspectRatio="none">
-            <path class="footer-wave-path" d="M851.8,100c125,0,288.3-45,348.2-64V0H0v44c3.7-1,7.3-1.9,11-2.9C80.7,22,151.7,10.8,223.5,6.3C276.7,2.9,330,4,383,9.8 c52.2,5.7,103.3,16.2,153.4,32.8C623.9,71.3,726.8,100,851.8,100z"></path>
-          </svg>
-          <div class="footer-content">
-            <div class="footer-content-column">
-              <div class="footer-logo">
-                <a class="footer-logo-link" href="{% url 'home' %}" target="_self">
-                  <span class="hidden-link-text">LOGO</span>
-                  <img src="{% static "images/logo.PNG" %}">
-                </a>
-                <div class="footer-menu">
-                  <h2 class="footer-menu-name"> Contact </h2>
-                  <ul id="menu-legal" class="footer-menu-list">
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-170434">
-                      <adress><p><a href="https://www.google.com/maps/place/The+Elite+Dream+Builders/@10.8004979,78.746436,21z/data=!4m22!1m15!4m14!1m6!1m2!1s0x3baaf5682b46b427:0xd2973161faa960e!2sThe+Elite+Dream+Builders!2m2!1d78.7466935!2d10.8004979!1m6!1m2!1s0x3baaf5682b46b427:0xd2973161faa960e!2sTrichy+-+Tanjore+Rd,+Balaji+Nagar,+Pappakurichi+Kattur,+Tiruchirappalli,+Tamil+Nadu+620019!2m2!1d78.7466935!2d10.8004979!3m5!1s0x3baaf5682b46b427:0xd2973161faa960e!8m2!3d10.8004979!4d78.7466935!16s%2Fg%2F11rvk02422?entry=ttu&g_ep=EgoyMDI1MDMxOS4yIKXMDSoJLDEwMjExNjQwSAFQAw%3D%3D">Office Address: No. 9, Ground Floor, MKS Building, Ganesh Nagar, Kattur, Tiruchirappalli, Tamil Nadu 620019</a></p></address>
-                    </li>
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                      <p>Email : <a href=" mailto:info@elitedreambuilders.in" > info@elitedreambuilders.in</a></p>
-                    </li>
-                  </ul>
-                </div>
-               </div>
-             
-            </div>
-            <div class="footer-content-column">
-              
-              <div class="footer-menu">
-                <h2 class="footer-menu-name"> Legal</h2>
-                <ul id="menu-legal" class="footer-menu-list">
-                  <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-170434">
-                    <a href="{% url "terms" %}#Privacy-Notice">Privacy Notice</a>
-                  </li>
-                  <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                    <a href="{% url "terms" %}">Terms & Conditions</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="footer-content-column">
-              <div class="footer-menu">
-                <h2 class="footer-menu-name"> Quick Links</h2>
-                <ul id="menu-quick-links" class="footer-menu-list">
-                  <li class="menu-item menu-item-type-custom menu-item-object-custom">
-                    <a target="_self" rel="noopener noreferrer" href="{% url "home" %}">Home</a>
-                  </li>
-                  <li class="menu-item menu-item-type-custom menu-item-object-custom">
-                    <a target="_self" rel="noopener noreferrer"  href="{% url "about" %}">About</a>
-                  </li>
-                  <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                    <a  href="{% url "projects" %}">Project</a>
-                  </li>
-                  <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                    <a  target="_self" rel="noopener noreferrer" href="{% url "testimonals" %}">Testimonals</a>
-                  </li>
-                  <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                    <a  target="_self" rel="noopener noreferrer" href="{% url 'about' %}#careers">careers</a>
-                  </li>
-                  <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                    <a  target="_self" rel="noopener noreferrer" href="{% url "testimonals" %}#review">Customers Reviews</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="footer-content-column">
-              <div class="footer-call-to-action">
-                <h2 class="footer-call-to-action-title">Let's Build Your Dream</h2>
-                <br>
-                <a class="footer-call-to-action-button button" href="{% url 'get_quote'%}" target="_self"> Get Quote </a>
-              </div>
-              <div class="footer-call-to-action">
-                <h2 class="footer-call-to-action-title"> Have a support question?</h2>
-                <p class="footer-call-to-action-link-wrapper"> <a class="footer-call-to-action-link" href="tel: +917092529940" target="_self">  📞 +91 7092529940</a></p>
-                <p class="footer-call-to-action-link-wrapper"> <a class="footer-call-to-action-link" href="tel: +919865907104" target="_self"> 📞 +91 9865907104</a></p>
-              </div>
-              
-            </div>
-            <div class="footer-social-links">
-              <svg class="footer-social-amoeba-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 236 54">
-                <path class="footer-social-amoeba-path" d="M223.06,43.32c-.77-7.2,1.87-28.47-20-32.53C187.78,8,180.41,18,178.32,20.7s-5.63,10.1-4.07,16.7-.13,15.23-4.06,15.91-8.75-2.9-6.89-7S167.41,36,167.15,33a18.93,18.93,0,0,0-2.64-8.53c-3.44-5.5-8-11.19-19.12-11.19a21.64,21.64,0,0,0-18.31,9.18c-2.08,2.7-5.66,9.6-4.07,16.69s.64,14.32-6.11,13.9S108.35,46.5,112,36.54s-1.89-21.24-4-23.94S96.34,0,85.23,0,57.46,8.84,56.49,24.56s6.92,20.79,7,24.59c.07,2.75-6.43,4.16-12.92,2.38s-4-10.75-3.46-12.38c1.85-6.6-2-14-4.08-16.69a21.62,21.62,0,0,0-18.3-9.18C13.62,13.28,9.06,19,5.62,24.47A18.81,18.81,0,0,0,3,33a21.85,21.85,0,0,0,1.58,9.08,16.58,16.58,0,0,1,1.06,5A6.75,6.75,0,0,1,0,54H236C235.47,54,223.83,50.52,223.06,43.32Z"></path>
-              </svg>
-              <a class="footer-social-link Whatsapp" href="https://wa.me/8489716901?text=Hi%20there!" target="_blank">
-                <span class="hidden-link-text">Whatsapp</span>
-                <svg class="footer-social-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path  class="footer-social-icon-path" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-              </a>
-              
-              <a class="footer-social-link Instagram" href="https://www.instagram.com/elitedreambuilders/" target="_blank">
-                <span  class="hidden-link-text">Instagram</span>
-                <svg   class="footer-social-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path   class="footer-social-icon-path" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
-              </a>
-              <a class="footer-social-link youtube" href="https://www.youtube.com/@Elitesdreambuilders01" target="_blank">
-                <span class="hidden-link-text">Youtube</span>
-                <svg  class="footer-social-icon-svg"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path   class="footer-social-icon-path" d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z"/></svg>
-              </a>
-              <a class="footer-social-link linkedin" href="https://www.linkedin.com/company/the-elite-dream-builders/" target="_blank">
-                <span class="hidden-link-text">Linkedin</span>
-                <svg class="footer-social-icon-svg" xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 30 30">
-                  <path class="footer-social-icon-path" d="M9,25H4V10h5V25z M6.501,8C5.118,8,4,6.879,4,5.499S5.12,3,6.501,3C7.879,3,9,4.121,9,5.499C9,6.879,7.879,8,6.501,8z M27,25h-4.807v-7.3c0-1.741-0.033-3.98-2.499-3.98c-2.503,0-2.888,1.896-2.888,3.854V25H12V9.989h4.614v2.051h0.065 c0.642-1.18,2.211-2.424,4.551-2.424c4.87,0,5.77,3.109,5.77,7.151C27,16.767,27,25,27,25z"></path>
-                </svg>
-              </a>
-            </div>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"  onclick="scrollToTop()" id="goto" class="goto"  fill="currentColor"><path d="M201.4 137.4c12.5-12.5 32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L224 205.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160z"/></svg>
-          </div>
-          <div class="footer-copyright">
-            <div class="footer-copyright-wrapper">
-              <p class="footer-copyright-text">
-                <a class="footer-copyright-link" href="{% url 'home'%}" target="_self"> ©2025. |The Elite Dream Builders. | All rights reserved. </a>
-              </p>
-            </div>
-          </div>
-        </footer>
+<!-- Minimal professional footer -->
+<div class="pg-footer">
+  <footer class="site-footer" role="contentinfo">
+
+    <div class="footer-inner">
+      <!-- LEFT: fixed column for logo only (logo aligned right) -->
+      <div class="footer-left">
+        <a class="logo-link" href="{% url 'home' %}" aria-label="Elite Dream Builders home">
+          <img src="{% static 'images/logo.PNG' %}" alt="Elite Dream Builders logo" class="logo-img">
+        </a>
       </div>
+
+      <!-- CENTER: contact + quick links -->
+      <div class="footer-center">
+        <div class="contact-block">
+          <p class="address">
+            <a href="https://www.google.com/maps/place/The+Elite+Dream+Builders/" target="_blank" rel="noopener noreferrer">
+              No. 9, Ground Floor, MKS Building, Ganesh Nagar, Kattur, Tiruchirappalli, Tamil Nadu 620019
+            </a>
+          </p>
+          <p>Email: <a href="mailto:info@elitedreambuilders.in">info@elitedreambuilders.in</a></p>
+        </div>
+
+        <nav class="footer-links" aria-label="Footer navigation">
+          <div class="links-col">
+            <h3 class="links-title">Quick Links</h3>
+            <ul>
+              <li><a href="{% url 'home' %}">Home</a></li>
+              <li><a href="{% url 'about' %}">About</a></li>
+              <li><a href="{% url 'projects' %}">Projects</a></li>
+              <li><a href="{% url 'testimonals' %}">Testimonials</a></li>
+              <li><a href="{% url 'contact' %}">Contact</a></li>
+              <li><a href="{% url 'about' %}#careers">Careers</a></li>
+            </ul>
+          </div>
+
+          <div class="links-col">
+            <h3 class="links-title">Legal</h3>
+            <ul>
+              <li><a href="{% url 'terms' %}#Privacy-Notice">Privacy Notice</a></li>
+              <li><a href="{% url 'terms' %}">Terms &amp; Conditions</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <!-- RIGHT: CTA + phones + social -->
+      <div class="footer-right">
+        <div class="cta">
+          <h3>Let's Build Your Dream</h3><br>
+          <a class="btn-quote" href="{% url 'get_quote' %}">Get Quote</a>
+          <br>
+        </div>
+
+        <div class="phones">
+          <a class="phone" href="tel:+917092529940">📞 +91 70925 29940</a>
+          <a class="phone" href="tel:+919865907104">📞 +91 98659 07104</a>
+        </div>
+
+        <div class="social" aria-label="Social links">
+  <a class="social-link" href="https://wa.me/8489716901?text=Hi%20there!" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="icon bi bi-whatsapp" viewBox="0 0 16 16">
+      <path d="M13.601 2.326A7.953 7.953 0 0 0 8.035.002C3.64.003.037 3.606.037 8c0 1.41.36 2.79 1.06 4.02L0 16l4.06-1.07A7.977 7.977 0 0 0 8.035 16C12.43 16 16 12.396 16 8c0-1.76-.57-3.42-1.599-4.676ZM8.035 14.5c-1.19 0-2.36-.31-3.39-.9l-.24-.14-2.42.63.65-2.36-.16-.25A6.493 6.493 0 0 1 1.535 8c0-3.58 2.92-6.5 6.5-6.5 1.74 0 3.37.68 4.6 1.9a6.48 6.48 0 0 1 1.93 4.6c0 3.58-2.92 6.5-6.53 6.5Zm3.67-4.82c-.2-.1-1.17-.58-1.35-.65-.18-.07-.31-.1-.44.1-.13.2-.5.65-.61.78-.11.13-.22.15-.42.05-.2-.1-.84-.31-1.6-.99-.59-.52-.99-1.17-1.11-1.37-.12-.2-.01-.31.09-.41.09-.09.2-.23.3-.35.1-.12.13-.2.2-.34.07-.14.03-.26-.02-.36-.05-.1-.44-1.06-.61-1.45-.16-.39-.33-.34-.44-.35h-.38c-.13 0-.36.05-.55.26-.19.21-.72.7-.72 1.7 0 1 .74 1.96.84 2.1.11.14 1.45 2.23 3.53 3.08 2.08.85 2.08.57 2.46.54.38-.03 1.17-.47 1.33-.92.16-.45.16-.84.11-.92-.05-.08-.18-.13-.38-.23Z"/>
+    </svg>
+  </a>
+  <a class="social-link" href="https://www.instagram.com/elitedreambuilders/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+     class="icon bi bi-instagram" viewBox="0 0 16 16">
+  <path d="M8 0C5.8 0 5.5 0 4.7.05 3.9.1 3.3.23 2.8.42c-.53.21-.98.49-1.43.94A3.6 3.6 0 0 0 .42 2.8c-.2.53-.33 1.09-.37 1.94C0 5.5 0 5.8 0 8s0 2.5.05 3.3c.04.85.17 1.4.37 1.94.21.53.49.98.94 1.43.45.45.9.73 1.43.94.53.2 1.09.33 1.94.37.78.04 1.08.05 3.3.05s2.5 0 3.3-.05c.85-.04 1.4-.17 1.94-.37.53-.21.98-.49 1.43-.94.45-.45.73-.9.94-1.43.2-.53.33-1.09.37-1.94.04-.78.05-1.08.05-3.3s0-2.5-.05-3.3c-.04-.85-.17-1.4-.37-1.94a3.6 3.6 0 0 0-.94-1.43A3.6 3.6 0 0 0 13.2.42c-.53-.2-1.09-.33-1.94-.37C10.5 0 10.2 0 8 0Zm0 1.44c2.1 0 2.38 0 3.22.05.75.03 1.17.16 1.46.27.35.14.6.3.87.57.27.27.43.52.57.87.11.29.24.71.27 1.46.04.84.05 1.12.05 3.22s0 2.38-.05 3.22c-.03.75-.16 1.17-.27 1.46-.14.35-.3.6-.57.87-.27.27-.52.43-.87.57-.29.11-.71.24-1.46.27-.84.04-1.12.05-3.22.05s-2.38 0-3.22-.05c-.75-.03-1.17-.16-1.46-.27a2.1 2.1 0 0 1-.87-.57c-.27-.27-.43-.52-.57-.87-.11-.29-.24-.71-.27-1.46C1.44 10.4 1.44 10.1 1.44 8s0-2.38.05-3.22c.03-.75.16-1.17.27-1.46.14-.35.3-.6.57-.87.27-.27.52-.43.87-.57.29-.11.71-.24 1.46-.27C5.62 1.44 5.9 1.44 8 1.44ZM8 4a4 4 0 1 0 0 8A4 4 0 0 0 8 4Zm0 6.5A2.5 2.5 0 1 1 8 5a2.5 2.5 0 0 1 0 5Zm3.5-6.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0Z"/>
+</svg>
+
+  </a>
+  <a class="social-link" href="https://www.youtube.com/@Elitesdreambuilders01" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="icon bi bi-youtube" viewBox="0 0 16 16">
+      <path d="M8.051 1.999h-.002c-.32 0-3.18.012-4.725.147a3.022 3.022 0 0 0-2.133 1.062A3.022 3.022 0 0 0 .146 5.34 48.368 48.368 0 0 0 0 8.001c0 1.01.037 2.088.146 3.66a3.022 3.022 0 0 0 1.066 2.134 3.022 3.022 0 0 0 2.133 1.062c1.545.135 4.405.147 4.725.147H8c.318 0 3.178-.012 4.723-.147a3.022 3.022 0 0 0 2.133-1.062 3.022 3.022 0 0 0 1.066-2.134c.108-1.572.146-2.65.146-3.66 0-1.01-.037-2.088-.146-3.66a3.022 3.022 0 0 0-1.066-2.134A3.022 3.022 0 0 0 12.723 2.146C11.178 2.011 8.318 1.999 8.051 1.999ZM6.4 5.2l4.2 2.8-4.2 2.8V5.2Z"/>
+    </svg>
+  </a>
+  <a class="social-link" href="https://www.linkedin.com/company/the-elite-dream-builders/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="icon bi bi-linkedin" viewBox="0 0 16 16">
+      <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175A1.13 1.13 0 0 1 0 14.854V1.146ZM4.943 13.065V6.169H2.542v6.896h2.401ZM3.743 5.181c.837 0 1.357-.554 1.357-1.248-.015-.709-.52-1.248-1.342-1.248-.823 0-1.357.54-1.357 1.248 0 .694.52 1.248 1.326 1.248h.016ZM13.458 13.065V9.359c0-1.987-1.06-2.914-2.476-2.914-1.14 0-1.653.622-1.938 1.06V6.169H6.643c.03.65 0 6.896 0 6.896h2.401V9.553c0-.188.014-.376.069-.512.151-.376.493-.766 1.067-.766.753 0 1.054.578 1.054 1.426v3.364h2.401Z"/>
+    </svg>
+  </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>©2025 The Elite Dream Builders — All rights reserved.</p>
+    </div>
+
+    <button id="goto" class="goto" aria-label="Scroll to top" title="Back to top">
+      <i class="bi bi-arrow-up"></i>
+    </button>
+  </footer>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const goto = document.getElementById('goto');
+  if (!goto) return;
+
+  // Show/hide threshold (px)
+  const THRESHOLD = 240;
+
+  // Toggle visibility based on scroll
+  const toggleButton = () => {
+    if (window.scrollY > THRESHOLD) {
+      goto.classList.add('show');
+    } else {
+      goto.classList.remove('show');
+    }
+  };
+
+  // Smooth scroll to top on click
+  const scrollToTop = (opts = { behavior: 'smooth' }) => {
+    window.scrollTo({ top: 0, ...opts });
+    // remove focus so keyboard styles don't persist
+    goto.blur();
+  };
+
+  // Click handler
+  goto.addEventListener('click', (e) => {
+    e.preventDefault();
+    scrollToTop();
+  });
+
+  // Keyboard (Enter / Space) support for accessibility
+  goto.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+      e.preventDefault();
+      scrollToTop();
+    }
+  });
+
+  // Listen to scroll (passive for performance)
+  window.addEventListener('scroll', toggleButton, { passive: true });
+
+  // Run once on load
+  toggleButton();
+});
+</script>
+
+
+
 <div class="social-sidebar" id="goto2">
   <a href="https://wa.me/8489716901?text=Hi%20there!" class="social-icon whatsapp" target="_blank">
     <i class="fab fa-whatsapp"></i>
@@ -431,14 +473,15 @@
   </a>
 </div>
 
-<button class="animated-button" id="goto3"> 
-  <a href="{% static "pdf/ELITE DREAM BUILDERS BROCHURE.pdf" %}" download style="color:black;">
-  
+{% comment %} <button class="animated-button" id="goto3"> 
+  <a href="{% static "pdf/ELITE DREAM BUILDERS BROCHURE.pdf" %}" download>
   <span class="text1">Spec</span>
-  <i class="bi bi-download"></i>
+  <i class="bi bi-download text-i"></i>
   <span class="circle1"></span>
 </a>
-</button>
+</button> {% endcomment %}
+
+
 
 
 <div class="marquee-wrapper" id="scrolling-marquee">
@@ -454,7 +497,7 @@
   gsap.registerPlugin(ScrollTrigger);
 
 const marquee = document.querySelector(".marquee div");
-const text = "💎 Best Builders in Trichy – The Elite Dream Builders 💎 | Trusted by Thousands | Your Dream Home Awaits! ";
+const text = " Best Builders in Trichy – The Elite Dream Builders  | Trusted by Thousands | Your Dream Home Awaits! ";
 marquee.innerText = text.repeat(20);
 
 gsap.to(".marquee div", {

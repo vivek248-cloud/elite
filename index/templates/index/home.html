@@ -46,12 +46,12 @@
                   <p class="animation slide-up">{{ slide.quotes }}</p>
                 {% endif %}
               </div>
-              <div class="scroller-content-2">
+              {% comment %} <div class="scroller-content-2">
                 <p data-animate="from-bottom"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gold" height="28px" class="location">
                   <path fill-rule="evenodd" d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" clip-rule="evenodd" />
                 </svg></span>&nbsp&nbsp{{ slide.location }}
                 </p>
-            </div>
+            </div> {% endcomment %}
           </section>
         {% endfor %}
         <div class="pagination-dots"></div>
@@ -60,79 +60,244 @@
     </div>
   </div>
 
-<div class="home-conntent-bg">
-  <div class="home-content">
-    <div class="home-content-1">
 
-      <div class="home-content-1-col-1">
-        <h1 >THE <br>ELITE <span class="dream-text-bg"><span class="dream-text" > <br>DREAM </span></span> BUILDERS<sup>&reg;</sup></h1>
-      </div>
 
-      <div class="home-content-1-col-2">
-        <h1 class="w2" >Welcome to Elite Dream Builders</h1>
-        <div class="line5" ></div>
-        <h4 class="h4" >WE DO ONLY WHAT WE ARE GREAT ON</h4>
+<!-- Minimalist Builders Section (Standalone CSS) -->
+<!-- Builders section with right-aligned text + minimalist slider -->
+<section class="builders-section enhanced" aria-labelledby="builders-heading">
+  <div class="builders-grid">
 
-        <div class="counters animation zoom-in counters-div" style="background-color: rgba(240, 240, 240, 0);">
-          <div class="counter-grid home-circles">
-            <div class="counter circles" >
-              <h1  style="font-family: 'Poppins', sans-serif;text-align:center;" ><span>1L +</span></h1>
-              <h3 class="circle-text" style="font-family: 'Poppins', sans-serif;font-weight: 600;text-align:center;color:var(--bgWhite);" >SQ-FEET BUILT</h3>
-            </div>
-            <div class="counter circles" >
-              <h1 style="font-family: 'Poppins', sans-serif;text-align:center;" ><span data-count="90">0</span>+</h1>
-              <h3 class="circle-text" style="font-family: 'Poppins', sans-serif;font-weight: 600;text-align:center;color:var(--bgWhite);" >COMPLETED PROJECTS</h3>
-            </div>
-          </div>
-        </div>
-        <div class="download-wrapper">
-          <p >click to download brochure</p><br>
+    <!-- LEFT: Elegant Copy -->
+    <div class="builders-copy">
+      <header class="builders-header">
+        <h1 id="builders-heading" class="heading-xl">
+          {% comment %} Best Builders in Trichy —  {% endcomment %}
+          <span class="row01">THE</span><span class="row02">ELITE </span><br>
+          <span class="accent-gradient"> DREAM </span> <br>
+          BUILDERS
+        </h1>
+        <p class="lead">
+          Searching for the <strong>best builders in Trichy</strong>? 
+          We deliver timeless residential and commercial spaces built on 
+          <em>transparency, trust, and masterful craftsmanship</em>.
+        </p>
+      </header>
+
+      <div class="keywords">
+        <p>
+          Ranked among the <strong>top 10 builders in Trichy</strong>, 
+          specializing in luxury individual homes, apartments & commercial projects. 
           <br>
-          <a href="{% static 'pdf/ELITE DREAM BUILDERS BROCHURE.pdf' %}" download>
-            <button class="downloadButton" >
-              <span>Download PDF</span>
-            </button>
+          <a href="{% url 'projects' %}" class="link-underline">
+            → View our completed & ongoing projects
           </a>
-        </div>
+        </p>
       </div>
-      
+
+      <div class="cta-wrap">
+        <a href="{% url 'get_quote' %}" class="btn-cta-primary">
+          <span class="emoji"><i class="bi bi-arrow-up-left-circle"></i></span>
+          Get Your Free Quote Today
+        </a>
+        
+      </div>
     </div>
-  </div>
-</div>
 
+    <!-- RIGHT: Premium Slider with Glassmorphism -->
+    <aside class="builders-slider" aria-label="Featured Projects Showcase">
+      <div class="slider" id="projectsSlider">
 
-<section class="builders-in-trichy-section py-20 px-4 md:px-20 text-gray-900" style="background-color: #f4f4f4;">
-  <div class="max-w-7xl mx-auto">
+        <div class="slides">
+          {% for p in project_slider %}
+            <div class="slide" data-index="{{ forloop.counter0 }}">
+              <img src="{{ p.image.url }}" alt="{{ p.title }}" loading="lazy" class="slide-img">
+              
+              <div class="slide-overlay"></div>
+              
+              <div class="slide-caption">
+                <span class="status-tag">
+                  {% if p.status == 'Completed' %}✓ Completed
+                  {% elif p.status == 'Ongoing' %}⏳ Ongoing
+                  {% else %}★ Featured{% endif %}
+                </span>
+                <h3 class="caption-title">{{ p.title|default:"Luxury Residence"|upper }}</h3>
+                {% if p.location %}
+                  <p class="caption-location">📍 {{ p.location|capfirst }}</p>
+                {% endif %}
+              </div>
+            </div>
+          {% empty %}
+            <div class="slide">
+              <img src="{% static 'images/placeholder.webp' %}" alt="Coming Soon" class="slide-img">
+              <div class="slide-caption">More Projects Coming Soon</div>
+            </div>
+          {% endfor %}
+        </div>
 
-    <!-- Title -->
-    <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-center bg-gradient-to-r from-green-700 to-emerald-500 bg-clip-text text-transparent drop-shadow-md">
-      Best Builders in Trichy – The Elite Dream Builders
-    </h1>
+        <!-- Custom Elegant Controls -->
+        <button class="slider-btn prev" aria-label="Previous project">
+          <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+        </button>
+        <button class="slider-btn next" aria-label="Next project">
+          <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+        </button>
 
-    <!-- Main description -->
-    <p class="text-lg md:text-xl mb-6 text-center max-w-3xl mx-auto text-dark">
-      Searching for the <strong>best builders in Trichy</strong>? Elite Dream Builders offers premium residential and commercial construction solutions delivered with transparency, trust, and expert craftsmanship.
-    </p>
+        <!-- Premium Dots -->
+        {% comment %} <div class="slider-dots">
+          {% for p in project_slider %}
+            <button class="dotss {% if forloop.first %}active{% endif %}" 
+                    data-slide="{{ forloop.counter0 }}" 
+                    aria-label="Go to slide {{ forloop.counter }}" style="width:5px;"></button>
+          {% endfor %}
+        </div> {% endcomment %}
 
-    <!-- SEO Keywords blended content -->
-    <p class="text-lg mb-6 text-center max-w-3xl mx-auto text-dark">
-      Whether you're looking for <strong>top 10 builders in Trichy</strong>, <strong>individual house builders in Trichy</strong>, or want a complete <strong>Trichy builders list with contact numbers</strong>, we've got you covered.
-      Explore <strong>independent house builders</strong>, <strong>luxury house builders</strong>, and <strong>best builders in Trichy with price list</strong> through our comprehensive services.
-    </p>
-
-    <p class="text-lg mb-12 text-center max-w-3xl mx-auto text-dark">
-      We’re proud to be ranked among the <a href="{% url 'builders-in-trichy' %}" class="text-dark font-bold underline hover:text-green-900 transition"><strong>best builders in Trichy</strong></a>. Visit our <a href="{% url 'projects' %}" class="text-dark font-semibold underline hover:text-green-900 transition"><strong>project list</strong></a> to explore completed and ongoing constructions in the region.
-    </p>
-
-    <!-- CTA -->
-    <div class="text-center">
-      <a href="{% url 'get_quote' %}" class="inline-block text-dark px-8 py-4 text-lg font-bold hover:from-green-700 hover:to-emerald-600 hover:scale-105 transition-all duration-300">
-        <strong style="text-decoration:underline;">📝 Get a Free Quote </strong>
-      </a>
-    </div>
+      </div>
+    </aside>
 
   </div>
 </section>
+
+<script>
+  (function () {
+    const slider = document.getElementById('projectsSlider');
+    if (!slider) return;
+
+    const slidesContainer = slider.querySelector('.slides');
+    const slides = slider.querySelectorAll('.slide');
+    const dots = slider.querySelectorAll('.dotss');
+    const prevBtn = slider.querySelector('.slider-btn.prev');
+    const nextBtn = slider.querySelector('.slider-btn.next');
+
+    let currentIndex = 0;
+    let autoplayTimer = null;
+    const autoplayDelay = 5000; // 5 seconds
+    const transitionDuration = 700; // matches CSS transition
+
+    // Update active dot
+    function updateDots() {
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+        dot.setAttribute('aria-selected', i === currentIndex);
+      });
+    }
+
+    // Go to specific slide
+    function goToSlide(index) {
+      if (index < 0) index = slides.length - 1;
+      if (index >= slides.length) index = 0;
+
+      currentIndex = index;
+
+      // Smooth transform
+      slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+      updateDots();
+    }
+
+    // Next / Previous
+    function nextSlide() {
+      goToSlide(currentIndex + 1);
+      resetAutoplay();
+    }
+
+    function prevSlide() {
+      goToSlide(currentIndex - 1);
+      resetAutoplay();
+    }
+
+    // Autoplay controls
+    function startAutoplay() {
+      if (slides.length <= 1) return;
+      stopAutoplay();
+      autoplayTimer = setInterval(nextSlide, autoplayDelay);
+    }
+
+    function stopAutoplay() {
+      if (autoplayTimer) clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+
+    function resetAutoplay() {
+      stopAutoplay();
+      startAutoplay();
+    }
+
+    // Event Listeners
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        goToSlide(i);
+        resetAutoplay();
+      });
+    });
+
+    // Keyboard navigation
+    slider.setAttribute('tabindex', '0');
+    slider.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') prevSlide();
+      if (e.key === 'ArrowRight') nextSlide();
+    });
+
+    // Touch/Swipe support (mobile)
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    slidesContainer.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      stopAutoplay();
+    }, { passive: true });
+
+    slidesContainer.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+      resetAutoplay();
+    }, { passive: true });
+
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const diff = touchStartX - touchEndX;
+
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) nextSlide();        // swiped left → next
+        else prevSlide();                 // swiped right → prev
+      }
+    }
+
+    // Pause autoplay on hover/focus
+    slider.addEventListener('mouseenter', stopAutoplay);
+    slider.addEventListener('mouseleave', startAutoplay);
+    slider.addEventListener('focusin', stopAutoplay);
+    slider.addEventListener('focusout', startAutoplay);
+
+    // Handle dynamic content / resize
+    const observer = new MutationObserver(() => {
+      // Re-init if slides change (rare, but safe)
+      goToSlide(currentIndex);
+    });
+    observer.observe(slidesContainer, { childList: true });
+
+    window.addEventListener('resize', () => {
+      // Ensure correct position after resize
+      slidesContainer.style.transition = 'none';
+      slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+      requestAnimationFrame(() => {
+        slidesContainer.style.transition = '';
+      });
+    });
+
+    // Initialize
+    goToSlide(0);
+    startAutoplay();
+
+    // Optional: expose controls externally
+    slider.next = nextSlide;
+    slider.prev = prevSlide;
+    slider.goTo = goToSlide;
+
+  })();
+</script>
 
 
 
@@ -146,13 +311,13 @@
       <div class="project-sidebar">
         <ul>
           <li class="{% if active_category == 'residential' %}active{% endif %} "  >
-            <a href="{% url 'home_with_category' 'residential' %}"><svg version="1.1" id="icons" class="project-sidebar-svg" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 128 128" style="enable-background:new 0 0 128 128" xml:space="preserve"><style>.st0,.st1{display:none;fill:#191919}.st1,.st3{fill-rule:evenodd;clip-rule:evenodd}.st3,.st4{display:inline;fill:#191919}</style><g id="row1"><path id="nav:2_3_" d="M64 1 17.9 127 64 99.8l46.1 27.2L64 1zm0 20.4 32.6 89.2L64 91.3V21.4z" style="fill:#191919"/></g></svg> RESIDENTIAL</a>
+            <a href="{% url 'home_with_category' 'residential' %}"> <span> </span><i class="bi bi-chevron-right"></i> RESIDENTIAL</a>
           </li>
           <li class="{% if active_category == 'commercial' %}active{% endif %}" >
-            <a href="{% url 'home_with_category' 'commercial' %}"><svg version="1.1" id="icons" class="project-sidebar-svg" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 128 128" style="enable-background:new 0 0 128 128" xml:space="preserve"><style>.st0,.st1{display:none;fill:#191919}.st1,.st3{fill-rule:evenodd;clip-rule:evenodd}.st3,.st4{display:inline;fill:#191919}</style><g id="row1"><path id="nav:2_3_" d="M64 1 17.9 127 64 99.8l46.1 27.2L64 1zm0 20.4 32.6 89.2L64 91.3V21.4z" style="fill:#191919"/></g></svg> COMMERCIAL</a>
+            <a href="{% url 'home_with_category' 'commercial' %}"><i class="bi bi-chevron-right"></i> COMMERCIAL</a>
           </li>
           <li class="{% if active_category == 'interior' %}active{% endif %}" >
-            <a href="https://homedeninterior.com/project/" target="_blank"><svg version="1.1" id="icons" class="project-sidebar-svg" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 128 128" style="enable-background:new 0 0 128 128" xml:space="preserve"><style>.st0,.st1{display:none;fill:#191919}.st1,.st3{fill-rule:evenodd;clip-rule:evenodd}.st3,.st4{display:inline;fill:#191919}</style><g id="row1"><path id="nav:2_3_" d="M64 1 17.9 127 64 99.8l46.1 27.2L64 1zm0 20.4 32.6 89.2L64 91.3V21.4z" style="fill:#191919"/></g></svg> INTERIOR</a>
+            <a href="https://homedeninterior.com/project/" target="_blank"> <i class="bi bi-chevron-right"></i> INTERIOR</a>
           </li>
         </ul>
       </div>
@@ -172,149 +337,152 @@
           <p style="color:black;">No projects found in this category.</p>
         {% endfor %}
       </div>
-  
     </div>
-    <button class="load-more-button" >
-      <a href="{% url 'projects' %}" style=" color:var(--bgWhite)" >know More</a>
-    </button>
-  </div>
 
-<div class="home-content-2-sticky-bg" >
-  <img src="{% static 'images/home2.webp' %}" alt="best builders in trichy"  loading="lazy" decoding="async" >
+
+  <!-- place this at the bottom of the section (inside the same wrapper that contains your gallery) -->
+<div class="know-more-wrapper">
+  <a href="{% url 'projects' %}" class="learn-more">
+            <span class="corner left"></span>
+          <span class="text-dark">Learn More</span>
+          <span class="corner right"></span>
+  </a>
+</div>
+
 </div>
 
 
-  <div class="home-content-2">
-    <div class="home-content-2-bg" style="background-color:transparent;">
-      <div class="home-content-head">
-
-        <h2 class="h4 section-title" style="color:var(--textColor);" >OUR SERVICES</h2>
-      </div>
-      <div class="home-content-2-row">
-        <a href="{% url 'category' 'residential' %}" class="card-link"  >
-        <div class="e-card playing animation zoom-in e-card-playing {% if active_category == 'residential' %}active{% endif %}">
-          <div class="image"></div>
-          
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="infotop">
-            <svg xmlns="http://www.w3.org/2000/svg"    class="home-content-2-row-svg" viewBox="0 0 576 512" ><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
-        <br>      
-          Turnkey House Construction <span class="hover-indicator">→</span>
-        <br>
-        <div class="name"><p>"" We provide Turnkey House construction services all over Tamil Nadu, Check out our free construction cost calculator tool below. Just choose the package, type in the construction area and little other basic info and get the construction cost."</p></div>
-          </div>
-        </div>
-      </a>
-      
-      <a href="{% url 'category' 'commercial' %}"  class="card-link" >
-        <div class="e-card playing animation zoom-in">
-          <div class="image"></div>
-          
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="infotop">
-            <svg xmlns="http://www.w3.org/2000/svg"  class="home-content-2-row-svg"   viewBox="0 0 384 512"><path d="M48 0C21.5 0 0 21.5 0 48L0 464c0 26.5 21.5 48 48 48l96 0 0-80c0-26.5 21.5-48 48-48s48 21.5 48 48l0 80 96 0c26.5 0 48-21.5 48-48l0-416c0-26.5-21.5-48-48-48L48 0zM64 240c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32zm112-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16zm80 16c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32zM80 96l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16zm80 16c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32zM272 96l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16z"/></svg>
-            <br>      
-              Commercial Construction <span class="hover-indicator">→</span>
-            <br>
-          <div class="name"> <p>We provide commercial construction services all over Tamil Nadu. Check out our pricing above. You can also use our free commercial construction cost calculator tool above to find out the cost of commercial construction. Just type in the buildup area and choose the package, you will get the final cost within seconds.""</p></div>
-          </div>
-        </div>
-        </a>
-
-         <a href="{% url 'row_villa' %}" class="card-link"  >
-        <div class="e-card playing animation zoom-in e-card-playing {% if active_category == 'residential' %}active{% endif %}">
-          <div class="image"></div>
-          
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="wave"></div>
-          <div class="infotop">
-            <svg xmlns="http://www.w3.org/2000/svg"    class="home-content-2-row-svg" viewBox="0 0 576 512" ><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
-        <br>      
-          Row Villa  <span class="hover-indicator">→</span>
-        <br>
-        <div class="name"><p>"" We provide Row Villa construction services all over Tamil Nadu, Check out our free construction cost calculator tool below. Just choose the package, type in the construction area and little other basic info and get the construction cost."</p></div>
-          </div>
-        </div>
-      </a>
-    </div>
-  </div>
-</div>
-
-    {% comment %} <div class="slider-container2  sticky-images4">
-      <div class="slide2 active">
-          <video autoplay muted loop>
-              <source src="https://pub-9c1665977a4c4135b3fd86b50e70cdfb.r2.dev/video1.mp4" type="video/mp4" loading="lazy">
-          </video>
-          <div class="overlay"  style="background-color: transparent;">
-            <h1 class="w" >MISSION</h1>
-            <p data-animate="from-bottom" style="background: rgba(0, 0, 0, 0.42);padding: 20px;border-radius: 10px;">At The Elite Dream Builders, our mission is to deliver a customer-centric construction experience rooted in trust, transparency, and excellence.</p>
-          </div>
-      </div>
-      <div class="slide2"  style="background-color: transparent;">
-          <video autoplay muted loop>
-              <source src="https://pub-9c1665977a4c4135b3fd86b50e70cdfb.r2.dev/video4.mp4" type="video/mp4" preload="auto" loading="lazy">
-          </video>
-          <div class="overlay"  style="background-color: transparent;">
-            <h1 class="w" data-animate="from-bottom">VISION</h1>
-            <p style="background: rgba(0, 0, 0, 0.42);padding: 20px;border-radius: 10px;" data-animate="from-bottom">Our vision is to transform Trichy into a city celebrated for its beautiful, high-quality homes. At The Elite Dream Builders, we are committed to setting new benchmarks in trust, quality, and transparency as a leading construction company in Trichy. By building homes that enrich our clients’ lives and contribute to Trichy’s growth, we aim to leave a lasting legacy in the city’s construction landscape.</p>
-          </div>
-      </div>
-  </div> {% endcomment %}
-
-    {% comment %} <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const slides = document.querySelectorAll('.slide2');
-    let currentIndex = 0;
-    const totalSlides = slides.length;
-    const intervalTime = 8000; // 8 seconds per slide
-
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        if (i === index) {
-          slide.classList.add('active');
-        }
-      });
-    }
-
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      showSlide(currentIndex);
-    }
-
-    // Start the slider
-    setInterval(nextSlide, intervalTime);
-  });
-</script> {% endcomment %}
 
   
-</div>
+<section class="services-section" aria-labelledby="services-title">
+  <div class="container">
+
+    <div class="section-header">
+      <h2 id="services-title" class="section-title">
+        Our  Services
+      </h2>
+      <p class="section-subtitle">
+        End-to-end solutions with transparency, quality & timely delivery across  <br>Tamil Nadu
+      </p>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- SERVICE 1: Turnkey House Construction -->
+      <a href="{% url 'category' 'residential' %}" class="service-card-link">
+        <article class="service-card {% if active_category == 'residential' %}active{% endif %}">
+          <div class="service-image">
+            <img src="{% static 'images/residental.webp' %}" 
+                 alt="Luxury Turnkey House Construction in Tamil Nadu" loading="lazy">
+            <div class="image-overlay"></div>
+          </div>
+
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="bi bi-house i-con"></i>
+            </div>
+
+            <h3 class="service-title">Turnkey House Construction</h3>
+            <p class="service-desc">
+              Complete A-to-Z residential construction with premium finishes. 
+              Use our <strong>free cost calculator</strong> — get accurate pricing in seconds.
+            </p>
+
+            <span class="service-cta">
+              Explore Residential Projects 
+              <svg class="arrow" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+            </span>
+          </div>
+
+          {% if active_category == 'residential' %}
+            <div class="active-indicator" aria-hidden="true"></div>
+          {% endif %}
+        </article>
+      </a>
+
+      <!-- SERVICE 2: Commercial Construction -->
+      <a href="{% url 'category' 'commercial' %}" class="service-card-link">
+        <article class="service-card">
+          <div class="service-image">
+            <img src="{% static 'images/commercial.webp' %}" 
+                 alt="Commercial Building Construction Services" loading="lazy">
+            <div class="image-overlay"></div>
+          </div>
+
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="bi bi-building i-con"></i>
+            </div>
+
+            <h3 class="service-title">Commercial Construction</h3>
+            <p class="service-desc">
+              Offices, retail spaces, warehouses & industrial buildings with international standards.
+            </p>
+
+            <span class="service-cta">
+              View Commercial Projects 
+              <svg class="arrow" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+            </span>
+          </div>
+        </article>
+      </a>
+
+      <!-- SERVICE 3: Row Villa -->
+      <a href="{% url 'row_villa' %}" class="service-card-link">
+        <article class="service-card {% if request.resolver_match.url_name == 'row_villa' %}active{% endif %}">
+          <div class="service-image">
+            <img src="{% static 'images/row-villa.webp' %}" 
+                 alt="Premium Row Villa Construction in Trichy" loading="lazy">
+            <div class="image-overlay"></div>
+          </div>
+
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="bi bi-houses i-con"></i>
+            </div>
+
+            <h3 class="service-title">Row Villa Projects</h3>
+            <p class="service-desc">
+              Modern gated community row villas with premium amenities & smart home features.
+            </p>
+
+            <span class="service-cta">
+              Discover Row Villas 
+              <svg class="arrow" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+            </span>
+          </div>
+
+          {% if request.resolver_match.url_name == 'row_villa' %}
+            <div class="active-indicator" aria-hidden="true"></div>
+          {% endif %}
+        </article>
+      </a>
+
+    </div>
+  </div>
+</section>
 
 
 <div class="home-conntent-bg">
   
   <div class="home-content">
-  
+
     <div class="home-content-1-bg">
       
       <div class="home-content-1-col-2" style="text-align:center">
-        <h1 style="text-align:center;"  >Welcome to Elite Dream Builders</h1>
-        
-        <h2 class="text-2xl font-bold mt-10 text-gray-800">Best Builders in Trichy for Your Dream Projects</h2>
+      <h2  class="section-title">
+        What We Do
+      </h2>
 
-        <h4 class="h4 section-title"  >WE DO ONLY WHAT WE ARE GREAT ON</h4>
+
+        <h4 class="h4 py-3"  >WE DO ONLY WHAT WE ARE GREAT ON</h4>
         
 
-        <p >The Elite Dream Builders, We ensure the delivered projects and services are of the highest quality and consistently satisfy our customer requirements.We strongly believe that customer satisfaction plays an important role to make each project a complete success. Our team members are capable of building enduring houses and good rapport with each customer. Our engineers focus on using the excellent quality construction materials for housing solutions that stand the test of time.
+        <p>The Elite Dream Builders, We ensure the delivered projects and services are of the highest quality and consistently satisfy our customer requirements.We strongly believe that customer satisfaction plays an important role to make each project a complete success. Our team members are capable of building enduring houses and good rapport with each customer. Our engineers focus on using the excellent quality construction materials for housing solutions that stand the test of time.
           We design each and every one as per customer satisfaction. We have done commercial, residential and commercial cum residential projects. Most of our residential projects are either duplex house or apartment or villas.
           No matter what the project size or cost we will always be working in close with the clients in order to design and also implement all those in the construction too. Each and every customization or request made by the client will be taken into account. We have done projects for every budget.
           </p>
-         <h3 class="counter" style="text-align:center;"  ><span  data-count="10" style="font-weight:600;color:var(--backGround);">0</span> YEARS OF EXPERIENCE</h3>
+         <h3 class="counter" style="text-align:center;"  ><span  data-count="10" style="font-weight:800;color:var(--backGround);">10</span> <span style="font-weight:600;color:var(--backGround);">YEARS OF EXPERIENCE</span></h3>
             <ul class="professional-list d-flex flex-wrap justify-content-center text-center">
           <li class="col-md-auto active"  >
             <div class="stat-card">
@@ -336,6 +504,48 @@
     </div>
   </div>
 </div>
+
+<!-- HTML -->
+<section class="office-section">
+  <div class="container" style="text-align:center;">
+    <h2 class="section-title px-2">Welcome to The Elite Dream Builders</h2>    
+    <h2 class="text-2xl font-bold  text-gray-800 py-3 h4">Best Builders in Trichy for Your Dream Projects</h2>
+    <div class="office-grid">
+      <!-- LEFT -->
+      <div class="office-info" style="text-align:left;">
+        <div class="label">OUR PRESENCE</div>
+        <h2 class="title">Corporate Office</h2>
+        <div class="title-underline" aria-hidden="true"></div>
+
+        <address class="address">
+          <p>No. 9,
+          Ground Floor,<br> MKS Building, Ganesh Nagar, Kattur, Tiruchirappalli, Tamil Nadu 620019</p>
+        </address>
+
+        <a href="{% url 'contact' %}" class="learn-more" role="button" aria-label="Learn more about corporate office">
+          <span class="corner left"></span>
+          <span class="text-dark">Learn More</span>
+          <span class="corner right"></span>
+        </a>
+      </div>
+
+      <!-- RIGHT (map) -->
+      <div class="office-map" aria-hidden="false">
+        <!-- Replace the src below with your embed code from Google Maps -->
+        <iframe
+          title="Corporate Office Location"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1959.574669303927!2d78.74762226674409!3d10.799872028547838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baaf5682b46b427%3A0xd2973161faa960e!2sThe%20Elite%20Dream%20Builders!5e0!3m2!1sen!2sin!4v1741618886528!5m2!1sen!2sin"
+          width="600" height="420" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        <!-- fallback static image (will show if iframe blocked) -->
+        <noscript>
+          <img src="/static/images/corporate-map-fallback.png" alt="Map showing corporate office location">
+        </noscript>
+      </div>
+    </div>
+  </div>
+</section>
+
 {% endblock %}
 
    

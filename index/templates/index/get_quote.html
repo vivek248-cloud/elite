@@ -23,39 +23,51 @@
     {% endfor %}
   </div>
 {% endif %}
-  
-<div class="get-box">
-      <form method="post">
-        {% csrf_token %}
-        <div class="get-form animation zoom-in">
-        <label for="id_name">Name:</label>
-        {{ form.name }}
-        
-        <label for="id_email">Email:</label>
-        {{ form.email }}
-        
-        <label for="id_number">Number:</label>
-        {{ form.phone }}
-        
-        <label for="id_service_type">Service Type:</label>
-        {{ form.service_type }}
-        
-        <label for="id_budget_range">Budget Range:</label>
-            <select name="budget_range" id="id_budget_range">
-              <option value="3">Gold</option>
-            </select>
 
-        
-        <label for="area">Total Area (sq. ft):</label>
-        <input type="number" id="area" name="area" placeholder="Enter area in sq. ft" oninput="calculateEstimate()">
-        <input type="hidden" id="estimated_cost" name="estimated_cost">
-
-        <p id="estimate">Estimated Cost: ₹0</p>
-
-        <button type="submit">Get Quote</button>
-        </div>
-    </form>
+<div class="quote-wrapper">
     
+    <!-- TOP TEXT -->
+    <div class="quote-header">
+        <h2 class="section-title">Get Your Custom Quote</h2>
+        <p style="color: #000000ff;">Fill in the details below and receive an accurate estimate instantly.</p>
+    </div>
+
+    <div class="get-box">
+        <form method="post">
+            {% csrf_token %}
+            <div class="get-form animation zoom-in">
+
+                <label for="id_name">Full Name</label>
+                {{ form.name }}
+
+                <label for="id_email">Email Address</label>
+                {{ form.email }}
+
+                <label for="id_number">Phone Number</label>
+                {{ form.phone }}
+
+                <label for="id_service_type">Service Type</label>
+                {{ form.service_type }}
+
+                <label for="id_budget_range">Budget Range</label>
+                <select name="budget_range" id="id_budget_range">
+                    <option value="3">Gold</option>
+                </select>
+
+                <label for="area">Total Area (sq. ft)</label>
+                <input type="number" id="area" name="area"
+                       placeholder="Enter area in sq. ft" oninput="calculateEstimate()">
+
+                <input type="hidden" id="estimated_cost" name="estimated_cost">
+
+                <p id="estimate">Estimated Cost: ₹0</p>
+
+                <button class="quote-btn" type="submit">Get Quote</button>
+            </div>
+        </form>
+    </div>
+
+</div>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
