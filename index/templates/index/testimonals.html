@@ -32,7 +32,7 @@
 <div class="test-containers">
   <div class="box3-bg">
     <div class="test-banner animation slide-down">
-        <h1  class="test-banner-h1" data-animate="from-top"> What Our Clients Are Saying<span class=" animation bounce">!</span></h1>
+        <h1  class="section-title" data-animate="from-top"> Client Insights<span class=" animation bounce">!</span></h1>
     </div>
     <div class="test-div">
       <div class="package">
@@ -59,97 +59,482 @@
       </div>
     </div>
 </div>
-<div class="section-title-container">
-<h2 class="section-title"   >"Hear from Our Happy Clients"</h2>
 </div>
-<div class="infinite-animation">
-  
-  <div class="group" id="review">
-    {% for review in reviews %}
-    <div class="card-review animation zoom-in">
-      <div class="review-avatar">
-        <img src="{% static 'images/user.png' %}" alt="Default Avatar" class="avatar-img" type="image/png">
-      </div>
-      <div class="stars">
-        {% for i in "12345"|make_list %}
-          {% if forloop.counter <= review.rating %}
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="star animation slide-up">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-            </svg>
-          {% else %}
-            <!-- Empty Star (Optional) -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="gray" class="star animation slide-up">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-            </svg>
-          {% endif %}
-        {% endfor %}
-      </div>
-      
-      <div class="infos">
-        <p class="date-time">{{ review.date|timesince }} ago</p>
-        <p class="review-description animation slide-up">{{ review.comment }}</p>
-      </div>
-      
-      <div class="author animation slide-right">
-        — {{ review.name }}
-      </div>
-    </div>
-  {% endfor %}
-  </div>
-  <div aria-hidden class="group">
-      {% for review in reviews %}
-      <div class="card-review animation zoom-in">
-        <div class="review-avatar">
-          <img src="{% static 'images/user.png' %}" alt="Default Avatar" class="avatar-img" type="image/png" loading="lazy">
-        </div>
-        <div class="stars">
-          {% for i in "12345"|make_list %}
-            {% if forloop.counter <= review.rating %}
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="star animation slide-up">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+
+</div>
+
+
+<section class="reviews-section" aria-labelledby="reviews-heading">
+  <h3 class="section-title">REVIEWS</h3>
+
+  <div class="reviews-inner container">
+
+    <!-- RIGHT : Slider -->
+    <div class="reviews-right">
+      <div class="rev-viewport" tabindex="0">
+        <div class="rev-track">
+          {% for review in reviews %}
+          <article class="rev-card">
+            <div class="rev-header">
+              <img src="{% static 'images/user.png' %}" class="rev-avatar" alt="{{ review.name }}">
+              <div>
+                <div class="rev-name">{{ review.name }}</div>
+                <div class="rev-date">{{ review.date|timesince }} ago</div>
+              </div>
+            </div>
+
+            <p class="rev-text">“{{ review.comment }}”</p>
+
+            <div class="rev-stars">
+              {% for i in "12345"|make_list %}
+              <svg viewBox="0 0 20 20" class="rev-star"
+                   fill="{% if forloop.counter <= review.rating %}#f1c40f{% else %}#dcdcdc{% endif %}">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 
+                  3.292a1 1 0 00.95.69h3.462c.969 0 
+                  1.371 1.24.588 1.81l-2.8 2.034a1 
+                  1 0 00-.364 1.118l1.07 3.292c.3.921-.755 
+                  1.688-1.54 1.118l-2.8-2.034a1 1 0 
+                  00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 
+                  1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 
+                  1 0 00.951-.69l1.07-3.292z"/>
               </svg>
-            {% else %}
-              <!-- Empty Star (Optional) -->
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="gray" class="star animation slide-up">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-              </svg>
-            {% endif %}
+              {% endfor %}
+            </div>
+          </article>
           {% endfor %}
         </div>
-        
-        <div class="infos">
-          <p class="date-time">{{ review.date|timesince }} ago</p>
-          <p class="review-description animation slide-up">{{ review.comment }}</p>
-        </div>
-        
-        <div class="author animation slide-right">
-          — {{ review.name }}
-        </div>
       </div>
-    {% endfor %}
-  </div>
 
-<div class="video-slider2">
-  <h2 class="section-title" style="color:black;">Trusted by Thousands</h2>
-  <button class="nav-button prev" onclick="prevVideo()">❮</button>
-  
-  <div class="video-container" id="videoContainer" data-animate="fade-in">
-    {% for video in videos %}
-      {% if video.youtube_id %}
-        <div class="video-thumb slide" onclick="playYouTube('{{ video.youtube_id }}', this)">
-          <img src="https://img.youtube.com/vi/{{ video.youtube_id }}/hqdefault.jpg" alt="{{ video.title }}">
-          <div class="play-button-overlay">&#9658;</div>
-        </div>
-      {% endif %}
-    {% endfor %}
+      <!-- Navigation -->
+      <div class="rev-nav">
+        <button class="rev-btn rev-prev">‹</button>
+        <button class="rev-btn rev-next">›</button>
+      </div>
+    </div>
   </div>
-  
-  <button class="nav-button next" onclick="nextVideo()">❯</button>
+</section>
+
+
+<script>
+(function(){
+  const viewport = document.querySelector('.rev-viewport');
+  const track = document.querySelector('.rev-track');
+  const prevBtn = document.querySelector('.rev-prev');
+  const nextBtn = document.querySelector('.rev-next');
+
+  if (!viewport || !track) return;
+
+  const cardGap = parseInt(getComputedStyle(track).gap) || 20;
+  let autoplayInterval = 3000;
+  let autoplayTimer = null;
+  let isHovering = false;
+
+  // compute card width (first card)
+  function cardWidth() {
+    const card = track.querySelector('.rev-card');
+    return card ? card.getBoundingClientRect().width : 300;
+  }
+
+  function scrollByCards(n = 1) {
+    const w = cardWidth();
+    viewport.scrollBy({ left: (w + cardGap) * n, behavior: 'smooth' });
+  }
+
+  // Prev / Next handlers
+  prevBtn && prevBtn.addEventListener('click', () => {
+    stopAutoplay();
+    scrollByCards(-1);
+  });
+  nextBtn && nextBtn.addEventListener('click', () => {
+    stopAutoplay();
+    scrollByCards(1);
+  });
+
+  // autoplay
+  function startAutoplay() {
+    if (autoplayTimer) return;
+    autoplayTimer = setInterval(() => {
+      if (!isHovering) {
+        // if at end, go to start
+        const maxScroll = track.scrollWidth - viewport.clientWidth;
+        if (Math.round(viewport.scrollLeft) >= maxScroll - 10) {
+          viewport.scrollTo({ left:0, behavior:'smooth' });
+        } else {
+          scrollByCards(1);
+        }
+      }
+    }, autoplayInterval);
+  }
+
+  function stopAutoplay() {
+    if (autoplayTimer) {
+      clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+  }
+
+  // pause on hover or focus
+  viewport.addEventListener('mouseenter', () => { isHovering = true; stopAutoplay(); });
+  viewport.addEventListener('mouseleave', () => { isHovering = false; startAutoplay(); });
+  viewport.addEventListener('focusin', () => { isHovering = true; stopAutoplay(); });
+  viewport.addEventListener('focusout', () => { isHovering = false; startAutoplay(); });
+
+  // start autoplay on load
+  startAutoplay();
+
+  // keyboard support: left/right arrows when viewport focused
+  viewport.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); stopAutoplay(); scrollByCards(1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); stopAutoplay(); scrollByCards(-1); }
+  });
+
+  // optional: make track clickable/touch scroll friendly (natural by default)
+})();
+</script>
+
+
+
+
+
+<div class="vd-slider">
+  <h1 class="section-title">Trusted by Thousands</h1>
+
+  <button type="button" class="vd-nav vd-prev" onclick="vdPrev()">❮</button>
+
+      <div class="vd-viewport" id="vdViewport" data-animate="fade-in">
+        {% for video in videos %}
+          {% with id=video.youtube_id %}
+            {% if id %}
+              <div class="vd-slide" data-youtube-id="{{ id }}" tabindex="0" role="button" aria-label="Play {{ video.title }}">
+                <img data-src="https://img.youtube.com/vi/{{ id }}/hqdefault.jpg" alt="{{ video.title }}" class="vd-thumb">
+                <div class="vd-play">▶</div>
+              </div>
+            {% endif %}
+          {% endwith %}
+        {% endfor %}
+      </div>
+
+  <button type="button" class="vd-nav vd-next" onclick="vdNext()">❯</button>
+
+  <!-- dots will be auto-generated -->
+  <div class="vd-dots" aria-hidden="false"></div>
 </div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  'use strict';
+
+  const viewport = document.getElementById('vdViewport');
+  if (!viewport) return;
+
+  // grab slides and move into .vd-row container
+  const slides = Array.from(viewport.querySelectorAll('.vd-slide'));
+  if (slides.length === 0) return;
+
+  let row = viewport.querySelector('.vd-row');
+  if (!row) {
+    row = document.createElement('div');
+    row.className = 'vd-row';
+    // move slides into row
+    slides.forEach(s => row.appendChild(s));
+    viewport.appendChild(row);
+  }
+
+  let index = 0;
+
+  const parent = viewport.closest('.vd-slider');
+  const nextBtn = parent.querySelector('.vd-next');
+  const prevBtn = parent.querySelector('.vd-prev');
+  const dotsWrap = parent.querySelector('.vd-dots');
+
+  // build dots
+  dotsWrap.innerHTML = '';
+  slides.forEach((_, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    if (i === 0) b.classList.add('vd-active');
+    b.addEventListener('click', () => { index = i; render(); });
+    dotsWrap.appendChild(b);
+  });
+
+  function render() {
+    const slidesNow = Array.from(row.children);
+    if (slidesNow.length === 0) return;
+    index = ((index % slidesNow.length) + slidesNow.length) % slidesNow.length;
+    row.style.transform = `translateX(-${index * 100}%)`;
+
+    // update dots
+    Array.from(dotsWrap.children).forEach((btn, i) => btn.classList.toggle('vd-active', i === index));
+
+    // update aria/current
+    slidesNow.forEach((s, i) => { s.setAttribute('aria-current', i === index ? 'true' : 'false'); });
+    // disable nav if only one slide
+    if (nextBtn && prevBtn) {
+      const disabled = slidesNow.length <= 1;
+      nextBtn.disabled = disabled; prevBtn.disabled = disabled;
+      nextBtn.style.opacity = disabled ? 0.45 : 1; prevBtn.style.opacity = disabled ? 0.45 : 1;
+      nextBtn.style.pointerEvents = disabled ? 'none' : ''; prevBtn.style.pointerEvents = disabled ? 'none' : '';
+    }
+  }
+
+  window.vdNext = function () { index = index + 1; render(); };
+  window.vdPrev = function () { index = index - 1; render(); };
+
+  // keyboard
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') vdNext();
+    if (e.key === 'ArrowLeft') vdPrev();
+    if (e.key === 'Escape') closeVdModal();
+  });
+
+  // touch swipe
+  let startX = null;
+  viewport.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  viewport.addEventListener('touchend', e => {
+    if (startX === null) return;
+    const endX = e.changedTouches[0].clientX;
+    const dx = startX - endX;
+    if (Math.abs(dx) > 60) { if (dx > 0) vdNext(); else vdPrev(); }
+    startX = null;
+  }, { passive: true });
+
+  // lazy-load thumbnails with IntersectionObserver fallback to data-src
+  const obsSupported = 'IntersectionObserver' in window;
+  if (obsSupported) {
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(ent => {
+        if (ent.isIntersecting) {
+          const img = ent.target.querySelector('img.vd-thumb');
+          if (img && img.dataset.src) { img.src = img.dataset.src; img.removeAttribute('data-src'); }
+          obs.unobserve(ent.target);
+        }
+      });
+    }, { root: viewport, threshold: 0.1 });
+    Array.from(row.children).forEach(sl => io.observe(sl));
+  } else {
+    // fallback: set src immediately
+    Array.from(row.querySelectorAll('img.vd-thumb')).forEach(img => { if (img.dataset.src) img.src = img.dataset.src; });
+  }
+
+  // Modal for playback
+  let modal = document.querySelector('.vd-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.className = 'vd-modal';
+    modal.innerHTML = '<div class="vd-modal-inner"><button class="vd-modal-close" aria-label="Close player">✕</button><div class="vd-embed"></div></div>';
+    document.body.appendChild(modal);
+  }
+  const embedWrap = modal.querySelector('.vd-embed');
+  const closeBtn = modal.querySelector('.vd-modal-close');
+
+  function closeVdModal() {
+    modal.classList.remove('vd-show');
+    embedWrap.innerHTML = '';
+    document.body.style.overflow = '';
+    // return focus to current slide
+    const curr = row.children[index];
+    if (curr) curr.focus();
+  }
+  window.closeVdModal = closeVdModal;
+
+  closeBtn.addEventListener('click', closeVdModal);
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeVdModal(); });
+
+  // open modal when clicking a slide
+  row.addEventListener('click', function (e) {
+    const slide = e.target.closest('.vd-slide');
+    if (!slide) return;
+    const id = slide.dataset.youtubeId || slide.getAttribute('data-youtube-id');
+    if (!id) return;
+    openVdModal(id);
+  });
+
+  // also allow keyboard Enter/Space on focused slide
+  row.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      const slide = document.activeElement;
+      if (slide && slide.classList.contains('vd-slide')) {
+        e.preventDefault();
+        const id = slide.dataset.youtubeId || slide.getAttribute('data-youtube-id');
+        if (id) openVdModal(id);
+      }
+    }
+  });
+
+  function openVdModal(id) {
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    iframe.loading = 'lazy';
+    embedWrap.innerHTML = '';
+    embedWrap.appendChild(iframe);
+    modal.classList.add('vd-show');
+    document.body.style.overflow = 'hidden';
+    // focus close button shortly
+    setTimeout(() => closeBtn.focus(), 120);
+  }
+
+  // initialize rendering
+  render();
+
+  // recalc on resize
+  window.addEventListener('resize', render);
+});
+</script>
+
+
+
+
+<!-- TESTIMONIALS + STATS SECTION -->
+<section class="testimonials-section" aria-labelledby="testimonials-heading">
+  <div class="wrap">
+    <h2 id="testimonials-heading" class="visually-hidden">Testimonials & Stats</h2>
+
+    <!-- Testimonials -->
+    <div class="testimonials-grid" role="list">
+      <!-- card 1 -->
+      <article class="testimonial-card" role="listitem">
+        <img class="client-logo" src="{% static "images/user.png" %}" alt="Loom" loading="lazy" />
+        <blockquote class="quote">“If you’re looking for someone who is trustworthy, committed, and builds with both heart and skill, I highly recommend Elite Dream Builders!”</blockquote>
+
+        <div class="stars" aria-hidden="true">
+          <!-- 5 stars -->
+          <svg viewBox="0 0 24 24" class="star" aria-hidden="true"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.789 1.402 8.168L12 18.896 4.664 23.167l1.402-8.168L.132 9.21l8.2-1.192z"/></svg>
+          <svg viewBox="0 0 24 24" class="star" aria-hidden="true"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.789 1.402 8.168L12 18.896 4.664 23.167l1.402-8.168L.132 9.21l8.2-1.192z"/></svg>
+          <svg viewBox="0 0 24 24" class="star" aria-hidden="true"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.789 1.402 8.168L12 18.896 4.664 23.167l1.402-8.168L.132 9.21l8.2-1.192z"/></svg>
+          <svg viewBox="0 0 24 24" class="star" aria-hidden="true"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.789 1.402 8.168L12 18.896 4.664 23.167l1.402-8.168L.132 9.21l8.2-1.192z"/></svg>
+          <svg viewBox="0 0 24 24" class="star" aria-hidden="true"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.789 1.402 8.168L12 18.896 4.664 23.167l1.402-8.168L.132 9.21l8.2-1.192z"/></svg>
+        </div>
+
+        <p class="person">Maheswaran.S</p>
+        
+      </article>
+
+      <!-- card 2 -->
+      <article class="testimonial-card" role="listitem">
+        <img class="client-logo" src="{% static "images/user.png" %}" alt="Loom" loading="lazy" />
+        <blockquote class="quote">“Thank you for the outstanding work on our Padmalayaa project at Renganagar, Trichy. We were especially impressed with your committed timeline and the professionalism of your team”</blockquote>
+
+        <div class="stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24" class="star"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.789 1.402 8.168L12 18.896 4.664 23.167l1.402-8.168L.132 9.21l8.2-1.192z"/></svg>
+          <svg viewBox="0 0 24 24" class="star"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.789 1.402 8.168L12 18.896 4.664 23.167l1.402-8.168L.132 9.21l8.2-1.192z"/></svg>
+          <svg viewBox="0 0 24 24" class="star"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.789 1.402 8.168L12 18.896 4.664 23.167l1.402-8.168L.132 9.21l8.2-1.192z"/></svg>
+          <svg viewBox="0 0 24 24" class="star"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.789 1.402 8.168L12 18.896 4.664 23.167l1.402-8.168L.132 9.21l8.2-1.192z"/></svg>
+          <svg viewBox="0 0 24 24" class="star"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.789 1.402 8.168L12 18.896 4.664 23.167l1.402-8.168L.132 9.21l8.2-1.192z"/></svg>
+        </div>
+
+        <p class="person">Bala</p>
+        
+      </article>
+
+      <!-- card 3 -->
+      <article class="testimonial-card" role="listitem">
+          <img class="client-logo" src="{% static "images/user.png" %}" alt="Loom" loading="lazy" />
+        <blockquote class="quote">“Nice and punctual work. I wanted to take a moment to thank you and your team for the excellent exterior painting work recently completed on our building”</blockquote>
+
+        <div class="stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24" class="star"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.789 1.402 8.168L12 18.896 4.664 23.167l1.402-8.168L.132 9.21l8.2-1.192z"/></svg>
+          <svg viewBox="0 0 24 24" class="star"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.789 1.402 8.168L12 18.896 4.664 23.167l1.402-8.168L.132 9.21l8.2-1.192z"/></svg>
+          <svg viewBox="0 0 24 24" class="star"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.789 1.402 8.168L12 18.896 4.664 23.167l1.402-8.168L.132 9.21l8.2-1.192z"/></svg>
+          <svg viewBox="0 0 24 24" class="star"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.789 1.402 8.168L12 18.896 4.664 23.167l1.402-8.168L.132 9.21l8.2-1.192z"/></svg>
+          <svg viewBox="0 0 24 24" class="star"><path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.789 1.402 8.168L12 18.896 4.664 23.167l1.402-8.168L.132 9.21l8.2-1.192z"/></svg>
+        </div>
+
+        <p class="person">Muruganadham.G</p>
+        
+      </article>
+    </div>
+
+    <!-- Divider -->
+    <hr class="section-divider" aria-hidden="true" />
+
+    <!-- Stats -->
+    <div class="stats-row" role="list" aria-label="Key statistics">
+      <div class="stat" role="listitem">
+        <div class="stat-number" data-target="80" data-suffix="+">0</div>
+        <div class="stat-label">Happy customers</div>
+      </div>
+
+      <div class="stat split" role="listitem">
+        <div class="stat-number" data-target="5000" data-suffix="+">0</div>
+        <div class="stat-label">Hours spent on craft</div>
+      </div>
+
+      <div class="stat" role="listitem">
+        <div class="stat-number" data-target="4.8" data-decimals="1">0</div>
+        <div class="stat-label">Review rate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Optional: add this JS just before </body> -->
+<script>
+(function(){
+  const supportsReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function animateNumber(el, target, decimals=0, duration=1200, suffix="") {
+    if (supportsReducedMotion) {
+      el.textContent = formatValue(target, decimals) + suffix;
+      return;
+    }
+
+    const start = performance.now();
+    const initial = 0;
+    target = Number(target);
+
+    function tick(now) {
+      const t = Math.min(1, (now - start) / duration);
+      const eased = t * (2 - t);
+      const value = initial + (target - initial) * eased;
+      el.textContent = formatValue(value, decimals) + suffix;
+      if (t < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function formatValue(value, decimals) {
+    return Number(value).toLocaleString(undefined, {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals
+    });
+  }
+
+  function onIntersection(entries, observer) {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      observer.unobserve(entry.target);
+
+      const numbers = entry.target.querySelectorAll('.stat-number');
+      numbers.forEach(n => {
+        let target = n.dataset.target;
+        const decimals = parseInt(n.dataset.decimals || 0, 10);
+        const suffix = n.dataset.suffix || "";
+
+        // handle 5k / 2.5k formats
+        if (/k$/i.test(String(target))) {
+          target = parseFloat(target) * 1000;
+        }
+
+        animateNumber(n, target, decimals, 1400, suffix);
+      });
+    });
+  }
+
+  const container = document.querySelector('.testimonials-section .wrap');
+  if (!container) return;
+
+  const observer = new IntersectionObserver(onIntersection, { threshold: 0.25 });
+  observer.observe(container);
+})();
+</script>
 
 
 
 {% endblock %}
+
 
 
 

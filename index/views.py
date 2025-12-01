@@ -26,12 +26,14 @@ from django.http import JsonResponse
 def home(request, category='residential'):
     # category = request.GET.get('category', 'residential') # Default to 'residential' if not provided
     all_projects = Project.objects.filter(category=category)[:3]
+    projects =  Project.objects.filter(status='completed').all()
     sliders = HomeSlider.objects.all()
     return render(request, 'index/home.html',{
         'video3_url': static('videos/video3.mp4'),
         'video4_url': static('videos/video4.mp4'), 'title': 'Welcome to Elite Dream Builders',
                'projects': all_projects,
                'sliders': sliders,
+               'project_slider':projects
     })
 
 
@@ -92,29 +94,51 @@ def load_more_projects(request):
 
     return JsonResponse({'projects': project_data, 'has_more': has_more})
 
-def load_more_upcomming_projects(request):
-    offset = int(request.GET.get('offset', 0))
-    limit = 6
+from django.http import JsonResponse
+from django.conf import settings
 
-    # Only fetch projects with status 'ongoing'
-    ongoing_projects = Project.objects.filter(status='ongoing').order_by('id')[offset:offset + limit]
-    upcoming_projects = ongoing_projects
+def load_more_upcomming_projects(request):
+    try:
+        offset = int(request.GET.get('offset', 0))
+    except ValueError:
+        offset = 0
+
+    # allow client to pass a custom limit (optional)
+    try:
+        limit = int(request.GET.get('limit', 6))
+    except ValueError:
+        limit = 6
+
+    qs = Project.objects.filter(status='ongoing').order_by('id')
+    total_count = qs.count()
+
+    # slice the queryset
+    projects = qs[offset: offset + limit]
 
     project_data = []
-    for project in upcoming_projects:
+    for project in projects:
+        # guard against missing image
+        image_url = project.image.url if getattr(project, 'image', None) and hasattr(project.image, 'url') else ''
         project_data.append({
             'slug': project.slug,
             'title': project.title,
-            'image_url': project.image.url,
+            'image_url': image_url,
             'budget_range': str(project.budget_range),
             'bhk': project.bhk,
             'description': project.description,
         })
 
-    # Use the same filtered queryset for counting
-    has_more = Project.objects.filter(status='ongoing').count() > offset + limit
+    # use actual number returned to determine `has_more`
+    new_offset = offset + len(projects)
+    has_more = total_count > new_offset
 
-    return JsonResponse({'upcoming_projects': project_data, 'has_more': has_more})
+    return JsonResponse({
+        'upcoming_projects': project_data,
+        'has_more': has_more,
+        'new_offset': new_offset,
+        'total': total_count,
+    })
+
 
 # ProjectVideo
 
@@ -188,18 +212,85 @@ def load_more_projects_category(request):
 
 
 
+# def contact(request):
+#     images = GalleryImage.objects.all()
+#     about_sections = AboutSection.objects.all()
+#     videoslider = SliderVideo.objects.all()
+
+#     # Get first video from slider
+#     if videoslider.exists():
+#         first_video = videoslider.first()
+#         vf = first_video.video_file  # FieldFile instance
+#     else:
+#         video_url = ''
+
+#     if request.method == "POST":
+#         name = request.POST.get('name')
+#         email = request.POST.get('email')
+#         subject = request.POST.get('subject')
+#         message = request.POST.get('message')
+
+#         full_message = f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}"
+
+#         # Send email
+#         try:
+#             send_mail(
+#                 subject,
+#                 full_message,
+#                 settings.EMAIL_HOST_USER,
+#                 [settings.ADMIN_EMAIL,"elitedreambuilders07@gmail.com"],
+#                 fail_silently=False
+#             )
+#         except Exception as e:
+#             print(f"EMAIL ERROR: {e}")
+#             messages.error(request, "Failed to send email. Please try again.")
+
+#         # Send WhatsApp message via Twilio
+#         try:
+#             client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
+#             client.messages.create(
+#                 from_='whatsapp:' + settings.TWILIO_WHATSAPP_NUMBER,
+#                 to='whatsapp:' + settings.ADMIN_WHATSAPP_NUMBER,
+#                 content_sid=settings.TWILIO_TEMPLATE_SID,
+#                 content_variables=json.dumps({
+#                     "1": name,
+#                     "2": email,
+#                     "3": message
+#                 })
+#             )
+#             messages.success(request, "Thank you for contacting us! We'll reach out soon.")
+#         except Exception as e:
+#             print(f"WHATSAPP ERROR: {e}")
+#             messages.error(request, "Failed to send WhatsApp message.")
+
+#         return redirect('contact')
+
+#     context = {
+#         'title': 'Contact Us - Elite Dream Builders',
+#         'images': images,
+#         'about_sections': about_sections,
+#         'videoslider': videoslider,
+#         'video_url': video_url,
+#     }
+#     return render(request, 'index/contact.html', context)
+
 def contact(request):
     images = GalleryImage.objects.all()
     about_sections = AboutSection.objects.all()
     videoslider = SliderVideo.objects.all()
 
-    # Get first video from slider
+    # Get first video URL safely
+    video_url = ""
     if videoslider.exists():
         first_video = videoslider.first()
-        video_url = first_video.video_file.build_url(resource_type='video', secure=True)
-    else:
-        video_url = ''
+        vf = first_video.video_file  # FieldFile instance
 
+        try:
+            video_url = vf.url  # SAFE for Django storage
+        except Exception:
+            video_url = ""  # fallback if no URL available
+
+    # Handle form submission
     if request.method == "POST":
         name = request.POST.get('name')
         email = request.POST.get('email')
@@ -214,14 +305,14 @@ def contact(request):
                 subject,
                 full_message,
                 settings.EMAIL_HOST_USER,
-                [settings.ADMIN_EMAIL,"elitedreambuilders07@gmail.com"],
+                [settings.ADMIN_EMAIL, "elitedreambuilders07@gmail.com"],
                 fail_silently=False
             )
         except Exception as e:
             print(f"EMAIL ERROR: {e}")
             messages.error(request, "Failed to send email. Please try again.")
 
-        # Send WhatsApp message via Twilio
+        # WhatsApp via Twilio
         try:
             client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
             client.messages.create(
@@ -241,6 +332,7 @@ def contact(request):
 
         return redirect('contact')
 
+    # Context
     context = {
         'title': 'Contact Us - Elite Dream Builders',
         'images': images,
@@ -248,8 +340,8 @@ def contact(request):
         'videoslider': videoslider,
         'video_url': video_url,
     }
+    
     return render(request, 'index/contact.html', context)
-
 
 
 
@@ -441,7 +533,7 @@ Budget Range: {quote.budget_range.name if quote.budget_range else 'N/A'}
             if send_whatsapp_to_admin(quote):
                 messages.success(request, "Your request has been submitted successfully! 👏")
             else:
-                messages.warning(request, "Submitted, but WhatsApp message failed.")
+                messages.warning(request, "Submitted")
 
             return redirect('get_quote')
 
@@ -479,7 +571,7 @@ def testimonals(request):
     
     if videos.exists():
         first_video = videos.first()
-        video_url = first_video.video_file.build_url(resource_type='video', secure=True)
+        video_url = first_video.youtube_url or ''   # Safely read YouTube URL
     else:
         video_url = ''
 
@@ -495,6 +587,14 @@ def testimonals(request):
 def terms(request):
     context = {'title': 'Terms & Conditions - Elite Dream Builders'}
     return render(request,'index/terms.html',context)
+
+
+
+
+
+
+
+
 
 # custom 404 error
 

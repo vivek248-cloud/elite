@@ -37,6 +37,7 @@
       <div class="section-title-wrapper">
         <h2 class="section-title" >Completed Projects</h2>
       </div>
+
       <div class="project-gallerys" id="projects-container">
       {% for project in projects %}
         <div class="project-tile">
@@ -56,28 +57,33 @@
       <button id="load-more-btn" class="load-more-button" >Load More</button>
     </section>
     
-    <section class="completed-projects">
-      <div class="section-title-wrapper">
-        <h2 class="section-title" >Ongoing Projects</h2>
-      </div>
-        <div class="project-gallerys" id="upcoming-projects-container">
-     {% for project in upcoming_projects %}
-        <div class="project-tile">
-          <a href="{% url 'projects_details' project.slug %}">
-            <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy" decoding="async">
-          </a>
-          <div class="view-link">
-            <a href="{% url 'projects_details' project.slug %}">View Project</a>
-            <span class="circle-arrow">&#10140;</span> <!-- Unicode arrow matching your screenshot -->
-          </div>
-        </div>
-        {% empty %}
-          <p>No images available</p>
-      {% endfor %}
-      </div>
+<section class="completed-projects">
+  <div class="section-title-wrapper">
+    <h2 class="section-title">Ongoing Projects</h2>
+  </div>
 
-      <button id="load-more-upcoming-btn" class="load-more-button" >Load More</button>
-    </section>
+  <!-- embed a template for project detail links. 'SLUG' is literal placeholder -->
+  <div class="project-gallerys"
+       id="upcoming-projects-container"
+       data-detail-template="{% url 'projects_details' 'SLUG' %}">
+    {% for project in upcoming_projects %}
+      <div class="project-tile">
+        <a href="{% url 'projects_details' project.slug %}">
+          <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy" decoding="async">
+        </a>
+        <div class="view-link">
+          <a href="{% url 'projects_details' project.slug %}">View Project</a>
+          <span class="circle-arrow">&#10140;</span>
+        </div>
+      </div>
+    {% empty %}
+      <p>No images available</p>
+    {% endfor %}
+  </div>
+
+  <button id="load-more-upcoming-btn" class="load-more-button">Load More</button>
+</section>
+
 
 <section class="youtube-gallery-section">
   <h2 class="section-title" >Explore Our Projects</h2>
@@ -180,34 +186,68 @@
   <div class="video-overlay"></div>
   <div class="mouse-tracker" id="mouseTracker">view</div>
   <div class="video-content">
-    <h1>Premium Row Villa</h1>
-    <p>Ultra-Spacious 3BHK villa</p>
+    <h1 style="text-transform: uppercase;">Premium Row Villa</h1>
+    <p style="text-transform: uppercase;">Ultra-Spacious 3BHK villa</p>
   </div>
   </a>
 </section>
-
-<div class="bg-green-100 p-6 rounded-xl mt-10 text-center" style="margin-top:2rem;">
-  <h3 class="text-xl font-bold text-dark">Looking for Trusted Builders in Trichy?</h3>
-  <p class="text-dark mt-2">Let Elite Dream Builders turn your dream home or commercial space into reality. Book a free site visit today!</p>
-  <a href="{% url 'contact' %}" class="inline-block mt-4 px-6 py-2 bg-green-600 text-dark font-semibold rounded-lg hover:bg-green-700 transition"><strong>Contact Us</strong></a>
 </div>
 
-<div class="projects-text projects-text-bg">
-  <div class="head" style="text-align:center;">
-    <h1 class="h4" >Delivering Dreams with Integrity</h1>
-  </div>
+<section class="projects-section">
+  <div class="container">
+    <div class="projects-inner row align-items-center gy-4">
 
+      <!-- LEFT: Headline & copy -->
+      <div class="col-12 col-lg-7">
+        <h2 class="projects-sub-title">Delivering Dreams with Integrity</h2>
 
-  <div class="details animation slide-down">
-      <p >
-        At <strong> The Elite Dream Builders</strong>, we are committed to delivering exceptional construction experiences. Our projects are guided by precise scheduling using Gantt charts and monitored through our dedicated mobile app, ensuring complete transparency at every stage. 
-    <br><br>
-        Every structure we build goes through over 200 rigorous quality checks, guaranteeing strength, safety, and longevity. From premium villas and modern duplexes to stylish apartments, we craft each project with attention to detail and a focus on client satisfaction.
-    <br><br>
-        We're currently active in locations like Kalkandar Kottai, Ponamalipatty, Urayur, and Srirangam, with upcoming developments in Tiruvanaikovil and more. Our designs are not only aesthetic but also eco-conscious, energy-efficient, and tailored to meet diverse budgets and dreams.
-  </p>
-  </div>
-</div>
+        <div class="projects-body">
+          <p>
+            At <strong>The Elite Dream Builders</strong>, we deliver exceptional construction experiences built on transparency and discipline. We plan using precise Gantt schedules and monitor progress with our dedicated mobile app so you always know the status of your project.
+          </p>
+
+          <p>
+            Every structure undergoes <strong>200+ quality checks</strong> to guarantee strength, safety and longevity. From premium villas and modern duplexes to stylish apartments — every design balances aesthetics, efficiency and cost.
+          </p>
+
+          <p class="mb-0">
+            Currently active in <strong>Kalkandar Kottai, Ponamalipatty, Urayur</strong> and <strong>Srirangam</strong>, with more projects coming in Tiruvanaikovil. We focus on eco-conscious, energy-efficient solutions tailored to varied budgets and dreams.
+          </p>
+        </div>
+
+        <div class="projects-ctas mt-4 d-flex flex-wrap gap-2">
+          <a href="{% url 'projects' %}" class="btn view-project btn-lg">View Projects</a>
+          <a href="{% url 'get_quote' %}" class="btn btn-outline-dark btn-lg">Get a Quote</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Decorative image / stats -->
+      <div class="col-12 col-lg-5">
+        <div class="projects-card">
+          <!-- Replace the src with a real project image or a local SVG -->
+          <img src="{% static 'images/residental.webp' %}" alt="Project preview" class="projects-image" loading="lazy" decoding="async">
+
+          <div class="projects-stats">
+            <div class="stat">
+              <div class="stat-value">20+</div>
+              <div class="stat-label">Quality checks</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">4.6★</div>
+              <div class="stat-label">Average rating</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">100+</div>
+              <div class="stat-label">Happy clients</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.projects-inner -->
+  </div><!-- /.container -->
+</section>
+
 
 
 
@@ -299,41 +339,99 @@
 {% comment %} upcomming projects {% endcomment %}
 
 <script>
-  let upcomingOffset = 12; // First 12 are already loaded initially
-  const limit = 6;
-  const loadMoreUpcomingUrl = "{% url 'load_more_upcomming_projects' %}";
+  (function() {
+    const container = document.getElementById('upcoming-projects-container');
+    const loadBtn = document.getElementById('load-more-upcoming-btn');
 
-  document.getElementById('load-more-upcoming-btn').addEventListener('click', () => {
-    fetch(`${loadMoreUpcomingUrl}?offset=${upcomingOffset}`)
-      .then(response => response.json())
-      .then(data => {
-        const container = document.getElementById('upcoming-projects-container');
-        data.upcoming_projects.forEach(project => {
-          const card = document.createElement('div');
-          card.classList.add('project-tile');
-          card.innerHTML = `
-            <a href="/projects/${project.slug}/">
-              <img src="${project.image_url}" alt="${project.title}">
-            </a>
-            <div class="view-link">
-              <a href="/projects/${project.slug}/">View Project</a>
-              <span class="circle-arrow">&#10140;</span>
-            </div>
-          `;
-          container.appendChild(card);
+    // compute offset from DOM so it matches what the server already rendered
+    let upcomingOffset = container.querySelectorAll('.project-tile').length || 0;
+    const defaultLimit = 6;
+
+    // URL from Django template (contains literal 'SLUG' placeholder)
+    const detailTemplate = container.dataset.detailTemplate || '/projects/SLUG/';
+
+    // Load-more endpoint (resolved by Django)
+    const loadMoreUpcomingUrl = "{% url 'load_more_upcomming_projects' %}";
+
+    function makeProjectCard(project) {
+      const card = document.createElement('div');
+      card.classList.add('project-tile');
+
+      // replace placeholder in the detail url
+      const detailUrl = detailTemplate.replace('SLUG', project.slug);
+
+      // if no image_url, you can put a placeholder or omit the img tag
+      const imgHtml = project.image_url
+        ? `<a href="${detailUrl}"><img src="${project.image_url}" alt="${escapeHtml(project.title)}" loading="lazy" decoding="async"></a>`
+        : `<a href="${detailUrl}"><div class="no-image">No image</div></a>`;
+
+      card.innerHTML = `
+        ${imgHtml}
+        <div class="view-link">
+          <a href="${detailUrl}">View Project</a>
+          <span class="circle-arrow">&#10140;</span>
+        </div>
+      `;
+      return card;
+    }
+
+    // small helper to escape text inserted into attributes (optional but safer)
+    function escapeHtml(text) {
+      return (text + '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    loadBtn.addEventListener('click', () => {
+      loadBtn.disabled = true;
+      loadBtn.textContent = 'Loading...';
+
+      const url = `${loadMoreUpcomingUrl}?offset=${upcomingOffset}&limit=${defaultLimit}`;
+
+      fetch(url)
+        .then(res => {
+          if (!res.ok) throw new Error('Network response was not ok: ' + res.status);
+          return res.json();
+        })
+        .then(data => {
+          if (!data || !Array.isArray(data.upcoming_projects)) {
+            throw new Error('Unexpected JSON format');
+          }
+
+          data.upcoming_projects.forEach(project => {
+            const card = makeProjectCard(project);
+            container.appendChild(card);
+          });
+
+          // update offset using returned new_offset if provided, otherwise add limit
+          if (typeof data.new_offset === 'number') {
+            upcomingOffset = data.new_offset;
+          } else {
+            upcomingOffset += data.upcoming_projects.length;
+          }
+
+          if (!data.has_more) {
+            loadBtn.style.display = 'none';
+          } else {
+            loadBtn.disabled = false;
+            loadBtn.textContent = 'Load More';
+          }
+        })
+        .catch(err => {
+          console.error('Error loading more upcoming projects:', err);
+          // restore button state
+          loadBtn.disabled = false;
+          loadBtn.textContent = 'Load More';
+          // optionally show a user-visible error
+          // alert('Unable to load more projects. Check your connection or try again.');
         });
-
-        upcomingOffset += limit;
-
-        if (!data.has_more) {
-          document.getElementById('load-more-upcoming-btn').style.display = 'none';
-        }
-      })
-      .catch(error => {
-        console.error('Error loading more upcoming projects:', error);
-      });
-  });
+    });
+  })();
 </script>
+
 
 {% comment %} project videos {% endcomment %}
 

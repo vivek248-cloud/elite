@@ -17,15 +17,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('DJANGO_SECRET_KEY', default='your-secret-key-here')
 DEBUG = env.bool('DEBUG', default=False)
 
+# DEBUG = False
+
 # ALLOWED_HOSTS = ['elite-2f67.onrender.com', 'localhost', '127.0.0.1']
 ALLOWED_HOSTS = [
-    'elite-2f67.onrender.com',
     'localhost',
     '127.0.0.1',
     'elitedreambuilders.in',
     'www.elitedreambuilders.in',
     'theelitedreambuilders.in',
     'www.theelitedreambuilders.in',
+    "*"
 ]
 
 
@@ -35,6 +37,9 @@ ALLOWED_HOSTS = [
 import dj_database_url
 from decouple import config
 
+
+
+#for production database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -47,11 +52,26 @@ DATABASES = {
 }
 
 
+#for local mysql database
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'elite_db',
+#         'USER': 'root',
+#         'PASSWORD': 'Admin123',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306',
+#     }
+# }
+
+
 
 # Installed apps
 INSTALLED_APPS = [
     "admin_interface",
     "colorfield",
+
+    # "jazzmin",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -65,6 +85,63 @@ INSTALLED_APPS = [
     
     'index',
 ]
+
+
+# JAZZMIN_SETTINGS = {
+#     # -----------------------------------------
+#     # APP & MODEL ICONS
+#     # -----------------------------------------
+#     "icons": {
+#         "auth": "fas fa-users",
+#         "auth.user": "fas fa-user",
+#         "auth.Group": "fas fa-users-cog",
+
+#         # Your models ↓↓
+#         "index.Project": "fas fa-building",
+#         "index.UpcomingProject": "fas fa-clock",
+#         "index.GalleryImage": "fas fa-images",
+
+#         "index.Video": "fas fa-video",
+#         "index.ProjectVideo": "fas fa-film",
+#         "index.YouTubeVideo": "fab fa-youtube",
+
+#         "index.HomeSlider": "fas fa-sliders-h",
+#         "index.SliderVideo": "fas fa-photo-video",
+#         "index.AboutVideo": "fas fa-play-circle",
+#         "index.AboutTitleVideo": "fas fa-heading",
+
+#         "index.Review": "fas fa-star-half-alt",
+#         "index.QuoteRequest": "fas fa-envelope-open-text",
+#         "index.BudgetRange": "fas fa-rupee-sign",
+#         "index.AboutSection": "fas fa-info-circle",
+#     },
+
+#     # Optional: Model order
+#     "order_with_respect_to": [
+#         "index.Project",
+#         "index.UpcomingProject",
+#         "index.GalleryImage",
+
+#         "index.Video",
+#         "index.ProjectVideo",
+#         "index.YouTubeVideo",
+#         "index.HomeSlider",
+#         "index.SliderVideo",
+#         "index.AboutVideo",
+#         "index.AboutTitleVideo",
+
+#         "index.Review",
+#         "index.QuoteRequest",
+#         "index.BudgetRange",
+#         "index.AboutSection",
+#     ],
+# }
+
+
+
+
+
+
 
 
 
@@ -119,8 +196,8 @@ STATICFILES_FINDERS = [
     'compressor.finders.CompressorFinder',
 ]
 
-COMPRESS_ENABLED = True
-COMPRESS_OFFLINE = True  # This is for production
+COMPRESS_ENABLED = True  # Set to True in production
+COMPRESS_OFFLINE = True # This is for production
 
 
 # Middleware
@@ -220,13 +297,31 @@ ADMIN_WHATSAPP_NUMBER = '919786224099'  # in international format
 
 
 # Security headers
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_HSTS_SECONDS = 31536000
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_SSL_REDIRECT = True
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# SECURE_HSTS_SECONDS = 31536000
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+# SECURE_HSTS_PRELOAD = True
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+
+# Security headers
+if DEBUG:
+    SECURE_SSL_REDIRECT = False
+    SESSION_COOKIE_SECURE = False
+    CSRF_COOKIE_SECURE = False
+    SECURE_HSTS_SECONDS = 0
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+    SECURE_HSTS_PRELOAD = False
+else:
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_HSTS_SECONDS = 31536000
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+
 
 # Auto field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

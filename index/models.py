@@ -2,8 +2,8 @@
 from django.db import models
 import datetime
 from django.utils import timezone
-
-
+from urllib.parse import urlparse, parse_qs
+import re
 
 
 
@@ -248,7 +248,7 @@ class AboutSection(models.Model):
 
 class Video(models.Model):
     title = models.CharField(max_length=255)
-    youtube_url = models.URLField()
+    youtube_url = models.URLField(blank=True, null=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -257,12 +257,43 @@ class Video(models.Model):
     class Meta:
         verbose_name_plural = "video testimonials"
 
+    @property
     def youtube_id(self):
-        # Extracts YouTube ID from full URL
-        import re
-        pattern = r'(?:v=|be/|embed/)([a-zA-Z0-9_-]{11})'
-        match = re.search(pattern, self.youtube_url)
-        return match.group(1) if match else None
+        """
+        Safely extract the YouTube video ID from the youtube_url.
+        Returns an empty string if no valid ID found.
+        Supports:
+         - https://youtu.be/<id>
+         - https://www.youtube.com/watch?v=<id>
+         - https://www.youtube.com/embed/<id>
+         - other common youtube formats
+        """
+        if not self.youtube_url:
+            return ""
+
+        url = self.youtube_url.strip()
+
+        # 1) short youtu.be/ID
+        m = re.match(r'https?://youtu\.be/([A-Za-z0-9_-]{11})', url)
+        if m:
+            return m.group(1)
+
+        # 2) embed or /v/ style
+        m = re.search(r'(?:embed/|/v/)([A-Za-z0-9_-]{11})', url)
+        if m:
+            return m.group(1)
+
+        # 3) normal watch?v=ID
+        parsed = urlparse(url)
+        if parsed.hostname and 'youtube' in parsed.hostname:
+            qs = parse_qs(parsed.query)
+            v = qs.get('v')
+            if v:
+                return v[0]
+
+        # 4) last-chance regex (catch IDs occurring anywhere)
+        m = re.search(r'([A-Za-z0-9_-]{11})', url)
+        return m.group(1) if m else ""
 
     
 class ProjectVideo(models.Model):

@@ -27,6 +27,7 @@ urlpatterns = [
 
     path('builders-in-trichy/', builders_in_trichy, name='builders-in-trichy'),
 
+    # path("send-notification/", send_notification, name="send-notification"),
 
 
         path('sitemap.xml', TemplateView.as_view(template_name="index/sitemap.xml", content_type='text/xml')),

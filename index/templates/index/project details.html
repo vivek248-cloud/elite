@@ -84,7 +84,7 @@
            style="background-image: url('{{ project.image2.url }}');">
         <div class="overlay2"></div>
         <div class="position-relative z-1">
-          <h1 class="carousel-heading" data-animate="from-left">{{ project.location }}</h1>
+          <h1 class="carousel-heading" data-animate="from-left">{{ project.location|upper }}</h1>
         </div>
       </div>
     </div>
@@ -104,24 +104,58 @@
 
 
 
-<!-- Project Info Section -->
-<section class="py-5 bg-light" data-aos="fade-up" data-aos-duration="1000">
+<!-- Project Information Section -->
+<section class="project-information">
   <div class="container">
-    <div class="card  border-0 p-4 mx-auto bg-white text-black" style="max-width: 800px;">
-      <ul class="list-unstyled fs-5">
-        <li class="mb-2" data-animate="from-bottom">
-          <span class="fw-semibold">📍 Location:</span> {{ project.location }}
-        </li>
-        <li class="mb-2" data-animate="from-bottom">
-          <span class="fw-semibold">📅 Completion Date:</span> {{ project.date }}
-        </li>
-        <li class="mb-2" data-animate="from-bottom">
-          <span class="fw-semibold">🏠 BHK:</span> {{ project.bhk }}
-        </li>
-        <li data-animate="from-bottom">
-          <span class="fw-semibold">📝 Description:</span> {{ project.description }}
-        </li>
-      </ul>
+    <div class="project-details-card">
+      <div class="project-header">
+        <h2 class="project-title">{{ project.location|upper }}</h2>
+        <div class="project-subtitle">Project Overview</div>
+      </div>
+
+      <div class="project-details-grid">
+        <div class="detail-item">
+          <div class="detail-icon">📍</div>
+          <div class="detail-content">
+            <div class="detail-label">LOCATION</div>
+            <div class="detail-value">{{ project.location|upper }}</div>
+          </div>
+        </div>
+
+        <div class="detail-item">
+          <div class="detail-icon">📅</div>
+          <div class="detail-content">
+            <div class="detail-label">Completion Date</div>
+            <div class="detail-value">{{ project.date }}</div>
+          </div>
+        </div>
+
+        <div class="detail-item">
+          <div class="detail-icon">🏠</div>
+          <div class="detail-content">
+            <div class="detail-label">Configuration</div>
+            <div class="detail-value">{{ project.bhk }}</div>
+          </div>
+        </div>
+
+        <div class="detail-item">
+          <div class="detail-icon">📐</div>
+          <div class="detail-content">
+            <div class="detail-label">SQ.FT</div>
+            <div class="detail-value">{{ project.sq_feet }}</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="project-description">
+        <div class="description-header">
+          <div class="description-label">PROJECT DESCRIPTION</div>
+        </div>
+        <div class="description-content">
+          {{ project.description }}
+        </div>
+      </div>
     </div>
   </div>
 </section>
