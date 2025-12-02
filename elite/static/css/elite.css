@@ -1569,6 +1569,7 @@ h1, h2, h3, h4, h5, h6 {
 	align-content: center;
 	text-align: left;
 	padding-left: 2rem;
+  z-index: 2;
   }
   .outline-text4 h1 {
 	font-size: 10rem;
@@ -1623,7 +1624,7 @@ h1, h2, h3, h4, h5, h6 {
 	align-items: center;
 	justify-content: center;
 	transition: transform 0.3s ease;
-	background-image: url("../images/residental.webp");
+	background-image: url("../images/row-villa.webp");
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -3334,6 +3335,16 @@ video, .overlay {
 		font-family: 'Poppins', sans-serif;
 	}
 	
+@media (max-width: 768px) {
+  .text-container-img {
+    height: 70vh!important;
+  }
+  .text-container-img-bg {
+    height: 70vh!important;
+  }
+}
+
+
 	:root {
   --card-bg: #ffffff;
   --card-border: rgba(0,0,0,0.08);
@@ -4838,6 +4849,34 @@ html, body { overflow-x: hidden; }
 
   .counter.circles h3.circle-text {
     font-size: 1rem;
+  }
+  .terms-head-overlay-video
+  {
+    height: 70vh!important;
+  }
+  .swiper-slide
+  {
+    width: 100%;
+    height: 70vh!important;
+  }
+  .swiper-wrapper
+  {
+    height: 70vh!important;
+  }
+  .videoSwiper
+  {
+    height: 70vh!important;
+  }
+  .sticky-header-bg{
+    height: 70vh!important;
+  }
+  .sticky-header
+  {
+    height: 70vh!important;
+  }
+  .outline-text4
+  {
+    height: 70vh!important;
   }
 }
 @media (max-width: 360px) {
@@ -8086,7 +8125,7 @@ position: relative;
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
 }
 
@@ -8219,6 +8258,7 @@ position: relative;
 @media (max-width: 768px) {
   .services-section { padding: 80px 5%; }
   .services-grid { gap: 1.5rem; }
+  .service-card{ height: auto; width: 100%;}
   .service-content { padding: 1.5rem; }
 }
 
@@ -8483,7 +8523,7 @@ position: relative;
 }
 /* Right card (image + stats) */
 .projects-card {
-  background: linear-gradient(180deg, #ffffff, #fafafa);
+  background:var(--graient);
   border-radius: 14px;
   padding: 14px;
   box-shadow: 0 14px 36px rgba(6,8,10,0.06);
@@ -8517,7 +8557,7 @@ position: relative;
 .stat-value {
   font-weight: 700;
   font-size: 1.05rem;
-  color: #0b1320;
+  color: #ffffff;
 }
 .stat-label {
   font-size: 0.78rem;
@@ -9326,3 +9366,113 @@ position: relative;
 }
 
 
+.footer-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  background: none;
+  border: 0;
+  color: var(--footer-contrast);
+  font-weight: 600;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* small chevron */
+.footer-toggle .chev {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  transition: transform .18s ease;
+}
+
+
+
+/* Dropdown container */
+.seo-links {
+    position: relative;
+}
+
+/* Button */
+.dropdown-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+    padding: 10px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Arrow icon animation */
+.dropdown-btn .arrow {
+    transition: transform .3s ease;
+}
+
+.seo-links.open .arrow {
+    transform: rotate(180deg);
+}
+
+/* Dropdown list animation */
+.dropdown-list {
+    list-style: none;
+    max-height: 0;
+    overflow: hidden;
+    padding-left: 0;
+    transition: max-height .35s ease, padding .3s ease;
+}
+
+.seo-links.open .dropdown-list {
+    max-height: 400px; /* enough for all links */
+    padding-top: 10px;
+}
+
+
+.ad-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999;
+}
+
+.ad-modal.show {
+  display: flex;
+}
+
+.ad-box {
+  background: #fff;
+  padding: 24px;
+  width: 90%;
+  max-width: 380px;
+  border-radius: 12px;
+  text-align: center;
+  animation: popup 0.3s ease;
+}
+
+@keyframes popup {
+  from { opacity:0; transform: scale(0.7);}
+  to { opacity:1; transform: scale(1);}
+}
+
+.loaders {
+  margin: 16px auto 0;
+  border: 4px solid #eee;
+  border-top: 4px solid #ffb300;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

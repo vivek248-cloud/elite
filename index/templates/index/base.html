@@ -1,5 +1,6 @@
 
 {%load static %}
+{% load seo_tags %}
 {% load compress %}
 
 <!DOCTYPE html>
@@ -353,13 +354,52 @@
             </ul>
           </div>
 
-          <div class="links-col">
+          <div class="links-col seo-links">
             <h3 class="links-title">Legal</h3>
             <ul>
               <li><a href="{% url 'terms' %}#Privacy-Notice">Privacy Notice</a></li>
               <li><a href="{% url 'terms' %}">Terms &amp; Conditions</a></li>
             </ul>
-          </div>
+          
+        
+            <button class="dropdown-btn" type="button">
+                Useful Links &nbsp;<i class="fas fa-chevron-down arrow"></i>
+            </button>
+
+            <ul class="dropdown-list">
+                {% get_seo_pages as seo_pages %}
+                {% for p in seo_pages %}
+                    <li><a href="/{{ p.slug }}/">{{ p.title }}</a></li>
+                {% empty %}
+                    <li class="muted">No pages found</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function() {
+              const dropdowns = document.querySelectorAll('.seo-links');
+
+              dropdowns.forEach(drop => {
+                  const btn = drop.querySelector('.dropdown-btn');
+
+                  btn.addEventListener('click', e => {
+                      e.stopPropagation();  // prevent closing immediately
+                      drop.classList.toggle('open');
+                  });
+              });
+
+              // Close when clicking outside
+              document.addEventListener('click', function(e) {
+                  dropdowns.forEach(drop => {
+                      if (!drop.contains(e.target)) {
+                          drop.classList.remove('open');
+                      }
+                  });
+              });
+          });
+          </script>
+
         </nav>
       </div>
 
@@ -367,7 +407,7 @@
       <div class="footer-right">
         <div class="cta">
           <h3>Let's Build Your Dream</h3><br>
-          <a class="btn-quote" href="{% url 'get_quote' %}">Get Quote</a>
+          <a class="btn-quote show-quote-popup" href="{% url 'get_quote' %}">Get Quote</a>
           <br>
         </div>
 
@@ -411,6 +451,44 @@
       <i class="bi bi-arrow-up"></i>
     </button>
   </footer>
+
+
+
+
+
+<div id="adModal" class="ad-modal">
+  <div class="ad-box">
+    <h3>Special Offer!</h3>
+    <p>Book your construction project today and get exciting benefits.</p>
+    <div class="loaders"></div>
+  </div>
+</div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("adModal");
+
+  document.querySelectorAll("a.show-quote-popup").forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();  // stop immediate navigation
+
+      const targetUrl = this.href; // save target
+
+      modal.classList.add("show");
+
+      // After 2 seconds → go to link
+      setTimeout(() => {
+        window.location.href = targetUrl;
+      }, 2000);
+    });
+  });
+});
+</script>
+
+
+
+
 </div>
 
 <script>

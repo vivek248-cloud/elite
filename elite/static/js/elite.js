@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Progress lines
     const scrollProgress = (scrollY / (docHeight - window.innerHeight)) * 100;
     if (line3) line3.style.width = `${scrollProgress}%`;
-    if (bgGrow) bgGrow.style.height = `${scrollProgress}%`;
+    if (bgGrow) bgGrow.style.height = `${scrollProgress * 5}%`;
     if (bgGrow2) bgGrow2.style.width = `${scrollProgress * 3}%`;
 
     // ✅ Hide marquee at bottom

@@ -17,7 +17,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('DJANGO_SECRET_KEY', default='your-secret-key-here')
 DEBUG = env.bool('DEBUG', default=False)
 
-# DEBUG = False
+# DEBUG = True
 
 # ALLOWED_HOSTS = ['elite-2f67.onrender.com', 'localhost', '127.0.0.1']
 ALLOWED_HOSTS = [
@@ -196,8 +196,8 @@ STATICFILES_FINDERS = [
     'compressor.finders.CompressorFinder',
 ]
 
-COMPRESS_ENABLED = True  # Set to True in production
-COMPRESS_OFFLINE = True # This is for production
+COMPRESS_ENABLED = False  # Set to True in production
+COMPRESS_OFFLINE = False # This is for production
 
 
 # Middleware
