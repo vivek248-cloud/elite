@@ -307,18 +307,57 @@ class ProjectVideo(models.Model):
         return self.title
     
 
+
+
+
+# elite_interior/models.py
+import re
+from django.db import models
+from django.utils import timezone
+from django.core.exceptions import ValidationError
+
+
+YOUTUBE_ID_RE = re.compile(r"(?:v=|youtu\.be/|embed/)?([A-Za-z0-9_-]{11})")
+
+
 class YouTubeVideo(models.Model):
     title = models.CharField(max_length=200)
-    youtube_link = models.CharField(
-        max_length=100,
-        help_text="Paste the YouTube video ID only (e.g. FT9g4LLrR5c)"
+    youtube_link = models.URLField(
+        max_length=500,
+        help_text="Paste full YouTube URL or video ID"
     )
     description = models.TextField(blank=True, null=True)
     uploaded_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.title
-    
+
+    # 🔹 Normalize input (ID / URL → clean ID)
+    def clean(self):
+        if not self.youtube_link:
+            return
+
+        url = self.youtube_link.strip()
+        match = YOUTUBE_ID_RE.search(url)
+
+        if not match:
+            raise ValidationError("Invalid YouTube URL or Video ID")
+
+        # Store ONLY the video ID internally
+        self.youtube_link = match.group(1)
+
+    def save(self, *args, **kwargs):
+        self.clean()
+        super().save(*args, **kwargs)
+
+    # ✅ SAME STYLE AS PackageOffers
+    def youtube_embed_url(self):
+        if not self.youtube_link:
+            return ""
+
+        # youtube_link is already normalized to ID
+        return f"https://www.youtube.com/embed/{self.youtube_link}"
+
 
     
 class SliderVideo(models.Model):

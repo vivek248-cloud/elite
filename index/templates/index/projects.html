@@ -92,15 +92,14 @@
     {% for video in youtube_videos %}
       <div class="youtube-frame" >
         <div class="video-wrapper">
-          <iframe 
-            width="100%" 
-            height="300" 
-            src="https://www.youtube.com/embed/{{ video.youtube_link }}" 
-            title="{{ video.title }}" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-          </iframe>
+        <iframe
+          src="{{ video.youtube_embed_url }}"
+          title="{{ video.title|default:'YouTube video player' }}"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
         </div>
       </div>
     {% endfor %}
@@ -128,52 +127,54 @@
 </section> -->
 
 {% comment %} /*youtube videos*/ {% endcomment %}
+
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    let youtubeOffset = 3;
-    const loadMoreYouTubeBtn = document.getElementById('load-more-youtube-video-btn');
-    const youtubeVideoGrid = document.getElementById('youtube-video-grid');
-    const loadMoreYouTubeUrl = "/load-more-youtube-videos/";
-  
-    if (loadMoreYouTubeBtn && youtubeVideoGrid) {
-      loadMoreYouTubeBtn.addEventListener('click', () => {
-        fetch(`${loadMoreYouTubeUrl}?offset=${youtubeOffset}`)
-          .then(response => response.json())
-          .then(data => {
-            data.videos.forEach(video => {
-              const card = document.createElement('div');
-              card.classList.add('youtube-frame', 'animation', 'fade-in-up');
-              card.innerHTML = `
-                <div class="video-wrapper">
-                  <iframe 
-                    width="100%" 
-                    height="300" 
-                    src="https://www.youtube.com/embed/${video.youtube_link}" 
-                    title="${video.title}" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                  </iframe>
-                </div>
-                ${video.description ? `<p class="video-description">${video.description}</p>` : ''}
-              `;
-              youtubeVideoGrid.appendChild(card);
-            });
-  
-            youtubeOffset += 3;
-  
-            if (!data.has_more) {
-              loadMoreYouTubeBtn.style.display = 'none';
-            }
-          })
-          .catch(error => {
-            console.error('Error loading more YouTube videos:', error);
-          });
+document.addEventListener('DOMContentLoaded', () => {
+  let youtubeOffset = 3;
+  const loadMoreBtn = document.getElementById('load-more-youtube-video-btn');
+  const grid = document.getElementById('youtube-video-grid');
+  const url = "/load-more-youtube-videos/";
+
+  if (!loadMoreBtn || !grid) return;
+
+  loadMoreBtn.addEventListener('click', () => {
+    fetch(`${url}?offset=${youtubeOffset}`)
+      .then(response => response.json())
+      .then(data => {
+        data.videos.forEach(video => {
+          const card = document.createElement('div');
+          card.className = 'youtube-frame animation fade-in-up';
+
+          card.innerHTML = `
+            <div class="video-wrapper">
+              <iframe
+                src="${video.embed_url}"
+                title="${video.title || 'YouTube video player'}"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+              </iframe>
+            </div>
+            ${video.description ? `<p class="video-description">${video.description}</p>` : ''}
+          `;
+
+          grid.appendChild(card);
+        });
+
+        youtubeOffset += 3;
+
+        if (!data.has_more) {
+          loadMoreBtn.style.display = 'none';
+        }
+      })
+      .catch(error => {
+        console.error('Error loading more YouTube videos:', error);
       });
-    }
   });
-  
+});
 </script>
+
 
 
 <section class="video-section" id="video-section">

@@ -57,7 +57,7 @@ def projects(request):
     all_projects =  Project.objects.filter(status='completed').order_by('id')[:12]
     upcoming_projects = Project.objects.filter(status='ongoing').order_by('id')[:12]
     youtube_videos = YouTubeVideo.objects.all().order_by('id')[:3]
-
+    origin = f"{request.scheme}://{request.get_host()}"
 
     context = {
         'title': 'Projects - Elite Dream Builders',
@@ -65,7 +65,7 @@ def projects(request):
         'upcoming_projects': upcoming_projects,
 
         'youtube_videos': youtube_videos,
-        
+        'origin': origin,
     }
 
     return render(request, 'index/projects.html', context)
@@ -168,22 +168,26 @@ def load_more_projects_videos(request):
 # youtube videos
 
 def load_more_youtube_videos(request):
-    offset = int(request.GET.get('offset', 0))
-    limit = 3
-    videos = YouTubeVideo.objects.all()[offset:offset + limit]
+        offset = int(request.GET.get('offset', 0))
+        limit = 3
 
-    video_data = []
-    for video in videos:
-        video_data.append({
-            'id': video.id,
-            'title': video.title,
-            'youtube_link': video.youtube_link,
-            'description': video.description,
+        videos = YouTubeVideo.objects.all().order_by('id')[offset:offset + limit]
+
+        video_data = []
+        for video in videos:
+            video_data.append({
+                'id': video.id,
+                'title': video.title,
+                'embed_url': video.youtube_embed_url(),
+                'description': video.description,
+            })
+
+        has_more = YouTubeVideo.objects.count() > offset + limit
+
+        return JsonResponse({
+            'videos': video_data,
+            'has_more': has_more
         })
-
-    has_more = YouTubeVideo.objects.count() > offset + limit
-
-    return JsonResponse({'videos': video_data, 'has_more': has_more})
 
 
 def load_more_projects_category(request):
