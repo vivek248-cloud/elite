@@ -3498,9 +3498,6 @@ video, .overlay {
 		background:#f4f4f4;
 		position: relative;
 		border-radius: 10px;
-		
-		top: 10%;
-		z-index: 1;
 	  }
 
 	  
@@ -5758,7 +5755,6 @@ html, body { overflow-x: hidden; }
 	  -webkit-text-stroke: 1.5px gold;
 	  }
 	  .completed-projects {
-		  margin-top: 10rem;
 		  padding: 5px 8px;
 	  }
 	  .project-videos-section {
@@ -5826,7 +5822,6 @@ html, body { overflow-x: hidden; }
 		  background: #f4f4f4;
 		  position: relative;
 		  border-radius: 10px;
-		  top: 10%;
 		  z-index: 1;
 		
 		  /* Centering */
@@ -8744,7 +8739,7 @@ position: relative;
 }
 
 /* Add a subtle underline animation under the text */
-.learn-more::marker { /* noop to avoid some UA issues */ }
+
 
 .learn-more .underline {
   position: absolute;
