@@ -36,24 +36,47 @@
 
       <p>Interested in seeing our work in progress? Explore our ongoing projects to see the quality and innovation we bring to every home.</p>
 
-      <h1  style="text-align:center;">OUR STORY</h1>
-      <div class="line5" ></div>
-      <p>The Elite Dream Builders was founded by two visionary brothers, Hari (Founder) and Aravind (Managing Director), who grew up in Trichy, Tamil Nadu, with a shared mission to bring world-class construction standards to their hometown.</p>
-
-      <p>At The Elite Dream Builders, we believe in building more than just homes. We’re creating spaces that transform communities. With Hari’s industry expertise and Aravind’s design excellence, we deliver premium-quality villas, turnkey homes, and commercial projects. Our commitment to quality, integrity, and client satisfaction makes us the trusted name for construction in Trichy.</p>
     </div>
 
-    <div class="box1-img">
-      {% if about %}
-        <video autoplay loop muted controls playsinline>
-          <source src="{{ about.video_file.url }}" type="video/mp4" loading="lazy">
-        </video>
-      {% else %}
-        <h2>Video not available</h2>
-      {% endif %}
-    </div>
+  <div class="box1-img">
+    {% if about and about.youtube_embed_url %}
+      <iframe
+        src="{{ about.youtube_embed_url }}"
+        title="{{ about.title|default:'About Video' }}"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    {% else %}
+      <h2>Video not available</h2>
+    {% endif %}
+  </div>
+
   </div>
 </div>
+
+<section class="our-story-section">
+  <div class="our-story-container">
+
+    <h1 class="section-title">Our Story</h1>
+
+    <p class="our-story-text">
+      Elite Dream Builders was founded by two visionary brothers, <strong>Hari</strong> (Founder) and 
+      <strong>Aravind</strong> (Managing Director), who grew up in Trichy, Tamil Nadu, with a shared mission 
+      to bring world-class construction standards to their hometown.
+    </p>
+
+    <p class="our-story-text">
+      At Elite Dream Builders, we believe in building more than just homes — we create spaces that 
+      transform communities. With Hari’s industry expertise and Aravind’s design excellence, we deliver 
+      premium-quality villas, turnkey homes, and commercial projects. Our commitment to quality, 
+      integrity, and client satisfaction has made us a trusted name in construction across Trichy.
+    </p>
+
+  </div>
+</section>
+
 
 <div class="home-content-3">
       <div class="home-content-head">

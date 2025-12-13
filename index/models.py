@@ -197,18 +197,49 @@ class UpcomingProject(models.Model):
         verbose_name_plural = "Ongoing projects"
     # about page AboutVideo
 
+# elite_interior/models.py
+import re
+from django.db import models
+
+
+YOUTUBE_ID_RE = re.compile(r"(?:v=|youtu\.be/|embed/)?([A-Za-z0-9_-]{11})")
+
+
 class AboutVideo(models.Model):
     title = models.CharField(max_length=255)
-    video_file = models.FileField(upload_to='videos/', null=True, blank=True)
-    
+    youtube_link = models.URLField(
+        max_length=500,
+        help_text="Paste YouTube URL or video ID",
+        null=True,
+        blank=True
+    )
 
     def __str__(self):
         return self.title
-    
-    def delete(self, *args, **kwargs):
-        if self.video_file:
-            self.video_file.delete(save=False)
-        super().delete(*args, **kwargs)
+
+    # Normalize input → store only video ID
+    def clean(self):
+        if not self.youtube_link:
+            return
+
+        url = self.youtube_link.strip()
+        match = YOUTUBE_ID_RE.search(url)
+
+        if not match:
+            raise ValueError("Invalid YouTube URL or Video ID")
+
+        self.youtube_link = match.group(1)
+
+    def save(self, *args, **kwargs):
+        self.clean()
+        super().save(*args, **kwargs)
+
+    # ✅ Safe embed URL
+    def youtube_embed_url(self):
+        if not self.youtube_link:
+            return ""
+        return f"https://www.youtube.com/embed/{self.youtube_link}"
+
     
 
 
