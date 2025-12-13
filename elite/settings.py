@@ -15,9 +15,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Security settings
 SECRET_KEY = env('DJANGO_SECRET_KEY', default='your-secret-key-here')
-# DEBUG = env.bool('DEBUG', default=False)
+DEBUG = env.bool('DEBUG', default=False)
 
-DEBUG = True
+# DEBUG = True
 
 # ALLOWED_HOSTS = ['elite-2f67.onrender.com', 'localhost', '127.0.0.1']
 ALLOWED_HOSTS = [
@@ -40,29 +40,29 @@ from decouple import config
 
 
 #for production database
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'elite_db',
-#         'USER': 'elite_user',
-#         'PASSWORD': 'Admin123',
-#         'HOST': '127.0.0.1',
-#         'PORT': '3306',
-#     }
-# }
-
-
-#for local mysql database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'elite_db',
-        'USER': 'root',
+        'USER': 'elite_user',
         'PASSWORD': 'Admin123',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }
 }
+
+
+#for local mysql database
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'elite_db',
+#         'USER': 'root',
+#         'PASSWORD': 'Admin123',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306',
+#     }
+# }
 
 
 
@@ -196,8 +196,8 @@ STATICFILES_FINDERS = [
     'compressor.finders.CompressorFinder',
 ]
 
-COMPRESS_ENABLED = False # Set to True in production
-COMPRESS_OFFLINE = False # This is for production
+COMPRESS_ENABLED = True # Set to True in production
+COMPRESS_OFFLINE = True # This is for production
 
 
 # Middleware
