@@ -24,55 +24,367 @@
   </div>
 {% endif %}
 
-<div class="quote-wrapper">
-    
-    <!-- TOP TEXT -->
-    <div class="quote-header">
-        <h2 class="section-title">Get Your Custom Quote</h2>
-        <p style="color: #000000ff;">Fill in the details below and receive an accurate estimate instantly.</p>
-    </div>
 
-    <div class="get-box">
-        <form method="post">
-            {% csrf_token %}
-            <div class="get-form animation zoom-in">
 
-                <label for="id_name">Full Name</label>
-                {{ form.name }}
 
-                <label for="id_email">Email Address</label>
-                {{ form.email }}
-
-                <label for="id_number">Phone Number</label>
-                {{ form.phone }}
-
-                <label for="id_service_type">Service Type</label>
-                {{ form.service_type }}
-
-                <label for="id_budget_range">Budget Range</label>
-                <select name="budget_range" id="id_budget_range">
-                    <option value="3">Gold</option>
-                </select>
-
-                <label for="area">Total Area (sq. ft)</label>
-                <input type="number" id="area" name="area"
-                       placeholder="Enter area in sq. ft" oninput="calculateEstimate()">
-
-                <input type="hidden" id="estimated_cost" name="estimated_cost">
-
-                <p id="estimate">Estimated Cost: ₹0</p>
-
-                <button class="quote-btn" type="submit">Get Quote</button>
+    <section class="py-20 md:py-32 px-4 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-16 md:mb-24">
+                <h2 class="section-title">
+                    How We <span class="text-gradient-gold">Work</span>
+                </h2>
+                <p class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                    A seamless journey from vision to reality, guided by expertise and dedication
+                </p>
             </div>
-        </form>
+
+            <!-- Process Steps Grid -->
+            <div class="relative">
+                <!-- Connecting SVG Path - Desktop -->
+                <svg 
+                    class="hidden lg:block absolute inset-0 w-full h-full pointer-events-none"
+                    viewBox="0 0 1200 800"
+                    preserveAspectRatio="xMidYMid meet"
+                >
+                    <defs>
+                        <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="hsl(222, 47%, 20%)" stop-opacity="0.1" />
+                            <stop offset="50%" stop-color="hsl(222, 47%, 20%)" stop-opacity="0.3" />
+                            <stop offset="100%" stop-color="hsl(222, 47%, 20%)" stop-opacity="0.1" />
+                        </linearGradient>
+                    </defs>
+                    <path
+                        d="M 180 130 
+                           C 280 130, 320 130, 420 130
+                           C 520 130, 560 130, 660 130
+                           C 760 130, 800 130, 900 130
+                           L 1020 130
+                           C 1080 130, 1100 180, 1100 240
+                           L 1100 320
+                           C 1100 380, 1080 400, 1020 400
+                           L 180 400
+                           C 120 400, 100 450, 100 500
+                           L 100 580
+                           C 100 640, 120 660, 180 660
+                           L 660 660"
+                        fill="none"
+                        stroke="url(#lineGradient)"
+                        stroke-width="3"
+                        stroke-dasharray="8 4"
+                        class="animate-pulse"
+                    />
+                </svg>
+
+                <!-- Row 1 - 3 items -->
+                <div id="step-row-1" class="flex flex-wrap justify-center gap-6 md:gap-10 lg:gap-16 mb-8 md:mb-16">
+                    <!-- This div should be EMPTY. JavaScript will insert the steps here. -->
+                </div>
+
+                <!-- Row 2 - 3 items -->
+                <div id="step-row-2" class="flex flex-wrap justify-center gap-6 md:gap-10 lg:gap-16 mb-8 md:mb-16">
+                    <!-- This div should be EMPTY. JavaScript will insert the steps here. -->
+                </div>
+
+                <!-- Row 3 - 3 items -->
+                <div id="step-row-3" class="flex flex-wrap justify-center gap-6 md:gap-10 lg:gap-16">
+                    <!-- This div should be EMPTY. JavaScript will insert the steps here. -->
+                </div>
+            </div>
+
+
+
+
+            <!-- CTA -->
+            <div class="text-center mt-16 md:mt-24">
+                <a class="start-journey-btn px-8 py-4   rounded-full " href="{% url 'get_quote' %}#get_quote">
+                    Start Your Journey
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+<div class="quote-container" id="get_quote">
+  <div class="quote-wrapper">
+
+    <!-- Header -->
+    <div class="quote-header">
+      <h2 class="section-title">Get Your Custom Quote</h2>
+      <p>Fill in the details below and receive an accurate estimate instantly.</p>
     </div>
 
+    <!-- Card -->
+    <div class="quote-card">
+      <form method="post">
+        {% csrf_token %}
+
+        <div class="field">
+          <label for="id_name">Full Name</label>
+          {{ form.name }}
+        </div>
+
+        <div class="field">
+          <label for="id_email">Email Address</label>
+          {{ form.email }}
+        </div>
+
+        <div class="field">
+          <label for="id_number">Phone Number</label>
+          {{ form.phone }}
+        </div>
+
+        <div class="field">
+          <label for="id_service_type">Service Type</label>
+          {{ form.service_type }}
+        </div>
+
+        <!-- Budget -->
+        <div class="field">
+          <label>Budget Range</label>
+
+          <div class="budget-cards">
+            <label class="budget-card">
+              <input type="radio" name="budget_radio" value="1" checked>
+              <span class="title">Silver</span>
+              <span class="desc">Essential elegance</span>
+            </label>
+
+            <label class="budget-card">
+              <input type="radio" name="budget_radio" value="3">
+              <span class="title">Gold</span>
+              <span class="desc">Premium finish</span>
+            </label>
+
+            <label class="budget-card">
+              <input type="radio" name="budget_radio" value="2">
+              <span class="title">Platinum</span>
+              <span class="desc">Luxury experience</span>
+            </label>
+          </div>
+
+          <!-- keep existing select hidden for backend compatibility -->
+          <select id="id_budget_range" name="budget_range" hidden>
+            <option value="1">Silver</option>
+            <option value="3">Gold</option>
+            <option value="2">Platinum</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="area">Total Area (sq. ft)</label>
+          <input type="number" id="area" name="area" placeholder="Enter area">
+        </div>
+
+        <!-- Estimate -->
+        <div class="estimate-box">
+          <small>ESTIMATED COST</small>
+          <h2 id="estimate">₹0</h2>
+          <p class="estimate-note">
+            Based on selected area & budget
+          </p>
+        </div>
+
+        <input type="hidden" id="estimated_cost" name="estimated_cost">
+
+        <button class="quote-btn" type="submit">
+          Get Quote →
+        </button>
+      </form>
+    </div>
+
+    <p class="footer-note">
+      *This is an estimated quote. Final pricing may vary based on requirements.
+    </p>
+  </div>
 </div>
+
+
+
+
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
     <script src={% static "js/elite.js" %}></script>
     {% block extra_js %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const steps = [
+        {
+            iconSvg: `<i class="bi bi-geo-alt"></i>`,
+            title: "Site Visit",
+            description: "Schedule a visit to assess your project requirements firsthand",
+        },
+        {
+            iconSvg: `<i class="bi bi-calculator"></i>`,
+            title: "Cost Estimation",
+            description: "Receive a detailed and transparent cost estimate tailored to you",
+        },
+        {
+            iconSvg: `<i class="bi bi-cash-stack"></i>`,
+            title: "Token Advance",
+            description: "Secure your project with a nominal token advance payment",
+        },
+        {
+            iconSvg: `<i class="bi bi-droplet-half"></i>`,
+            title: "Soil Test",
+            description: "Ensure stability and longevity with a thorough soil analysis",
+        },
+        {
+            iconSvg: `<i class="bi bi-file-earmark-check"></i>`,
+            title: "Plan Approval",
+            description: "We handle the government paperwork and approval process",
+        },
+        {
+            iconSvg: `<i class="bi bi-pencil-square"></i>`,
+            title: "Plan Design",
+            description: "Our designers create a customized plan for your dream home",
+        },
+        {
+            iconSvg: `<i class="bi bi-building"></i>`,
+            title: "Structural Work",
+            description: "Expert construction design for every aspect of your project",
+        },
+        {
+            iconSvg: `<i class="bi bi-check2"></i>`,
+            title: "Agreements",
+            description: "Formalize our commitment through clear agreements",
+        },
+        {
+            iconSvg: `<i class="bi bi-stars"></i>`,
+            title: "Bhoomi Pooja",
+            description: "Begin your project with traditional blessings and ceremonies",
+        },
+    ];
+
+    const stepRows = [
+        document.getElementById('step-row-1'),
+        document.getElementById('step-row-2'),
+        document.getElementById('step-row-3')
+    ];
+
+    // Function to create an HTML string for a ProcessStep
+    function createProcessStepElement(step, stepNumber, delayMs) {
+        return `
+            <div 
+                class="process-step-wrapper"
+                style="animation-delay: ${delayMs}ms;"
+            >
+                <div class="process-step-card">
+                    <span class="process-step-number">
+                        ${stepNumber}
+                    </span>
+                    
+                    <div class="process-step-icon-container">
+                        ${step.iconSvg}
+                    </div>
+                    
+                    <h3 class="process-step-title">
+                        ${step.title}
+                    </h3>
+                    
+                    <p class="process-step-description">
+                        ${step.description}
+                    </p>
+                </div>
+
+                <div class="process-step-decorative-ring"></div>
+            </div>
+        `;
+    }
+
+let allStepElements = [];
+
+// 🔒 Clear existing content first
+stepRows.forEach(row => {
+    row.innerHTML = '';
+});
+steps.forEach((step, index) => {
+    const row = Math.floor(index / 3);
+    const delay = index * 100;
+
+    if (stepRows[row]) {
+        const stepHtml = createProcessStepElement(step, index + 1, delay);
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = stepHtml.trim();
+        const stepElement = tempDiv.firstElementChild;
+
+        stepRows[row].appendChild(stepElement);
+        allStepElements.push(stepElement);
+    }
+});
+
+    // Intersection Observer for fade-in animation
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target); // Stop observing once animated
+            }
+        });
+    }, {
+        root: null, // viewport
+        rootMargin: '0px',
+        threshold: 0.1 // Trigger when 10% of the item is visible
+    });
+
+    allStepElements.forEach(stepElement => {
+        observer.observe(stepElement);
+    });
+});
+</script>
+
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const areaInput = document.getElementById("area");
+      const estimateEl = document.getElementById("estimate");
+      const hiddenBudget = document.getElementById("id_budget_range");
+      const radios = document.querySelectorAll('input[name="budget_radio"]');
+
+      const rates = {
+        "1": 2099, // Silver
+        "3": 2199, // Gold
+        "2": 2499  // Platinum
+      };
+
+      function calculateEstimate() {
+        const area = parseFloat(areaInput.value) || 0;
+        const budgetId = hiddenBudget.value;
+        const rate = rates[budgetId] || 0;
+
+        const total = area * rate;
+
+        estimateEl.textContent = "₹" + total.toLocaleString("en-IN");
+      }
+
+      // 🔹 Radio click → update hidden select + UI
+      radios.forEach(radio => {
+        radio.addEventListener("change", function () {
+
+          // update hidden select
+          hiddenBudget.value = this.value;
+
+          // active UI
+          document.querySelectorAll(".budget-card").forEach(c => c.classList.remove("active"));
+          this.closest(".budget-card").classList.add("active");
+
+          calculateEstimate();
+        });
+      });
+
+      // 🔹 Area typing
+      areaInput.addEventListener("input", calculateEstimate);
+
+      // 🔹 Initial calculation
+      calculateEstimate();
+
+    });
+    </script>
+
+
     <script>
       function isInViewport(element) {
         const rect = element.getBoundingClientRect();
@@ -121,41 +433,6 @@ setTimeout(() => {
   document.getElementById("loader").style.display = "none";
 }, 3000); // Hides loader after 5 seconds    
 
-
-function calculateEstimate() {
-  let area = document.getElementById("area").value;
-
-  // Get the selected budget range (ID)
-  let budgetDropdown = document.getElementById("id_budget_range");
-  
-  if (!budgetDropdown) {
-      console.error("Budget range dropdown not found!");
-      return;
-  }
-
-  let selectedBudgetId = budgetDropdown.value;
-
-  // Define rates based on the correct ID from BudgetRange
-  let ratePerSqFt = 2099;  // Default medium budget
-
-  if (selectedBudgetId == "1") {  // Silver
-      ratePerSqFt = 2099;
-  } else if (selectedBudgetId == "3") {  // Gold
-      ratePerSqFt = 2199;
-  } else if (selectedBudgetId == "2") {  // Platinum
-      ratePerSqFt = 2499;
-  }
-
-  let estimate = area * ratePerSqFt;
-
-  if (!isNaN(estimate) && area > 0) {
-      document.getElementById("estimate").innerHTML = `Estimated Cost: ₹${estimate.toLocaleString('en-IN')}`;
-      document.getElementById("estimated_cost").value = estimate;  // Store in hidden input
-  } else {
-      document.getElementById("estimate").innerHTML = "Estimated Cost: ₹0";
-      document.getElementById("estimated_cost").value = 0;
-  }
-}
 
 setTimeout(() => {
   const msg = document.getElementById("success-message");
